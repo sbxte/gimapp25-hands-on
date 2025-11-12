@@ -44,9 +44,6 @@ func _physics_process(_delta: float) -> void:
 	if not select_and_drag:
 		return
 
-	var intersects_end = intersects(snap_to)
-	var instance_end = instance_from_id(intersects_end)
-	var instance_start = instance_from_id(intersects(path[0]))
 
 	# If no intersection is found and the mouse has moved to a different cell,
 	# append the new cell to the path
@@ -54,11 +51,15 @@ func _physics_process(_delta: float) -> void:
 	# If an intersection is found and mouse is over a cat,
 	# check if the cat has matching type with the cat we started with
 	# If it matches, delete both cats
+	var intersects_end = intersects(snap_to)
 	if intersects_end == -1:
 		if path[path.size() - 1] != snap_to:
 			path_changed = true
 			path.push_back(snap_to)
-	elif instance_end != null and instance_start != null \
+			return
+	var instance_end = instance_from_id(intersects_end)
+	var instance_start = instance_from_id(intersects(path[0]))
+	if instance_end != null and instance_start != null \
 		and instance_end != instance_start \
 		and (instance_end as Node).get_parent() is Cat \
 		and (instance_start as Node).get_parent() is Cat \
