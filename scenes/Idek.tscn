@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmovihstuyenq"]
 
-[ext_resource type="Script" uid="uid://co45egaoenab3" path="res://scripts/Canvasonetidk.gd" id="1_3viih"]
+[ext_resource type="Script" uid="uid://co45egaoenab3" path="res://scripts/canvas.gd" id="1_3viih"]
 [ext_resource type="PackedScene" uid="uid://c5vcybq0vjjbh" path="res://scenes/Cat.tscn" id="2_wax7u"]
 
 [node name="Node2D" type="Node2D"]
