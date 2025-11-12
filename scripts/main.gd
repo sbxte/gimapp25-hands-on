@@ -2,7 +2,7 @@ extends Node2D
 
 var mousePos: Vector2
 @export var snap_vec: Vector2 = Vector2(64, 64)
-var pressing: bool = false
+var select_and_drag: bool = false
 
 var path_changed: bool = false
 var path: Array = []
@@ -31,16 +31,18 @@ func _physics_process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
 	# and cancel further processing (return)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if not pressing and intersects(snap_to) != -1:
-			pressing = true
+		if not select_and_drag and intersects(snap_to) != -1:
+			select_and_drag = true
 			path_changed = true
 			path.push_back(snap_to)
 	else:
-		pressing = false
+		select_and_drag = false
 		path_changed = true
 		path.clear()
 		return
 
+	if not select_and_drag:
+		return
 
 	var intersects_end = intersects(snap_to)
 	var instance_end = instance_from_id(intersects_end)
