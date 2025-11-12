@@ -13,13 +13,7 @@ func _ready() -> void:
 	Events.connect("cat_mouse_click", cat_mouse_click)
 	Events.connect("cat_mouse_enter", cat_mouse_enter)
 
-	# Spawn cats randomly
-	for i in range(10):
-		var instance: Cat = cat_scene.instantiate()
-		instance.position = Vector2(randf_range(100, 600), randf_range(50, 400)).snapped(snap_vec)
-		instance.type = randi_range(1, 4)
-		add_child(instance)
-
+	gen_cats_rect(Vector2i(6, 4))
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -33,10 +27,10 @@ func _process(_delta: float) -> void:
 	if not dragging:
 		return
 
-	var snap_to = get_global_mouse_position().snapped(snap_vec)
+	var snap_to = (get_global_mouse_position() - snap_vec / 2).snapped(snap_vec)
 	if path[path.size() - 1] != snap_to:
 		queue_redraw()
-		path.push_back(snap_to)
+		path.push_back(snap_to + snap_vec / 2)
 
 
 func _draw() -> void:
@@ -44,9 +38,9 @@ func _draw() -> void:
 	# To draw the whole line, draw line segments connecting each point
 	if path.size() == 0:
 		return
-	for cell_i in range(1, path.size()):
-		draw_circle(path[cell_i], 2, Color.GREEN)
-		draw_line(path[cell_i - 1], path[cell_i], Color.GREEN, 5.0)
+	for point_i in range(1, path.size()):
+		draw_circle(path[point_i], 2, Color.GREEN)
+		draw_line(path[point_i - 1], path[point_i], Color.GREEN, 5.0)
 
 func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 	# When beginning to press and mouse is hovering above a cat,
@@ -64,14 +58,14 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	if cat == first_cat:
 		return
-	
+
 	# When the mouse enters a cat that isn't the same type, delete the path
 	if cat.type != first_cat.type:
 		dragging = false
 		path.clear()
 		queue_redraw()
 		return
-		
+
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
@@ -80,3 +74,41 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	# FIX: Path does not visually connect to the paired cat
 	path.clear()
 	queue_redraw()
+
+func gen_cats_rect(grid_size: Vector2i) -> void:
+	var grid_shift := DisplayServer.window_get_size() / 2
+	var x_half := grid_size.x / 2
+	var y_half := grid_size.y / 2
+	var min_half = mini(x_half, y_half)
+	var cells_taken = []
+	for i in range(min_half):
+		var width = (x_half - min_half + 1 + i) * 2
+		var height = (y_half - min_half + 1 + i) * 2
+		var area = 2 * (width + height - 2)
+		var pairs: int = area / 2
+		cells_taken.clear()
+		cells_taken.resize(area)
+		cells_taken.fill(false)
+		for p in range(pairs):
+			var type = randi_range(1, 4)
+			for _i in range(2):
+				var pos: Vector2i
+				while true:
+					var ridx = randi_range(0, area - 1)
+					if not cells_taken[ridx]:
+						if ridx < width:
+							pos = Vector2i(ridx, 0)
+						elif ridx < width + height - 1:
+							pos = Vector2i(width - 1, ridx - width + 1)
+						elif ridx < 2 * width + height - 2:
+							pos = Vector2i((width - 1) - (ridx - (width + height - 1)) - 1, height - 1)
+						else:
+							pos = Vector2i(0, (height - 1) - (ridx - (2 * width + height - 2)) - 1)
+						cells_taken[ridx] = true
+						break
+
+				var instance: Cat = cat_scene.instantiate()
+				var pos_shift = pos - Vector2i(i + (x_half - min_half), i + (y_half - min_half))
+				instance.position = Vector2(pos_shift.x * snap_vec.x, pos_shift.y * snap_vec.y) + Vector2(grid_shift.x, grid_shift.y) - snap_vec / 2
+				instance.type = type
+				add_child(instance)
