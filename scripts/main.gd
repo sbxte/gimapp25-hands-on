@@ -62,9 +62,16 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if not dragging:
 		return
 
-	if cat == first_cat or cat.type != first_cat.type:
+	if cat == first_cat:
 		return
-
+	
+	# When the mouse enters a cat that isn't the same type, delete the path
+	if cat.type != first_cat.type:
+		dragging = false
+		path.clear()
+		queue_redraw()
+		return
+		
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
