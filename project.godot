@@ -14,3 +14,15 @@ config/name="GIMAPP25 Hands On"
 run/main_scene="uid://dmovihstuyenq"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*res://scripts/events.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[global_group]
+
+Main=""

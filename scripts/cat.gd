@@ -1,7 +1,5 @@
 class_name Cat
-extends Node
-
-
+extends Node2D
 
 @export var type: int = 1
 
@@ -19,3 +17,12 @@ func _process(_delta: float) -> void:
 		sprite.rotation_degrees = 270
 	else:
 		sprite.rotation_degrees = 0
+
+func _on_static_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		var mouse_event: InputEventMouseButton = event
+		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
+			Events.emit_signal("cat_mouse_click", self.position, self)
+
+	elif event is InputEventMouse:
+		Events.emit_signal("cat_mouse_enter", self.position, self)
