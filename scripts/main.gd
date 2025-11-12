@@ -2,6 +2,7 @@ class_name Main
 extends Node2D
 
 @export var snap_vec: Vector2 = Vector2(64, 64)
+@export var grid_size := Vector2(6, 4)
 
 var dragging: bool = false
 var path: Array[Vector2] = []
@@ -13,7 +14,7 @@ func _ready() -> void:
 	Events.connect("cat_mouse_click", cat_mouse_click)
 	Events.connect("cat_mouse_enter", cat_mouse_enter)
 
-	gen_cats_rect(Vector2i(6, 4))
+	gen_cats_rect(grid_size)
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
