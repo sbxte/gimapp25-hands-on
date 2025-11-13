@@ -26,9 +26,11 @@ func _process(_delta: float) -> void:
 	if not dragging:
 		return
 
-	var snap_to = (get_global_mouse_position() - snap_vec / 2).snapped(snap_vec)
-	if path[path.size() - 1] != snap_to:
-		append_path(snap_to + snap_vec / 2)
+	var last_path_point := path[path.size() - 1]
+	var snap_to := (get_global_mouse_position() - snap_vec / 2).snapped(snap_vec) + snap_vec / 2
+	var offset := cardinalize(snap_to - last_path_point)
+	if not offset.is_zero_approx():
+		append_path(last_path_point + offset)
 
 	confine_to_play_area()
 
@@ -129,3 +131,10 @@ func confine_to_play_area() -> void:
 		dragging = false
 		path.clear()
 		queue_redraw()
+
+func cardinalize(vec: Vector2) -> Vector2:
+	if abs(vec.x) > abs(vec.y):
+		vec.y = 0
+	else:
+		vec.x = 0
+	return vec
