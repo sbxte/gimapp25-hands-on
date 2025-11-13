@@ -2,7 +2,7 @@ class_name Main
 extends Node2D
 
 @export var snap_vec: Vector2 = Vector2(64, 64)
-@export var grid_size := Vector2(6, 4)
+@export var grid_size := Vector2i(6, 4)
 
 var dragging: bool = false
 var path: Array[Vector2] = []
@@ -14,7 +14,7 @@ func _ready() -> void:
 	Events.connect("cat_mouse_click", cat_mouse_click)
 	Events.connect("cat_mouse_enter", cat_mouse_enter)
 
-	gen_cats_rect(grid_size)
+	gen_cats_rect()
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 		queue_redraw()
 		path.push_back(snap_to + snap_vec / 2)
 
-	confine_to_play_area(grid_size)
+	confine_to_play_area()
 
 func _draw() -> void:
 	# The path array consists of points in the path
@@ -77,17 +77,17 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	path.clear()
 	queue_redraw()
 
-func gen_cats_rect(grid_size: Vector2i) -> void:
+func gen_cats_rect() -> void:
 	var grid_shift := DisplayServer.window_get_size() / 2
-	var x_half := grid_size.x / 2
-	var y_half := grid_size.y / 2
-	var min_half = mini(x_half, y_half)
+	var x_half := grid_size.x >> 1
+	var y_half := grid_size.y >> 1
+	var min_half := mini(x_half, y_half)
 	var cells_taken = []
 	for i in range(min_half):
-		var width = (x_half - min_half + 1 + i) * 2
-		var height = (y_half - min_half + 1 + i) * 2
-		var area = 2 * (width + height - 2)
-		var pairs: int = area / 2
+		var width := (x_half - min_half + 1 + i) * 2
+		var height := (y_half - min_half + 1 + i) * 2
+		var area := 2 * (width + height - 2)
+		var pairs := area >> 1
 		cells_taken.clear()
 		cells_taken.resize(area)
 		cells_taken.fill(false)
@@ -115,7 +115,7 @@ func gen_cats_rect(grid_size: Vector2i) -> void:
 				instance.type = type
 				add_child(instance)
 
-func confine_to_play_area(grid_size: Vector2i) -> void:
+func confine_to_play_area() -> void:
 	var play_area := grid_size / 2 + Vector2i.ONE
 	var play_area_scaled := Vector2(play_area.x * snap_vec.x, play_area.y * snap_vec.y)
 	var center := DisplayServer.window_get_size() / 2
