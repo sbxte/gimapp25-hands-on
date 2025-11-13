@@ -81,7 +81,11 @@ func erase_path() -> void:
 	queue_redraw()
 
 func append_path(pos: Vector2) -> void:
-	path.push_back(pos)
+	var prev_idx := path.find(pos)
+	if prev_idx != -1:
+		path.resize(prev_idx + 1)
+	else:
+		path.push_back(pos)
 	queue_redraw()
 
 func gen_cats_rect() -> void:
