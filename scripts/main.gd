@@ -20,9 +20,7 @@ func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
 	# and cancel further processing (return)
 	if dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		dragging = false
-		queue_redraw()
-		path.clear()
+		erase_path()
 		return
 
 	if not dragging:
@@ -30,8 +28,7 @@ func _process(_delta: float) -> void:
 
 	var snap_to = (get_global_mouse_position() - snap_vec / 2).snapped(snap_vec)
 	if path[path.size() - 1] != snap_to:
-		queue_redraw()
-		path.push_back(snap_to + snap_vec / 2)
+		append_path(snap_to + snap_vec / 2)
 
 	confine_to_play_area()
 
@@ -47,12 +44,8 @@ func _draw() -> void:
 func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 	# When beginning to press and mouse is hovering above a cat,
 	# clear the existing path and append the first point in the line path
-	#
 	if not dragging:
-		dragging = true
-		first_cat = cat
-		path.clear()
-		path.push_back(pos)
+		start_path(pos, cat)
 
 func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if not dragging:
@@ -63,18 +56,30 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	# When the mouse enters a cat that isn't the same type, delete the path
 	if cat.type != first_cat.type:
-		dragging = false
-		path.clear()
-		queue_redraw()
+		erase_path()
 		return
 
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
-	dragging = false
 
-	# FIX: Path does not visually connect to the paired cat
+	# FIX: Path simply disappears and does not visually connect to the paired cat
+	erase_path()
+
+func start_path(pos: Vector2, cat: Cat) -> void:
+	first_cat = cat
+	dragging = true
 	path.clear()
+	path.push_back(pos)
+	queue_redraw()
+
+func erase_path() -> void:
+	dragging = false
+	path.clear()
+	queue_redraw()
+
+func append_path(pos: Vector2) -> void:
+	path.push_back(pos)
 	queue_redraw()
 
 func gen_cats_rect() -> void:
