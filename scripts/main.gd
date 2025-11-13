@@ -33,6 +33,7 @@ func _process(_delta: float) -> void:
 		queue_redraw()
 		path.push_back(snap_to + snap_vec / 2)
 
+	confine_to_play_area(grid_size)
 
 func _draw() -> void:
 	# The path array consists of points in the path
@@ -113,3 +114,13 @@ func gen_cats_rect(grid_size: Vector2i) -> void:
 				instance.position = Vector2(pos_shift.x * snap_vec.x, pos_shift.y * snap_vec.y) + Vector2(grid_shift.x, grid_shift.y) - snap_vec / 2
 				instance.type = type
 				add_child(instance)
+
+func confine_to_play_area(grid_size: Vector2i) -> void:
+	var play_area := grid_size / 2 + Vector2i.ONE
+	var play_area_scaled := Vector2(play_area.x * snap_vec.x, play_area.y * snap_vec.y)
+	var center := DisplayServer.window_get_size() / 2
+	var offset := get_global_mouse_position() - Vector2(center)
+	if abs(offset.x) > play_area_scaled.x or abs(offset.y) > play_area_scaled.y:
+		dragging = false
+		path.clear()
+		queue_redraw()
