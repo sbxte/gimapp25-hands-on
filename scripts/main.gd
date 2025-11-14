@@ -127,7 +127,7 @@ func gen_cats_rect() -> void:
 		cells_taken.fill(false)
 
 		for p in range(pairs):
-			var type = randi_range(1, 4)
+			var type = randi_range(1, 8)
 			for _i in range(2):
 				# Pos vec aligned with origin (0,0) at the top left corner of the i-th onion layer
 				# And (width - 1, height - 1) at the bottom right corner of the i-th onion layer
@@ -164,7 +164,7 @@ func gen_cats_rect() -> void:
 				instance.position = \
 					Vector2(pos_shift.x * snap_vec.x, pos_shift.y * snap_vec.y) \
 					+ Vector2(grid_shift.x, grid_shift.y) - snap_vec / 2
-				instance.type = type
+				instance.set_type(type)
 				instance.add_to_group("Cats")
 				add_child(instance)
 

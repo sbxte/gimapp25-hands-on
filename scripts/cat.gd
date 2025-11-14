@@ -3,20 +3,43 @@ extends Node2D
 
 @export var type: int = 1
 
-var sprite: Sprite2D
+@export var sprite: Sprite2D
 
-func _ready() -> void:
-	sprite = find_child("Sprite2D")
+@export var sprite_res1: CompressedTexture2D
+@export var sprite_res2: CompressedTexture2D
 
-func _process(_delta: float) -> void:
-	if type == 1:
-		sprite.rotation_degrees = 90
-	elif type == 2:
-		sprite.rotation_degrees = 180
-	elif type == 3:
-		sprite.rotation_degrees = 270
-	else:
-		sprite.rotation_degrees = 0
+func set_type(type: int) -> void:
+	match type:
+		1:
+			sprite.texture = sprite_res1
+			sprite.rotation_degrees = 0
+		2:
+			sprite.texture = sprite_res1
+			sprite.rotation_degrees = 90
+		3:
+			sprite.texture = sprite_res1
+			sprite.rotation_degrees = 180
+		4:
+			sprite.texture = sprite_res1
+			sprite.rotation_degrees = 270
+		5:
+			sprite.texture = sprite_res2
+			sprite.rotation_degrees = 0
+		6:
+			sprite.texture = sprite_res2
+			sprite.rotation_degrees = 90
+		7:
+			sprite.texture = sprite_res2
+			sprite.rotation_degrees = 180
+		8:
+			sprite.texture = sprite_res2
+			sprite.rotation_degrees = 270
+		_: pass
+	self.type = type
+	queue_redraw()
+
+# func set_texture(resource: Texture2D):
+# 	sprite.texture = resource
 
 func _on_static_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
