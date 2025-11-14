@@ -22,6 +22,7 @@ Events="*res://scripts/events.gd"
 [debug]
 
 gdscript/warnings/unused_signal=0
+gdscript/warnings/shadowed_variable=0
 
 [global_group]
 
