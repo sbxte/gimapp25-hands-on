@@ -7,14 +7,19 @@ extends Node2D
 var dragging: bool = false
 var path: Array[Vector2] = []
 var first_cat: Cat
+var match_streak := 0
 
 @export var cat_scene: PackedScene
+@export var timer: TimerController
 
 func _ready() -> void:
 	Events.connect("cat_mouse_click", cat_mouse_click)
 	Events.connect("cat_mouse_enter", cat_mouse_enter)
 
-	gen_cats_rect()
+	timer.connect("timer_ended", timer_ended)
+
+	reset_cats()
+	timer.reset()
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -54,14 +59,21 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if cat == first_cat:
 		return
 
-	# When the mouse enters a cat that isn't the same type, delete the path
+	# When the mouse enters a cat that isn't the same type,
+	# delete the path, speed up timer, and reset streak
 	if cat.type != first_cat.type:
 		erase_path()
+		timer.set_speed(timer.get_speed() + 1)
+		match_streak = 0
 		return
 
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
+
+	match_streak += 1
+	if match_streak == 2:
+		timer.reset_speed()
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
 	erase_path()
@@ -85,6 +97,12 @@ func append_path(pos: Vector2) -> void:
 	else:
 		path.push_back(pos)
 	queue_redraw()
+
+func reset_cats() -> void:
+	for cat in get_tree().get_nodes_in_group("Cats"):
+		cat.queue_free()
+
+	gen_cats_rect()
 
 func gen_cats_rect() -> void:
 	# Align the grid to the center of the screen
@@ -147,6 +165,7 @@ func gen_cats_rect() -> void:
 					Vector2(pos_shift.x * snap_vec.x, pos_shift.y * snap_vec.y) \
 					+ Vector2(grid_shift.x, grid_shift.y) - snap_vec / 2
 				instance.type = type
+				instance.add_to_group("Cats")
 				add_child(instance)
 
 # Cancel drag when mouse exists play area
@@ -166,3 +185,7 @@ func cardinalize(vec: Vector2) -> Vector2:
 	else:
 		vec.x = 0
 	return vec
+
+# TODO: Implement lose-state display
+func timer_ended() -> void:
+	print("timer ended! TODO: Implement lose-state display")
