@@ -1,7 +1,7 @@
 extends MarginContainer
 
 @onready var label: Label = $MarginContainer/Label
-@onready var timer: Timer = $Timer
+@onready var timer: Timer = $ForDisplay
 
 const MAX_WIDTH = 256
 
@@ -9,7 +9,7 @@ var text = ""
 var letter_index = 0
 
 
-var letter_time = 0.05
+var letter_time = 0.005
 
 func display_text(displayed_text : String):
 	text = displayed_text
@@ -42,10 +42,7 @@ func _display_letter():
 		Events.emit_signal("finished_displaying")
 		return
 	
-	match text[letter_index]:
-		_:
-			timer.start(letter_time)
+	timer.start(letter_time)
 
-
-func _on_timer_timeout() -> void:
+func _on_for_display_timeout() -> void:
 	_display_letter()

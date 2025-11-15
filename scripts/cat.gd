@@ -54,7 +54,7 @@ func _on_static_body_2d_input_event(_viewport: Node, event: InputEvent, _shape_i
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
 			Events.emit_signal("cat_mouse_click", self.position, self)
 		
-		DialogueManager.start_dialogue(global_position, lines)
+		DialogueManager.start_dialogue(global_position, lines.pick_random())
 
 	elif event is InputEventMouse:
 		Events.emit_signal("cat_mouse_enter", self.position, self)
