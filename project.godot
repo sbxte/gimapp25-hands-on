@@ -19,6 +19,7 @@ config/icon="res://assets/sprites/icon.svg"
 
 Events="*res://scripts/events.gd"
 DialogueManager="*res://scripts/DialogueManager.gd"
+SaveSystem="*res://scripts/save_system.gd"
 
 [debug]
 
