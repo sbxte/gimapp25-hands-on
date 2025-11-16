@@ -6,6 +6,7 @@
 [node name="Level5" type="Node2D"]
 
 [node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("1_845dy")]
+position = Vector2(1080, 810)
 timer = NodePath("../Timer")
 
 [node name="Timer" parent="." instance=ExtResource("2_dswqx")]

@@ -65,10 +65,9 @@ static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, cat_scene: Pac
 
 
 	# Instantiate cats
-	var grid_shift := DisplayServer.window_get_size() / 2
 	for yi in range(grid_size.y):
 		for xi in range(grid_size.x):
-			var pos := Vector2(grid_shift) - Vector2(snap_vec.x * grid_size.x / 2, snap_vec.y * grid_size.y / 2) + Vector2(snap_vec.x * xi, snap_vec.y * yi) + Vector2(snap_vec) / 2
+			var pos := - Vector2(snap_vec.x * grid_size.x / 2, snap_vec.y * grid_size.y / 2) + Vector2(snap_vec.x * xi, snap_vec.y * yi) + Vector2(snap_vec) / 2
 			var instance: Cat = cat_scene.instantiate()
 			instance.position = pos
 			instance.set_type(cat_array[yi * grid_size.x + xi])

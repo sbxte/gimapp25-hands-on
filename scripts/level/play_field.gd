@@ -32,10 +32,10 @@ func _process(_delta: float) -> void:
 		return
 
 	var last_path_point := path[path.size() - 1]
-	var snap_to := (get_global_mouse_position() - snap_vec / 2).snapped(snap_vec) + snap_vec / 2
-	var offset := cardinalize(snap_to - last_path_point)
-	if not offset.is_zero_approx():
-		append_path(last_path_point + offset)
+	var offset := (get_local_mouse_position() - last_path_point).snapped(snap_vec)
+	var cardinalized := cardinalize(offset)
+	if not cardinalized.is_zero_approx():
+		append_path(last_path_point + cardinalized)
 
 	confine_to_play_area()
 
@@ -44,13 +44,11 @@ func _draw() -> void:
 	# To draw the whole line, draw line segments connecting each point
 	if path.size() == 0:
 		return
-	for point_i in range(1, path.size()):
-		draw_circle(path[point_i], 2, Color.GREEN)
-		draw_line(path[point_i - 1], path[point_i], Color.GREEN, 5.0)
+	draw_polyline(path, Color.GREEN, 5)
 
 func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 	if not dragging:
-		start_path(pos, cat)
+		start_path(pos - position, cat)
 
 func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if not dragging:
@@ -108,8 +106,7 @@ func reset_cats() -> void:
 func confine_to_play_area() -> void:
 	var play_area := grid_size / 2 + Vector2i.ONE
 	var play_area_scaled := Vector2(play_area.x * snap_vec.x, play_area.y * snap_vec.y)
-	var center := DisplayServer.window_get_size() / 2
-	var offset := get_global_mouse_position() - Vector2(center)
+	var offset := get_local_mouse_position()
 	if abs(offset.x) > play_area_scaled.x or abs(offset.y) > play_area_scaled.y:
 		dragging = false
 		path.clear()
