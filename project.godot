@@ -26,9 +26,9 @@ SaveSystem="*res://scripts/save_system.gd"
 gdscript/warnings/unused_signal=0
 gdscript/warnings/shadowed_variable=0
 
-[global_group]
+[display]
 
-Main=""
+window/stretch/mode="canvas_items"
 
 [gui]
 
