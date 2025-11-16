@@ -11,5 +11,29 @@ config_version=5
 [application]
 
 config/name="GIMAPP25 Hands On"
+run/main_scene="uid://dmovihstuyenq"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/sprites/icon.svg"
+
+[autoload]
+
+Events="*res://scripts/events.gd"
+DialogueManager="*res://scripts/DialogueManager.gd"
+SaveSystem="*res://scripts/save_system.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/shadowed_variable=0
+
+[global_group]
+
+Main=""
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbu1qyllq1y0i"]
+
+[ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/settings.gd" id="1_r6d6q"]
+[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_6wm04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
+bg_color = Color(0, 0.6, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6d6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wm04"]
+bg_color = Color(0, 0.6, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6d6q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_f4mfi")
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_font_sizes/font_size = 48
+text = "Settings
+"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 160
+theme_override_styles/separator = SubResource("StyleBoxEmpty_es4n0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_83j8s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gjs24")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
+
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="." method="_on_h_slider_value_changed"]
