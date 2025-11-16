@@ -16,10 +16,10 @@ func start_dialogue(pos: Vector2, lines: String):
 	dialogue_line = lines
 	textbox_pos = pos
 	show_text_box()
-	
+
 	if not Events.is_connected("finished_displaying", on_textbox_finished_displaying):
-		Events.connect("finished_displaying", on_textbox_finished_displaying)
-	
+		Events.finished_displaying.connect(on_textbox_finished_displaying)
+
 	is_dialogue_active = true
 
 func show_text_box():

@@ -13,7 +13,7 @@ var lerp_start: float
 var ended := false
 
 func _ready() -> void:
-	timer.connect("timeout", func(): emit_signal("timer_ended"))
+	timer.timeout.connect(func(): emit_signal("timer_ended"))
 
 func _process(_delta: float) -> void:
 	var rem_time := actual_time()

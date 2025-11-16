@@ -13,10 +13,10 @@ var match_streak := 0
 @export var timer: TimerController
 
 func _ready() -> void:
-	Events.connect("cat_mouse_click", cat_mouse_click)
-	Events.connect("cat_mouse_enter", cat_mouse_enter)
+	Events.cat_mouse_click.connect(cat_mouse_click)
+	Events.cat_mouse_enter.connect(cat_mouse_enter)
 
-	timer.connect("timer_ended", timer_ended)
+	timer.timer_ended.connect(timer_ended)
 
 	reset_cats()
 	timer.reset()
