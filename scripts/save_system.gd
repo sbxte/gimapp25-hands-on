@@ -21,4 +21,3 @@ static func write_save(save: Save) -> void:
 	var file := FileAccess.open(file_name, FileAccess.WRITE)
 	file.store_string(save.to_json_str())
 	# file.flush() # Not needed, automatically called when closed aka also when it falls out of scope
-
