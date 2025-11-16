@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bar3nthxhleu0"]
 
 [ext_resource type="Texture2D" uid="uid://cv6i4ph7vvpts" path="res://assets/sprites/textbox.png" id="1_a8ruc"]
-[ext_resource type="Script" uid="uid://btpalqgv2guw4" path="res://scripts/textbox.gd" id="1_e1pub"]
+[ext_resource type="Script" uid="uid://btpalqgv2guw4" path="res://scripts/level/textbox.gd" id="1_e1pub"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="3_a8jen"]
 
 [node name="SpeechBubble" type="Node2D"]

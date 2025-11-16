@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbu1qyllq1y0i"]
 
-[ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/settings.gd" id="1_r6d6q"]
-[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_6wm04"]
+[ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
+[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_r6d6q")
+script = ExtResource("1_7i3iu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -80,7 +80,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_f4mfi")
 [node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_fonts/font = ExtResource("2_s2d1y")
 theme_override_font_sizes/font_size = 48
 text = "Settings
 "
@@ -96,7 +96,7 @@ size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_fonts/font = ExtResource("2_s2d1y")
 theme_override_font_sizes/font_size = 24
 text = "Volume"
 

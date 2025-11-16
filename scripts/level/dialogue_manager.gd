@@ -1,6 +1,6 @@
 extends Node
 
-@onready var textbox_scene = preload("res://scenes/speech_bubble.tscn")
+@onready var textbox_scene = preload("res://scenes/level/speech_bubble.tscn")
 
 var dialogue_line : String = ""
 var current_line_index = 0
