@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmovihstuyenq"]
+
+[ext_resource type="Script" uid="uid://co45egaoenab3" path="res://scripts/level/main.gd" id="1_kyxbh"]
+[ext_resource type="PackedScene" uid="uid://c5vcybq0vjjbh" path="res://scenes/level/cat.tscn" id="2_pdfl5"]
+[ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/level/timer.tscn" id="3_f85lt"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("timer") groups=["Main"]]
+script = ExtResource("1_kyxbh")
+cat_scene = ExtResource("2_pdfl5")
+timer = NodePath("Timer")
+
+[node name="Timer" parent="." instance=ExtResource("3_f85lt")]
+position = Vector2(184, 573)
