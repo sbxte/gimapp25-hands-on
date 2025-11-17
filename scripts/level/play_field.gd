@@ -73,7 +73,6 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	cat.queue_free()
 	first_cat.queue_free()
 	cats -= 2
-	print(cats)
 	if cats == 0:
 		SceneManager.change_scene(victory_scene_path, false)
 
