@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="3_a8jen"]
 
 [node name="SpeechBubble" type="Node2D"]
+z_index = 2
 
 [node name="Textbox" type="MarginContainer" parent="."]
 offset_right = 40.0
