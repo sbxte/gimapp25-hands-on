@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c5vcybq0vjjbh" path="res://scenes/Cat.tscn" id="2_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/Timer.tscn" id="3_0bbpv"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="3_rarhs"]
-[ext_resource type="Script" uid="uid://bat1vufvg11lf" path="res://scenes/background.gd" id="3_vcsgt"]
-[ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scenes/timer_progress.gd" id="4_c01mt"]
+[ext_resource type="Script" uid="uid://1pggmu2wtmra" path="res://scripts/background.gd" id="3_vcsgt"]
+[ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/timer_progress.gd" id="4_c01mt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcsgt"]
 corner_radius_top_left = 5
