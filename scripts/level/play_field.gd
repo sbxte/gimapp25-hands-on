@@ -113,7 +113,7 @@ func reset_cats() -> void:
 
 # Cancel drag when mouse exists play area
 func confine_to_play_area() -> void:
-	var play_area := grid_size / 2 + Vector2i.ONE
+	var play_area := grid_size / 2 + 2 * Vector2i.ONE
 	var play_area_scaled := Vector2(play_area.x * snap_vec.x, play_area.y * snap_vec.y)
 	var offset := get_local_mouse_position()
 	if abs(offset.x) > play_area_scaled.x or abs(offset.y) > play_area_scaled.y:
