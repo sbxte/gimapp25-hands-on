@@ -46,6 +46,10 @@ func reset(speed: float = 1) -> void:
 func actual_time() -> float:
 	return maxf(0, speed * (timer.time_left - lerp_start) + lerp_start)
 
+func add_time(time: float):
+	lerp_start = actual_time() + time
+	timer.start(lerp_start)
+
 func set_speed(speed) -> void:
 	lerp_start = actual_time()
 	timer.start(lerp_start)

@@ -10,6 +10,8 @@ var first_cat: Cat
 var match_streak := 0
 
 var cats :int
+var stages := 5
+var time_bonus: int
 
 @export var cat_scene: PackedScene
 @export var timer: TimerController
@@ -22,8 +24,6 @@ func _ready() -> void:
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 
 	timer.timer_ended.connect(timer_ended)
-
-	timer.reset()
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -74,7 +74,12 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	first_cat.queue_free()
 	cats -= 2
 	if cats == 0:
-		SceneManager.change_scene(victory_scene_path, false)
+		timer.add_time(time_bonus)
+		stages -= 1
+		if stages == 0:
+			SceneManager.change_scene(victory_scene_path, false)
+		else:
+			reset_cats()
 
 	match_streak += 1
 	if match_streak == 2:
