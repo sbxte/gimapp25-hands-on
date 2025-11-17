@@ -34,6 +34,8 @@ texture = ExtResource("7_kxd26")
 z_index = 2
 position = Vector2(1003, 638)
 timer = NodePath("../Timer")
+victory_scene_path = "res://scenes/menus/victory.tscn"
+defeat_scene_path = "res://scenes/menus/defeat.tscn"
 
 [node name="Timer" parent="." instance=ExtResource("2_7xj1c")]
 position = Vector2(528, 1029)

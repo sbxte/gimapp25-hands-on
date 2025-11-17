@@ -11,6 +11,6 @@ func _process(_delta: float) -> void:
 
 func _pressed() -> void:
 	if backtrack:
-		SceneManager.unoverlay_scene()
+		SceneManager.go_back()
 	else:
 		SceneManager.change_scene(scene_path, track_history)

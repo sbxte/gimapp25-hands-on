@@ -9,8 +9,13 @@ var path: Array[Vector2] = []
 var first_cat: Cat
 var match_streak := 0
 
+var cats :int
+
 @export var cat_scene: PackedScene
 @export var timer: TimerController
+
+@export var victory_scene_path: String
+@export var defeat_scene_path: String
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
@@ -67,6 +72,10 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
+	cats -= 2
+	print(cats)
+	if cats == 0:
+		SceneManager.change_scene(victory_scene_path, false)
 
 	match_streak += 1
 	if match_streak == 2:
@@ -96,6 +105,7 @@ func append_path(pos: Vector2) -> void:
 	queue_redraw()
 
 func reset_cats() -> void:
+	cats = grid_size.x * grid_size.y
 	for cat in get_tree().get_nodes_in_group("Cats"):
 		cat.queue_free()
 
@@ -118,6 +128,7 @@ func cardinalize(vec: Vector2) -> Vector2:
 		vec.x = 0
 	return vec
 
-# TODO: Implement lose-state display
+# Player lost!
+# oh no, anyway
 func timer_ended() -> void:
-	print("timer ended! TODO: Implement lose-state display")
+	SceneManager.change_scene(defeat_scene_path, true)
