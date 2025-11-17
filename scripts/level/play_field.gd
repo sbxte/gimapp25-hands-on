@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 func _draw() -> void:
 	# The path array consists of points in the path
 	# To draw the whole line, draw line segments connecting each point
-	if path.size() == 0:
+	if path.size() < 2:
 		return
 	draw_polyline(path, Color.GREEN, 5)
 
