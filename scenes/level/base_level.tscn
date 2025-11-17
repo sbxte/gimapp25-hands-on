@@ -1,17 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=9 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
-[ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="1_upopr"]
 [ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/level/timer.tscn" id="2_7xj1c"]
+[ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
+[ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
+[ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
+[ext_resource type="Script" uid="uid://dg02pr50qx03s" path="res://scripts/menus/pause_button.gd" id="6_t6xnl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq2a1"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_466n5"]
+bg_color = Color(0, 0.6574566, 0.85768396, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field")]
+process_mode = 1
 script = ExtResource("1_7xj1c")
-grid_size = Vector2i(4, 4)
 play_field = NodePath("PlayField")
 
-[node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("1_upopr")]
-grid_size = Vector2i(2, 3)
+[node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_kxd26")]
+position = Vector2(548, 280)
 timer = NodePath("../Timer")
 
 [node name="Timer" parent="." instance=ExtResource("2_7xj1c")]
 position = Vector2(184, 573)
+
+[node name="TimerProgress" type="Control" parent="Timer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = 42.0
+offset_right = 45.0
+offset_bottom = 82.0
+script = ExtResource("4_t6xnl")
+
+[node name="TimerBar" type="ProgressBar" parent="Timer/TimerProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = -0.52500004
+anchor_right = 13.875001
+anchor_bottom = 0.47500002
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wq2a1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_466n5")
+value = 100.0
+show_percentage = false
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
+layout_mode = 0
+offset_left = 1080.0
+offset_right = 1152.0
+offset_bottom = 72.0
+
+[node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("6_8xnqg")
+script = ExtResource("6_t6xnl")
+pause_menu_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/pause_menu.tscn"
+
+[connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
+[connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

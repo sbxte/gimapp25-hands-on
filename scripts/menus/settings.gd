@@ -2,6 +2,8 @@ extends Control
 
 @onready var h_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider
 @onready var progress_bar: ProgressBar = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar
+@onready var back_button: Button = $PanelContainer/MarginContainer/HBoxContainer/BackButton
+
 var master_bus = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
@@ -15,3 +17,6 @@ func _on_h_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_mute(master_bus, true)
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
+
+func _on_back_button_pressed() -> void:
+	SceneManager.go_back()

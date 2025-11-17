@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=11 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 [ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="3_s2d1y"]
+[ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -37,6 +38,7 @@ bg_color = Color(0, 0.6, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 
 [node name="Settings" type="Control"]
+custom_minimum_size = Vector2(1000, 500)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,8 +66,6 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -120,7 +120,8 @@ scene_path = "res://scenes/menus/main_menu.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -159,4 +160,14 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_6wm04")
+
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -18,7 +18,6 @@ func _ready() -> void:
 
 	timer.timer_ended.connect(timer_ended)
 
-	reset_cats()
 	timer.reset()
 
 func _process(_delta: float) -> void:

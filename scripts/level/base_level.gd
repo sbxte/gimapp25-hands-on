@@ -6,4 +6,5 @@ extends Node
 
 func _ready() -> void:
 	play_field.grid_size = grid_size
+	play_field.reset_cats()
 	pass

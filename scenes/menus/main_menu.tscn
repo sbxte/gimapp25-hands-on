@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=7 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="2_ovrgc"]
+[ext_resource type="Script" uid="uid://blm7fqb4obaxp" path="res://scripts/menus/quit_button.gd" id="3_2o76q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -98,6 +99,7 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Play"
 script = ExtResource("2_ovrgc")
+track_history = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="Settings" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -119,7 +121,8 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Settings"
 script = ExtResource("2_ovrgc")
-scene_path = "res://scenes/menus/settings_menu.tscn"
+track_history = true
+scene_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/settings_menu.tscn"
 
 [node name="Quit" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -140,3 +143,8 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Quit
 "
+script = ExtResource("3_2o76q")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
