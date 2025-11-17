@@ -1,4 +1,4 @@
-class_name Main
+class_name PlayField
 extends Node2D
 
 @export var snap_vec: Vector2 = Vector2(64, 64)

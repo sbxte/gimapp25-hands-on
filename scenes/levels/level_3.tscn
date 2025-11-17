@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://def5ej63luam4"]
+[gd_scene load_steps=2 format=3 uid="uid://def5ej63luam4"]
 
-[ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="1_44gv1"]
-[ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/level/timer.tscn" id="2_0ljxa"]
+[ext_resource type="PackedScene" uid="uid://bobpoutijumsx" path="res://scenes/level/base_level.tscn" id="1_o8c3j"]
 
 [node name="Level3" type="Node2D"]
 
-[node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("1_44gv1")]
-grid_size = Vector2i(3, 4)
-timer = NodePath("../Timer")
-
-[node name="Timer" parent="." instance=ExtResource("2_0ljxa")]
-position = Vector2(184, 573)
+[node name="BaseLevel" parent="." instance=ExtResource("1_o8c3j")]
+grid_size = Vector2i(4, 3)
