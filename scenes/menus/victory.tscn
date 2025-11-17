@@ -116,7 +116,7 @@ theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
 text = "Return Home"
 script = ExtResource("2_15dr4")
-scene_path = "res://scenes/menus/settings_menu.tscn"
+scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" to="Control" method="_on_settings_button_pressed"]
