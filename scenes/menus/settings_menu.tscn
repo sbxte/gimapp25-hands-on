@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=14 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
-[ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="3_s2d1y"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
+[ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="3_s2d1y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -37,7 +37,9 @@ bg_color = Color(0, 0.6, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 
-[node name="Settings" type="Control"]
+[node name="SettingsMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1000, 500)
 layout_mode = 3
 anchors_preset = 15
@@ -47,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7i3iu")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1764706, 0.1764706, 0.1764706, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,27 +66,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4mfi")
 
-[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="TitleLabel" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_s2d1y")
@@ -92,23 +94,23 @@ theme_override_font_sizes/font_size = 48
 text = "Settings
 "
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 160
 theme_override_styles/separator = SubResource("StyleBoxEmpty_es4n0")
 
-[node name="MainMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MainMenu"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ojvp1")
 
-[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2"]
+[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -118,23 +120,23 @@ text = "Back to Main Menu"
 script = ExtResource("3_s2d1y")
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_s2d1y")
 theme_override_font_sizes/font_size = 24
 text = "Volume"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 65
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -145,7 +147,7 @@ value = 20.0
 rounded = true
 show_percentage = false
 
-[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar"]
+[node name="HSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,14 +162,14 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="BackButton" type="Button" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 icon = ExtResource("3_6wm04")
 
-[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="Control" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" to="Control" method="_on_back_button_pressed"]

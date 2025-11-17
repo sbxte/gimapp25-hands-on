@@ -13,7 +13,9 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="LevelsMenu" type="Control"]
+[node name="LevelsMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1764706, 0.1764706, 0.1764706, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -47,50 +49,50 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 48
 text = "MEOW!"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Misdemeanor Endeavours of Whiskers"
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 160
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
 
-[node name="MainMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MainMenu"]
+[node name="PanelContainer3" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3"]
+[node name="MainMenu" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -100,18 +102,18 @@ text = "Back to Main Menu"
 script = ExtResource("2_dnh54")
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[node name="Level1" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level1" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Level1"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="Level1Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer"]
+[node name="Level1Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -122,18 +124,18 @@ script = ExtResource("2_dnh54")
 track_history = true
 scene_path = "res://scenes/levels/level_1.tscn"
 
-[node name="Level2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Level2"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="Level2Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2"]
+[node name="Level2Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -144,18 +146,18 @@ text = "Level 2
 script = ExtResource("2_dnh54")
 scene_path = "res://scenes/levels/level_2.tscn"
 
-[node name="Level3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Level3"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="Level3Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2"]
+[node name="Level3Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -165,18 +167,18 @@ text = "Level 3"
 script = ExtResource("2_dnh54")
 scene_path = "res://scenes/levels/level_3.tscn"
 
-[node name="Level4" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Level4"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="Level4Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2"]
+[node name="Level4Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -186,18 +188,18 @@ text = "Level 4"
 script = ExtResource("2_dnh54")
 scene_path = "res://scenes/levels/level_4.tscn"
 
-[node name="Level5" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level5" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Level5"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="Level5Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2"]
+[node name="Level5Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

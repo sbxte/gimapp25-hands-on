@@ -14,7 +14,9 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1764706, 0.1764706, 0.1764706, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -48,50 +50,50 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 48
 text = "MEOW!"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Misdemeanor Endeavours of Whiskers"
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 160
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
 
-[node name="Play" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Play" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Play"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="PlayButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
+[node name="PlayButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -102,18 +104,18 @@ script = ExtResource("2_ovrgc")
 track_history = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
-[node name="Settings" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Settings"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -124,18 +126,18 @@ script = ExtResource("2_ovrgc")
 track_history = true
 scene_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/settings_menu.tscn"
 
-[node name="Quit" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Quit"]
+[node name="PanelContainer3" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -145,6 +147,6 @@ text = "Quit
 "
 script = ExtResource("3_2o76q")
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="Control" method="_on_quit_button_pressed"]

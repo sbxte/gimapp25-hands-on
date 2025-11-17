@@ -14,10 +14,10 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1764706, 0.1764706, 0.1764706, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -51,43 +51,43 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_myx47")
 
-[node name="TitleLabel" type="Label" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="TitleLabel" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_n87rw")
 theme_override_font_sizes/font_size = 48
 text = "Paused"
 
-[node name="HSeparator" type="HSeparator" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 160
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kukqi")
 
-[node name="Continue" type="VBoxContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Continue" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Continue"]
+[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
 
-[node name="ContinueButton" type="Button" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -97,18 +97,18 @@ text = "Continue"
 script = ExtResource("2_7unhi")
 backtrack = true
 
-[node name="Settings" type="VBoxContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer2" type="PanelContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Settings"]
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
 
-[node name="SettingsButton" type="Button" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -119,18 +119,18 @@ script = ExtResource("2_7unhi")
 track_history = true
 scene_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/settings_menu.tscn"
 
-[node name="Quit" type="VBoxContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="PanelContainer3" type="PanelContainer" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Quit"]
+[node name="PanelContainer3" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
 
-[node name="QuitButton" type="Button" parent="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -140,6 +140,6 @@ text = "Quit
 "
 script = ExtResource("3_gsnt3")
 
-[connection signal="pressed" from="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="PauseMenu" method="_on_continue_button_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="Control" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="Control" method="_on_quit_button_pressed"]
