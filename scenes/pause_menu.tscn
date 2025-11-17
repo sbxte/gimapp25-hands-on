@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://col8nsgvpdnek"]
+[gd_scene load_steps=6 format=3 uid="uid://col8nsgvpdnek"]
 
+[ext_resource type="Script" uid="uid://df4kuun2rp5f7" path="res://scripts/pause_menu.gd" id="1_myx47"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_n87rw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_myx47")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -128,3 +130,7 @@ theme_override_fonts/font = ExtResource("1_n87rw")
 theme_override_font_sizes/font_size = 24
 text = "Quit
 "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="." method="_on_quit_button_pressed"]

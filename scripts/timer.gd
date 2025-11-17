@@ -15,6 +15,10 @@ var ended := false
 func _ready() -> void:
 	timer.timeout.connect(func(): emit_signal("timer_ended"))
 
+func get_progress_percent() -> float:
+	if lerp_start == 0: return 0.0
+	return 100.0 - ((actual_time() / lerp_start) * 100.0)
+
 func _process(_delta: float) -> void:
 	var rem_time := actual_time()
 	if rem_time == 0 and not ended:
