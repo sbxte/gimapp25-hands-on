@@ -21,10 +21,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field")]
+[node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
 script = ExtResource("1_7xj1c")
+timer_duration = 30.0
 play_field = NodePath("PlayField")
+timer = NodePath("Timer")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1000, 562.5)
