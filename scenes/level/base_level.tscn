@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=10 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/level/timer.tscn" id="2_7xj1c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
 [ext_resource type="Script" uid="uid://dg02pr50qx03s" path="res://scripts/menus/pause_button.gd" id="6_t6xnl"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="7_kxd26"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq2a1"]
 corner_radius_top_left = 5
@@ -25,12 +26,17 @@ process_mode = 1
 script = ExtResource("1_7xj1c")
 play_field = NodePath("PlayField")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1000, 562.5)
+texture = ExtResource("7_kxd26")
+
 [node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_kxd26")]
-position = Vector2(548, 280)
+z_index = 2
+position = Vector2(1003, 638)
 timer = NodePath("../Timer")
 
 [node name="Timer" parent="." instance=ExtResource("2_7xj1c")]
-position = Vector2(184, 573)
+position = Vector2(528, 1029)
 
 [node name="TimerProgress" type="Control" parent="Timer"]
 custom_minimum_size = Vector2(50, 25)
@@ -63,9 +69,10 @@ anchors_preset = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
 layout_mode = 0
-offset_left = 1080.0
-offset_right = 1152.0
-offset_bottom = 72.0
+offset_left = 1870.0
+offset_top = 35.0
+offset_right = 1942.0
+offset_bottom = 107.0
 
 [node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
 layout_mode = 2
