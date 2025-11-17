@@ -82,7 +82,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("6_8xnqg")
 script = ExtResource("6_t6xnl")
-pause_menu_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/pause_menu.tscn"
+pause_menu_path = "res://scenes/menus/pause_menu.tscn"
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

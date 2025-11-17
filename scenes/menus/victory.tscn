@@ -87,7 +87,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="PlayButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -95,7 +95,7 @@ theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
 text = "Continue Level"
 script = ExtResource("2_15dr4")
-scene_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/levels_menu.tscn"
+scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="Return" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -108,7 +108,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2"]
+[node name="ReturnButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -116,7 +116,7 @@ theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
 text = "Return Home"
 script = ExtResource("2_15dr4")
-scene_path = "/home/sbyte/Workspace/gimapp-hands-on/scenes/menus/levels_menu.tscn"
+scene_path = "res://scenes/menus/settings_menu.tscn"
 
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" to="Control" method="_on_settings_button_pressed"]
