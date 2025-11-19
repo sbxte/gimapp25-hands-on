@@ -1,26 +1,20 @@
-[gd_scene load_steps=17 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=18 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
 [ext_resource type="Script" uid="uid://buou3l0tcljdd" path="res://scripts/level/timer.gd" id="4_8xnqg"]
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
-[ext_resource type="Texture2D" uid="uid://ctpbnufoeo87s" path="res://assets/sprites/icon.svg" id="5_8xnqg"]
+[ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="5_wq2a1"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
 [ext_resource type="Script" uid="uid://dg02pr50qx03s" path="res://scripts/menus/pause_button.gd" id="6_t6xnl"]
+[ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="7_466n5"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="7_kxd26"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wq2a1"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_466n5"]
-bg_color = Color(0, 0.6574566, 0.85768396, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8x4to"]
+texture = ExtResource("7_466n5")
+axis_stretch_horizontal = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kxd26"]
 
@@ -53,36 +47,18 @@ timer = NodePath("../Timer")
 victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
 
-[node name="Timer" type="Node2D" parent="." node_paths=PackedStringArray("timer", "sprite", "text")]
+[node name="Timer" type="Node2D" parent="." node_paths=PackedStringArray("timer", "sprite")]
 script = ExtResource("4_8xnqg")
 timer = NodePath("Timer")
-sprite = NodePath("Sprite2D")
-text = NodePath("Text")
+sprite = NodePath("Frame")
 
 [node name="Timer" type="Timer" parent="Timer"]
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Timer"]
-position = Vector2(528, 1029)
-texture = ExtResource("5_8xnqg")
-
-[node name="Text" type="RichTextLabel" parent="Timer"]
-offset_left = 628.0
-offset_top = 1009.0
-offset_right = 1057.0
-offset_bottom = 1049.0
-theme_override_font_sizes/normal_font_size = 24
-scroll_active = false
-
-[node name="Placeholder Sign" type="RichTextLabel" parent="Timer"]
-offset_left = 470.0
-offset_top = 1007.0
-offset_right = 586.0
-offset_bottom = 1047.0
-text = "TIMER
-PLACEHOLDER"
-scroll_active = false
-horizontal_alignment = 1
+[node name="Frame" type="Sprite2D" parent="Timer"]
+position = Vector2(909, 1014)
+scale = Vector2(0.46815908, 0.46815908)
+texture = ExtResource("5_wq2a1")
 
 [node name="TimerProgress" type="Control" parent="Timer"]
 custom_minimum_size = Vector2(50, 25)
@@ -101,11 +77,15 @@ anchor_left = 2.0
 anchor_top = -0.52500004
 anchor_right = 13.875001
 anchor_bottom = 0.47500002
-offset_right = -6.1035156e-05
+offset_left = 76.0
+offset_top = -68.0
+offset_right = 75.99994
+offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_wq2a1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_466n5")
+scale = Vector2(1.0000623, 1.691621)
+theme_override_styles/background = SubResource("StyleBoxEmpty_u35hf")
+theme_override_styles/fill = SubResource("StyleBoxTexture_8x4to")
 value = 100.0
 show_percentage = false
 

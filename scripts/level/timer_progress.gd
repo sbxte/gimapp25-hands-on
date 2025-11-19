@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var percent = timer.get_progress_percent()
-	timer_bar.value = percent
+	timer_bar.value = 100 - percent

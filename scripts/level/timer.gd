@@ -6,7 +6,6 @@ signal timer_ended
 
 @export var timer: Timer
 @export var sprite: Sprite2D
-@export var text: RichTextLabel
 
 var speed := 1.
 @export var start_duration: float = 30
@@ -26,13 +25,6 @@ func _process(_delta: float) -> void:
 	if rem_time == 0 and not ended:
 		ended = true
 		emit_signal("timer_ended")
-
-	text.clear()
-	if speed == 1:
-		text.push_color(Color.WHITE)
-	else:
-		text.push_color(Color.RED)
-	text.add_text(str(ceil(rem_time)) + "s (PLACEHOLDER)")
 
 # Reset the timer
 func reset(speed: float = 1) -> void:
