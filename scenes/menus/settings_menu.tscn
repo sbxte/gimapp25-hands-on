@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=15 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
 [ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="3_s2d1y"]
+[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/audio/changemenu_button_audio.tscn" id="4_da10i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -120,6 +121,8 @@ text = "Back to Main Menu"
 script = ExtResource("3_s2d1y")
 scene_path = "res://scenes/menus/main_menu.tscn"
 
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2/MainMenuButton" instance=ExtResource("4_da10i")]
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -166,6 +169,8 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_da10i")]
 
 [node name="BackButton" type="Button" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2

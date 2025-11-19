@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4kyg6g743yy4"]
+
+[ext_resource type="AudioStream" uid="uid://b1jwco4airtqp" path="res://assets/audio/sfx/ui/SFX_button_clickr.mp3" id="1_2geml"]
+[ext_resource type="Script" uid="uid://cy1ngghitm6lk" path="res://scripts/audio_manager.gd" id="2_ccgl5"]
+[ext_resource type="AudioStream" uid="uid://dsdavyor8chiq" path="res://assets/audio/sfx/ui/SFX_Button_Hover.mp3" id="2_hhkxr"]
+[ext_resource type="AudioStream" uid="uid://dfv02qtuf3d6l" path="res://assets/audio/sfx/ui/SFX_Pull_up_menu.mp3" id="3_ccgl5"]
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("click", "hover", "pullup")]
+script = ExtResource("2_ccgl5")
+click = NodePath("Click")
+hover = NodePath("Hover")
+pullup = NodePath("PullUp")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2geml")
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hhkxr")
+
+[node name="PullUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ccgl5")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]

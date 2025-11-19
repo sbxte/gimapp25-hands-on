@@ -21,6 +21,7 @@ Events="*res://scripts/events.gd"
 DialogueManager="*res://scripts/level/dialogue_manager.gd"
 SaveSystem="*res://scripts/save_system.gd"
 SceneManager="*res://scripts/SceneManager.gd"
+AudioManager="*res://scenes/autoload/audio_manager.tscn"
 
 [debug]
 
