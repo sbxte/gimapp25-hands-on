@@ -13,6 +13,7 @@ var match_streak := 0
 var cats :int
 var stages := 5
 var time_bonus: int
+var endless_mode := false
 
 @export var cat_scene: PackedScene
 @export var timer: TimerController
@@ -77,11 +78,19 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	first_cat.queue_free()
 	cats -= 2
 	if cats == 0:
-		timer.add_time(time_bonus)
-		stages -= 1
-		if stages == 0:
-			SceneManager.change_scene(victory_scene_path, false)
+		if not endless_mode:
+			timer.add_time(time_bonus)
+			stages -= 1
+			if stages == 0:
+				SceneManager.change_scene(victory_scene_path, false)
+			else:
+				reset_cats()
 		else:
+			if stages > 0:
+				stages -= 1
+			if 1 <= stages and stages <= 15:
+				timer.start_duration -= 1
+			timer.reset()
 			reset_cats()
 
 	match_streak += 1

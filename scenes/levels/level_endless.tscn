@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkibxxd3nga6b"]
+
+[ext_resource type="PackedScene" uid="uid://bobpoutijumsx" path="res://scenes/level/base_level.tscn" id="1_wlheh"]
+
+[node name="LevelEndless" type="Node2D"]
+
+[node name="BaseLevel" parent="." instance=ExtResource("1_wlheh")]
+stages = 25
+endless_mode = true
