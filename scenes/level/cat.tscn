@@ -1,18 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5vcybq0vjjbh"]
+[gd_scene load_steps=12 format=3 uid="uid://c5vcybq0vjjbh"]
 
 [ext_resource type="Script" uid="uid://cdg2o2ekfbiq5" path="res://scripts/level/cat.gd" id="1_2olvd"]
 [ext_resource type="Texture2D" uid="uid://ctpbnufoeo87s" path="res://assets/sprites/icon.svg" id="1_7nueg"]
-[ext_resource type="Texture2D" uid="uid://cfblbub4dqv1f" path="res://assets/sprites/icon2.png" id="3_spuq0"]
+[ext_resource type="Texture2D" uid="uid://b1n2edvu32ea2" path="res://assets/sprites/cats/cat1.PNG" id="4_tg66l"]
+[ext_resource type="Texture2D" uid="uid://cfce8t5f0f6jw" path="res://assets/sprites/cats/cat2.PNG" id="5_3nmj0"]
+[ext_resource type="Texture2D" uid="uid://bgupfuahk6elr" path="res://assets/sprites/cats/cat3.PNG" id="6_48opa"]
+[ext_resource type="Texture2D" uid="uid://cw2eo60dnjty" path="res://assets/sprites/cats/cat4.PNG" id="7_uox41"]
+[ext_resource type="Texture2D" uid="uid://b0siuou27j2o2" path="res://assets/sprites/cats/cat5.PNG" id="8_r8tvj"]
+[ext_resource type="Texture2D" uid="uid://tcaog1u21otu" path="res://assets/sprites/cats/cat6.PNG" id="9_ne2y8"]
+[ext_resource type="Texture2D" uid="uid://dxxmfxjq83l0r" path="res://assets/sprites/cats/cat7.PNG" id="10_ndfne"]
+[ext_resource type="Texture2D" uid="uid://b0u8bi455weqv" path="res://assets/sprites/cats/cat8.PNG" id="11_btvbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsqnl"]
-size = Vector2(64, 64)
+size = Vector2(96, 96)
 
 [node name="Cat" type="Node2D" node_paths=PackedStringArray("sprite")]
 z_index = -1
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_2olvd")
 sprite = NodePath("Sprite2D")
-sprite_res1 = ExtResource("1_7nueg")
-sprite_res2 = ExtResource("3_spuq0")
+sprites = Array[CompressedTexture2D]([ExtResource("4_tg66l"), ExtResource("5_3nmj0"), ExtResource("6_48opa"), ExtResource("7_uox41"), ExtResource("8_r8tvj"), ExtResource("9_ne2y8"), ExtResource("10_ndfne"), ExtResource("11_btvbd")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true

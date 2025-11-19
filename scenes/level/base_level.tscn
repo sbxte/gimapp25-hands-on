@@ -35,6 +35,7 @@ texture = ExtResource("7_kxd26")
 [node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_kxd26")]
 z_index = 2
 position = Vector2(1003, 638)
+snap_vec = Vector2(96, 96)
 timer = NodePath("../Timer")
 victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
