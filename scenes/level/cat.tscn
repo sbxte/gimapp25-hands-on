@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cdg2o2ekfbiq5" path="res://scripts/level/cat.gd" id="1_2olvd"]
 [ext_resource type="Texture2D" uid="uid://ctpbnufoeo87s" path="res://assets/sprites/icon.svg" id="1_7nueg"]
-[ext_resource type="Texture2D" uid="uid://b1n2edvu32ea2" path="res://assets/sprites/cats/cat1.PNG" id="4_tg66l"]
-[ext_resource type="Texture2D" uid="uid://cfce8t5f0f6jw" path="res://assets/sprites/cats/cat2.PNG" id="5_3nmj0"]
-[ext_resource type="Texture2D" uid="uid://bgupfuahk6elr" path="res://assets/sprites/cats/cat3.PNG" id="6_48opa"]
-[ext_resource type="Texture2D" uid="uid://cw2eo60dnjty" path="res://assets/sprites/cats/cat4.PNG" id="7_uox41"]
-[ext_resource type="Texture2D" uid="uid://b0siuou27j2o2" path="res://assets/sprites/cats/cat5.PNG" id="8_r8tvj"]
-[ext_resource type="Texture2D" uid="uid://tcaog1u21otu" path="res://assets/sprites/cats/cat6.PNG" id="9_ne2y8"]
-[ext_resource type="Texture2D" uid="uid://dxxmfxjq83l0r" path="res://assets/sprites/cats/cat7.PNG" id="10_ndfne"]
-[ext_resource type="Texture2D" uid="uid://b0u8bi455weqv" path="res://assets/sprites/cats/cat8.PNG" id="11_btvbd"]
+[ext_resource type="Texture2D" uid="uid://b1n2edvu32ea2" path="res://assets/sprites/cats/cat1.png" id="4_tg66l"]
+[ext_resource type="Texture2D" uid="uid://cfce8t5f0f6jw" path="res://assets/sprites/cats/cat2.png" id="5_3nmj0"]
+[ext_resource type="Texture2D" uid="uid://bgupfuahk6elr" path="res://assets/sprites/cats/cat3.png" id="6_48opa"]
+[ext_resource type="Texture2D" uid="uid://cw2eo60dnjty" path="res://assets/sprites/cats/cat4.png" id="7_uox41"]
+[ext_resource type="Texture2D" uid="uid://b0siuou27j2o2" path="res://assets/sprites/cats/cat5.png" id="8_r8tvj"]
+[ext_resource type="Texture2D" uid="uid://tcaog1u21otu" path="res://assets/sprites/cats/cat6.png" id="9_ne2y8"]
+[ext_resource type="Texture2D" uid="uid://dxxmfxjq83l0r" path="res://assets/sprites/cats/cat7.png" id="10_ndfne"]
+[ext_resource type="Texture2D" uid="uid://b0u8bi455weqv" path="res://assets/sprites/cats/cat8.png" id="11_btvbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsqnl"]
 size = Vector2(96, 96)
