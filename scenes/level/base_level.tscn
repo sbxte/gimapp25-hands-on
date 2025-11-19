@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=16 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://brippd2pq4uve" path="res://scenes/level/timer.tscn" id="2_7xj1c"]
@@ -20,6 +20,18 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kxd26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxd26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qxot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xnqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wq2a1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_466n5"]
 
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
@@ -74,15 +86,22 @@ anchors_preset = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
 layout_mode = 0
-offset_left = 1870.0
-offset_top = 35.0
-offset_right = 1942.0
-offset_bottom = 107.0
+offset_left = 1808.0
+offset_top = 31.0
+offset_right = 2532.0
+offset_bottom = 755.0
+scale = Vector2(0.2, 0.2)
 
 [node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
+material = SubResource("CanvasItemMaterial_kxd26")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kxd26")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qxot")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xnqg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wq2a1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_466n5")
 icon = ExtResource("6_8xnqg")
 script = ExtResource("6_t6xnl")
 pause_menu_path = "res://scenes/menus/pause_menu.tscn"
