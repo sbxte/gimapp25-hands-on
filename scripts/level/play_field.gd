@@ -9,6 +9,7 @@ var path: Array[Vector2] = []
 var first_cat: Cat
 var match_streak := 0
 
+@export var max_pairs := -1
 var cats :int
 var stages := 5
 var time_bonus: int
@@ -113,7 +114,7 @@ func reset_cats() -> void:
 	for cat in get_tree().get_nodes_in_group("Cats"):
 		cat.queue_free()
 
-	LevelGenerator.gen_cats_rect(grid_size, snap_vec, cat_scene, self as Node)
+	LevelGenerator.gen_cats_rect(grid_size, snap_vec, max_pairs, cat_scene, self as Node)
 
 # Cancel drag when mouse exists play area
 func confine_to_play_area() -> void:

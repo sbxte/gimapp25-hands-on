@@ -1,10 +1,16 @@
 class_name LevelGenerator
 
-static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, cat_scene: PackedScene, cat_parent: Node) -> void:
+static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene: PackedScene, cat_parent: Node) -> void:
+	var theoretical_max_pairs := (grid_size.x * grid_size.y) >> 1
+	assert(max_pairs == -1 or (0 <= max_pairs and max_pairs <= theoretical_max_pairs))
+	var remaining_pairs := max_pairs
+	if max_pairs == -1:
+		remaining_pairs = theoretical_max_pairs
+
 	# Half of the grid size (division by 2 via bitshift)
 	# Generate min_half onion layers at most
-	var x_half := grid_size.x >> 1
-	var y_half := grid_size.y >> 1
+	var x_half := (grid_size.x + 1) >> 1 # Round up
+	var y_half := (grid_size.y + 1) >> 1
 	var min_half := mini(x_half, y_half)
 
 	var cells_taken = []
@@ -13,10 +19,12 @@ static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, cat_scene: Pac
 		cat_array.append(-1)
 	for i in range(min_half):
 		# Width and height of the i-th onion layer
-		var width := (x_half - min_half + 1 + i) * 2
-		var height := (y_half - min_half + 1 + i) * 2
+		var width := grid_size.x - (min_half - i - 1) * 2
+		var height := grid_size.y - (min_half - i - 1) * 2
 		var area := 2 * (width + height - 2)
-		var pairs := area >> 1
+		var pairs := mini(area >> 1, remaining_pairs)
+		remaining_pairs -= pairs
+
 
 		cells_taken.clear()
 		cells_taken.resize(area)

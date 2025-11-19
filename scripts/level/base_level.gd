@@ -3,6 +3,7 @@ extends Node
 @export var grid_size := Vector2i(4, 4)
 @export var timer_duration: float
 
+@export var max_pairs := -1
 @export var stages := 5
 @export var time_bonus := 10
 
@@ -10,6 +11,7 @@ extends Node
 @export var timer: TimerController
 
 func _ready() -> void:
+	play_field.max_pairs = max_pairs
 	play_field.grid_size = grid_size
 	play_field.reset_cats()
 	play_field.time_bonus = time_bonus
