@@ -104,7 +104,7 @@ texture = SubResource("AtlasTexture_rxdtf")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fu2g"]
 atlas = ExtResource("13_hg0fu")
-region = Rect2(0, 0, 0, 35.553)
+region = Rect2(0, 0, 464, 35.553)
 
 [node name="SettingsMenu" type="CanvasLayer"]
 process_mode = 3

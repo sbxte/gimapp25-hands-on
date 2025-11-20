@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=11 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://dgo4jtp0ic3xf" path="res://assets/ui/Fixed Main Menu BG.png" id="1_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_imvie"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_ng0o5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -26,14 +29,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ng0o5")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -42,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8r73w")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -63,9 +64,11 @@ alignment = 1
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
+theme_override_constants/separation = 354
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
 
 [node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
@@ -73,6 +76,7 @@ theme_override_font_sizes/font_size = 48
 text = "MEOW!"
 
 [node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
