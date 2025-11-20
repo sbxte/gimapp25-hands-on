@@ -104,7 +104,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
 	erase_path()
-	AudioManager.deselect.play()
+	AudioManager.rightmatch.play()
 
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
@@ -154,5 +154,4 @@ func cardinalize(vec: Vector2) -> Vector2:
 # Player lost!
 # oh no, anyway
 func timer_ended() -> void:
-	AudioManager.trace.stop()
 	SceneManager.change_scene(defeat_scene_path, true)

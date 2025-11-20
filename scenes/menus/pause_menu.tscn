@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://srka2hqnrp0r" path="res://scenes/components/button/unpause_behavior.tscn" id="3_gqhbq"]
 [ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.png" id="3_opdvj"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="3_xiui8"]
-[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/sprites/Paused (unscaled).png" id="4_pf6lc"]
+[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/ui/Paused (unscaled).png" id="4_pf6lc"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="5_xiui8"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="6_dgi6y"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="8_gqhbq"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlt5dgerqgsen"
-path="res://.godot/imported/Paused BG.png-3b936f9b32c024c470b265ff65f7a4be.ctex"
+uid="uid://dk67ct7wj65u3"
+path="res://.godot/imported/Slider Inner (NEW).png-ed0682a628303d6e7a9a55288dfde90e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Paused BG.png"
-dest_files=["res://.godot/imported/Paused BG.png-3b936f9b32c024c470b265ff65f7a4be.ctex"]
+source_file="res://assets/ui/Slider Inner (NEW).png"
+dest_files=["res://.godot/imported/Slider Inner (NEW).png-ed0682a628303d6e7a9a55288dfde90e.ctex"]
 
 [params]
 

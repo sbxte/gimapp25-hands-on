@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=46 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
 [ext_resource type="Texture2D" uid="uid://d00vdgmrgb662" path="res://assets/background/Main menu BG.png" id="2_eoonq"]
@@ -9,8 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="4_jjfif"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="4_muhwa"]
 [ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.png" id="5_muhwa"]
-[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/sprites/Paused (unscaled).png" id="6_g67jo"]
+[ext_resource type="Texture2D" uid="uid://bywgerru0bnq2" path="res://assets/ui/Settings Title (NEW).png" id="6_l0eij"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="8_g67jo"]
+[ext_resource type="Texture2D" uid="uid://bb6xc5pb5fgqc" path="res://assets/ui/Slider Frame (NEW).png" id="11_rrg86"]
+[ext_resource type="Texture2D" uid="uid://dk67ct7wj65u3" path="res://assets/ui/Slider Inner (NEW).png" id="12_l0eij"]
+[ext_resource type="Texture2D" uid="uid://tbqtnnu57ppa" path="res://assets/ui/Slider Inner.png" id="13_hg0fu"]
+[ext_resource type="Texture2D" uid="uid://dvg4aor374i3y" path="res://assets/ui/Slider Frame real.png" id="13_udegp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g67jo"]
 shader = ExtResource("3_mcc4n")
@@ -28,20 +33,53 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muhwa"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83j8s"]
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0eij"]
+atlas = ExtResource("11_rrg86")
+region = Rect2(880, 285.66013, 487.15942, 54.34198)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjs24"]
-bg_color = Color(0, 0.6, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hg0fu"]
+texture = SubResource("AtlasTexture_l0eij")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg0fu"]
+atlas = ExtResource("12_l0eij")
+region = Rect2(890.7156, 295.63605, 466.31274, 36.01352)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udegp"]
+texture = SubResource("AtlasTexture_hg0fu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4m6w"]
+atlas = ExtResource("13_hg0fu")
+region = Rect2(0, 0, 464, 35.55298)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udegp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pt7eq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fd2q8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g67jo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udegp"]
+atlas = ExtResource("11_rrg86")
+region = Rect2(880, 285.66, 487.159, 54.342)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pt7eq"]
+texture = SubResource("AtlasTexture_udegp")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd2q8"]
+atlas = ExtResource("12_l0eij")
+region = Rect2(890.716, 295.636, 466.313, 36.014)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxdtf"]
+texture = SubResource("AtlasTexture_fd2q8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08gdp"]
+atlas = ExtResource("13_hg0fu")
+region = Rect2(0, 0, 464, 35.553)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6d6q"]
 
@@ -49,6 +87,24 @@ corner_radius_bottom_left = 10
 bg_color = Color(0, 0.6, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt7eq"]
+atlas = ExtResource("11_rrg86")
+region = Rect2(880, 285.66, 487.159, 54.342)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd2q8"]
+texture = SubResource("AtlasTexture_pt7eq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxdtf"]
+atlas = ExtResource("12_l0eij")
+region = Rect2(890.716, 295.636, 466.313, 36.014)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4m6w"]
+texture = SubResource("AtlasTexture_rxdtf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fu2g"]
+atlas = ExtResource("13_hg0fu")
+region = Rect2(0, 0, 0, 35.553)
 
 [node name="SettingsMenu" type="CanvasLayer"]
 process_mode = 3
@@ -126,15 +182,17 @@ texture = ExtResource("5_muhwa")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseText" type="TextureRect" parent="Control/MenuBackground"]
-visible = false
-layout_mode = 0
-offset_left = 85.0
-offset_top = 229.0
-offset_right = 1074.0
-offset_bottom = 1262.0
-texture = ExtResource("6_g67jo")
+[node name="SettingsText" type="TextureRect" parent="Control/MenuBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.29606986
+anchor_top = 0.19021948
+anchor_right = 1.332751
+anchor_bottom = 0.9819023
+offset_top = 1.5258789e-05
+texture = ExtResource("6_l0eij")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -163,9 +221,11 @@ alignment = 1
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
+theme_override_constants/separation = 314
 theme_override_styles/separator = SubResource("StyleBoxEmpty_f4mfi")
 
 [node name="TitleLabel" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_s2d1y")
@@ -193,7 +253,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ojvp1")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("2_s2d1y")
+theme_override_fonts/font = ExtResource("8_g67jo")
 theme_override_font_sizes/font_size = 24
 text = "Back to Main Menu"
 
@@ -202,47 +262,190 @@ text = "Back to Main Menu"
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2/MainMenuButton" instance=ExtResource("4_jjfif")]
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 44
+theme_override_styles/separator = SubResource("StyleBoxEmpty_muhwa")
+
+[node name="Master" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_s2d1y")
+theme_override_fonts/font = ExtResource("8_g67jo")
 theme_override_font_sizes/font_size = 24
-text = "Volume"
+text = "Master"
 
-[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
 layout_mode = 2
-theme_override_constants/separation = 65
+theme_override_constants/separation = 25
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
-[node name="ProgressBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="MasterBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_83j8s")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gjs24")
+theme_override_styles/background = SubResource("StyleBoxTexture_hg0fu")
+theme_override_styles/fill = SubResource("StyleBoxTexture_udegp")
 value = 20.0
 rounded = true
 show_percentage = false
 
-[node name="HSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar"]
+[node name="TextMasterBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 6.0
-offset_right = -4.0
-offset_bottom = -6.0
+anchors_preset = -1
+anchor_top = -2.375
+anchor_right = 1.0099995
+anchor_bottom = -0.66666585
+offset_top = 46.0
+offset_bottom = 45.999996
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+nine_patch_stretch = true
+texture_under = ExtResource("13_udegp")
+texture_progress = SubResource("AtlasTexture_s4m6w")
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0033333334
+anchor_top = -0.5
+anchor_right = 1.01
+anchor_bottom = 1.2083334
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxEmpty_udegp")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_pt7eq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_fd2q8")
+metadata/_edit_use_anchors_ = true
+
+[node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g67jo")
+
+[node name="SFX" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_g67jo")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+
+[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+theme_override_constants/separation = 51
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
+
+[node name="SFXBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_pt7eq")
+theme_override_styles/fill = SubResource("StyleBoxTexture_rxdtf")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="TextSFXBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.25
+anchor_right = 1.0099995
+anchor_bottom = 1.4583341
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+nine_patch_stretch = true
+texture_under = ExtResource("13_udegp")
+texture_progress = SubResource("AtlasTexture_08gdp")
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0033333334
+anchor_top = -0.25
+anchor_right = 1.0066667
+anchor_bottom = 1.4583334
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="HSeparator4" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g67jo")
+
+[node name="Music" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_g67jo")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+theme_override_constants/separation = 31
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
+
+[node name="MusicBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_fd2q8")
+theme_override_styles/fill = SubResource("StyleBoxTexture_s4m6w")
+value = 20.0
+rounded = true
+show_percentage = false
+
+[node name="TextMusicBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0033333334
+anchor_top = -0.125
+anchor_right = 1.0066667
+anchor_bottom = 1.5833334
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+nine_patch_stretch = true
+texture_under = ExtResource("13_udegp")
+texture_progress = SubResource("AtlasTexture_5fu2g")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0033333334
+anchor_top = -0.125
+anchor_right = 1.0066667
+anchor_bottom = 1.5833334
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -257,5 +460,10 @@ icon = ExtResource("3_6wm04")
 
 [node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("7_kffdn")]
 
-[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="Control" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/MasterSlider" to="Control" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/MasterSlider" to="Control" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/SFXSlider" to="Control" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/SFXSlider" to="Control" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/MusicSlider" to="Control" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/MusicSlider" to="Control" method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" to="Control" method="_on_back_button_pressed"]

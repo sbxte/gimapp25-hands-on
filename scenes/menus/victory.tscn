@@ -15,7 +15,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="Victory" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

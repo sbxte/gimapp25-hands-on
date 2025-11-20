@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwmlcclgudd34"
-valid=false
+uid="uid://tbqtnnu57ppa"
+path="res://.godot/imported/Slider Inner.png-f501f135726b86bc356c0c4f49d9e738.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/Paused (unscaled).png"
+source_file="res://assets/ui/Slider Inner.png"
+dest_files=["res://.godot/imported/Slider Inner.png-f501f135726b86bc356c0c4f49d9e738.ctex"]
 
 [params]
 
