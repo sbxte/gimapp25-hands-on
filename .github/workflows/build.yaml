@@ -45,7 +45,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
           asset_name: ci-build.exe
-          tag: ${{ github.ref }}
           overwrite: true
           body: "Stella"
 
