@@ -10,7 +10,6 @@ var master_bus = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
 	var pause_menu = get_tree().get_first_node_in_group("PauseMenu")
-	print(SceneManager.path_history.get(0), SceneManager.overlays.get(0))
 	if not SceneManager.path_history.is_empty() or not SceneManager.overlays.is_empty():
 		if SceneManager.path_history.get(0) == "res://scenes/menus/main_menu.tscn" && SceneManager.overlays.get(0) != pause_menu: 
 			main_background.visible = true
@@ -28,4 +27,3 @@ func _on_h_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_mute(master_bus, true)
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
-

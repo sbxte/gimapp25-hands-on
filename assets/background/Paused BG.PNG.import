@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlt5dgerqgsen"
-path="res://.godot/imported/Paused BG.PNG-f0b3dbb0dd807d38d62b598bb691ca8a.ctex"
+path="res://.godot/imported/Paused BG.png-3b936f9b32c024c470b265ff65f7a4be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Paused BG.PNG"
-dest_files=["res://.godot/imported/Paused BG.PNG-f0b3dbb0dd807d38d62b598bb691ca8a.ctex"]
+source_file="res://assets/background/Paused BG.png"
+dest_files=["res://.godot/imported/Paused BG.png-3b936f9b32c024c470b265ff65f7a4be.ctex"]
 
 [params]
 

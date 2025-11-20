@@ -1,15 +1,15 @@
 [gd_scene load_steps=23 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
-[ext_resource type="Texture2D" uid="uid://d00vdgmrgb662" path="res://assets/background/Main menu BG.PNG" id="2_eoonq"]
+[ext_resource type="Texture2D" uid="uid://d00vdgmrgb662" path="res://assets/background/Main menu BG.png" id="2_eoonq"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="3_mcc4n"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_da10i"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="4_jjfif"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="4_muhwa"]
-[ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.PNG" id="5_muhwa"]
-[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/sprites/Paused (unscaled).PNG" id="6_g67jo"]
+[ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.png" id="5_muhwa"]
+[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/sprites/Paused (unscaled).png" id="6_g67jo"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g67jo"]

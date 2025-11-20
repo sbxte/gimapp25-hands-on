@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwmlcclgudd34"
-path="res://.godot/imported/Paused (unscaled).PNG-4c0d18c838480e8a65bc51ecc1db16f7.ctex"
+path="res://.godot/imported/Paused (unscaled).png-386b0aff652e18b055325294bc31f31b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Paused (unscaled).PNG"
-dest_files=["res://.godot/imported/Paused (unscaled).PNG-4c0d18c838480e8a65bc51ecc1db16f7.ctex"]
+source_file="res://assets/sprites/Paused (unscaled).png"
+dest_files=["res://.godot/imported/Paused (unscaled).png-386b0aff652e18b055325294bc31f31b.ctex"]
 
 [params]
 
