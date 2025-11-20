@@ -116,6 +116,7 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	AudioManager.select.play()
 
 func erase_path() -> void:
+	AudioManager.trace.stop()
 	dragging = false
 	path.clear()
 	queue_redraw()
@@ -127,7 +128,11 @@ func append_path(pos: Vector2) -> void:
 	else:
 		path.push_back(pos)
 	queue_redraw()
-	AudioManager.trace.play()
+	play_trace()
+
+func play_trace() -> void:
+	if not AudioManager.trace.playing:
+		AudioManager.trace.play()
 
 func reset_cats() -> void:
 	cats = grid_size.x * grid_size.y
