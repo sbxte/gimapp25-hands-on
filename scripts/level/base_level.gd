@@ -13,6 +13,7 @@ extends Node
 @export var timer: TimerController
 
 func _ready() -> void:
+	play_field.stages = stages
 	play_field.max_pairs = max_pairs
 	play_field.grid_size = grid_size
 	play_field.reset_cats()
