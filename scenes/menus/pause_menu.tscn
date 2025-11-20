@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://col8nsgvpdnek"]
+[gd_scene load_steps=11 format=3 uid="uid://col8nsgvpdnek"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_n87rw"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_eyfc8"]
+[ext_resource type="PackedScene" uid="uid://srka2hqnrp0r" path="res://scenes/components/button/unpause_behavior.tscn" id="3_gqhbq"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="3_xiui8"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="5_xiui8"]
+[ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="6_dgi6y"]
 [ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_eyfc8"]
-[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="6_gqhbq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
 
@@ -100,6 +101,8 @@ text = "Continue"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_eyfc8")]
 
+[node name="UnpauseBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_gqhbq")]
+
 [node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_xiui8")]
 
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -123,9 +126,8 @@ text = "Settings"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("5_xiui8")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("6_gqhbq")]
-track_history = true
-scene_path = "res://scenes/menus/settings_menu.tscn"
+[node name="OverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("6_dgi6y")]
+overlay_path = "res://scenes/menus/settings_menu.tscn"
 
 [node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

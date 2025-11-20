@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_da10i"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="4_jjfif"]
-[ext_resource type="PackedScene" uid="uid://cmhd0ydqnufux" path="res://scenes/components/button/backtrack_behavior.tscn" id="6_jjfif"]
+[ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -179,7 +179,7 @@ icon = ExtResource("3_6wm04")
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("4_da10i")]
 
-[node name="BacktrackBehavior" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("6_jjfif")]
+[node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("7_kffdn")]
 
 [connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ProgressBar/HSlider" to="Control" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" to="Control" method="_on_back_button_pressed"]
