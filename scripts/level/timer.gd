@@ -23,8 +23,24 @@ func get_progress_percent() -> float:
 func _process(_delta: float) -> void:
 	var rem_time := actual_time()
 	if rem_time == 0 and not ended:
+		if AudioManager.lowtime_5.playing:
+			AudioManager.lowtime_5.stop()
+		if AudioManager.lowtime_10.playing:
+			AudioManager.lowtime_10.stop()
 		ended = true
 		emit_signal("timer_ended")
+	if ended:
+		return
+	if rem_time <= 5:
+		if not AudioManager.lowtime_5.playing:
+			AudioManager.lowtime_5.play()
+		if AudioManager.lowtime_10.playing:
+			AudioManager.lowtime_10.stop()
+	elif rem_time <= 10:
+		if AudioManager.lowtime_5.playing:
+			AudioManager.lowtime_5.stop()
+		if not AudioManager.lowtime_10.playing:
+			AudioManager.lowtime_10.play()
 
 # Reset the timer
 func reset(speed: float = 1) -> void:

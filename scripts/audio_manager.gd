@@ -11,4 +11,7 @@ extends Node
 @export var rightmatch: AudioStreamPlayer
 @export var wrongmatch: AudioStreamPlayer
 @export var trace: AudioStreamPlayer
+@export var lowtime_5: AudioStreamPlayer
+@export var lowtime_10: AudioStreamPlayer
+@export var victory: AudioStreamPlayer
 

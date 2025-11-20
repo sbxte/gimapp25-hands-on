@@ -82,6 +82,8 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			timer.add_time(time_bonus)
 			stages -= 1
 			if stages == 0:
+				AudioManager.trace.stop()
+				AudioManager.victory.play()
 				SceneManager.change_scene(victory_scene_path, false)
 			else:
 				reset_cats()

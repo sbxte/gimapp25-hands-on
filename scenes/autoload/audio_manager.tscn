@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4kyg6g743yy4"]
+[gd_scene load_steps=13 format=3 uid="uid://c4kyg6g743yy4"]
 
 [ext_resource type="AudioStream" uid="uid://b1jwco4airtqp" path="res://assets/audio/sfx/ui/SFX_button_clickr.mp3" id="1_2geml"]
 [ext_resource type="Script" uid="uid://cy1ngghitm6lk" path="res://scripts/audio_manager.gd" id="2_ccgl5"]
@@ -9,8 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://dkkeojkfawse2" path="res://assets/audio/sfx/ingame/SFX_Select_card.mp3" id="7_lk4k0"]
 [ext_resource type="AudioStream" uid="uid://c3uij858gms07" path="res://assets/audio/sfx/ingame/SFX_Trace_drag.mp3" id="8_wmodw"]
 [ext_resource type="AudioStream" uid="uid://dltmts0facd7o" path="res://assets/audio/sfx/ingame/SFX_Wrong_match.wav" id="9_b4oxv"]
+[ext_resource type="AudioStream" uid="uid://yr81kcj1glse" path="res://assets/audio/sfx/ingame/SFX_Low_Time_5.mp3" id="10_wmodw"]
+[ext_resource type="AudioStream" uid="uid://c00m6dem5bwet" path="res://assets/audio/sfx/ingame/SFX_Low_time_10.mp3" id="11_b4oxv"]
+[ext_resource type="AudioStream" uid="uid://ck86u2p44l0am" path="res://assets/audio/sfx/ingame/SFX_victory.mp3" id="12_y05h4"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "select", "deselect", "rightmatch", "wrongmatch", "trace")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "select", "deselect", "rightmatch", "wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory")]
 script = ExtResource("2_ccgl5")
 click = NodePath("Menu/Click")
 hover = NodePath("Menu/Hover")
@@ -20,6 +23,9 @@ deselect = NodePath("Ingame/SfxDeselectCard")
 rightmatch = NodePath("Ingame/SfxMatch")
 wrongmatch = NodePath("Ingame/SfxWrongMatch")
 trace = NodePath("Ingame/SfxTraceDrag")
+lowtime_5 = NodePath("Ingame/SfxLowTime5")
+lowtime_10 = NodePath("Ingame/SfxLowTime10")
+victory = NodePath("Ingame/SfxVictory")
 
 [node name="Menu" type="Node" parent="."]
 
@@ -59,4 +65,16 @@ bus = &"SFX"
 
 [node name="SfxTraceDrag" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("8_wmodw")
+bus = &"SFX"
+
+[node name="SfxLowTime5" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("10_wmodw")
+bus = &"SFX"
+
+[node name="SfxLowTime10" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("11_b4oxv")
+bus = &"SFX"
+
+[node name="SfxVictory" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("12_y05h4")
 bus = &"SFX"
