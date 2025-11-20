@@ -12,6 +12,9 @@ var speed := 1.
 var lerp_start: float
 var ended := false
 
+var lowtime_5_played := false
+var lowtime_10_played := false
+
 func _ready() -> void:
 	lerp_start = start_duration
 	timer.timeout.connect(func(): emit_signal("timer_ended"))
@@ -23,24 +26,16 @@ func get_progress_percent() -> float:
 func _process(_delta: float) -> void:
 	var rem_time := actual_time()
 	if rem_time == 0 and not ended:
-		if AudioManager.lowtime_5.playing:
-			AudioManager.lowtime_5.stop()
-		if AudioManager.lowtime_10.playing:
-			AudioManager.lowtime_10.stop()
 		ended = true
 		emit_signal("timer_ended")
 	if ended:
 		return
-	if rem_time <= 5:
-		if not AudioManager.lowtime_5.playing:
-			AudioManager.lowtime_5.play()
-		if AudioManager.lowtime_10.playing:
-			AudioManager.lowtime_10.stop()
-	elif rem_time <= 10:
-		if AudioManager.lowtime_5.playing:
-			AudioManager.lowtime_5.stop()
-		if not AudioManager.lowtime_10.playing:
-			AudioManager.lowtime_10.play()
+	if rem_time <= 5 and not lowtime_5_played:
+		AudioManager.lowtime_5.play()
+		lowtime_5_played = true
+	elif rem_time <= 10 and not lowtime_10_played:
+		AudioManager.lowtime_10.play()
+		lowtime_10_played = true
 
 # Reset the timer
 func reset(speed: float = 1) -> void:
