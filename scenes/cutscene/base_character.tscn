@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://uwr03sifbbq3"]
+
+[ext_resource type="Script" uid="uid://6mikev8si2vp" path="res://scripts/cutscene/character_behavior.gd" id="1_0xgau"]
+
+[node name="BaseCharacter" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_0xgau")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
