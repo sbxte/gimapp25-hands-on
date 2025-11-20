@@ -24,10 +24,10 @@ centered = false
 [node name="Text" type="RichTextLabel" parent="."]
 z_index = 5
 offset_left = 548.0
-offset_top = 885.0
-offset_right = 1341.0
-offset_bottom = 994.0
-theme_override_font_sizes/normal_font_size = 50
+offset_top = 822.0
+offset_right = 1520.0
+offset_bottom = 927.0
+theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_4re4b")
 fit_content = true
 
@@ -37,7 +37,7 @@ offset_left = 328.0
 offset_top = 690.0
 offset_right = 599.0
 offset_bottom = 782.0
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_h7b3o")
 fit_content = true
 
