@@ -85,6 +85,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			timer.add_time(time_bonus)
 			stages -= 1
 			if stages == 0:
+				AudioManager.music.stop()
 				AudioManager.trace.stop()
 				AudioManager.victory.play()
 				SceneManager.change_scene(victory_scene_path, false)
@@ -154,5 +155,6 @@ func cardinalize(vec: Vector2) -> Vector2:
 # Player lost!
 # oh no, anyway
 func timer_ended() -> void:
+	AudioManager.music.stop()
 	AudioManager.trace.stop()
 	SceneManager.change_scene(defeat_scene_path, true)
