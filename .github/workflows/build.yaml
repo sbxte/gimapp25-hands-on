@@ -13,6 +13,7 @@ env:
 
 jobs:
   export-windows:
+    permissions: write-all
     name: Windows Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
     container:
@@ -39,6 +40,16 @@ jobs:
         with:
           name: windows
           path: build/windows
+      - name: Set Env
+        run: |
+          EXPORT_DIR="$(readlink -f build)"
+          echo EXPORT_FILE="$EXPORT_DIR/windows/$EXPORT_NAME.exe" >> $GITHUB_ENV
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: ${{ env.EXPORT_FILE }}
+          tag: ci
+          overwrite: true
 
   # export-linux:
   #   name: Linux Export
