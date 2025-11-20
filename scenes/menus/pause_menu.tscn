@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="3_xiui8"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="5_xiui8"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="6_dgi6y"]
-[ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_eyfc8"]
+[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="8_gqhbq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
 
@@ -151,7 +151,8 @@ text = "Quit
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("3_eyfc8")]
 
-[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("6_eyfc8")]
+[node name="SetSceneBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("8_gqhbq")]
+scene_path = "res://scenes/menus/main_menu.tscn"
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="Control" method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
