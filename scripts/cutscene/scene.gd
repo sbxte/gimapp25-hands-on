@@ -57,7 +57,8 @@ func exec_entry() -> void:
 			dialog_text.text = ""
 			text = comp.text
 			text_idx = 0
-			next_letter()
+			if not text.is_empty():
+				next_letter()
 
 		elif component is CutsceneCharEnter:
 			var comp = (component as CutsceneCharEnter)
@@ -65,7 +66,8 @@ func exec_entry() -> void:
 
 			c.position = comp.position
 			c.scale = Vector2(comp.scale, comp.scale)
-			c.sprite.texture = comp.character.sprites[comp.sprite]
+			if not comp.sprite.is_empty():
+				c.sprite.texture = comp.character.sprites[comp.sprite]
 			c.sprite.flip_h = comp.flipped_h
 			c.sprite.flip_v = comp.flipped_v
 			c.character = comp.character
