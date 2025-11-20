@@ -73,3 +73,13 @@ func exec_entry() -> void:
 				c.sprite.flip_v = comp.flipped_v
 			if not comp.sprite.is_empty():
 				c.sprite.texture = c.character.sprites[comp.sprite]
+		elif component is CutsceneAudio:
+			var comp := (component as CutsceneAudio)
+
+			var player := AudioStreamPlayer.new()
+			get_tree().current_scene.add_child(player)
+
+			player.stream = comp.stream
+			player.play()
+			player.finished.connect(func(): player.queue_free())
+

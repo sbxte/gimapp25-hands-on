@@ -1,15 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://bx46bicxf1ups"]
+[gd_scene load_steps=29 format=3 uid="uid://bx46bicxf1ups"]
 
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_e323w"]
 [ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_m3mdo"]
 [ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_vuj0l"]
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="4_wn8r0"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="4_wn8r0"]
 [ext_resource type="Script" uid="uid://dstye786s28v1" path="res://scripts/cutscene/entries/background.gd" id="5_x7we4"]
 [ext_resource type="Resource" uid="uid://dc1ns7flf1uo3" path="res://resources/characters/test_char.tres" id="6_e323w"]
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="7_7nlxs"]
 [ext_resource type="Resource" uid="uid://d0t0ivrlpyvxm" path="res://resources/characters/test_char2.tres" id="8_m3mdo"]
+[ext_resource type="Script" uid="uid://c2d0ne2d542wo" path="res://scripts/cutscene/entries/audio.gd" id="9_t4i8u"]
 [ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="9_vuj0l"]
+[ext_resource type="AudioStream" uid="uid://cdxwcviwxsdkg" path="res://assets/audio/sfx/ingame/SFX_Deselect_card.mp3" id="10_7nlxs"]
 [ext_resource type="Script" uid="uid://doahvpxberxmu" path="res://scripts/cutscene/entries/char_move.gd" id="10_wn8r0"]
+[ext_resource type="AudioStream" uid="uid://dltmts0facd7o" path="res://assets/audio/sfx/ingame/SFX_Wrong_match.wav" id="13_7nlxs"]
 
 [sub_resource type="Resource" id="Resource_fmlb8"]
 script = ExtResource("5_x7we4")
@@ -45,13 +48,17 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 [sub_resource type="Resource" id="Resource_m3mdo"]
 script = ExtResource("9_vuj0l")
 character = ExtResource("6_e323w")
-char_name_override = "???"
 text = "It is I, Sire Purrs. You appear to be lost, what brings you here?"
 metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
+[sub_resource type="Resource" id="Resource_45at1"]
+script = ExtResource("9_t4i8u")
+stream = ExtResource("10_7nlxs")
+metadata/_custom_type_script = "uid://c2d0ne2d542wo"
+
 [sub_resource type="Resource" id="Resource_vuj0l"]
 script = ExtResource("2_m3mdo")
-components = Array[ExtResource("3_vuj0l")]([SubResource("Resource_m3mdo")])
+components = Array[ExtResource("3_vuj0l")]([SubResource("Resource_m3mdo"), SubResource("Resource_45at1")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_t4i8u"]
@@ -87,9 +94,14 @@ position_update = true
 position = Vector2(300, 500)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
+[sub_resource type="Resource" id="Resource_p5ff1"]
+script = ExtResource("9_t4i8u")
+stream = ExtResource("13_7nlxs")
+metadata/_custom_type_script = "uid://c2d0ne2d542wo"
+
 [sub_resource type="Resource" id="Resource_311vj"]
 script = ExtResource("2_m3mdo")
-components = Array[ExtResource("3_vuj0l")]([SubResource("Resource_dxqhm"), SubResource("Resource_dn6fm")])
+components = Array[ExtResource("3_vuj0l")]([SubResource("Resource_dxqhm"), SubResource("Resource_dn6fm"), SubResource("Resource_p5ff1")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [node name="Test" type="Node2D"]
