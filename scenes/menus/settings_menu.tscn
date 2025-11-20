@@ -40,6 +40,7 @@ bg_color = Color(0, 0.6, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 
 [node name="SettingsMenu" type="CanvasLayer"]
+process_mode = 3
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1000, 500)

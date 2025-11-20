@@ -10,6 +10,7 @@ func _ready() -> void:
 	button.pressed.connect(pressed)
 
 func pressed() -> void:
+	get_tree().paused = false
 	if backtrack:
 		SceneManager.go_back()
 	else:
