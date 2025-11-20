@@ -34,7 +34,12 @@ axis_stretch_horizontal = 1
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
 script = ExtResource("1_7xj1c")
+grid_size = null
 timer_duration = 30.0
+max_pairs = null
+stages = null
+time_bonus = null
+endless_mode = null
 play_field = NodePath("PlayField")
 timer = NodePath("Timer")
 
@@ -126,6 +131,7 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 [node name="MusicBehavior" parent="." instance=ExtResource("11_2qxot")]
 
 [node name="MainMenu" parent="." instance=ExtResource("12_u35hf")]
+visible = false
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

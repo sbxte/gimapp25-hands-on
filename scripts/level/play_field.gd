@@ -160,14 +160,9 @@ func cardinalize(vec: Vector2) -> Vector2:
 
 # Player lost!
 # oh no, anyway
-<<<<<<< HEAD
-func timer_ended() -> void:
-=======
 func on_defeat() -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
-
->>>>>>> 1e78f61943921e0f2e5b6f4e332ff07d3ee49540
 	SceneManager.change_scene(defeat_scene_path, true)
 
 func on_victory() -> void:
