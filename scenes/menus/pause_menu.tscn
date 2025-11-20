@@ -1,14 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://col8nsgvpdnek"]
+[gd_scene load_steps=17 format=3 uid="uid://col8nsgvpdnek"]
 
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="1_dgi6y"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_n87rw"]
+[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_dqjbd"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_eyfc8"]
 [ext_resource type="PackedScene" uid="uid://srka2hqnrp0r" path="res://scenes/components/button/unpause_behavior.tscn" id="3_gqhbq"]
+[ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.PNG" id="3_opdvj"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="3_xiui8"]
+[ext_resource type="Texture2D" uid="uid://dwmlcclgudd34" path="res://assets/sprites/Paused (unscaled).PNG" id="4_pf6lc"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="5_xiui8"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="6_dgi6y"]
 [ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_eyfc8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opdvj"]
+shader = ExtResource("2_dqjbd")
+shader_parameter/blur_value = 1.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opdvj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
 
@@ -17,6 +25,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pf6lc"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -29,14 +39,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="Background" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+texture = ExtResource("1_dgi6y")
+
+[node name="Blur" type="ColorRect" parent="Control/Background"]
+material = SubResource("ShaderMaterial_opdvj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="Control/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
+
+[node name="MenuBackground" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = -59.0
+offset_right = 1579.0
+offset_bottom = 1239.5
+texture = ExtResource("3_opdvj")
+expand_mode = 1
+
+[node name="PauseText" type="TextureRect" parent="Control/MenuBackground"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 229.0
+offset_right = 1074.0
+offset_bottom = 1262.0
+texture = ExtResource("4_pf6lc")
+expand_mode = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -45,6 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_opdvj")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -58,26 +105,9 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_myx47")
-
-[node name="TitleLabel" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_n87rw")
-theme_override_font_sizes/font_size = 48
-text = "Paused"
-
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 590
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kukqi")
 
 [node name="Continue" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -105,6 +135,11 @@ text = "Continue"
 
 [node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_xiui8")]
 
+[node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pf6lc")
+
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -128,6 +163,10 @@ text = "Settings"
 
 [node name="OverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("6_dgi6y")]
 overlay_path = "res://scenes/menus/settings_menu.tscn"
+
+[node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
 
 [node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
