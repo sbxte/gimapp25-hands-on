@@ -10,6 +10,7 @@ var path: Array[Vector2] = []
 var first_cat: Cat
 var match_streak := 0
 
+var level: int = 1
 var max_pairs := -1
 var cats :int
 var stages := 5
@@ -21,14 +22,14 @@ var endless_mode := false
 @export var cat_scene: PackedScene
 @export var timer: TimerController
 
-@export var victory_scene_path: String
-@export var defeat_scene_path: String
+@export_file_path var victory_scene_path: String
+@export_file_path var defeat_scene_path: String
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 
-	timer.timer_ended.connect(timer_ended)
+	timer.timer_ended.connect(on_defeat)
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -85,10 +86,9 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			timer.add_time(time_bonus)
 			stages -= 1
 			if stages == 0:
-				AudioManager.trace.stop()
-				AudioManager.victory.play()
-				SceneManager.change_scene(victory_scene_path, false)
+				on_victory()
 			else:
+				timer.reset()
 				reset_cats()
 		else:
 			if stages > 0:
@@ -115,6 +115,7 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	AudioManager.select.play()
 
 func erase_path() -> void:
+	AudioManager.trace.stop()
 	dragging = false
 	path.clear()
 	queue_redraw()
@@ -126,10 +127,16 @@ func append_path(pos: Vector2) -> void:
 	else:
 		path.push_back(pos)
 	queue_redraw()
-	AudioManager.trace.play()
+	play_trace()
+
+func play_trace() -> void:
+	if not AudioManager.trace.playing:
+		AudioManager.trace.play()
 
 func reset_cats() -> void:
 	cats = grid_size.x * grid_size.y
+	if max_pairs != -1:
+		cats = mini(cats, max_pairs * 2)
 	for cat in get_tree().get_nodes_in_group("Cats"):
 		cat.queue_free()
 
@@ -153,5 +160,21 @@ func cardinalize(vec: Vector2) -> Vector2:
 
 # Player lost!
 # oh no, anyway
+<<<<<<< HEAD
 func timer_ended() -> void:
+=======
+func on_defeat() -> void:
+	AudioManager.music.stop()
+	AudioManager.trace.stop()
+
+>>>>>>> 1e78f61943921e0f2e5b6f4e332ff07d3ee49540
 	SceneManager.change_scene(defeat_scene_path, true)
+
+func on_victory() -> void:
+	SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
+
+	AudioManager.music.stop()
+	AudioManager.trace.stop()
+	AudioManager.victory.play()
+
+	SceneManager.change_scene(victory_scene_path, false)

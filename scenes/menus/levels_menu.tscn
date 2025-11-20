@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=9 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_8h12j"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
+[ext_resource type="PackedScene" uid="uid://dr2ap84vkrugg" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
@@ -128,7 +129,7 @@ text = "Level 1"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("3_dnh54")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("5_xaaqn")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("5_knlas")]
 scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -153,7 +154,8 @@ text = "Level 2
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("3_dnh54")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("5_xaaqn")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("5_knlas")]
+threshold = 1
 scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -177,7 +179,8 @@ text = "Level 3"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("3_dnh54")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("5_xaaqn")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("5_knlas")]
+threshold = 2
 scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -201,7 +204,8 @@ text = "Level 4"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("3_dnh54")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("5_xaaqn")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("5_knlas")]
+threshold = 3
 scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="Level5" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -225,5 +229,31 @@ text = "Level 5"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("3_dnh54")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_xaaqn")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_knlas")]
+threshold = 4
 scene_path = "res://scenes/levels/level_5.tscn"
+
+[node name="LevelEndless" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="LevelEndlessButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8h12j")
+theme_override_font_sizes/font_size = 24
+text = "Endless Mode"
+
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("5_knlas")]
+threshold = 5
+scene_path = "res://scenes/levels/level_endless.tscn"

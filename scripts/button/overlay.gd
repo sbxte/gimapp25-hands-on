@@ -1,6 +1,6 @@
 extends Node
 
-@export var overlay_path: String
+@export_file_path var overlay_path: String
 @onready var button: Button = $".."
 
 func _ready() -> void:

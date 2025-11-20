@@ -6,4 +6,5 @@
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_o8c3j")]
 grid_size = Vector2i(4, 3)
+level = 3
 max_pairs = 5

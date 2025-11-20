@@ -6,6 +6,7 @@ extends Node
 @export var dialog_text: RichTextLabel
 @export var dialog_speaker: RichTextLabel
 @export var base_character: PackedScene
+@export var text_timer: Timer
 
 @export_subgroup("Entries")
 @export var entries: Array[CutsceneEntry] = []
@@ -14,7 +15,12 @@ extends Node
 var chars: Dictionary[String, CharacterBehavior] = {}
 var mouse_button_pressed := false
 
+var text: String
+var text_idx := 0
+var text_animation_speed := 1
+
 func _ready() -> void:
+	text_timer.timeout.connect(on_text_timer_finished)
 	exec_entry()
 
 func _process(_delta: float) -> void:
@@ -40,11 +46,19 @@ func exec_entry() -> void:
 			background.texture = (component as CutsceneBackground).background
 		elif component is DialogLine:
 			var comp = (component as DialogLine)
-			dialog_text.text = comp.text
+
+			text_animation_speed = comp.text_animation_speed
+
 			if not comp.char_name_override.is_empty():
 				dialog_speaker.text = comp.char_name_override
 			else:
 				dialog_speaker.text = comp.character.name
+
+			dialog_text.text = ""
+			text = comp.text
+			text_idx = 0
+			next_letter()
+
 		elif component is CutsceneCharEnter:
 			var comp = (component as CutsceneCharEnter)
 			var c: CharacterBehavior = base_character.instantiate()
@@ -83,3 +97,14 @@ func exec_entry() -> void:
 			player.play()
 			player.finished.connect(func(): player.queue_free())
 
+func next_letter() -> void:
+	dialog_text.text += text[text_idx]
+
+	if text_idx + 1 >= text.length():
+		return
+
+	text_idx += 1
+	text_timer.start(0.05 / text_animation_speed)
+
+func on_text_timer_finished() -> void:
+	next_letter()

@@ -33,14 +33,17 @@ victory = NodePath("Ingame/SfxVictory")
 
 [node name="Click" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("1_2geml")
+volume_db = 3.983
 bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("2_hhkxr")
+volume_db = -3.098
 bus = &"SFX"
 
 [node name="PullUp" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("3_ccgl5")
+volume_db = -2.655
 bus = &"SFX"
 
 [node name="Ingame" type="Node" parent="."]
@@ -50,11 +53,13 @@ stream = ExtResource("5_b4oxv")
 
 [node name="SfxSelectCard" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("7_lk4k0")
+volume_db = -3.983
 max_polyphony = 3
 bus = &"SFX"
 
 [node name="SfxDeselectCard" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("5_v7dyy")
+volume_db = -3.983
 max_polyphony = 3
 bus = &"SFX"
 
@@ -70,6 +75,7 @@ bus = &"SFX"
 
 [node name="SfxTraceDrag" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("8_wmodw")
+volume_db = -5.311
 bus = &"SFX"
 
 [node name="SfxLowTime5" type="AudioStreamPlayer" parent="Ingame"]
@@ -82,4 +88,5 @@ bus = &"SFX"
 
 [node name="SfxVictory" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("12_y05h4")
+volume_db = -14.162
 bus = &"SFX"
