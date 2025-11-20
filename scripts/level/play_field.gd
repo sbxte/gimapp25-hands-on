@@ -25,9 +25,15 @@ var endless_mode := false
 @export_file_path var victory_scene_path: String
 @export_file_path var defeat_scene_path: String
 
+@onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
+@onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
+
+
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
+	victory_animation.play("RESET")
+	defeat_animation.play("RESET")
 
 	timer.timer_ended.connect(on_defeat)
 
@@ -163,6 +169,8 @@ func cardinalize(vec: Vector2) -> Vector2:
 func on_defeat() -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
+	defeat_animation.play("slide_up")
+	await defeat_animation.animation_finished
 	SceneManager.change_scene(defeat_scene_path, true)
 
 func on_victory() -> void:
@@ -171,5 +179,8 @@ func on_victory() -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
 	AudioManager.victory.play()
-
+	victory_animation.play("slide_down")
+	await victory_animation.animation_finished
 	SceneManager.change_scene(victory_scene_path, false)
+
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=28 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="10_466n5"]
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="11_2qxot"]
 [ext_resource type="PackedScene" uid="uid://dqkint05opiq0" path="res://scenes/menus/victory.tscn" id="12_u35hf"]
+[ext_resource type="PackedScene" uid="uid://dxhjl7jf578rk" path="res://scenes/menus/defeat.tscn" id="13_8x4to"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
 
@@ -30,6 +31,78 @@ axis_stretch_horizontal = 1
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wq2a1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_466n5"]
+
+[sub_resource type="Animation" id="Animation_8x4to"]
+resource_name = "slide_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1130), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qf4k4"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1130)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
+_data = {
+&"RESET": SubResource("Animation_qf4k4"),
+&"slide_down": SubResource("Animation_8x4to")
+}
+
+[sub_resource type="Animation" id="Animation_daaf0"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1130)]
+}
+
+[sub_resource type="Animation" id="Animation_ufabe"]
+resource_name = "slide_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1130), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
+_data = {
+&"RESET": SubResource("Animation_daaf0"),
+&"slide_up": SubResource("Animation_ufabe")
+}
 
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
@@ -130,8 +203,23 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="MusicBehavior" parent="." instance=ExtResource("11_2qxot")]
 
-[node name="MainMenu" parent="." instance=ExtResource("12_u35hf")]
-visible = false
+[node name="Victory" parent="." instance=ExtResource("12_u35hf")]
+offset = Vector2(0, -1130)
+transform = Transform2D(1, 0, 0, 1, 0, -1130)
+
+[node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
+libraries = {
+&"": SubResource("AnimationLibrary_daaf0")
+}
+
+[node name="Defeat" parent="." instance=ExtResource("13_8x4to")]
+offset = Vector2(0, 1130)
+transform = Transform2D(1, 0, 0, 1, 0, 1130)
+
+[node name="DefeatAnimation" type="AnimationPlayer" parent="Defeat"]
+libraries = {
+&"": SubResource("AnimationLibrary_41h08")
+}
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]
