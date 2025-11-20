@@ -6,7 +6,7 @@ extends CutsceneComponent
 @export var char_name_override: String
 
 @export_subgroup("Text")
-@export var text: String
+@export_multiline var text: String
 @export var text_animation_speed: int = 1
 
 
