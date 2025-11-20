@@ -13,7 +13,7 @@ env:
 
 jobs:
   export-windows:
-    permissions: read-all
+    permissions: write-all
     name: Windows Export
     runs-on: ubuntu-24.04  # Use 24.04 with godot 4
     container:
