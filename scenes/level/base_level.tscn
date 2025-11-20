@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=20 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="7_kxd26"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="9_wq2a1"]
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="10_466n5"]
+[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="11_2qxot"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
 
@@ -118,6 +119,8 @@ icon = ExtResource("6_8xnqg")
 overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("10_466n5")]
+
+[node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("11_2qxot")]
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

@@ -109,6 +109,8 @@ text = "Play"
 track_history = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("3_imvie")]
+
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
