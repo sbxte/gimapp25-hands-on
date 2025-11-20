@@ -4,5 +4,3 @@ extends Node
 
 func _ready() -> void:
 	button.pressed.connect(func() : get_tree().paused = false)
-
-

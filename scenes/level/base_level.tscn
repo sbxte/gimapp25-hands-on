@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="5_wq2a1"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
 [ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="7_466n5"]
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="7_kxd26"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="7_kxd26"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="9_wq2a1"]
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="10_466n5"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="11_2qxot"]

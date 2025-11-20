@@ -16,4 +16,3 @@ extends Node
 @export var lowtime_5: AudioStreamPlayer
 @export var lowtime_10: AudioStreamPlayer
 @export var victory: AudioStreamPlayer
-

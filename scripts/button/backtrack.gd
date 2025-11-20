@@ -4,4 +4,3 @@ extends Node
 
 func _ready() -> void:
 	button.pressed.connect(func() : SceneManager.go_back())
-
