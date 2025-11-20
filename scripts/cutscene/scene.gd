@@ -12,18 +12,25 @@ extends Node
 @export var entry_idx := 0
 
 var chars: Dictionary[String, CharacterBehavior] = {}
+var mouse_button_pressed := false
 
 func _ready() -> void:
 	exec_entry()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not mouse_button_pressed):
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			mouse_button_pressed = true
+
 		if entry_idx + 1 == entries.size():
 			SceneManager.change_scene(entries[entry_idx].change_scene, false)
 			return
 
 		entry_idx += 1
 		exec_entry()
+
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		mouse_button_pressed = false
 
 func exec_entry() -> void:
 	var entry := entries[entry_idx]
