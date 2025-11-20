@@ -104,7 +104,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
 	erase_path()
-	AudioManager.rightmatch.play()
+	AudioManager.deselect.play()
 
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
