@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="9_wq2a1"]
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="10_466n5"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="11_2qxot"]
+[ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="11_2qxot"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
 
@@ -121,6 +122,8 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 [node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("10_466n5")]
 
 [node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("11_2qxot")]
+
+[node name="MusicBehavior" parent="." instance=ExtResource("11_2qxot")]
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

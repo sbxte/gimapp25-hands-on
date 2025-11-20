@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4kyg6g743yy4"]
+[gd_scene load_steps=14 format=3 uid="uid://c4kyg6g743yy4"]
 
 [ext_resource type="AudioStream" uid="uid://b1jwco4airtqp" path="res://assets/audio/sfx/ui/SFX_button_clickr.mp3" id="1_2geml"]
 [ext_resource type="Script" uid="uid://cy1ngghitm6lk" path="res://scripts/audio_manager.gd" id="2_ccgl5"]
 [ext_resource type="AudioStream" uid="uid://dsdavyor8chiq" path="res://assets/audio/sfx/ui/SFX_Button_Hover.mp3" id="2_hhkxr"]
 [ext_resource type="AudioStream" uid="uid://dfv02qtuf3d6l" path="res://assets/audio/sfx/ui/SFX_Pull_up_menu.mp3" id="3_ccgl5"]
+[ext_resource type="AudioStream" uid="uid://cgubox26ba1y5" path="res://assets/audio/music/gila.mp3" id="5_b4oxv"]
 [ext_resource type="AudioStream" uid="uid://cdxwcviwxsdkg" path="res://assets/audio/sfx/ingame/SFX_Deselect_card.mp3" id="5_v7dyy"]
 [ext_resource type="AudioStream" uid="uid://b0h2m2f0r72b" path="res://assets/audio/sfx/ingame/SFX_Match.ogg" id="6_dxru3"]
 [ext_resource type="AudioStream" uid="uid://dkkeojkfawse2" path="res://assets/audio/sfx/ingame/SFX_Select_card.mp3" id="7_lk4k0"]
@@ -13,11 +14,12 @@
 [ext_resource type="AudioStream" uid="uid://c00m6dem5bwet" path="res://assets/audio/sfx/ingame/SFX_Low_time_10.mp3" id="11_b4oxv"]
 [ext_resource type="AudioStream" uid="uid://ck86u2p44l0am" path="res://assets/audio/sfx/ingame/SFX_victory.mp3" id="12_y05h4"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "select", "deselect", "rightmatch", "wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "select", "deselect", "rightmatch", "wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory")]
 script = ExtResource("2_ccgl5")
 click = NodePath("Menu/Click")
 hover = NodePath("Menu/Hover")
 pullup = NodePath("Menu/PullUp")
+music = NodePath("Ingame/Music")
 select = NodePath("Ingame/SfxSelectCard")
 deselect = NodePath("Ingame/SfxDeselectCard")
 rightmatch = NodePath("Ingame/SfxMatch")
@@ -42,6 +44,9 @@ stream = ExtResource("3_ccgl5")
 bus = &"SFX"
 
 [node name="Ingame" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("5_b4oxv")
 
 [node name="SfxSelectCard" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("7_lk4k0")

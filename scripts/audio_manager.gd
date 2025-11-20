@@ -6,6 +6,8 @@ extends Node
 @export var pullup: AudioStreamPlayer
 
 @export_subgroup("Ingame")
+@export var music: AudioStreamPlayer
+
 @export var select: AudioStreamPlayer
 @export var deselect: AudioStreamPlayer
 @export var rightmatch: AudioStreamPlayer
