@@ -227,3 +227,27 @@ text = "Level 5"
 
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_xaaqn")]
 scene_path = "res://scenes/levels/level_5.tscn"
+
+[node name="LevelEndless" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="LevelEndlessButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8h12j")
+theme_override_font_sizes/font_size = 24
+text = "Endless Mode"
+
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_endless.tscn"
