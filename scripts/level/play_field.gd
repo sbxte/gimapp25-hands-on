@@ -88,6 +88,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			if stages == 0:
 				on_victory()
 			else:
+				timer.reset()
 				reset_cats()
 		else:
 			if stages > 0:
