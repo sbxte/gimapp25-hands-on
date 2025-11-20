@@ -14,7 +14,7 @@ func change_scene(new_scene_path: String, track: bool = true) -> void:
 func overlay_scene(new_scene_path: String) -> void:
 	var overlay: Node = load(new_scene_path).instantiate()
 	overlays.append(overlay)
-	get_tree().current_scene.add_child(overlay)
+	get_tree().root.add_child(overlay)
 
 func unoverlay_scene() -> void:
 	if overlays.is_empty():
