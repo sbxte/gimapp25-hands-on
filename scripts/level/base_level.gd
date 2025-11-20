@@ -1,14 +1,16 @@
 extends Node
 
+@export_subgroup("Grid")
 @export var grid_size := Vector2i(4, 4)
-@export var timer_duration: float
 
 @export_subgroup("Difficulty")
+@export var timer_duration: float
 @export var max_pairs := -1
 @export var stages := 5
 @export var time_bonus := 10
 @export var endless_mode := false
 
+@export_subgroup("References")
 @export var play_field: PlayField
 @export var timer: TimerController
 

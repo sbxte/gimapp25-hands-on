@@ -1,20 +1,23 @@
 class_name PlayField
 extends Node2D
 
+@export_subgroup("Grid")
 @export var snap_vec: Vector2 = Vector2(64, 64)
-@export var grid_size := Vector2i(6, 4)
+var grid_size := Vector2i(4, 4)
 
 var dragging: bool = false
 var path: Array[Vector2] = []
 var first_cat: Cat
 var match_streak := 0
 
-@export var max_pairs := -1
+var max_pairs := -1
 var cats :int
 var stages := 5
 var time_bonus: int
 var endless_mode := false
 
+
+@export_subgroup("References")
 @export var cat_scene: PackedScene
 @export var timer: TimerController
 
