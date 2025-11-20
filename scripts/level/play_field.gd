@@ -10,6 +10,7 @@ var path: Array[Vector2] = []
 var first_cat: Cat
 var match_streak := 0
 
+var level: int = 1
 var max_pairs := -1
 var cats :int
 var stages := 5
@@ -28,7 +29,7 @@ func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 
-	timer.timer_ended.connect(timer_ended)
+	timer.timer_ended.connect(on_defeat)
 
 func _process(_delta: float) -> void:
 	# When the mouse is released, clear the line path
@@ -85,10 +86,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			timer.add_time(time_bonus)
 			stages -= 1
 			if stages == 0:
-				AudioManager.music.stop()
-				AudioManager.trace.stop()
-				AudioManager.victory.play()
-				SceneManager.change_scene(victory_scene_path, false)
+				on_victory()
 			else:
 				reset_cats()
 		else:
@@ -159,7 +157,17 @@ func cardinalize(vec: Vector2) -> Vector2:
 
 # Player lost!
 # oh no, anyway
-func timer_ended() -> void:
+func on_defeat() -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
+
 	SceneManager.change_scene(defeat_scene_path, true)
+
+func on_victory() -> void:
+	SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
+
+	AudioManager.music.stop()
+	AudioManager.trace.stop()
+	AudioManager.victory.play()
+
+	SceneManager.change_scene(victory_scene_path, false)

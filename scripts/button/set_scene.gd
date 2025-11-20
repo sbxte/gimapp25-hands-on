@@ -1,3 +1,4 @@
+class_name SetSceneBehavior
 extends Node
 
 @export var backtrack := false

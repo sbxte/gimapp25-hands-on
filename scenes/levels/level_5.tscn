@@ -5,3 +5,4 @@
 [node name="Level5" type="Node2D"]
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_r1vs7")]
+level = 5

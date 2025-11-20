@@ -1,23 +1,31 @@
 extends Node
 
-const file_name := "user://gamesave"
+const file_name := "user://savedata.tres"
 
-static func load_save() -> Save:
-	# Save file does not exist yet, return default save file
-	if not FileAccess.file_exists("user://savegame.save"):
-		return Save.new()
+var cached_save: SaveData
 
-	var save_file := FileAccess.open(file_name, FileAccess.READ)
+func load_data():
+	# SaveData file does not exist yet, return default save file
+	if not FileAccess.file_exists(file_name):
+		cached_save = SaveData.new()
+		return
 
-	var save := Save.from_json_str(save_file.get_as_text())
+	var save := ResourceLoader.load(file_name)
 	if save == null:
-		# NOTE: Any change made to the Save class that conflicts with previous json serializations of it
-		# will result in a fresh Save returned when this function is called. Be warned.
-		return Save.new()
+		# NOTE: Any change made to the SaveData class that conflicts with previous json serializations of it
+		# will result in a fresh SaveData returned when this function is called. Be warned.
+		cached_save = SaveData.new()
 	else:
-		return save
+		cached_save = save
 
-static func write_save(save: Save) -> void:
-	var file := FileAccess.open(file_name, FileAccess.WRITE)
-	file.store_string(save.to_json_str())
-	# file.flush() # Not needed, automatically called when closed aka also when it falls out of scope
+func write_data() -> void:
+	ResourceSaver.save(cached_save, file_name)
+
+func has_data() -> bool:
+	return cached_save != null
+
+func get_data() -> SaveData:
+	if not has_data():
+		load_data()
+	print(cached_save.levels_completed)
+	return cached_save
