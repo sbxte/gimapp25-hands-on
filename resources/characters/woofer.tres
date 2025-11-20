@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=2 format=3 uid="uid://cvkp0cmo6ocsv"]
+
+[ext_resource type="Script" uid="uid://c05t1x480eqg6" path="res://scripts/cutscene/character_resource.gd" id="1_8gjd5"]
+
+[resource]
+script = ExtResource("1_8gjd5")
+name = "Emperor Woofer"
+metadata/_custom_type_script = "uid://c05t1x480eqg6"

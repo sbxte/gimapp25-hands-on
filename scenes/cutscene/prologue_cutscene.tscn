@@ -1,0 +1,522 @@
+[gd_scene load_steps=104 format=3 uid="uid://cg2scyc1udcsd"]
+
+[ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
+[ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_fhrx3"]
+[ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_rjviq"]
+[ext_resource type="Resource" uid="uid://b7dc7qmiqnmma" path="res://resources/characters/player.tres" id="4_1l0yk"]
+[ext_resource type="Script" uid="uid://dstye786s28v1" path="res://scripts/cutscene/entries/background.gd" id="4_dccfs"]
+[ext_resource type="Resource" uid="uid://ddtl7hbo0i4lx" path="res://resources/characters/narrator.tres" id="5_g6xnk"]
+[ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="5_sjj1k"]
+[ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_f7np6"]
+[ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="9_1or0b"]
+[ext_resource type="Resource" uid="uid://cvkp0cmo6ocsv" path="res://resources/characters/woofer.tres" id="10_g6xnk"]
+
+[sub_resource type="Resource" id="Resource_f0upq"]
+script = ExtResource("4_dccfs")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_oip4f"]
+script = ExtResource("6_f7np6")
+character = ExtResource("5_g6xnk")
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_0kiiw"]
+script = ExtResource("6_f7np6")
+character = ExtResource("4_1l0yk")
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_dccfs"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You wake up on cold marble, staring at a ceiling that is definitely not from your world."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_g6xnk"]
+script = ExtResource("2_fhrx3")
+label = "Scene 1"
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_f0upq"), SubResource("Resource_oip4f"), SubResource("Resource_0kiiw"), SubResource("Resource_dccfs")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_3w007"]
+script = ExtResource("4_dccfs")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_f7np6"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_544dr"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_3w007"), SubResource("Resource_f7np6")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_c66gp"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "For one thing, the chandelier is made of yarn balls. "
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_754nt"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_c66gp")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_0q74o"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You sit up, dizzy."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_f1hxq"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_0q74o")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_m156v"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("4_1l0yk")
+text = "“Where the hell am I…?”"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_7qsco"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_m156v")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_88ve7"]
+script = ExtResource("4_dccfs")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_j2j6j"]
+script = ExtResource("6_f7np6")
+character = ExtResource("9_1or0b")
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_n1ti6"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "Before you can even process anything, a furless pink creature with a cape, a crown, and the confidence of someone who has never once apologized steps into your field of view."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_yue5x"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_88ve7"), SubResource("Resource_j2j6j"), SubResource("Resource_n1ti6")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_1or0b"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "A Sphynx cat. An overlord-looking Sphynx cat."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_hj1v2"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_1or0b")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_pb4jy"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Yo,"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_3b5c2"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_pb4jy")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_2un70"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Welcome to the realm of cats. I pulled you out of your world because we got beef."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_rcjma"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_2un70")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_4vub4"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "Bingus snaps his fingers, and a group of smaller cats rush in carrying clothing—a militaristic coat, a sash, a general’s cloak, even a stupid little feathered hat."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_sykdg"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_4vub4")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_1r1g3"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Put these on,"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_lg7ci"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_1r1g3")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_8dyk4"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("4_1l0yk")
+text = "I—I don’t want to get involved—"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_uhwwr"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_8dyk4")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_yhqs0"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "Bingus force-fits the uniform on you like he’s dressing a toy by brute force."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_6nhqg"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_yhqs0")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_nusfo"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "STOP STRUGGLING,"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_h3omy"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_nusfo")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_xsf60"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "he says while absolutely struggling"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_jnh3s"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_xsf60")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_oauxe"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "Then he steps back. Scanning your appearance from tip to toe."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_2h4na"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_oauxe")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_2pill"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Okay. Good enough. You look like a general now."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_5f87p"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_2pill")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_gjryq"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You open your mouth, but Bingus just taps you and turns you toward a painting of Emperor Woof."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_6berc"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_gjryq")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_msrwc"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "You know that dog, Woofer? Emperor of the Dogmatic Kingdom? The doberman with the dumb face?"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ot6cv"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_msrwc")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_q8nw2"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You opened your mouth to respond but he cuts you off"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_jwsrr"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_q8nw2")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_t6qsj"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Maybe not, but I know him. And I have anger."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_828p4"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_t6qsj")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_prqhm"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You looked at him, questioning as to why one could have anger towards a dog."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ih8v1"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_prqhm")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_iskqu"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "DO YOU NOT GET IT HUMAN?!"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_xa5qa"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_iskqu")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_nj016"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "I don’t give a damn, Human. We must trample on them. It is destiny."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_m5qrj"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_nj016")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_rhqmd"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "He points off into the distance like he’s expecting you to behold a dramatic enemy stronghold."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_m3a3t"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_rhqmd")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_q0pm0"]
+script = ExtResource("4_dccfs")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_r0ng0"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You look on a sunny hill across the valley."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_86rlh"]
+script = ExtResource("2_fhrx3")
+label = "WOOFER IMAGE"
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_q0pm0"), SubResource("Resource_r0ng0")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ormcs"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You see Emperor Woof—a huge doberman—gently handing an ice cream cone to a tiny puppy who giggles and wags its tail."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_56b1w"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_ormcs")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_0s7do"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "The puppy misses the cone and gets ice cream all over its snout. Emperor Woof tenderly wipes it with a napkin."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_kfxtp"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_0s7do")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_p5iu5"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("10_g6xnk")
+text = "Hold still, pup. Messy noses deserve gentle care"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_dn4br"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_p5iu5")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_8a8ee"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "They look adorable. Peaceful. Wholesome."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ux3fy"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_8a8ee")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_22jm0"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "Bingus squints like he’s witnessing a war crime."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_elhhe"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_22jm0")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_0pw1w"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "See that?"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_17nqr"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_0pw1w")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_jkd2r"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Pure evil."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_orsev"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_jkd2r")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_n28lb"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("4_1l0yk")
+text = "That— that’s literally just a dog giving ice cream to a puppy."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_cbf74"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_n28lb")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_momyd"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "That’s what he wants you to think,"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_45ysi"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_momyd")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_iqpcb"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "And THAT… is why he must be destroyed."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_g3bpk"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_iqpcb")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_keq1x"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "He gestures grandly."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_26giy"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_keq1x")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_lnqnf"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Well!"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_un7l0"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_lnqnf")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_7m82w"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Good talk. Go handle that."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_usxpb"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_7m82w")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_nskur"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "You stare at the humongous Doberman and the miniscule pup."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_4ngvl"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_nskur")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_jrgri"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("5_g6xnk")
+text = "They stare back at you and wave in your general direction."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_kko0g"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_jrgri")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_db0gb"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "Good luck!"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_lo3ht"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_db0gb")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_2bemh"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("9_1or0b")
+text = "I believe in you! Kinda!"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_s07ok"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_2bemh")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[node name="PrologueCutscene" type="Node2D"]
+
+[node name="BaseCutscene" parent="." instance=ExtResource("1_rr610")]
+entries = Array[ExtResource("2_fhrx3")]([SubResource("Resource_g6xnk"), SubResource("Resource_544dr"), SubResource("Resource_754nt"), SubResource("Resource_f1hxq"), SubResource("Resource_7qsco"), SubResource("Resource_yue5x"), SubResource("Resource_hj1v2"), SubResource("Resource_3b5c2"), SubResource("Resource_rcjma"), SubResource("Resource_sykdg"), SubResource("Resource_lg7ci"), SubResource("Resource_uhwwr"), SubResource("Resource_6nhqg"), SubResource("Resource_h3omy"), SubResource("Resource_jnh3s"), SubResource("Resource_2h4na"), SubResource("Resource_5f87p"), SubResource("Resource_6berc"), SubResource("Resource_ot6cv"), SubResource("Resource_jwsrr"), SubResource("Resource_828p4"), SubResource("Resource_ih8v1"), SubResource("Resource_xa5qa"), SubResource("Resource_m5qrj"), SubResource("Resource_m3a3t"), SubResource("Resource_86rlh"), SubResource("Resource_56b1w"), SubResource("Resource_kfxtp"), SubResource("Resource_dn4br"), SubResource("Resource_ux3fy"), SubResource("Resource_elhhe"), SubResource("Resource_17nqr"), SubResource("Resource_orsev"), SubResource("Resource_cbf74"), SubResource("Resource_45ysi"), SubResource("Resource_g3bpk"), SubResource("Resource_26giy"), SubResource("Resource_un7l0"), SubResource("Resource_usxpb"), SubResource("Resource_4ngvl"), SubResource("Resource_kko0g"), SubResource("Resource_lo3ht"), SubResource("Resource_s07ok")])
