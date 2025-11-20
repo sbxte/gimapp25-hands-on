@@ -29,3 +29,6 @@ func get_data() -> SaveData:
 		load_data()
 	print(cached_save.levels_completed)
 	return cached_save
+
+func reset_data() -> void:
+	cached_save = SaveData.new()
