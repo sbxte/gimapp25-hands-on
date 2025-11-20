@@ -134,6 +134,8 @@ func play_trace() -> void:
 
 func reset_cats() -> void:
 	cats = grid_size.x * grid_size.y
+	if max_pairs != -1:
+		cats = mini(cats, max_pairs * 2)
 	for cat in get_tree().get_nodes_in_group("Cats"):
 		cat.queue_free()
 
