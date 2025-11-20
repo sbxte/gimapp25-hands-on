@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwmlcclgudd34"
-path="res://.godot/imported/Paused (unscaled).png-386b0aff652e18b055325294bc31f31b.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://assets/sprites/Paused (unscaled).png"
-dest_files=["res://.godot/imported/Paused (unscaled).png-386b0aff652e18b055325294bc31f31b.ctex"]
 
 [params]
 
