@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c25ofbmrejgej"]
 
-[ext_resource type="Script" uid="uid://bgr81xyhaa8ou" path="res://scripts/menus/base_button_audio.gd" id="1_covf1"]
+[ext_resource type="Script" uid="uid://bgr81xyhaa8ou" path="res://scripts/button/base_audio.gd" id="1_covf1"]
 
 [node name="BaseButtonAudio" type="Node"]
 script = ExtResource("1_covf1")

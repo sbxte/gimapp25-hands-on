@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnfl1wolr6k3y"]
+
+[ext_resource type="Script" uid="uid://dc78rtk5fgnri" path="res://scripts/button/set_scene.gd" id="1_i7a7v"]
+
+[node name="SetSceneBehavior" type="Node"]
+script = ExtResource("1_i7a7v")

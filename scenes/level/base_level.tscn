@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
 [ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="5_wq2a1"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
-[ext_resource type="Script" uid="uid://dg02pr50qx03s" path="res://scripts/menus/pause_button.gd" id="6_t6xnl"]
 [ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="7_466n5"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/sprites/background.png" id="7_kxd26"]
+[ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="9_wq2a1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
 
@@ -112,8 +112,8 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_8xnqg")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wq2a1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_466n5")
 icon = ExtResource("6_8xnqg")
-script = ExtResource("6_t6xnl")
-pause_menu_path = "res://scenes/menus/pause_menu.tscn"
+
+[node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("9_wq2a1")]
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

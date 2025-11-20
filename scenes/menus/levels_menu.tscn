@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_8h12j"]
-[ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="2_dnh54"]
-[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/audio/changemenu_button_audio.tscn" id="3_5futn"]
-[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/audio/base_button_audio.tscn" id="3_dnh54"]
+[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
+[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
+[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -101,10 +101,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Back to Main Menu"
-script = ExtResource("2_dnh54")
-scene_path = "res://scenes/menus/main_menu.tscn"
 
 [node name="ChangeMenuButtonAudio\'" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3/MainMenu" instance=ExtResource("3_5futn")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3/MainMenu" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/menus/main_menu.tscn"
 
 [node name="Level1" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -124,11 +125,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Level 1"
-script = ExtResource("2_dnh54")
-track_history = true
-scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,10 +150,11 @@ theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Level 2
 "
-script = ExtResource("2_dnh54")
-scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -172,10 +174,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Level 3"
-script = ExtResource("2_dnh54")
-scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -195,10 +198,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Level 4"
-script = ExtResource("2_dnh54")
-scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="Level5" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -218,7 +222,8 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 text = "Level 5"
-script = ExtResource("2_dnh54")
-scene_path = "res://scenes/levels/level_5.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("3_dnh54")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/levels/level_5.tscn"

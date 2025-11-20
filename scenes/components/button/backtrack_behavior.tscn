@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmhd0ydqnufux"]
+
+[ext_resource type="Script" uid="uid://ih68ydgaux3t" path="res://scripts/button/backtrack.gd" id="1_0c8b6"]
+
+[node name="BacktrackBehavior" type="Node"]
+script = ExtResource("1_0c8b6")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8fne3keokn6o"]
+
+[ext_resource type="Script" uid="uid://fs2xtfra3gbj" path="res://scripts/button/overlay.gd" id="1_42tad"]
+
+[node name="OverlayBehavior" type="Node"]
+script = ExtResource("1_42tad")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck78x8cj8sjb2"]
+
+[ext_resource type="Script" uid="uid://fs2xtfra3gbj" path="res://scripts/button/overlay.gd" id="1_4tluh"]
+
+[node name="PauseBehavior" type="Node"]
+script = ExtResource("1_4tluh")
+overlay_path = "res://scenes/menus/pause_menu.tscn"

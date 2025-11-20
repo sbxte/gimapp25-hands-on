@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l15pj02mxg78"]
+
+[ext_resource type="Script" uid="uid://bevb15dp7yy7p" path="res://scripts/button/quit.gd" id="1_67inf"]
+
+[node name="QuitBehavior" type="Node"]
+script = ExtResource("1_67inf")

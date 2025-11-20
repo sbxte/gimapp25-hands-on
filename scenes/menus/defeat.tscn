@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dxhjl7jf578rk"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
-[ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="2_nh3cm"]
-[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/audio/base_button_audio.tscn" id="3_odpfo"]
-[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/audio/changemenu_button_audio.tscn" id="4_a1c3q"]
+[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_odpfo"]
+[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_a1c3q"]
+[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_a1c3q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -95,10 +95,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_lyivj")
 theme_override_font_sizes/font_size = 24
 text = "Restart Level"
-script = ExtResource("2_nh3cm")
-backtrack = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("3_odpfo")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("5_a1c3q")]
+backtrack = true
 
 [node name="Return" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -118,10 +119,11 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_lyivj")
 theme_override_font_sizes/font_size = 24
 text = "Return Home"
-script = ExtResource("2_nh3cm")
-scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("4_a1c3q")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("5_a1c3q")]
+scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" to="Control" method="_on_settings_button_pressed"]

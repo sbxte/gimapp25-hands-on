@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drg2so0uhaa8o"]
+
+[ext_resource type="Script" uid="uid://bqfr800mism5b" path="res://scripts/button/change_menu_audio.gd" id="1_k5yo1"]
+
+[node name="ChangeMenuAudio" type="Node"]
+script = ExtResource("1_k5yo1")

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
-[ext_resource type="Script" uid="uid://dewab0l5hrs5o" path="res://scripts/menus/scene_change_button.gd" id="2_ovrgc"]
-[ext_resource type="Script" uid="uid://blm7fqb4obaxp" path="res://scripts/menus/quit_button.gd" id="3_2o76q"]
-[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/audio/base_button_audio.tscn" id="3_imvie"]
-[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/audio/changemenu_button_audio.tscn" id="4_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_imvie"]
+[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_ng0o5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
@@ -102,11 +102,12 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Play"
-script = ExtResource("2_ovrgc")
-track_history = true
-scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("4_ng0o5")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("3_ng0o5")]
+track_history = true
+scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -126,11 +127,12 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Settings"
-script = ExtResource("2_ovrgc")
-track_history = true
-scene_path = "res://scenes/menus/settings_menu.tscn"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("4_ng0o5")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("3_ng0o5")]
+track_history = true
+scene_path = "res://scenes/menus/settings_menu.tscn"
 
 [node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -151,9 +153,10 @@ theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
 text = "Quit
 "
-script = ExtResource("3_2o76q")
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("3_imvie")]
+
+[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("6_ng0o5")]
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
