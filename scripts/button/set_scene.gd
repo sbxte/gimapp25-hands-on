@@ -2,7 +2,7 @@ extends Node
 
 @export var backtrack := false
 @export var track_history: bool = false
-@export var scene_path: String
+@export_file_path var scene_path: String
 
 @onready var button: Button = $".."
 

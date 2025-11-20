@@ -21,8 +21,8 @@ var endless_mode := false
 @export var cat_scene: PackedScene
 @export var timer: TimerController
 
-@export var victory_scene_path: String
-@export var defeat_scene_path: String
+@export_file_path var victory_scene_path: String
+@export_file_path var defeat_scene_path: String
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
