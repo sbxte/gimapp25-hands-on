@@ -5,7 +5,7 @@ var cutscene_visible := true
 func _ready() -> void:
 	Events.cutscene_visibility_changed.connect(func(v: bool): cutscene_visible = v)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not cutscene_visible:
 		return
 

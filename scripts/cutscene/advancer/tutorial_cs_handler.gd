@@ -23,7 +23,9 @@ func _ready() -> void:
 	hint_anim_timer.timeout.connect(hint_anim_timer_finished)
 	add_child(hint_anim_timer)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		print("hello")
 	if not play_mode:
 		if event is InputEventMouseButton:
 			var m_event := (event as InputEventMouseButton)

@@ -42,13 +42,6 @@ func _ready() -> void:
 	timer.timer_ended.connect(on_defeat)
 
 func _process(_delta: float) -> void:
-	# When the mouse is released, clear the line path
-	# and cancel further processing (return)
-	if dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		AudioManager.deselect.play()
-		erase_path(false)
-		return
-
 	if not dragging:
 		return
 
@@ -59,6 +52,14 @@ func _process(_delta: float) -> void:
 		append_path(last_path_point + cardinalized)
 
 	confine_to_play_area()
+
+func _unhandled_input(event: InputEvent) -> void:
+	# When the mouse is released on nothing, clear the line path
+	if event is InputEventMouseButton:
+		if not event.pressed and event.button_index == MOUSE_BUTTON_LEFT and dragging:
+			AudioManager.deselect.play()
+			erase_path(false)
+
 
 func _draw() -> void:
 	# The path array consists of points in the path

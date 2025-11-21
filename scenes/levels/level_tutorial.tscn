@@ -34,18 +34,6 @@
 texture = ExtResource("11_dbhxw")
 axis_stretch_horizontal = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kka41"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frl7g"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02mq4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwxx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
-
 [sub_resource type="Animation" id="Animation_qf4k4"]
 resource_name = "RESET"
 tracks/0/type = "value"
@@ -238,6 +226,18 @@ script = ExtResource("3_w73a1")
 components = Array[ExtResource("4_nsphw")]([SubResource("Resource_17jfl"), SubResource("Resource_lldia"), SubResource("Resource_m43j8")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kka41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frl7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02mq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
+
 [node name="LevelTutorial" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 script = ExtResource("1_1w7m4")
 grid_size = Vector2i(3, 2)
@@ -308,37 +308,6 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_5pi7b")
 value = 100.0
 show_percentage = false
 
-[node name="Pause" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
-layout_mode = 0
-offset_left = 1808.0
-offset_top = 31.0
-offset_right = 2532.0
-offset_bottom = 755.0
-scale = Vector2(0.2, 0.2)
-
-[node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
-material = SubResource("CanvasItemMaterial_1w7m4")
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kka41")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_frl7g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_02mq4")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_rgwxx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6yvh5")
-icon = ExtResource("14_5pi7b")
-
-[node name="OverlayBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("15_d1cyn")]
-overlay_path = "res://scenes/menus/pause_menu.tscn"
-
-[node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("16_cc0dj")]
-
-[node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
-
 [node name="Victory" parent="." instance=ExtResource("8_0xb81")]
 offset = Vector2(0, -1130)
 transform = Transform2D(1, 0, 0, 1, 0, -1130)
@@ -365,5 +334,35 @@ z_index = 10
 script = ExtResource("26_vqxww")
 play_field = NodePath("../../TutorialPlayfield")
 
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
+offset_left = 1808.0
+offset_top = 31.0
+offset_right = 2532.0
+offset_bottom = 755.0
+scale = Vector2(0.2, 0.2)
+mouse_filter = 0
+
+[node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
+z_index = 10
+material = SubResource("CanvasItemMaterial_1w7m4")
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kka41")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_frl7g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_02mq4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rgwxx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yvh5")
+icon = ExtResource("14_5pi7b")
+
+[node name="OverlayBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("15_d1cyn")]
+overlay_path = "res://scenes/menus/pause_menu.tscn"
+
+[node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("16_cc0dj")]
+
+[node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
+
 [connection signal="value_changed" from="UnusedTimer/TimerProgress/TimerBar" to="UnusedTimer/TimerProgress" method="_on_timer_bar_value_changed"]
-[connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]
+[connection signal="gui_input" from="Pause/HBoxContainer/PauseButton" to="Pause/HBoxContainer/PauseButton/PauseBehavior" method="_on_pause_button_gui_input"]
