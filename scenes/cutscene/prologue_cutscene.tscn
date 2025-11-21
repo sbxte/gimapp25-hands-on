@@ -1,5 +1,6 @@
-[gd_scene load_steps=104 format=3 uid="uid://cg2scyc1udcsd"]
+[gd_scene load_steps=105 format=3 uid="uid://cg2scyc1udcsd"]
 
+[ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="1_f7np6"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
 [ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_fhrx3"]
 [ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_rjviq"]
@@ -520,3 +521,5 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [node name="BaseCutscene" parent="." instance=ExtResource("1_rr610")]
 entries = Array[ExtResource("2_fhrx3")]([SubResource("Resource_g6xnk"), SubResource("Resource_544dr"), SubResource("Resource_754nt"), SubResource("Resource_f1hxq"), SubResource("Resource_7qsco"), SubResource("Resource_yue5x"), SubResource("Resource_hj1v2"), SubResource("Resource_3b5c2"), SubResource("Resource_rcjma"), SubResource("Resource_sykdg"), SubResource("Resource_lg7ci"), SubResource("Resource_uhwwr"), SubResource("Resource_6nhqg"), SubResource("Resource_h3omy"), SubResource("Resource_jnh3s"), SubResource("Resource_2h4na"), SubResource("Resource_5f87p"), SubResource("Resource_6berc"), SubResource("Resource_ot6cv"), SubResource("Resource_jwsrr"), SubResource("Resource_828p4"), SubResource("Resource_ih8v1"), SubResource("Resource_xa5qa"), SubResource("Resource_m5qrj"), SubResource("Resource_m3a3t"), SubResource("Resource_86rlh"), SubResource("Resource_56b1w"), SubResource("Resource_kfxtp"), SubResource("Resource_dn4br"), SubResource("Resource_ux3fy"), SubResource("Resource_elhhe"), SubResource("Resource_17nqr"), SubResource("Resource_orsev"), SubResource("Resource_cbf74"), SubResource("Resource_45ysi"), SubResource("Resource_g3bpk"), SubResource("Resource_26giy"), SubResource("Resource_un7l0"), SubResource("Resource_usxpb"), SubResource("Resource_4ngvl"), SubResource("Resource_kko0g"), SubResource("Resource_lo3ht"), SubResource("Resource_s07ok")])
+
+[node name="DefaultCsadvanceBehavior" parent="." instance=ExtResource("1_f7np6")]

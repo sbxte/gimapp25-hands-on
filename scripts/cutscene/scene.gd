@@ -13,7 +13,6 @@ extends CanvasLayer
 @export var entry_idx := 0
 
 var chars: Dictionary[String, CharacterBehavior] = {}
-var mouse_button_pressed := false
 
 var text: String = ""
 var text_idx := 0
@@ -21,18 +20,10 @@ var text_animation_speed := 1
 
 func _ready() -> void:
 	Events.advance_cutscene.connect(advance_entry)
+	visibility_changed.connect(func(): Events.cutscene_visibility_changed.emit(visible))
 	text_timer.timeout.connect(on_text_timer_finished)
-	exec_entry()
 
-func _process(_delta: float) -> void:
-	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		mouse_button_pressed = false
-
-	if Input.is_action_just_pressed("ui_accept") or (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not mouse_button_pressed):
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			mouse_button_pressed = true
-
-		advance_entry()
+	exec_entry.call_deferred()
 
 func advance_entry() -> void:
 	if text_idx + 1 < text.length():
