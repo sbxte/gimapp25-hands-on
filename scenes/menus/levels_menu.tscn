@@ -108,6 +108,30 @@ text = "Back to Main Menu"
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3/MainMenu" instance=ExtResource("5_xaaqn")]
 scene_path = "res://scenes/menus/main_menu.tscn"
 
+[node name="Tutorial" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="TutorialLevelButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_8h12j")
+theme_override_font_sizes/font_size = 24
+text = "Tutorial"
+
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("5_knlas")]
+scene_path = "res://scenes/levels/level_tutorial.tscn"
+
 [node name="Level1" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -130,6 +154,7 @@ text = "Level 1"
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("5_knlas")]
+threshold = 1
 scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -155,7 +180,7 @@ text = "Level 2
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("5_knlas")]
-threshold = 1
+threshold = 2
 scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -180,7 +205,7 @@ text = "Level 3"
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("5_knlas")]
-threshold = 2
+threshold = 3
 scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -205,7 +230,7 @@ text = "Level 4"
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("5_knlas")]
-threshold = 3
+threshold = 4
 scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="Level5" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -230,7 +255,7 @@ text = "Level 5"
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_knlas")]
-threshold = 4
+threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
 
 [node name="LevelEndless" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]

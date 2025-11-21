@@ -6,4 +6,4 @@
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_j2425")]
 grid_size = Vector2i(4, 2)
-level = 2
+level = 3

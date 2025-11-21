@@ -5,5 +5,6 @@
 [node name="LevelEndless" type="Node2D"]
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_wlheh")]
+level = 7
 stages = 25
 endless_mode = true
