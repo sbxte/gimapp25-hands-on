@@ -105,6 +105,10 @@ func exec_entry() -> void:
 		elif component is CutsceneShow:
 			var _comp := (component as CutsceneShow)
 			show()
+		elif component is CutscenePauseTree:
+			get_tree().paused = true
+		elif component is CutsceneUnpauseTree:
+			get_tree().paused = false
 
 func next_letter() -> void:
 	dialog_text.text += text[text_idx]

@@ -10,6 +10,7 @@ bg_color = Color(0.23392546, 0.23392546, 0.23392543, 1)
 bg_color = Color(0.0768358, 0.07683582, 0.076835774, 1)
 
 [node name="BaseCutscene" type="CanvasLayer" node_paths=PackedStringArray("background", "dialog_text", "dialog_speaker", "text_timer")]
+process_mode = 3
 script = ExtResource("1_jijrc")
 background = NodePath("Background")
 dialog_text = NodePath("Text")
