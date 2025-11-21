@@ -15,11 +15,12 @@ extends Node
 var chars: Dictionary[String, CharacterBehavior] = {}
 var mouse_button_pressed := false
 
-var text: String
+var text: String = ""
 var text_idx := 0
 var text_animation_speed := 1
 
 func _ready() -> void:
+	Events.advance_cutscene.connect(advance_entry)
 	text_timer.timeout.connect(on_text_timer_finished)
 	exec_entry()
 
@@ -31,18 +32,21 @@ func _process(_delta: float) -> void:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			mouse_button_pressed = true
 
-		if text_idx + 1 < text.length():
-			dialog_text.text = text
-			text_idx = text.length()
-			text_timer.stop()
-			return
+		advance_entry()
 
-		if entry_idx + 1 == entries.size():
-			SceneManager.change_scene(entries[entry_idx].change_scene, false)
-			return
+func advance_entry() -> void:
+	if text_idx + 1 < text.length():
+		text_timer.stop()
+		dialog_text.text = text
+		text_idx = text.length()
+		return
 
-		entry_idx += 1
-		exec_entry()
+	if entry_idx + 1 == entries.size():
+		SceneManager.change_scene(entries[entry_idx].change_scene, false)
+		return
+
+	entry_idx += 1
+	exec_entry()
 
 func exec_entry() -> void:
 	var entry := entries[entry_idx]
