@@ -5,6 +5,7 @@ var path_history : Array[String] = []
 var overlays: Array[Node] = []
 
 func change_scene(new_scene_path: String, track: bool = true) -> void:
+	AudioManager.stop_all_music()
 	if track and get_tree().current_scene:
 		var current_scene := get_tree().current_scene.scene_file_path
 		path_history.append(current_scene)

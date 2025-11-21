@@ -16,3 +16,6 @@ extends Node
 @export var lowtime_5: AudioStreamPlayer
 @export var lowtime_10: AudioStreamPlayer
 @export var victory: AudioStreamPlayer
+
+func stop_all_music() -> void:
+	music.stop()
