@@ -14,22 +14,13 @@ extends Control
 
 
 @onready var back_button: Button = $PanelContainer/MarginContainer/HBoxContainer/BackButton
-@onready var main_background: TextureRect = $MainBackground
-@onready var game_background: TextureRect = $GameBackground
 
 var master_bus = AudioServer.get_bus_index("Master")
 var sfx_bus = AudioServer.get_bus_index("SFX")
 var music_bus = AudioServer.get_bus_index("Music")
 
 func _ready() -> void:
-	var pause_menu = get_tree().get_first_node_in_group("PauseMenu")
-	if not SceneManager.path_history.is_empty() or not SceneManager.overlays.is_empty():
-		if SceneManager.path_history.get(0) == "res://scenes/menus/main_menu.tscn" && SceneManager.overlays.get(0) != pause_menu: 
-			main_background.visible = true
-			game_background.visible = false
-		elif SceneManager.overlays.get(0) == pause_menu:
-			main_background.visible = false
-			game_background.visible = true
+
 	master_bar.value = master_slider.value
 	sfx_bar.value = sfx_slider.value
 	music_bar.value = music_slider.value

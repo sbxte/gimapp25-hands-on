@@ -12,4 +12,3 @@ func pressed() -> void:
 		button.disabled = true
 		return
 	super.pressed()
-

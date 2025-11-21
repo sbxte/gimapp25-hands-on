@@ -1,7 +1,6 @@
-[gd_scene load_steps=46 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=45 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
-[ext_resource type="Texture2D" uid="uid://d00vdgmrgb662" path="res://assets/background/Main menu BG.png" id="2_eoonq"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="3_mcc4n"]
@@ -119,36 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7i3iu")
 
-[node name="MainBackground" type="TextureRect" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_eoonq")
-
-[node name="BlurMain" type="ColorRect" parent="Control/MainBackground"]
-material = SubResource("ShaderMaterial_g67jo")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DarkenMain" type="ColorRect" parent="Control/MainBackground"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
-
 [node name="GameBackground" type="TextureRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_right = 2000.0
 offset_bottom = 1125.0
@@ -185,10 +155,10 @@ metadata/_edit_use_anchors_ = true
 [node name="SettingsText" type="TextureRect" parent="Control/MenuBackground"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.29606986
-anchor_top = 0.19021948
-anchor_right = 1.332751
-anchor_bottom = 0.9819023
+anchor_left = -0.29170305
+anchor_top = 0.19715054
+anchor_right = 1.3371178
+anchor_bottom = 0.98883337
 offset_top = 1.5258789e-05
 texture = ExtResource("6_l0eij")
 expand_mode = 1
@@ -460,10 +430,6 @@ icon = ExtResource("3_6wm04")
 
 [node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("7_kffdn")]
 
-[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/MasterSlider" to="Control" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/MasterSlider" to="Control" method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/SFXSlider" to="Control" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/SFXSlider" to="Control" method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/MusicSlider" to="Control" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/MusicSlider" to="Control" method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" to="Control" method="_on_back_button_pressed"]
