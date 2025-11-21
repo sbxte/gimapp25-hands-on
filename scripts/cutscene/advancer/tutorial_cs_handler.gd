@@ -1,6 +1,7 @@
 extends Node2D
 
 var play_mode := false
+var play_hint := false
 
 var hint_anim_comp: TutorialHintCSComp
 var hint_anim_pidx := 0
@@ -10,8 +11,8 @@ var hint_anim_timer: Timer
 @export var play_field: PlayField
 
 func _ready() -> void:
-	Events.cutscene_visibility_changed.connect(func(v: bool): play_mode = v)
-	Events.cutscene_dialog_box_enabled.connect(func(v: bool): play_mode = v)
+	Events.cutscene_visibility_changed.connect(func(v: bool): play_mode = not v)
+	Events.cutscene_dialog_box_enabled.connect(func(v: bool): play_mode = not v)
 
 	play_field.drag_start.connect(drag_start)
 	play_field.drag_end.connect(drag_end)
@@ -23,17 +24,15 @@ func _ready() -> void:
 	add_child(hint_anim_timer)
 
 func _input(event: InputEvent) -> void:
-	if play_mode:
-		return
-	if event is InputEventMouseButton:
-		var m_event := (event as InputEventMouseButton)
-		if m_event.button_index == MOUSE_BUTTON_LEFT and m_event.pressed:
+	if not play_mode:
+		if event is InputEventMouseButton:
+			var m_event := (event as InputEventMouseButton)
+			if m_event.button_index == MOUSE_BUTTON_LEFT and m_event.pressed:
+				Events.advance_cutscene.emit()
+				get_viewport().set_input_as_handled()
+		if event.is_action_pressed("ui_accept"):
 			Events.advance_cutscene.emit()
 			get_viewport().set_input_as_handled()
-
-	if event.is_action_pressed("ui_accept"):
-		Events.advance_cutscene.emit()
-		get_viewport().set_input_as_handled()
 
 func _draw() -> void:
 	if hint_anim_points.size() < 2:
@@ -42,14 +41,22 @@ func _draw() -> void:
 
 func handle_comp(_node: Node, component: CutsceneComponent) -> void:
 	if component is TutorialHintCSComp:
-		play_mode = true
+		play_hint = true
 		hint_anim_comp = component
 		hint_anim_pidx = 0
 		hint_anim_points.clear()
 		hint_anim_timer.paused = false
 		hint_anim_timer.start(0.5)
+	elif component is TutorialHintDisableCSComp:
+		play_hint = false
+		hint_anim_comp = null
+		hint_anim_timer.paused = true
+		hint_anim_pidx = 0
+		hint_anim_points.clear()
 
 func drag_start(point: Vector2) -> void:
+	if not play_hint:
+		return
 	if point - (global_position - play_field.global_position) != transform_point(hint_anim_comp.points[0]):
 		Events.cancel_drag.emit()
 		return
@@ -61,8 +68,10 @@ func drag_start(point: Vector2) -> void:
 	queue_redraw()
 
 func drag_end(_point: Vector2, matched: bool) -> void:
+	if not play_hint:
+		return
 	if matched:
-		play_mode = false
+		play_hint = false
 		Events.cutscene_custom_comp_finished.emit()
 		Events.advance_cutscene.emit()
 		return
