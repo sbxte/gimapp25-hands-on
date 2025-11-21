@@ -25,5 +25,7 @@ func _ready() -> void:
 	play_field.endless_mode = endless_mode
 
 	timer.start_duration = timer_duration
-	timer.reset()
-	pass
+	if timer_duration != 0:
+		timer.reset()
+	else:
+		timer.disable()

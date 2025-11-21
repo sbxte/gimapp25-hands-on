@@ -183,4 +183,4 @@ func on_victory() -> void:
 	await victory_animation.animation_finished
 	SceneManager.change_scene(victory_scene_path, false)
 
-	
+
