@@ -9,7 +9,7 @@ bg_color = Color(0.23392546, 0.23392546, 0.23392543, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7b3o"]
 bg_color = Color(0.0768358, 0.07683582, 0.076835774, 1)
 
-[node name="BaseCutscene" type="Node2D" node_paths=PackedStringArray("background", "dialog_text", "dialog_speaker", "text_timer")]
+[node name="BaseCutscene" type="CanvasLayer" node_paths=PackedStringArray("background", "dialog_text", "dialog_speaker", "text_timer")]
 script = ExtResource("1_jijrc")
 background = NodePath("Background")
 dialog_text = NodePath("Text")

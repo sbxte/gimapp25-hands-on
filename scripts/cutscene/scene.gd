@@ -1,5 +1,5 @@
 class_name Cutscene
-extends Node
+extends CanvasLayer
 
 @export_subgroup("Objects")
 @export var background: Sprite2D
@@ -108,6 +108,12 @@ func exec_entry() -> void:
 			player.stream = comp.stream
 			player.play()
 			player.finished.connect(func(): player.queue_free())
+		elif component is CutsceneHide:
+			var _comp := (component as CutsceneHide)
+			hide()
+		elif component is CutsceneShow:
+			var _comp := (component as CutsceneShow)
+			show()
 
 func next_letter() -> void:
 	dialog_text.text += text[text_idx]
