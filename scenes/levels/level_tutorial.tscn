@@ -1,0 +1,325 @@
+[gd_scene load_steps=56 format=3 uid="uid://bu7hllkvcc1rn"]
+
+[ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="1_0xb81"]
+[ext_resource type="Script" uid="uid://bhvduvlqq3evf" path="res://scripts/level/tutorial_level.gd" id="1_1w7m4"]
+[ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="2_c1vkt"]
+[ext_resource type="PackedScene" uid="uid://d0hx5sowmn1f6" path="res://scenes/level/tutorial_level_gen.tscn" id="2_d1cyn"]
+[ext_resource type="Script" uid="uid://co45egaoenab3" path="res://scripts/level/play_field.gd" id="3_cc0dj"]
+[ext_resource type="PackedScene" uid="uid://c5vcybq0vjjbh" path="res://scenes/level/cat.tscn" id="3_nsphw"]
+[ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="3_w73a1"]
+[ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="4_nsphw"]
+[ext_resource type="PackedScene" uid="uid://dqkint05opiq0" path="res://scenes/menus/victory.tscn" id="8_0xb81"]
+[ext_resource type="Script" uid="uid://buou3l0tcljdd" path="res://scripts/level/timer.gd" id="8_tc44x"]
+[ext_resource type="PackedScene" uid="uid://dxhjl7jf578rk" path="res://scenes/menus/defeat.tscn" id="9_dbhxw"]
+[ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="9_imiua"]
+[ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="10_0xb81"]
+[ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="11_dbhxw"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="12_imiua"]
+[ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="14_5pi7b"]
+[ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="15_d1cyn"]
+[ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="16_cc0dj"]
+[ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="19_frl7g"]
+[ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="20_02mq4"]
+[ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="21_rgwxx"]
+[ext_resource type="Script" uid="uid://cih1iga1euepy" path="res://scripts/cutscene/entries/pause.gd" id="22_rgwxx"]
+[ext_resource type="Script" uid="uid://rg02id54aw1x" path="res://scripts/cutscene/entries/toggle_dialogbox.gd" id="23_i4owl"]
+[ext_resource type="Script" uid="uid://cy1me858c253b" path="res://scripts/cutscene/entries/unpause.gd" id="24_6yvh5"]
+[ext_resource type="Script" uid="uid://cvoj1nafbec2h" path="res://scripts/cutscene/entries/tutorial/tutorial_hint.gd" id="25_vqxww"]
+[ext_resource type="Script" uid="uid://b6sy5pr1ppum1" path="res://scripts/cutscene/advancer/tutorial_cs_handler.gd" id="26_vqxww"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eis7c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pi7b"]
+texture = ExtResource("11_dbhxw")
+axis_stretch_horizontal = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kka41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frl7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02mq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
+
+[sub_resource type="Animation" id="Animation_qf4k4"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1130)]
+}
+
+[sub_resource type="Animation" id="Animation_8x4to"]
+resource_name = "slide_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1130), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
+_data = {
+&"RESET": SubResource("Animation_qf4k4"),
+&"slide_down": SubResource("Animation_8x4to")
+}
+
+[sub_resource type="Animation" id="Animation_daaf0"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1130)]
+}
+
+[sub_resource type="Animation" id="Animation_ufabe"]
+resource_name = "slide_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1130), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
+_data = {
+&"RESET": SubResource("Animation_daaf0"),
+&"slide_up": SubResource("Animation_ufabe")
+}
+
+[sub_resource type="Resource" id="Resource_6yvh5"]
+script = ExtResource("20_02mq4")
+character = ExtResource("19_frl7g")
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_i4owl"]
+script = ExtResource("21_rgwxx")
+character = ExtResource("19_frl7g")
+text = "Okay, Human, pay attention. See these cats?"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_aqoe0"]
+script = ExtResource("22_rgwxx")
+metadata/_custom_type_script = "uid://cih1iga1euepy"
+
+[sub_resource type="Resource" id="Resource_pmeua"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_6yvh5"), SubResource("Resource_i4owl"), SubResource("Resource_aqoe0")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_vqxww"]
+script = ExtResource("21_rgwxx")
+character = ExtResource("19_frl7g")
+text = "Your job is simple: match one cat to the same kind of cat. Archer to Archer. Infantry to Infantry. Bard to Bard. Very basic stuff."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_cc0dj"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_vqxww")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_u8uhl"]
+script = ExtResource("23_i4owl")
+metadata/_custom_type_script = "uid://rg02id54aw1x"
+
+[sub_resource type="Resource" id="Resource_yhqpt"]
+script = ExtResource("24_6yvh5")
+metadata/_custom_type_script = "uid://cy1me858c253b"
+
+[sub_resource type="Resource" id="Resource_jlf0l"]
+script = ExtResource("25_vqxww")
+offset = Vector2(-96, -48)
+points = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, -1), Vector2i(1, -1), Vector2i(2, -1), Vector2i(3, -1), Vector2i(3, 0), Vector2i(3, 1), Vector2i(2, 1)])
+metadata/_custom_type_script = "uid://cvoj1nafbec2h"
+
+[sub_resource type="Resource" id="Resource_rgwxx"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_u8uhl"), SubResource("Resource_yhqpt"), SubResource("Resource_jlf0l")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_5khvx"]
+script = ExtResource("25_vqxww")
+offset = Vector2(-96, -48)
+points = Array[Vector2i]([Vector2i(1, 0), Vector2i(0, 0), Vector2i(0, 1)])
+metadata/_custom_type_script = "uid://cvoj1nafbec2h"
+
+[sub_resource type="Resource" id="Resource_8fiqq"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_5khvx")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_urnbx"]
+script = ExtResource("25_vqxww")
+offset = Vector2(-96, -48)
+points = Array[Vector2i]([Vector2i(2, 0), Vector2i(2, 1), Vector2i(1, 1)])
+metadata/_custom_type_script = "uid://cvoj1nafbec2h"
+
+[sub_resource type="Resource" id="Resource_gow75"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_urnbx")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_nnw1l"]
+script = ExtResource("3_w73a1")
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[node name="LevelTutorial" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
+script = ExtResource("1_1w7m4")
+grid_size = Vector2i(3, 2)
+level = 0
+stages = 1
+play_field = NodePath("TutorialPlayfield")
+timer = NodePath("UnusedTimer")
+
+[node name="MusicBehavior" parent="." instance=ExtResource("1_0xb81")]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1000, 562.5)
+texture = ExtResource("12_imiua")
+
+[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator")]
+z_index = 2
+position = Vector2(1003, 638)
+script = ExtResource("3_cc0dj")
+snap_vec = Vector2(96, 96)
+grid_size = Vector2i(3, 2)
+cat_scene = ExtResource("3_nsphw")
+timer = NodePath("../UnusedTimer")
+cat_generator = NodePath("TutorialLevelGen")
+victory_scene_path = "res://scenes/menus/victory.tscn"
+defeat_scene_path = "res://scenes/menus/defeat.tscn"
+
+[node name="TutorialLevelGen" parent="TutorialPlayfield" instance=ExtResource("2_d1cyn")]
+
+[node name="UnusedTimer" type="Node2D" parent="." node_paths=PackedStringArray("timer", "sprite")]
+script = ExtResource("8_tc44x")
+timer = NodePath("Timer")
+sprite = NodePath("Frame")
+
+[node name="Timer" type="Timer" parent="UnusedTimer"]
+one_shot = true
+
+[node name="Frame" type="Sprite2D" parent="UnusedTimer"]
+position = Vector2(909, 1014)
+scale = Vector2(0.46815908, 0.46815908)
+texture = ExtResource("9_imiua")
+
+[node name="TimerProgress" type="Control" parent="UnusedTimer"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 523.0
+offset_top = 1071.0
+offset_right = 573.0
+offset_bottom = 1111.0
+script = ExtResource("10_0xb81")
+
+[node name="TimerBar" type="ProgressBar" parent="UnusedTimer/TimerProgress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = -0.52500004
+anchor_right = 13.875001
+anchor_bottom = 0.47500002
+offset_left = 76.0
+offset_top = -68.0
+offset_right = 75.99994
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0000623, 1.691621)
+theme_override_styles/background = SubResource("StyleBoxEmpty_eis7c")
+theme_override_styles/fill = SubResource("StyleBoxTexture_5pi7b")
+value = 100.0
+show_percentage = false
+
+[node name="Pause" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
+layout_mode = 0
+offset_left = 1808.0
+offset_top = 31.0
+offset_right = 2532.0
+offset_bottom = 755.0
+scale = Vector2(0.2, 0.2)
+
+[node name="PauseButton" type="Button" parent="Pause/HBoxContainer"]
+material = SubResource("CanvasItemMaterial_1w7m4")
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kka41")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_frl7g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_02mq4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rgwxx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yvh5")
+icon = ExtResource("14_5pi7b")
+
+[node name="OverlayBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("15_d1cyn")]
+overlay_path = "res://scenes/menus/pause_menu.tscn"
+
+[node name="PauseBehavior" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("16_cc0dj")]
+
+[node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
+
+[node name="Victory" parent="." instance=ExtResource("8_0xb81")]
+offset = Vector2(0, -1130)
+transform = Transform2D(1, 0, 0, 1, 0, -1130)
+
+[node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
+libraries = {
+&"": SubResource("AnimationLibrary_daaf0")
+}
+
+[node name="Defeat" parent="." instance=ExtResource("9_dbhxw")]
+offset = Vector2(0, 1130)
+transform = Transform2D(1, 0, 0, 1, 0, 1130)
+
+[node name="DefeatAnimation" type="AnimationPlayer" parent="Defeat"]
+libraries = {
+&"": SubResource("AnimationLibrary_41h08")
+}
+
+[node name="TutorialCutscene" parent="." instance=ExtResource("2_c1vkt")]
+entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_8fiqq"), SubResource("Resource_gow75"), SubResource("Resource_nnw1l")])
+
+[node name="CSHandler" type="Node2D" parent="TutorialCutscene" node_paths=PackedStringArray("play_field")]
+z_index = 10
+script = ExtResource("26_vqxww")
+play_field = NodePath("../../TutorialPlayfield")
+
+[connection signal="value_changed" from="UnusedTimer/TimerProgress/TimerBar" to="UnusedTimer/TimerProgress" method="_on_timer_bar_value_changed"]
+[connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

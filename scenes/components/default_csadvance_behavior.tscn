@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct74qnfhyyvuy"]
 
-[ext_resource type="Script" uid="uid://ljy7j0mejiyg" path="res://scripts/cutscene/default_csadvance_behavior.gd" id="1_wotic"]
+[ext_resource type="Script" uid="uid://ljy7j0mejiyg" path="res://scripts/cutscene/advancer/default_csadvance_behavior.gd" id="1_wotic"]
 
 [node name="DefaultCsadvanceBehavior" type="Node"]
 script = ExtResource("1_wotic")

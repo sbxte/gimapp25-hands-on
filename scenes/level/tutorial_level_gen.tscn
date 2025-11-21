@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0hx5sowmn1f6"]
+
+[ext_resource type="Script" uid="uid://c12d6ssbpcmgh" path="res://scripts/level/generator/tutorial_level_gen.gd" id="1_5rxpl"]
+
+[node name="TutorialLevelGen" type="Node"]
+script = ExtResource("1_5rxpl")

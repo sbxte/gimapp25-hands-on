@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5t0fdh57di2d"]
+
+[ext_resource type="Script" uid="uid://bmwgueu1kib4q" path="res://scripts/level/generator/default_level_gen.gd" id="1_eot5b"]
+
+[node name="DefaultLevelGen" type="Node"]
+script = ExtResource("1_eot5b")

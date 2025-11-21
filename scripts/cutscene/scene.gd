@@ -14,12 +14,15 @@ extends CanvasLayer
 
 var chars: Dictionary[String, CharacterBehavior] = {}
 
+var comps_finished := 0
+
 var text: String = ""
 var text_idx := 0
 var text_animation_speed := 1
 
 func _ready() -> void:
 	Events.advance_cutscene.connect(advance_entry)
+	Events.cutscene_custom_comp_finished.connect(func(): comps_finished += 1)
 	visibility_changed.connect(func(): Events.cutscene_visibility_changed.emit(visible))
 	text_timer.timeout.connect(on_text_timer_finished)
 
@@ -30,6 +33,10 @@ func advance_entry() -> void:
 		text_timer.stop()
 		dialog_text.text = text
 		text_idx = text.length()
+		comps_finished += 1
+		return
+
+	if comps_finished < entries[entry_idx].components.size():
 		return
 
 	if entry_idx + 1 == entries.size():
@@ -40,6 +47,8 @@ func advance_entry() -> void:
 	exec_entry()
 
 func exec_entry() -> void:
+	comps_finished = 0
+	text = ""
 	var entry := entries[entry_idx]
 	var components := entry.components
 	for component in components:
@@ -105,15 +114,24 @@ func exec_entry() -> void:
 		elif component is CutsceneShow:
 			var _comp := (component as CutsceneShow)
 			show()
+		elif component is ToggleDialogBox:
+			dialog_text.visible = component.enabled
+			dialog_speaker.visible = component.enabled
+			Events.cutscene_dialog_box_enabled.emit(component.enabled)
 		elif component is CutscenePauseTree:
 			get_tree().paused = true
 		elif component is CutsceneUnpauseTree:
 			get_tree().paused = false
+		else:
+			Events.cutscene_custom_comp.emit(self, component)
+			comps_finished -= 1
+		comps_finished += 1
 
 func next_letter() -> void:
 	dialog_text.text += text[text_idx]
 
 	if text_idx + 1 >= text.length():
+		comps_finished += 1
 		return
 
 	text_idx += 1

@@ -3,7 +3,7 @@ extends Node2D
 
 @export_subgroup("Grid")
 @export var snap_vec: Vector2 = Vector2(64, 64)
-var grid_size := Vector2i(4, 4)
+@export var grid_size := Vector2i(4, 4)
 
 var dragging: bool = false
 var path: Array[Vector2] = []
@@ -17,10 +17,10 @@ var stages := 5
 var time_bonus: int
 var endless_mode := false
 
-
 @export_subgroup("References")
 @export var cat_scene: PackedScene
 @export var timer: TimerController
+@export var cat_generator: AbstractLevelGen
 
 @export_file_path var victory_scene_path: String
 @export_file_path var defeat_scene_path: String
@@ -28,12 +28,16 @@ var endless_mode := false
 @onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
 @onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
 
+signal drag_start(start: Vector2)
+signal drag_end(end: Vector2, matched: bool)
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 	victory_animation.play("RESET")
 	defeat_animation.play("RESET")
+
+	Events.cancel_drag.connect(cancel_drag)
 
 	timer.timer_ended.connect(on_defeat)
 
@@ -42,7 +46,7 @@ func _process(_delta: float) -> void:
 	# and cancel further processing (return)
 	if dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		AudioManager.deselect.play()
-		erase_path()
+		erase_path(false)
 		return
 
 	if not dragging:
@@ -63,6 +67,9 @@ func _draw() -> void:
 		return
 	draw_polyline(path, Color.GREEN, 5)
 
+func cancel_drag() -> void:
+	erase_path(false)
+
 func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 	if not dragging:
 		start_path(pos - position, cat)
@@ -77,7 +84,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	# When the mouse enters a cat that isn't the same type,
 	# delete the path, speed up timer, and reset streak
 	if cat.type != first_cat.type:
-		erase_path()
+		erase_path(false)
 		AudioManager.wrongmatch.play()
 		timer.set_speed(timer.get_speed() + 1)
 		match_streak = 0
@@ -109,20 +116,23 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 		timer.reset_speed()
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
-	erase_path()
+	erase_path(true)
 	AudioManager.rightmatch.play()
 
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
 	dragging = true
+	drag_start.emit(pos)
 	path.clear()
 	path.push_back(pos)
 	queue_redraw()
 	AudioManager.select.play()
 
-func erase_path() -> void:
+func erase_path(matched: bool) -> void:
 	AudioManager.trace.stop()
 	dragging = false
+	if not path.is_empty():
+		drag_end.emit(path.back(), matched)
 	path.clear()
 	queue_redraw()
 
@@ -145,8 +155,7 @@ func reset_cats() -> void:
 		cats = mini(cats, max_pairs * 2)
 	for cat in get_tree().get_nodes_in_group("Cats"):
 		cat.queue_free()
-
-	LevelGenerator.gen_cats_rect(grid_size, snap_vec, max_pairs, cat_scene, self as Node)
+	cat_generator.gen_cats(grid_size, snap_vec, max_pairs, cat_scene, self)
 
 # Cancel drag when mouse exists play area
 func confine_to_play_area() -> void:
@@ -154,7 +163,7 @@ func confine_to_play_area() -> void:
 	var play_area_scaled := Vector2(play_area.x * snap_vec.x, play_area.y * snap_vec.y)
 	var offset := get_local_mouse_position()
 	if abs(offset.x) > play_area_scaled.x or abs(offset.y) > play_area_scaled.y:
-		erase_path()
+		erase_path(false)
 		AudioManager.deselect.play()
 
 func cardinalize(vec: Vector2) -> Vector2:
@@ -182,5 +191,3 @@ func on_victory() -> void:
 	victory_animation.play("slide_down")
 	await victory_animation.animation_finished
 	SceneManager.change_scene(victory_scene_path, false)
-
-

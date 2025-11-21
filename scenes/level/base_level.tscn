@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=29 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
 [ext_resource type="Script" uid="uid://buou3l0tcljdd" path="res://scripts/level/timer.gd" id="4_8xnqg"]
+[ext_resource type="PackedScene" uid="uid://b5t0fdh57di2d" path="res://scenes/level/default_level_gen.tscn" id="4_qf4k4"]
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
 [ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="5_wq2a1"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
@@ -32,21 +33,6 @@ axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_466n5"]
 
-[sub_resource type="Animation" id="Animation_8x4to"]
-resource_name = "slide_down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -1130), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_qf4k4"]
 resource_name = "RESET"
 tracks/0/type = "value"
@@ -60,6 +46,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -1130)]
+}
+
+[sub_resource type="Animation" id="Animation_8x4to"]
+resource_name = "slide_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1130), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
@@ -120,13 +121,16 @@ timer = NodePath("Timer")
 position = Vector2(1000, 562.5)
 texture = ExtResource("7_kxd26")
 
-[node name="PlayField" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("2_kxd26")]
+[node name="PlayField" parent="." node_paths=PackedStringArray("timer", "cat_generator") instance=ExtResource("2_kxd26")]
 z_index = 2
 position = Vector2(1003, 638)
 snap_vec = Vector2(96, 96)
 timer = NodePath("../Timer")
+cat_generator = NodePath("DefaultLevelGen")
 victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
+
+[node name="DefaultLevelGen" parent="PlayField" instance=ExtResource("4_qf4k4")]
 
 [node name="Timer" type="Node2D" parent="." node_paths=PackedStringArray("timer", "sprite")]
 script = ExtResource("4_8xnqg")

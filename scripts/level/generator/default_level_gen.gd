@@ -1,6 +1,6 @@
-class_name LevelGenerator
+extends AbstractLevelGen
 
-static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene: PackedScene, cat_parent: Node) -> void:
+func gen_cats(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene: PackedScene, cat_parent: Node) -> void:
 	var theoretical_max_pairs := (grid_size.x * grid_size.y) >> 1
 	assert(max_pairs == -1 or (0 <= max_pairs and max_pairs <= theoretical_max_pairs))
 	var remaining_pairs := max_pairs
@@ -87,5 +87,5 @@ static func gen_cats_rect(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int
 			instance.add_to_group("Cats")
 			cat_parent.add_child(instance)
 
-static func vec_to_idx(x: int, y: int, width: int) -> int:
+func vec_to_idx(x: int, y: int, width: int) -> int:
 	return y * width + x
