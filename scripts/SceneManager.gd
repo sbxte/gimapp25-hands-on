@@ -10,7 +10,7 @@ func change_scene(new_scene_path: String, track: bool = true) -> void:
 		var current_scene := get_tree().current_scene.scene_file_path
 		path_history.append(current_scene)
 	get_tree().change_scene_to_file(new_scene_path)
-	overlays.clear()
+	clear_overlays()
 
 func overlay_scene(new_scene_path: String) -> void:
 	var overlay: Node = load(new_scene_path).instantiate()
@@ -28,3 +28,9 @@ func go_back() -> void:
 	if not path_history.is_empty():
 		var previous_scene_path = path_history.pop_back()
 		get_tree().change_scene_to_file(previous_scene_path)
+	clear_overlays()
+
+func clear_overlays() -> void:
+	for overlay in overlays:
+		overlay.queue_free()
+	overlays.clear()
