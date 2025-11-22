@@ -6,4 +6,9 @@
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_ksju7")]
 grid_size = Vector2i(3, 2)
+cat_weights = Array[float]([1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0])
 level = 2
+max_pairs = -1
+stages = 5
+time_bonus = 10
+endless_mode = false

@@ -1,7 +1,9 @@
+class_name BaseLevel
 extends Node
 
-@export_subgroup("Grid")
+@export_subgroup("General")
 @export var grid_size := Vector2i(4, 4)
+@export var cat_weights: Array[float] = [1, 1, 1, 1, 1, 1, 1, 1]
 
 @export_subgroup("Difficulty")
 @export var timer_duration: float

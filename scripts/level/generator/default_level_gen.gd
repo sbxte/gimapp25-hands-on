@@ -1,6 +1,9 @@
 extends AbstractLevelGen
 
+@onready var base_level: BaseLevel = $"../.."
+
 func gen_cats(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene: PackedScene, cat_parent: Node) -> void:
+	var cat_weights := base_level.cat_weights
 	var theoretical_max_pairs := (grid_size.x * grid_size.y) >> 1
 	assert(max_pairs == -1 or (0 <= max_pairs and max_pairs <= theoretical_max_pairs))
 	var remaining_pairs := max_pairs
@@ -31,7 +34,7 @@ func gen_cats(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene:
 		cells_taken.fill(false)
 
 		for p in range(pairs):
-			var type = randi_range(1, 8)
+			var type = transform_weights(cat_weights, randf())
 			for _i in range(2):
 				# Pos vec aligned with origin (0,0) at the top left corner of the i-th onion layer
 				# And (width - 1, height - 1) at the bottom right corner of the i-th onion layer
@@ -89,3 +92,22 @@ func gen_cats(grid_size: Vector2i, snap_vec: Vector2, max_pairs: int, cat_scene:
 
 func vec_to_idx(x: int, y: int, width: int) -> int:
 	return y * width + x
+
+# Takes in a random float value from 0.0 to 1.0
+# and factors in weights to give the cat type
+func transform_weights(weights: Array[float], rand: float) -> int:
+	assert(weights.size() == 8)
+
+	var total := 0.
+	for w in weights:
+		total += w
+
+	var sum := 0.
+	for i in range(weights.size()):
+		var w := weights[i]
+		sum += w
+		if rand <= sum / total:
+			return i + 1
+
+	assert(false) # we are NOT supposed to reach here
+	return -1
