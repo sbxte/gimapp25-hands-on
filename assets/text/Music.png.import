@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5b7u35ri30ls"
-path="res://.godot/imported/LEVEL COMPLETE.png-5c2fa4539729a06a570c49927de6c821.ctex"
+uid="uid://j0wgadpojh4w"
+path="res://.godot/imported/Music.png-2c5865379ca4bbfb7400b9285478287c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/LEVEL COMPLETE.png"
-dest_files=["res://.godot/imported/LEVEL COMPLETE.png-5c2fa4539729a06a570c49927de6c821.ctex"]
+source_file="res://assets/text/Music.png"
+dest_files=["res://.godot/imported/Music.png-2c5865379ca4bbfb7400b9285478287c.ctex"]
 
 [params]
 
