@@ -29,9 +29,6 @@ var endless_mode := false
 @onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
 @onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
 
-@onready var background_blur: TextureRect = $BackgroundBlur
-
-
 signal drag_start(start: Vector2)
 signal drag_end(end: Vector2, matched: bool)
 

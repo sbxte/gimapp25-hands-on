@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=13 format=3 uid="uid://cxb7n0ccxh4bd"]
 
+[ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/MAIN BG FIXED.png" id="1_8r73w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://dgo4jtp0ic3xf" path="res://assets/ui/Fixed Main Menu BG.png" id="1_ng0o5"]
+[ext_resource type="Texture2D" uid="uid://v8ktg487dd7x" path="res://assets/text/Play.png" id="3_1hnlc"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_imvie"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_ng0o5"]
+[ext_resource type="Texture2D" uid="uid://1uwgli12kvhv" path="res://assets/text/SettingsText.png" id="7_50h1w"]
+[ext_resource type="Texture2D" uid="uid://7ax7d561krep" path="res://assets/text/Quit.png" id="8_euy4r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -33,7 +34,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_ng0o5")
+texture = ExtResource("1_8r73w")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
@@ -56,36 +57,9 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-theme_override_constants/separation = 354
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
-
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 48
-text = "MEOW!"
-
-[node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 24
-text = "Misdemeanor Endeavours of Whiskers"
-
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 470
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
 
 [node name="Play" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -99,21 +73,30 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="PlayButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
+[node name="PlayTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
 layout_mode = 2
+texture_normal = ExtResource("3_1hnlc")
+
+[node name="PlayButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
-text = "Play"
+flat = true
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("4_ng0o5")]
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("4_ng0o5")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("3_ng0o5")]
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_ng0o5")]
 track_history = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" instance=ExtResource("3_imvie")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_imvie")]
 
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -126,17 +109,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("7_50h1w")
+
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
-text = "Settings"
+text = "
+"
+flat = true
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("4_ng0o5")]
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" instance=ExtResource("4_ng0o5")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("3_ng0o5")]
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" instance=ExtResource("3_ng0o5")]
 track_history = true
 scene_path = "res://scenes/menus/settings_menu.tscn"
 
@@ -151,19 +145,29 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 
-[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
 layout_mode = 2
+texture_normal = ExtResource("8_euy4r")
+
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
-text = "Quit
+text = "
 "
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("3_imvie")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" instance=ExtResource("3_imvie")]
 
-[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("6_ng0o5")]
+[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" instance=ExtResource("6_ng0o5")]
 
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" to="Control" method="_on_quit_button_pressed"]
