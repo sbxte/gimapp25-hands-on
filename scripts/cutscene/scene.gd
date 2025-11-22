@@ -149,7 +149,7 @@ func on_text_timer_finished() -> void:
 func on_text_animate_started(stream: AudioStream) -> void:
 	var player := AudioManager.reusable_player
 	player.stream = stream
-	player.play()
+	player.play.call_deferred()
 
 func on_text_animate_finished() -> void:
 	AudioManager.reusable_player.stop()
