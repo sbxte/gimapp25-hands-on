@@ -28,6 +28,9 @@ var endless_mode := false
 @onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
 @onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
 
+@onready var background_blur: TextureRect = $BackgroundBlur
+
+
 signal drag_start(start: Vector2)
 signal drag_end(end: Vector2, matched: bool)
 
@@ -179,9 +182,10 @@ func cardinalize(vec: Vector2) -> Vector2:
 func on_defeat() -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
+	
 	defeat_animation.play("slide_up")
 	await defeat_animation.animation_finished
-	SceneManager.change_scene(defeat_scene_path, true)
+	SceneManager.change_scene(defeat_scene_path, false)
 
 func on_victory() -> void:
 	SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
