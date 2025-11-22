@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://col8nsgvpdnek"]
+[gd_scene load_steps=23 format=3 uid="uid://col8nsgvpdnek"]
 
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="1_dgi6y"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_dqjbd"]
@@ -7,10 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/Paused BG.png" id="3_opdvj"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="3_xiui8"]
 [ext_resource type="Texture2D" uid="uid://ct84in0gheeer" path="res://assets/ui/Paused Menu (NEW).png" id="4_opdvj"]
+[ext_resource type="Texture2D" uid="uid://bnonq15n3iaa" path="res://assets/text/Continue.png" id="5_oey0u"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="5_opdvj"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="5_xiui8"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="6_dgi6y"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="8_gqhbq"]
+[ext_resource type="Texture2D" uid="uid://1uwgli12kvhv" path="res://assets/text/SettingsText.png" id="10_sy5ew"]
+[ext_resource type="Texture2D" uid="uid://7ax7d561krep" path="res://assets/text/Quit.png" id="13_w5beu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_opdvj"]
 shader = ExtResource("2_dqjbd")
@@ -20,15 +23,15 @@ shader_parameter/blur_value = 1.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kukqi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oey0u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pf6lc"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy5ew"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7gms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5beu"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -115,7 +118,7 @@ layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 580
+theme_override_constants/separation = 560
 theme_override_styles/separator = SubResource("StyleBoxEmpty_kukqi")
 
 [node name="Continue" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -127,25 +130,34 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oey0u")
 
-[node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
+[node name="ContinueTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_oey0u")
+
+[node name="ContinueButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
-text = "Continue"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_eyfc8")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture/ContinueButton" instance=ExtResource("3_eyfc8")]
 
-[node name="UnpauseBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_gqhbq")]
+[node name="UnpauseBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture/ContinueButton" instance=ExtResource("3_gqhbq")]
 
-[node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_xiui8")]
+[node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture/ContinueButton" instance=ExtResource("3_xiui8")]
 
 [node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 71
+theme_override_constants/separation = 37
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pf6lc")
 
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -157,24 +169,32 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sy5ew")
 
-[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+[node name="SettingsTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("10_sy5ew")
+
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 20.0
+offset_right = 156.0
+offset_bottom = 52.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
-text = "Settings"
+flat = true
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("5_xiui8")]
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("5_xiui8")]
 
-[node name="OverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" instance=ExtResource("6_dgi6y")]
+[node name="OverlayBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("6_dgi6y")]
 overlay_path = "res://scenes/menus/settings_menu.tscn"
 
 [node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 75
+theme_override_constants/separation = 35
 theme_override_styles/separator = SubResource("StyleBoxEmpty_j7gms")
 
 [node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -186,22 +206,30 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w5beu")
 
-[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+[node name="QuitTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
 layout_mode = 2
+texture_normal = ExtResource("13_w5beu")
+
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
-text = "Quit
-"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("3_eyfc8")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("3_eyfc8")]
 
-[node name="SetSceneBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" instance=ExtResource("8_gqhbq")]
+[node name="SetSceneBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("8_gqhbq")]
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" to="Control" method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsButton" to="Control" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture/ContinueButton" to="Control" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" to="Control" method="_on_quit_button_pressed"]

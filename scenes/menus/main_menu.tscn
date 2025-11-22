@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=15 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/MAIN BG FIXED.png" id="1_8r73w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
@@ -14,11 +14,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50h1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euy4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre17"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -71,7 +71,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_50h1w")
 
 [node name="PlayTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
 layout_mode = 2
@@ -107,13 +107,13 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_euy4r")
 
-[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+[node name="SettingsTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("7_50h1w")
 
-[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton"]
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,9 +128,9 @@ text = "
 "
 flat = true
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" instance=ExtResource("4_ng0o5")]
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("4_ng0o5")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" instance=ExtResource("3_ng0o5")]
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("3_ng0o5")]
 track_history = true
 scene_path = "res://scenes/menus/settings_menu.tscn"
 
@@ -143,13 +143,13 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bre17")
 
-[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+[node name="QuitTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
 layout_mode = 2
 texture_normal = ExtResource("8_euy4r")
 
-[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton"]
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -164,10 +164,10 @@ text = "
 "
 flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" instance=ExtResource("3_imvie")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("3_imvie")]
 
-[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" instance=ExtResource("6_ng0o5")]
+[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("6_ng0o5")]
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/TextureButton/SettingsButton" to="Control" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/TextureButton/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" to="Control" method="_on_quit_button_pressed"]

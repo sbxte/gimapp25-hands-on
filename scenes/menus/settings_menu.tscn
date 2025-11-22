@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=48 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="Script" uid="uid://cq3o3eorsgcu8" path="res://scripts/menus/settings.gd" id="1_7i3iu"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
@@ -11,10 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://bywgerru0bnq2" path="res://assets/ui/Settings Title (NEW).png" id="6_l0eij"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="8_g67jo"]
+[ext_resource type="Texture2D" uid="uid://b15u7jlw65p3x" path="res://assets/text/Master.png" id="10_udegp"]
 [ext_resource type="Texture2D" uid="uid://bb6xc5pb5fgqc" path="res://assets/ui/Slider Frame (NEW).png" id="11_rrg86"]
 [ext_resource type="Texture2D" uid="uid://dk67ct7wj65u3" path="res://assets/ui/Slider Inner (NEW).png" id="12_l0eij"]
 [ext_resource type="Texture2D" uid="uid://tbqtnnu57ppa" path="res://assets/ui/Slider Inner.png" id="13_hg0fu"]
 [ext_resource type="Texture2D" uid="uid://dvg4aor374i3y" path="res://assets/ui/Slider Frame real.png" id="13_udegp"]
+[ext_resource type="Texture2D" uid="uid://b0wwu6sk403et" path="res://assets/text/SFX.png" id="15_fd2q8"]
+[ext_resource type="Texture2D" uid="uid://j0wgadpojh4w" path="res://assets/text/Music.png" id="16_rxdtf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g67jo"]
 shader = ExtResource("3_mcc4n")
@@ -242,15 +245,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
+custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_g67jo")
-theme_override_font_sizes/font_size = 24
-text = "Master"
+texture = ExtResource("10_udegp")
+expand_mode = 5
 
 [node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
 layout_mode = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
 [node name="MasterBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
@@ -266,33 +269,26 @@ show_percentage = false
 
 [node name="TextMasterBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -2.375
-anchor_right = 1.0099995
-anchor_bottom = -0.66666585
-offset_top = 46.0
-offset_bottom = 45.999996
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 nine_patch_stretch = true
 texture_under = ExtResource("13_udegp")
 texture_progress = SubResource("AtlasTexture_s4m6w")
-metadata/_edit_use_anchors_ = true
 
 [node name="MasterSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0033333334
-anchor_top = -0.5
-anchor_right = 1.01
-anchor_bottom = 1.2083334
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxEmpty_udegp")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_pt7eq")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_fd2q8")
-metadata/_edit_use_anchors_ = true
 
 [node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -304,15 +300,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_g67jo")
-theme_override_font_sizes/font_size = 24
-text = "SFX"
+texture = ExtResource("15_fd2q8")
+expand_mode = 1
 
 [node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
 layout_mode = 2
-theme_override_constants/separation = 51
+theme_override_constants/separation = 31
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
 [node name="SFXBar" type="ProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
@@ -328,31 +324,26 @@ show_percentage = false
 
 [node name="TextSFXBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.25
-anchor_right = 1.0099995
-anchor_bottom = 1.4583341
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 nine_patch_stretch = true
 texture_under = ExtResource("13_udegp")
 texture_progress = SubResource("AtlasTexture_08gdp")
-metadata/_edit_use_anchors_ = true
 
 [node name="SFXSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0033333334
-anchor_top = -0.25
-anchor_right = 1.0066667
-anchor_bottom = 1.4583334
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
-metadata/_edit_use_anchors_ = true
 
 [node name="HSeparator4" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -364,11 +355,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("8_g67jo")
-theme_override_font_sizes/font_size = 24
-text = "Music"
+texture = ExtResource("16_rxdtf")
+expand_mode = 1
 
 [node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
 layout_mode = 2
@@ -388,34 +379,26 @@ show_percentage = false
 
 [node name="TextMusicBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0033333334
-anchor_top = -0.125
-anchor_right = 1.0066667
-anchor_bottom = 1.5833334
-offset_right = 1.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 nine_patch_stretch = true
 texture_under = ExtResource("13_udegp")
 texture_progress = SubResource("AtlasTexture_5fu2g")
-metadata/_edit_use_anchors_ = true
 
 [node name="MusicSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0033333334
-anchor_top = -0.125
-anchor_right = 1.0066667
-anchor_bottom = 1.5833334
-offset_right = 1.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/slider = SubResource("StyleBoxFlat_r6d6q")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6wm04")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f4mfi")
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer"]
 layout_mode = 2
