@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://assets/background/LEVEL COMPLETE.PNG"
+source_file="res://assets/background/LEVEL COMPLETE.png"
 dest_files=["res://.godot/imported/LEVEL COMPLETE.PNG-428874f39f45f6e4cd67cc49acf9bfca.ctex"]
 
 [params]
