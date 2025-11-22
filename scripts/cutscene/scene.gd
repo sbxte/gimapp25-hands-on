@@ -125,6 +125,8 @@ func exec_entry() -> void:
 			get_tree().paused = true
 		elif component is CutsceneUnpauseTree:
 			get_tree().paused = false
+		elif component is SetSceneCSComponent:
+			SceneManager.change_scene(component.scene_path, false)
 		else:
 			Events.cutscene_custom_comp.emit(self, component)
 			comps_finished -= 1
