@@ -54,6 +54,7 @@ bus = &"SFX"
 [node name="Music" type="AudioStreamPlayer" parent="Ingame"]
 process_mode = 3
 stream = ExtResource("5_b4oxv")
+bus = &"Music"
 
 [node name="SfxSelectCard" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("7_lk4k0")
