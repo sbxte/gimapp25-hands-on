@@ -17,6 +17,7 @@ var stages := 5
 var stages_cleared := 1
 var time_bonus: int
 var endless_mode := false
+var endless_mode_jingle_played := false
 
 @export_subgroup("References")
 @export var cat_scene: PackedScene
@@ -43,6 +44,12 @@ func _ready() -> void:
 	timer.timer_ended.connect(on_defeat)
 
 func _process(_delta: float) -> void:
+	if endless_mode and not endless_mode_jingle_played:
+		AudioManager.music.stop()
+		AudioManager.enter_endless_mode.finished.connect(func(): AudioManager.music.play(), CONNECT_ONE_SHOT)
+		AudioManager.enter_endless_mode.play()
+		endless_mode_jingle_played = true
+
 	if not dragging:
 		return
 
@@ -106,6 +113,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			if stages_cleared > stages:
 				on_victory()
 			else:
+				AudioManager.next_stage.play()
 				timer.reset()
 				reset_cats()
 		else:

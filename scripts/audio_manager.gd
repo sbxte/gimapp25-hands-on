@@ -17,6 +17,9 @@ extends Node
 @export var lowtime_5: AudioStreamPlayer
 @export var lowtime_10: AudioStreamPlayer
 @export var victory: AudioStreamPlayer
+@export var next_stage: AudioStreamPlayer
+
+@export var enter_endless_mode: AudioStreamPlayer
 
 @export_subgroup("Dialog")
 @export var reusable_player: AudioStreamPlayer

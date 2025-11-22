@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4kyg6g743yy4"]
+[gd_scene load_steps=17 format=3 uid="uid://c4kyg6g743yy4"]
 
 [ext_resource type="AudioStream" uid="uid://b1jwco4airtqp" path="res://assets/audio/sfx/ui/SFX_button_clickr.mp3" id="1_2geml"]
 [ext_resource type="Script" uid="uid://cy1ngghitm6lk" path="res://scripts/audio_manager.gd" id="2_ccgl5"]
@@ -14,8 +14,10 @@
 [ext_resource type="AudioStream" uid="uid://c00m6dem5bwet" path="res://assets/audio/sfx/ingame/SFX_Low_time_10.mp3" id="11_b4oxv"]
 [ext_resource type="AudioStream" uid="uid://ck86u2p44l0am" path="res://assets/audio/sfx/ingame/SFX_victory.mp3" id="12_y05h4"]
 [ext_resource type="AudioStream" uid="uid://bhc87swa6ekeb" path="res://assets/audio/sfx/ingame/SFX_Angry_cat.mp3" id="14_y05h4"]
+[ext_resource type="AudioStream" uid="uid://jj6v3fxwn4st" path="res://assets/audio/sfx/ingame/sfx_Endless_Mode_Jingle.mp3" id="15_xfir0"]
+[ext_resource type="AudioStream" uid="uid://dhq60gsplmjcv" path="res://assets/audio/sfx/ingame/sfx_next_level.mp3" id="16_lrt6x"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "reusable_player")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "next_stage", "enter_endless_mode", "reusable_player")]
 script = ExtResource("2_ccgl5")
 click = NodePath("Menu/Click")
 hover = NodePath("Menu/Hover")
@@ -30,6 +32,8 @@ trace = NodePath("Ingame/SfxTraceDrag")
 lowtime_5 = NodePath("Ingame/SfxLowTime5")
 lowtime_10 = NodePath("Ingame/SfxLowTime10")
 victory = NodePath("Ingame/SfxVictory")
+next_stage = NodePath("Ingame/SfxNextLevel")
+enter_endless_mode = NodePath("Ingame/SfxEndlessModeJingle")
 reusable_player = NodePath("Dialog/ReusablePlayer")
 
 [node name="Menu" type="Node" parent="."]
@@ -98,6 +102,14 @@ bus = &"SFX"
 
 [node name="SfxAngryCat" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("14_y05h4")
+bus = &"SFX"
+
+[node name="SfxEndlessModeJingle" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("15_xfir0")
+bus = &"SFX"
+
+[node name="SfxNextLevel" type="AudioStreamPlayer" parent="Ingame"]
+stream = ExtResource("16_lrt6x")
 bus = &"SFX"
 
 [node name="Dialog" type="Node" parent="."]
