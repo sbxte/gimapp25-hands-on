@@ -100,7 +100,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 		if not endless_mode:
 			timer.add_time(time_bonus)
 			stages_cleared += 1
-			if stages_cleared == stages:
+			if stages_cleared > stages:
 				on_victory()
 			else:
 				timer.reset()
@@ -179,10 +179,10 @@ func cardinalize(vec: Vector2) -> Vector2:
 # oh no, anyway
 func on_defeat() -> void:
 	if endless_mode:
-		SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages)
+		SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages_cleared)
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
-	
+
 	defeat_animation.play("slide_up")
 	await defeat_animation.animation_finished
 	SceneManager.change_scene(defeat_scene_path, false)
