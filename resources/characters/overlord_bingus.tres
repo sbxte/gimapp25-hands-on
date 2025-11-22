@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=2 format=3 uid="uid://bxfx5x0eoeyri"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://bxfx5x0eoeyri"]
 
+[ext_resource type="AudioStream" uid="uid://cve1aydbjhj0e" path="res://assets/audio/sfx/dialog/sfx_bingus_voice.mp3" id="1_0y0q8"]
 [ext_resource type="Script" uid="uid://c05t1x480eqg6" path="res://scripts/cutscene/character_resource.gd" id="1_2ianp"]
 
 [resource]
 script = ExtResource("1_2ianp")
 name = "Overlord Bingus"
+dialog_sfx = ExtResource("1_0y0q8")
 metadata/_custom_type_script = "uid://c05t1x480eqg6"

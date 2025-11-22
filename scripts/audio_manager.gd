@@ -17,5 +17,8 @@ extends Node
 @export var lowtime_10: AudioStreamPlayer
 @export var victory: AudioStreamPlayer
 
+@export_subgroup("Dialog")
+@export var reusable_player: AudioStreamPlayer
+
 func stop_all_music() -> void:
 	music.stop()

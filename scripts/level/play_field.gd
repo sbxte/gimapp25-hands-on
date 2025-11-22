@@ -14,6 +14,7 @@ var level: int = 1
 var max_pairs := -1
 var cats :int
 var stages := 5
+var stages_cleared := 1
 var time_bonus: int
 var endless_mode := false
 
@@ -101,15 +102,15 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if cats == 0:
 		if not endless_mode:
 			timer.add_time(time_bonus)
-			stages -= 1
-			if stages == 0:
+			stages_cleared += 1
+			if stages_cleared == stages:
 				on_victory()
 			else:
 				timer.reset()
 				reset_cats()
 		else:
-			if stages > 0:
-				stages -= 1
+			if stages_cleared < stages:
+				stages_cleared += 1
 			if 1 <= stages and stages <= 15:
 				timer.start_duration -= 1
 			timer.reset()
@@ -121,7 +122,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
 	erase_path(true)
-	AudioManager.rightmatch.play()
+	AudioManager.deselect.play()
 
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
@@ -180,6 +181,8 @@ func cardinalize(vec: Vector2) -> Vector2:
 # Player lost!
 # oh no, anyway
 func on_defeat() -> void:
+	if endless_mode:
+		SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages)
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
 	

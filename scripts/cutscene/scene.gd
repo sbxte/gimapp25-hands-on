@@ -29,11 +29,13 @@ func _ready() -> void:
 	exec_entry.call_deferred()
 
 func advance_entry() -> void:
+	# Forcefully finish the text animation
 	if text_idx + 1 < text.length():
 		text_timer.stop()
 		dialog_text.text = text
 		text_idx = text.length()
 		comps_finished += 1
+		on_text_animate_finished()
 		return
 
 	if comps_finished < entries[entry_idx].components.size():
@@ -69,6 +71,7 @@ func exec_entry() -> void:
 			text_idx = 0
 			if not text.is_empty():
 				next_letter()
+				on_text_animate_started(comp.character.dialog_sfx)
 
 		elif component is CutsceneCharEnter:
 			var comp = (component as CutsceneCharEnter)
@@ -122,6 +125,8 @@ func exec_entry() -> void:
 			get_tree().paused = true
 		elif component is CutsceneUnpauseTree:
 			get_tree().paused = false
+		elif component is SetSceneCSComponent:
+			SceneManager.change_scene(component.scene_path, false)
 		else:
 			Events.cutscene_custom_comp.emit(self, component)
 			comps_finished -= 1
@@ -132,6 +137,7 @@ func next_letter() -> void:
 
 	if text_idx + 1 >= text.length():
 		comps_finished += 1
+		on_text_animate_finished()
 		return
 
 	text_idx += 1
@@ -139,3 +145,11 @@ func next_letter() -> void:
 
 func on_text_timer_finished() -> void:
 	next_letter()
+
+func on_text_animate_started(stream: AudioStream) -> void:
+	var player := AudioManager.reusable_player
+	player.stream = stream
+	player.play.call_deferred()
+
+func on_text_animate_finished() -> void:
+	AudioManager.reusable_player.stop()

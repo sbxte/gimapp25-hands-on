@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cg2scyc1udcsd"]
+[gd_scene load_steps=110 format=3 uid="uid://cg2scyc1udcsd"]
 
 [ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="1_f7np6"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_f7np6"]
 [ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="9_1or0b"]
 [ext_resource type="Resource" uid="uid://cvkp0cmo6ocsv" path="res://resources/characters/woofer.tres" id="10_g6xnk"]
+[ext_resource type="Script" uid="uid://wf2v3nv61jmu" path="res://scripts/cutscene/entries/set_scene.gd" id="11_1or0b"]
 
 [sub_resource type="Resource" id="Resource_f0upq"]
 script = ExtResource("4_dccfs")
@@ -517,9 +518,30 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_2bemh")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_pxeje"]
+script = ExtResource("5_sjj1k")
+character = ExtResource("4_1l0yk")
+text = ".."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_c6sld"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_pxeje")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_j308r"]
+script = ExtResource("11_1or0b")
+scene_path = "uid://3yhnlii4dbn6"
+metadata/_custom_type_script = "uid://wf2v3nv61jmu"
+
+[sub_resource type="Resource" id="Resource_pswye"]
+script = ExtResource("2_fhrx3")
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_j308r")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
 [node name="PrologueCutscene" type="Node2D"]
 
 [node name="BaseCutscene" parent="." instance=ExtResource("1_rr610")]
-entries = Array[ExtResource("2_fhrx3")]([SubResource("Resource_g6xnk"), SubResource("Resource_544dr"), SubResource("Resource_754nt"), SubResource("Resource_f1hxq"), SubResource("Resource_7qsco"), SubResource("Resource_yue5x"), SubResource("Resource_hj1v2"), SubResource("Resource_3b5c2"), SubResource("Resource_rcjma"), SubResource("Resource_sykdg"), SubResource("Resource_lg7ci"), SubResource("Resource_uhwwr"), SubResource("Resource_6nhqg"), SubResource("Resource_h3omy"), SubResource("Resource_jnh3s"), SubResource("Resource_2h4na"), SubResource("Resource_5f87p"), SubResource("Resource_6berc"), SubResource("Resource_ot6cv"), SubResource("Resource_jwsrr"), SubResource("Resource_828p4"), SubResource("Resource_ih8v1"), SubResource("Resource_xa5qa"), SubResource("Resource_m5qrj"), SubResource("Resource_m3a3t"), SubResource("Resource_86rlh"), SubResource("Resource_56b1w"), SubResource("Resource_kfxtp"), SubResource("Resource_dn4br"), SubResource("Resource_ux3fy"), SubResource("Resource_elhhe"), SubResource("Resource_17nqr"), SubResource("Resource_orsev"), SubResource("Resource_cbf74"), SubResource("Resource_45ysi"), SubResource("Resource_g3bpk"), SubResource("Resource_26giy"), SubResource("Resource_un7l0"), SubResource("Resource_usxpb"), SubResource("Resource_4ngvl"), SubResource("Resource_kko0g"), SubResource("Resource_lo3ht"), SubResource("Resource_s07ok")])
+entries = Array[ExtResource("2_fhrx3")]([SubResource("Resource_g6xnk"), SubResource("Resource_544dr"), SubResource("Resource_754nt"), SubResource("Resource_f1hxq"), SubResource("Resource_7qsco"), SubResource("Resource_yue5x"), SubResource("Resource_hj1v2"), SubResource("Resource_3b5c2"), SubResource("Resource_rcjma"), SubResource("Resource_sykdg"), SubResource("Resource_lg7ci"), SubResource("Resource_uhwwr"), SubResource("Resource_6nhqg"), SubResource("Resource_h3omy"), SubResource("Resource_jnh3s"), SubResource("Resource_2h4na"), SubResource("Resource_5f87p"), SubResource("Resource_6berc"), SubResource("Resource_ot6cv"), SubResource("Resource_jwsrr"), SubResource("Resource_828p4"), SubResource("Resource_ih8v1"), SubResource("Resource_xa5qa"), SubResource("Resource_m5qrj"), SubResource("Resource_m3a3t"), SubResource("Resource_86rlh"), SubResource("Resource_56b1w"), SubResource("Resource_kfxtp"), SubResource("Resource_dn4br"), SubResource("Resource_ux3fy"), SubResource("Resource_elhhe"), SubResource("Resource_17nqr"), SubResource("Resource_orsev"), SubResource("Resource_cbf74"), SubResource("Resource_45ysi"), SubResource("Resource_g3bpk"), SubResource("Resource_26giy"), SubResource("Resource_un7l0"), SubResource("Resource_usxpb"), SubResource("Resource_4ngvl"), SubResource("Resource_kko0g"), SubResource("Resource_lo3ht"), SubResource("Resource_s07ok"), SubResource("Resource_c6sld"), SubResource("Resource_pswye")])
 
 [node name="DefaultCsadvanceBehavior" parent="." instance=ExtResource("1_f7np6")]
