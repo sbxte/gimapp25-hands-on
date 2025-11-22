@@ -78,6 +78,7 @@ bus = &"SFX"
 [node name="SfxTraceDrag" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("8_wmodw")
 volume_db = -5.311
+volume_db = 3.54
 bus = &"SFX"
 
 [node name="SfxLowTime5" type="AudioStreamPlayer" parent="Ingame"]
@@ -91,9 +92,11 @@ bus = &"SFX"
 [node name="SfxVictory" type="AudioStreamPlayer" parent="Ingame"]
 stream = ExtResource("12_y05h4")
 volume_db = -14.162
+volume_db = -11.949
 bus = &"SFX"
 
 [node name="Dialog" type="Node" parent="."]
 
 [node name="ReusablePlayer" type="AudioStreamPlayer" parent="Dialog"]
+volume_db = -9.294
 bus = &"SFX"
