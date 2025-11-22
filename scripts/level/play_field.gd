@@ -87,7 +87,10 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	# delete the path, speed up timer, and reset streak
 	if cat.type != first_cat.type:
 		erase_path(false)
-		AudioManager.wrongmatch.play()
+		if randf() < 0.02:
+			AudioManager.rare_wrongmatch.play()
+		else:
+			AudioManager.wrongmatch.play()
 		timer.set_speed(timer.get_speed() + 1)
 		match_streak = 0
 		return
