@@ -28,8 +28,8 @@ var game_finished = false
 @export_file_path var victory_scene_path: String
 @export_file_path var defeat_scene_path: String
 
-@onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
-@onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
+@export var defeat_animation: AnimationPlayer
+@export var victory_animation: AnimationPlayer
 
 const correct_match_lines: Array[String] = [
 	"Yes, Good. Brain functioning.",
