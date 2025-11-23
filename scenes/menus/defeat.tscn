@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dxhjl7jf578rk"]
 
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="1_hsowf"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="1_hsowf"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
-[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_odpfo"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_a1c3q"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_a1c3q"]

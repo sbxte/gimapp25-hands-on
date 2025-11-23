@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cslrpeoh4121r"
-path="res://.godot/imported/MAIN BG FIXED.png-0c01ed7d91359f09f5c9097233659597.ctex"
+uid="uid://b0wwu6sk403et"
+path="res://.godot/imported/sfx.png-c7df7049e6a9cdf4d26bfd801a688ccc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/MAIN BG FIXED.png"
-dest_files=["res://.godot/imported/MAIN BG FIXED.png-0c01ed7d91359f09f5c9097233659597.ctex"]
+source_file="res://assets/text/sfx.png"
+dest_files=["res://.godot/imported/sfx.png-c7df7049e6a9cdf4d26bfd801a688ccc.ctex"]
 
 [params]
 

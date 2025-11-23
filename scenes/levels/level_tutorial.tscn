@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="9_imiua"]
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="10_0xb81"]
 [ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="11_dbhxw"]
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="12_imiua"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="12_imiua"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="14_5pi7b"]
 [ext_resource type="PackedScene" uid="uid://b8fne3keokn6o" path="res://scenes/components/button/overlay_behavior.tscn" id="15_d1cyn"]
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="16_cc0dj"]
