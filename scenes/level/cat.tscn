@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cdg2o2ekfbiq5" path="res://scripts/level/cat.gd" id="1_2olvd"]
 [ext_resource type="Texture2D" uid="uid://ctpbnufoeo87s" path="res://assets/sprites/icon.svg" id="1_7nueg"]
-[ext_resource type="Texture2D" uid="uid://bmvtuiluoitnp" path="res://assets/sprites/cats/sorcerer.PNG" id="2_bwtpn"]
-[ext_resource type="Texture2D" uid="uid://cv6yd2bqvx4ks" path="res://assets/sprites/cats/void.PNG" id="3_xskm5"]
-[ext_resource type="Texture2D" uid="uid://b5fdsymcjsyds" path="res://assets/sprites/cats/crossbow.PNG" id="4_oe2ue"]
+[ext_resource type="Texture2D" uid="uid://bmvtuiluoitnp" path="res://assets/sprites/cats/sorcerer.png" id="2_bwtpn"]
+[ext_resource type="Texture2D" uid="uid://cv6yd2bqvx4ks" path="res://assets/sprites/cats/void.png" id="3_xskm5"]
+[ext_resource type="Texture2D" uid="uid://b5fdsymcjsyds" path="res://assets/sprites/cats/crossbow.png" id="4_oe2ue"]
 [ext_resource type="Texture2D" uid="uid://daxep5bbqi38j" path="res://assets/sprites/cats/bard.png" id="5_agsq0"]
+[ext_resource type="Texture2D" uid="uid://bs3mbn0tcnrr0" path="res://assets/sprites/cats/pikeman.png" id="5_oe2ue"]
 [ext_resource type="Texture2D" uid="uid://c156mnr8x1na" path="res://assets/sprites/cats/siamese.png" id="5_xskm5"]
 [ext_resource type="Texture2D" uid="uid://cxsue4nis401s" path="res://assets/sprites/cats/priest.png" id="6_tg66l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3nmj0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_48opa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsqnl"]
 size = Vector2(96, 96)
@@ -20,7 +19,7 @@ size = Vector2(96, 96)
 z_index = -1
 script = ExtResource("1_2olvd")
 sprite = NodePath("Sprite2D")
-sprites = Array[CompressedTexture2D]([ExtResource("2_bwtpn"), ExtResource("3_xskm5"), SubResource("CompressedTexture2D_3nmj0"), ExtResource("4_oe2ue"), SubResource("CompressedTexture2D_48opa"), ExtResource("5_xskm5"), ExtResource("5_agsq0"), ExtResource("6_tg66l")])
+sprites = Array[CompressedTexture2D]([ExtResource("2_bwtpn"), ExtResource("3_xskm5"), SubResource("CompressedTexture2D_3nmj0"), ExtResource("4_oe2ue"), ExtResource("5_oe2ue"), ExtResource("5_xskm5"), ExtResource("5_agsq0"), ExtResource("6_tg66l")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true
