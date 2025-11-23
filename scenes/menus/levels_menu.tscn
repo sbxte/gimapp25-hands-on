@@ -1,12 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=39 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_8h12j"]
+[ext_resource type="Texture2D" uid="uid://erra1kdv5bku" path="res://assets/ui/placement 1.png" id="1_vcrj6"]
+[ext_resource type="Texture2D" uid="uid://bct0ifm8kgcsr" path="res://assets/ui/placement 2.png" id="2_htdht"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
+[ext_resource type="Texture2D" uid="uid://cv5jyp4pcr3k2" path="res://assets/ui/placement 3.png" id="3_wrd8s"]
+[ext_resource type="Texture2D" uid="uid://dftkv6b2p6yxd" path="res://assets/ui/placement 4.png" id="4_4of36"]
 [ext_resource type="PackedScene" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
+[ext_resource type="Texture2D" uid="uid://y2r8frcnxlgl" path="res://assets/ui/placement 5.png" id="5_psrh6"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
+[ext_resource type="Texture2D" uid="uid://dp17u0bm8k6mu" path="res://assets/ui/placement endless mode.png" id="6_3lkb3"]
+[ext_resource type="Texture2D" uid="uid://fk7bhing8get" path="res://assets/ui/questions.png" id="7_2dnfq"]
+[ext_resource type="Texture2D" uid="uid://dw0lb5o7jn445" path="res://assets/ui/Deco.png" id="8_v6wf2"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="9_t1y88"]
+[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="12_hfnu2"]
+[ext_resource type="Texture2D" uid="uid://bu2v5w30p2j1a" path="res://assets/text/level 1.png" id="17_cx55l"]
+[ext_resource type="Texture2D" uid="uid://cpc32s26tnuh5" path="res://assets/text/level 2.png" id="18_psrh6"]
+[ext_resource type="Texture2D" uid="uid://cai0y0isngyw1" path="res://assets/text/level 3.png" id="19_3lkb3"]
+[ext_resource type="Texture2D" uid="uid://bbb7bq7jjy5c7" path="res://assets/text/level 4.png" id="20_2dnfq"]
+[ext_resource type="Texture2D" uid="uid://ctsr0ihahm3bh" path="res://assets/text/level 5.png" id="21_v6wf2"]
+[ext_resource type="Texture2D" uid="uid://cg8et8lxbv8il" path="res://assets/text/Endless mode.png" id="22_3lkb3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6mv"]
+shader = ExtResource("10_dk45c")
+shader_parameter/blur_value = 1.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3au0w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -15,6 +36,30 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psrh6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klm2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lkb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1y88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dnfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dk45c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6wf2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hfnu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2b6mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cx55l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynmgn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_irih6"]
 
 [node name="LevelsMenu" type="CanvasLayer"]
 
@@ -26,22 +71,157 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="BackgroundPanels" type="Control" parent="Control"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = -0.264
+anchor_right = 0.8845
+anchor_bottom = 1.1048889
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+texture = ExtResource("1_vcrj6")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_htdht")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wrd8s")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4of36")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_psrh6")
+expand_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(150, 110)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0058862003
+anchor_top = 0.69545454
+anchor_right = 1.0058862
+anchor_bottom = 1.6954546
+offset_left = -128.0
+offset_top = -41.0
+offset_right = 143.0
+offset_bottom = 203.66357
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_3lkb3")
+expand_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(150, 110)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.077828646
+anchor_top = 0.66883117
+anchor_right = 1.0994114
+anchor_bottom = 1.8277036
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_2dnfq")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect8" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_v6wf2")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundBlur" type="TextureRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_t1y88")
+
+[node name="Blur" type="ColorRect" parent="Control/BackgroundBlur"]
+material = SubResource("ShaderMaterial_2b6mv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="Control/BackgroundBlur"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = -0.0095
+anchor_right = 0.9905
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3au0w")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
 layout_mode = 2
@@ -60,28 +240,9 @@ layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
-
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8h12j")
-theme_override_font_sizes/font_size = 48
-text = "MEOW!"
-
-[node name="Label2" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_8h12j")
-theme_override_font_sizes/font_size = 24
-text = "Misdemeanor Endeavours of Whiskers"
-
 [node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 0
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
 
 [node name="MainMenu" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -99,7 +260,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_8h12j")
+theme_override_fonts/font = ExtResource("12_hfnu2")
 theme_override_font_sizes/font_size = 24
 text = "Back to Main Menu"
 
@@ -132,6 +293,10 @@ text = "Tutorial"
 [node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("5_knlas")]
 scene_path = "res://scenes/levels/level_tutorial.tscn"
 
+[node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_psrh6")
+
 [node name="Level1" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -141,21 +306,37 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_klm2d")
 
-[node name="Level1Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer"]
+[node name="Level1Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1"]
 layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("17_cx55l")
+
+[node name="Level1Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/Level1Text"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.54534745
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Level 1"
+flat = true
+metadata/_edit_use_anchors_ = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/Level1Text/Level1Button" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/PanelContainer/Level1Button" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/Level1Text/Level1Button" instance=ExtResource("5_knlas")]
 threshold = 1
 scene_path = "res://scenes/levels/level_1.tscn"
+
+[node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3lkb3")
 
 [node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -166,22 +347,35 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t1y88")
 
-[node name="Level2Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2"]
+[node name="Level2Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("18_psrh6")
+
+[node name="Level2Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Level 2
-"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Text/Level2Button" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Button" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Text/Level2Button" instance=ExtResource("5_knlas")]
 threshold = 2
 scene_path = "res://scenes/levels/level_2.tscn"
+
+[node name="HSeparator4" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2dnfq")
 
 [node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -192,21 +386,35 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dk45c")
 
-[node name="Level3Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2"]
+[node name="Level3Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("19_3lkb3")
+
+[node name="Level3Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Level 3"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Text/Level3Button" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Button" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Text/Level3Button" instance=ExtResource("5_knlas")]
 threshold = 3
 scene_path = "res://scenes/levels/level_3.tscn"
+
+[node name="HSeparator5" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_v6wf2")
 
 [node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -217,21 +425,35 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hfnu2")
 
-[node name="Level4Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2"]
+[node name="Level4Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("20_2dnfq")
+
+[node name="Level4Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Level 4"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Text/Level4Button" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Button" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Text/Level4Button" instance=ExtResource("5_knlas")]
 threshold = 4
 scene_path = "res://scenes/levels/level_4.tscn"
+
+[node name="HSeparator6" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_2b6mv")
 
 [node name="Level5" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -242,21 +464,35 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cx55l")
 
-[node name="Level5Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2"]
+[node name="Level5Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2"]
 layout_mode = 2
+texture_normal = ExtResource("21_v6wf2")
+
+[node name="Level5Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Level 5"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Text/Level5Button" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Button" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Text/Level5Button" instance=ExtResource("5_knlas")]
 threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
+
+[node name="HSeparator7" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ynmgn")
 
 [node name="LevelEndless" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -267,18 +503,30 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_irih6")
 
-[node name="LevelEndlessButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2"]
+[node name="LevelEndlessText" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("22_3lkb3")
+stretch_mode = 3
+
+[node name="LevelEndlessButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
-text = "Endless Mode"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessText/LevelEndlessButton" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessButton" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessText/LevelEndlessButton" instance=ExtResource("5_knlas")]
 threshold = 5
 scene_path = "res://scenes/levels/level_endless.tscn"

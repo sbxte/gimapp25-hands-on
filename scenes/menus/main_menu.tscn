@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxb7n0ccxh4bd"]
 
-[ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/MAIN BG FIXED.png" id="1_8r73w"]
+[ext_resource type="Texture2D" uid="uid://bb4bu506lnihi" path="res://assets/background/Main menu.png" id="1_50h1w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://v8ktg487dd7x" path="res://assets/text/Play.png" id="3_1hnlc"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_imvie"]
@@ -31,10 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_8r73w")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_50h1w")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
