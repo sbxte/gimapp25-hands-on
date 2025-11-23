@@ -103,13 +103,13 @@ metadata/_edit_use_anchors_ = true
 [node name="SettingsText" type="TextureRect" parent="Control/MenuBackground"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.29170305
-anchor_top = 0.19715054
-anchor_right = 1.3371178
-anchor_bottom = 0.98883337
-offset_top = 1.5258789e-05
+anchor_left = -0.43794245
+anchor_top = 0.024404874
+anchor_right = 1.5212146
+anchor_bottom = 1.0261841
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("6_l0eij")
-expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]

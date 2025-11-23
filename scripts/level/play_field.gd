@@ -18,6 +18,7 @@ var stages_cleared := 1
 var time_bonus: int
 var endless_mode := false
 var endless_mode_jingle_played := false
+var game_finished = false
 
 @export_subgroup("References")
 @export var cat_scene: PackedScene
@@ -236,18 +237,30 @@ func cardinalize(vec: Vector2) -> Vector2:
 # Player lost!
 # oh no, anyway
 func on_defeat() -> void:
-	if endless_mode:
-		SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages_cleared)
-	AudioManager.music.stop()
-	AudioManager.trace.stop()
-
-	defeat_animation.play("slide_up")
+	if not game_finished:
+		game_finished = true
+		if endless_mode:
+			SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages_cleared)
+		AudioManager.music.stop()
+		AudioManager.trace.stop()
+		defeat_animation.play("blurify")
+		await defeat_animation.animation_finished
+		defeat_animation.play("slide_up")
+	else:
+		return
 
 func on_victory() -> void:
-	SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
-	SaveSystem.write_data()
-
-	AudioManager.music.stop()
-	AudioManager.trace.stop()
-	AudioManager.victory.play()
-	victory_animation.play("slide_down")
+	if not game_finished:
+		game_finished = true
+		SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
+		SaveSystem.write_data()
+		
+	
+		AudioManager.music.stop()
+		AudioManager.trace.stop()
+		AudioManager.victory.play()
+		victory_animation.play("blurify")
+		await victory_animation.animation_finished
+		victory_animation.play("slide_down")
+	else:
+		return
