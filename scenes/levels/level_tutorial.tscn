@@ -274,7 +274,7 @@ z_index = -1
 position = Vector2(1000, 562.5)
 texture = ExtResource("12_imiua")
 
-[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator")]
+[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation")]
 z_index = 2
 position = Vector2(1003, 638)
 script = ExtResource("3_cc0dj")
@@ -285,6 +285,8 @@ timer = NodePath("../UnusedTimer")
 cat_generator = NodePath("TutorialLevelGen")
 victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
+defeat_animation = NodePath("../Defeat/DefeatAnimation")
+victory_animation = NodePath("../Victory/VictoryAnimation")
 
 [node name="TutorialLevelGen" parent="TutorialPlayfield" instance=ExtResource("2_d1cyn")]
 
@@ -333,9 +335,6 @@ show_percentage = false
 [node name="Victory" parent="." instance=ExtResource("8_0xb81")]
 offset = Vector2(0, -1130)
 transform = Transform2D(1, 0, 0, 1, 0, -1130)
-
-[node name="NextLevelBtnBehavior" parent="Victory/Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" index="1" node_paths=PackedStringArray("play_field")]
-play_field = NodePath("../../../../../../../../../TutorialPlayfield")
 
 [node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
 libraries = {

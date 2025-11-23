@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=3 format=3 uid="uid://bxfx5x0eoeyri"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=7 format=3 uid="uid://bxfx5x0eoeyri"]
 
 [ext_resource type="AudioStream" uid="uid://cve1aydbjhj0e" path="res://assets/audio/sfx/dialog/sfx_bingus_voice.mp3" id="1_0y0q8"]
 [ext_resource type="Script" uid="uid://c05t1x480eqg6" path="res://scripts/cutscene/character_resource.gd" id="1_2ianp"]
+[ext_resource type="Texture2D" uid="uid://ttc47f21hiqn" path="res://assets/sprites/bingus/bingus_normal.png" id="3_rfid4"]
+[ext_resource type="Texture2D" uid="uid://sw81wy0gou00" path="res://assets/sprites/bingus/bingus_normal2.png" id="4_f4n1i"]
+[ext_resource type="Texture2D" uid="uid://tujyf88ft7du" path="res://assets/sprites/bingus/bingus_angry.png" id="5_268m5"]
+[ext_resource type="Texture2D" uid="uid://g4els2088lqy" path="res://assets/sprites/bingus/bingus_angry2.png" id="6_8jo8u"]
 
 [resource]
 script = ExtResource("1_2ianp")
 name = "Overlord Bingus"
+default_sprite = "normal"
+sprites = Dictionary[String, CompressedTexture2D]({
+"angry": ExtResource("5_268m5"),
+"angry2": ExtResource("6_8jo8u"),
+"normal": ExtResource("3_rfid4"),
+"normal2": ExtResource("4_f4n1i")
+})
 dialog_sfx = ExtResource("1_0y0q8")
 metadata/_custom_type_script = "uid://c05t1x480eqg6"
