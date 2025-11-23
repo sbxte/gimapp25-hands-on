@@ -195,8 +195,6 @@ func on_defeat() -> void:
 	AudioManager.trace.stop()
 
 	defeat_animation.play("slide_up")
-	await defeat_animation.animation_finished
-	SceneManager.change_scene(defeat_scene_path, false)
 
 func on_victory() -> void:
 	SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
@@ -206,5 +204,3 @@ func on_victory() -> void:
 	AudioManager.trace.stop()
 	AudioManager.victory.play()
 	victory_animation.play("slide_down")
-	await victory_animation.animation_finished
-	SceneManager.change_scene(victory_scene_path, false)

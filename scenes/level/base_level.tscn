@@ -1,11 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=29 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
 [ext_resource type="Script" uid="uid://buou3l0tcljdd" path="res://scripts/level/timer.gd" id="4_8xnqg"]
 [ext_resource type="PackedScene" uid="uid://b5t0fdh57di2d" path="res://scenes/level/default_level_gen.tscn" id="4_qf4k4"]
 [ext_resource type="Script" uid="uid://bo0euhvffafhy" path="res://scripts/level/timer_progress.gd" id="4_t6xnl"]
-[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="5_daaf0"]
 [ext_resource type="Texture2D" uid="uid://dx6wd3vwxw3tw" path="res://assets/sprites/timer/timer_frame.png" id="5_wq2a1"]
 [ext_resource type="Texture2D" uid="uid://ug7jeafhg7xo" path="res://assets/sprites/pause.png" id="6_8xnqg"]
 [ext_resource type="Texture2D" uid="uid://dpsy6gt4oqr0r" path="res://assets/sprites/timer/timer_fill.png" id="7_466n5"]
@@ -48,18 +47,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -1130)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackgroundBlur:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_8x4to"]
 resource_name = "slide_down"
@@ -75,28 +62,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -1130), Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackgroundBlur:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
 _data = {
 &"RESET": SubResource("Animation_qf4k4"),
 &"slide_down": SubResource("Animation_8x4to")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufabe"]
-shader = ExtResource("5_daaf0")
-shader_parameter/blur_value = 1.5
 
 [sub_resource type="Animation" id="Animation_daaf0"]
 resource_name = "RESET"
@@ -112,18 +83,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 1130)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackgroundBlur2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_ufabe"]
 resource_name = "slide_up"
@@ -138,18 +97,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 3),
 "update": 0,
 "values": [Vector2(0, 1130), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BackgroundBlur2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
@@ -270,34 +217,6 @@ libraries = {
 }
 playback_auto_capture_transition_type = 7
 
-[node name="BackgroundBlur" type="TextureRect" parent="Victory"]
-visible = false
-z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_kxd26")
-
-[node name="Blur" type="ColorRect" parent="Victory/BackgroundBlur"]
-material = SubResource("ShaderMaterial_ufabe")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Darken" type="ColorRect" parent="Victory/BackgroundBlur"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
-
 [node name="Defeat" parent="." instance=ExtResource("13_8x4to")]
 offset = Vector2(0, 1130)
 transform = Transform2D(1, 0, 0, 1, 0, 1130)
@@ -307,34 +226,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_41h08")
 }
 playback_auto_capture_transition_type = 7
-
-[node name="BackgroundBlur2" type="TextureRect" parent="Defeat"]
-visible = false
-z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_kxd26")
-
-[node name="Blur" type="ColorRect" parent="Defeat/BackgroundBlur2"]
-material = SubResource("ShaderMaterial_ufabe")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Darken" type="ColorRect" parent="Defeat/BackgroundBlur2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]
