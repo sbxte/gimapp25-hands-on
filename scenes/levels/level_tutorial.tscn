@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bu7hllkvcc1rn"]
+[gd_scene load_steps=70 format=3 uid="uid://bu7hllkvcc1rn"]
 
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="1_0xb81"]
 [ext_resource type="Script" uid="uid://bhvduvlqq3evf" path="res://scripts/level/tutorial_level.gd" id="1_1w7m4"]
@@ -213,9 +213,11 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 script = ExtResource("23_i4owl")
 metadata/_custom_type_script = "uid://rg02id54aw1x"
 
-[sub_resource type="Resource" id="Resource_lldia"]
-script = ExtResource("25_aqoe0")
-metadata/_custom_type_script = "uid://cwqorovy605ox"
+[sub_resource type="Resource" id="Resource_2k07w"]
+script = ExtResource("25_vqxww")
+offset = Vector2(-96, -48)
+points = Array[Vector2i]([Vector2i(2, 0), Vector2i(1, 0), Vector2i(1, 1)])
+metadata/_custom_type_script = "uid://cvoj1nafbec2h"
 
 [sub_resource type="Resource" id="Resource_m43j8"]
 script = ExtResource("24_6yvh5")
@@ -223,7 +225,27 @@ metadata/_custom_type_script = "uid://cy1me858c253b"
 
 [sub_resource type="Resource" id="Resource_5o2ac"]
 script = ExtResource("3_w73a1")
-components = Array[ExtResource("4_nsphw")]([SubResource("Resource_17jfl"), SubResource("Resource_lldia"), SubResource("Resource_m43j8")])
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_17jfl"), SubResource("Resource_2k07w"), SubResource("Resource_m43j8")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_1ohoy"]
+script = ExtResource("25_vqxww")
+offset = Vector2(-96, -48)
+points = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(2, 1)])
+metadata/_custom_type_script = "uid://cvoj1nafbec2h"
+
+[sub_resource type="Resource" id="Resource_gp0yj"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_1ohoy")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_lldia"]
+script = ExtResource("25_aqoe0")
+metadata/_custom_type_script = "uid://cwqorovy605ox"
+
+[sub_resource type="Resource" id="Resource_a5r13"]
+script = ExtResource("3_w73a1")
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_lldia")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
@@ -327,7 +349,7 @@ libraries = {
 }
 
 [node name="TutorialCutscene" parent="." instance=ExtResource("2_c1vkt")]
-entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_urnbx"), SubResource("Resource_nnw1l"), SubResource("Resource_wkwfn"), SubResource("Resource_nnnq2"), SubResource("Resource_5o2ac")])
+entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_urnbx"), SubResource("Resource_nnw1l"), SubResource("Resource_wkwfn"), SubResource("Resource_nnnq2"), SubResource("Resource_5o2ac"), SubResource("Resource_gp0yj"), SubResource("Resource_a5r13")])
 
 [node name="CSHandler" type="Node2D" parent="TutorialCutscene" node_paths=PackedStringArray("play_field")]
 z_index = 10
