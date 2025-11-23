@@ -10,12 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bywgerru0bnq2" path="res://assets/ui/settings_menu_title.png" id="6_l0eij"]
 [ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="8_g67jo"]
-[ext_resource type="Texture2D" uid="uid://b15u7jlw65p3x" path="res://assets/text/master.png" id="10_udegp"]
+[ext_resource type="Texture2D" uid="uid://b1880r4brj42" path="res://assets/text/master.png" id="10_udegp"]
 [ext_resource type="Script" uid="uid://c1p85ubxsv128" path="res://scripts/menus/volume_slider.gd" id="12_rxdtf"]
 [ext_resource type="Texture2D" uid="uid://tbqtnnu57ppa" path="res://assets/ui/slider_inner.png" id="13_hg0fu"]
 [ext_resource type="Texture2D" uid="uid://dvg4aor374i3y" path="res://assets/ui/slider_frame.png" id="13_udegp"]
-[ext_resource type="Texture2D" uid="uid://b0wwu6sk403et" path="res://assets/text/sfx.png" id="15_fd2q8"]
-[ext_resource type="Texture2D" uid="uid://j0wgadpojh4w" path="res://assets/text/music.png" id="16_rxdtf"]
+[ext_resource type="Texture2D" uid="uid://bg5o48iw7aqly" path="res://assets/text/sfx.png" id="15_fd2q8"]
+[ext_resource type="Texture2D" uid="uid://c4tyavhkruvgn" path="res://assets/text/music.png" id="16_rxdtf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g67jo"]
 shader = ExtResource("3_mcc4n")

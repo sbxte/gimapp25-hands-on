@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dy2tuc1ttighw"]
+[gd_scene load_steps=0 format=3 uid="uid://dy2tuc1ttighw"]
 
 [node name="newcat_notif" type="CanvasLayer"]
 
