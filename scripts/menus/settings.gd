@@ -27,32 +27,18 @@ func _ready() -> void:
 
 func _on_master_slider_value_changed(value: float) -> void:
 	master_bar.value = value
-	
-	AudioServer.set_bus_volume_db(master_bus, value)
-	
-	if value <= -30.0:
-		AudioServer.set_bus_mute(master_bus, true)
-	else:
-		AudioServer.set_bus_mute(master_bus, false)
 
+	AudioServer.set_bus_volume_linear(master_bus, value)
+	AudioServer.set_bus_mute(master_bus, is_zero_approx(value))
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	sfx_bar.value = value
-	
-	AudioServer.set_bus_volume_db(sfx_bus, value)
-	
-	if value <= -30.0:
-		AudioServer.set_bus_mute(sfx_bus, true)
-	else:
-		AudioServer.set_bus_mute(sfx_bus, false)
 
+	AudioServer.set_bus_volume_linear(sfx_bus, value)
+	AudioServer.set_bus_mute(master_bus, is_zero_approx(value))
 
 func _on_music_slider_value_changed(value: float) -> void:
 	music_bar.value = value
-	
-	AudioServer.set_bus_volume_db(music_bus, value)
-	
-	if value <= -30.0:
-		AudioServer.set_bus_mute(music_bus, true)
-	else:
-		AudioServer.set_bus_mute(music_bus, false)
+
+	AudioServer.set_bus_volume_linear(music_bus, value)
+	AudioServer.set_bus_mute(master_bus, is_zero_approx(value))
