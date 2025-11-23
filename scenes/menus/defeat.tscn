@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxhjl7jf578rk"]
+[gd_scene load_steps=11 format=3 uid="uid://dxhjl7jf578rk"]
 
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="1_hsowf"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
-[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_odpfo"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_a1c3q"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_a1c3q"]
@@ -33,16 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameBackground" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_hsowf")
-
-[node name="Blur" type="ColorRect" parent="Control/GameBackground"]
+[node name="Blur" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_qte80")
 layout_mode = 1
 anchors_preset = 15
@@ -51,7 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Darken" type="ColorRect" parent="Control/GameBackground"]
+[node name="Darken" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,7 +116,7 @@ text = "Restart Level"
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("3_odpfo")]
 
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("5_a1c3q")]
-backtrack = true
+restart_scene = true
 
 [node name="Return" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
