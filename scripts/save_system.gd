@@ -27,7 +27,6 @@ func has_data() -> bool:
 func get_data() -> SaveData:
 	if not has_data():
 		load_data()
-	print(cached_save.levels_completed)
 	return cached_save
 
 func reset_data() -> void:

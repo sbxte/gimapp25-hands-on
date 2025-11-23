@@ -24,8 +24,6 @@ func _ready() -> void:
 	add_child(hint_anim_timer)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		print("hello")
 	if not play_mode:
 		if event is InputEventMouseButton:
 			var m_event := (event as InputEventMouseButton)
