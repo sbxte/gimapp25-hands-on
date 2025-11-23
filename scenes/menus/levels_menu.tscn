@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=45 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_8h12j"]
 [ext_resource type="Texture2D" uid="uid://erra1kdv5bku" path="res://assets/ui/placement 1.png" id="1_vcrj6"]
@@ -7,21 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
 [ext_resource type="Texture2D" uid="uid://cv5jyp4pcr3k2" path="res://assets/ui/placement 3.png" id="3_wrd8s"]
 [ext_resource type="Texture2D" uid="uid://dftkv6b2p6yxd" path="res://assets/ui/placement 4.png" id="4_4of36"]
-[ext_resource type="PackedScene" uid="uid://dr2ap84vkrugg" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
+[ext_resource type="PackedScene" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
 [ext_resource type="Texture2D" uid="uid://y2r8frcnxlgl" path="res://assets/ui/placement 5.png" id="5_psrh6"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
 [ext_resource type="Texture2D" uid="uid://dp17u0bm8k6mu" path="res://assets/ui/placement endless mode.png" id="6_3lkb3"]
 [ext_resource type="Texture2D" uid="uid://fk7bhing8get" path="res://assets/ui/questions.png" id="7_2dnfq"]
 [ext_resource type="Texture2D" uid="uid://dw0lb5o7jn445" path="res://assets/ui/Deco.png" id="8_v6wf2"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="9_t1y88"]
-[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
+[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="12_hfnu2"]
+[ext_resource type="Texture2D" uid="uid://3spf1aia7ul1" path="res://assets/text/Tutorial.png" id="14_v6wf2"]
 [ext_resource type="Texture2D" uid="uid://bu2v5w30p2j1a" path="res://assets/text/level 1.png" id="17_cx55l"]
 [ext_resource type="Texture2D" uid="uid://cpc32s26tnuh5" path="res://assets/text/level 2.png" id="18_psrh6"]
 [ext_resource type="Texture2D" uid="uid://cai0y0isngyw1" path="res://assets/text/level 3.png" id="19_3lkb3"]
 [ext_resource type="Texture2D" uid="uid://bbb7bq7jjy5c7" path="res://assets/text/level 4.png" id="20_2dnfq"]
 [ext_resource type="Texture2D" uid="uid://ctsr0ihahm3bh" path="res://assets/text/level 5.png" id="21_v6wf2"]
 [ext_resource type="Texture2D" uid="uid://cg8et8lxbv8il" path="res://assets/text/Endless mode.png" id="22_3lkb3"]
+[ext_resource type="Texture2D" uid="uid://bkc8gl6e5bp7v" path="res://assets/text/Endless mode_hover.png" id="23_2dnfq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6mv"]
 shader = ExtResource("10_dk45c")
@@ -38,6 +40,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywdid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p4yv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1des"]
 
@@ -80,12 +84,28 @@ grow_vertical = 2
 [node name="BackgroundPanels" type="Control" parent="Control"]
 custom_minimum_size = Vector2(110, 110)
 layout_mode = 1
-anchor_left = 0.12
-anchor_top = -0.264
-anchor_right = 0.8845
-anchor_bottom = 1.1048889
+anchor_left = 0.194
+anchor_top = -0.033777777
+anchor_right = 0.8135
+anchor_bottom = 1.0684445
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect9" type="TextureRect" parent="Control/BackgroundPanels"]
+custom_minimum_size = Vector2(150, 110)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044390626
+anchor_top = 0.00080650084
+anchor_right = 0.9744093
+anchor_bottom = 1.208173
+offset_top = -6.1035156e-05
+offset_right = -0.00012207031
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_3lkb3")
+expand_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/BackgroundPanels"]
@@ -151,18 +171,18 @@ expand_mode = 5
 custom_minimum_size = Vector2(150, 110)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0058862003
-anchor_top = 0.69545454
-anchor_right = 1.0058862
-anchor_bottom = 1.6954546
-offset_left = -128.0
-offset_top = -41.0
-offset_right = 143.0
-offset_bottom = 203.66357
+anchor_left = -0.09742292
+anchor_top = 0.6573615
+anchor_right = 1.1213019
+anchor_bottom = 1.864728
+offset_top = 6.2353516
+offset_right = -0.00012207031
+offset_bottom = -6.2353516
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_3lkb3")
 expand_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect7" type="TextureRect" parent="Control/BackgroundPanels"]
 custom_minimum_size = Vector2(150, 110)
@@ -221,9 +241,10 @@ color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0095
-anchor_right = 0.9905
-anchor_bottom = 1.0
+anchor_left = 0.2815
+anchor_top = 0.0035555556
+anchor_right = 0.711
+anchor_bottom = 0.952889
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3au0w")
@@ -285,20 +306,29 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3p4yv")
 
-[node name="TutorialLevelButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer"]
+[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer"]
 layout_mode = 2
+texture_normal = ExtResource("14_v6wf2")
+
+[node name="TutorialLevelButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t1des")
-text = "Tutorial"
+flat = true
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TextureButton/TutorialLevelButton" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TextureButton/TutorialLevelButton" instance=ExtResource("5_knlas")]
 scene_path = "res://scenes/levels/level_tutorial.tscn"
 
 [node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -317,9 +347,12 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_klm2d")
 
 [node name="Level1Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1"]
+custom_minimum_size = Vector2(330, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("17_cx55l")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Level1Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/Level1Text"]
 layout_mode = 1
@@ -343,7 +376,7 @@ scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxEmpty_3lkb3")
 
 [node name="Level2" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -358,8 +391,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_t1y88")
 
 [node name="Level2Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2"]
+custom_minimum_size = Vector2(330, 100)
 layout_mode = 2
 texture_normal = ExtResource("18_psrh6")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Level2Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Text"]
 layout_mode = 1
@@ -383,7 +419,7 @@ scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="HSeparator4" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxEmpty_2dnfq")
 
 [node name="Level3" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -398,8 +434,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_dk45c")
 
 [node name="Level3Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2"]
+custom_minimum_size = Vector2(330, 90)
 layout_mode = 2
 texture_normal = ExtResource("19_3lkb3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Level3Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Text"]
 layout_mode = 1
@@ -423,7 +462,7 @@ scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="HSeparator5" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 34
 theme_override_styles/separator = SubResource("StyleBoxEmpty_v6wf2")
 
 [node name="Level4" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -438,8 +477,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hfnu2")
 
 [node name="Level4Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2"]
+custom_minimum_size = Vector2(330, 90)
 layout_mode = 2
 texture_normal = ExtResource("20_2dnfq")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Level4Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Text"]
 layout_mode = 1
@@ -478,8 +520,11 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cx55l")
 
 [node name="Level5Text" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2"]
+custom_minimum_size = Vector2(330, 90)
 layout_mode = 2
 texture_normal = ExtResource("21_v6wf2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Level5Button" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Text"]
 layout_mode = 1
@@ -503,7 +548,7 @@ scene_path = "res://scenes/levels/level_5.tscn"
 
 [node name="HSeparator7" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ynmgn")
 
 [node name="LevelEndless" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -518,11 +563,13 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_irih6")
 
 [node name="LevelEndlessText" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2"]
-custom_minimum_size = Vector2(100, 50)
+custom_minimum_size = Vector2(700, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("22_3lkb3")
-stretch_mode = 3
+texture_hover = ExtResource("23_2dnfq")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="LevelEndlessButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessText"]
 layout_mode = 1

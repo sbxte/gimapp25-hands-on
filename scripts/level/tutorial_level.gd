@@ -23,5 +23,6 @@ func _ready() -> void:
 	play_field.reset_cats()
 	play_field.time_bonus = time_bonus
 	play_field.endless_mode = endless_mode
+	play_field.game_finished = false
 
 	timer.disable()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bu7hllkvcc1rn"]
+[gd_scene load_steps=79 format=3 uid="uid://bu7hllkvcc1rn"]
 
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="1_0xb81"]
 [ext_resource type="Script" uid="uid://bhvduvlqq3evf" path="res://scripts/level/tutorial_level.gd" id="1_1w7m4"]
@@ -27,84 +27,14 @@
 [ext_resource type="Script" uid="uid://cwqorovy605ox" path="res://scripts/cutscene/entries/tutorial/tutorial_hint_toggle.gd" id="25_aqoe0"]
 [ext_resource type="Script" uid="uid://cvoj1nafbec2h" path="res://scripts/cutscene/entries/tutorial/tutorial_hint.gd" id="25_vqxww"]
 [ext_resource type="Script" uid="uid://b6sy5pr1ppum1" path="res://scripts/cutscene/advancer/tutorial_cs_handler.gd" id="26_vqxww"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="27_yhqpt"]
+[ext_resource type="PackedScene" uid="uid://dy2tuc1ttighw" path="res://scenes/menus/newcat_notif.tscn" id="29_u8uhl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eis7c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pi7b"]
 texture = ExtResource("11_dbhxw")
 axis_stretch_horizontal = 1
-
-[sub_resource type="Animation" id="Animation_qf4k4"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1130)]
-}
-
-[sub_resource type="Animation" id="Animation_8x4to"]
-resource_name = "slide_down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -1130), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
-_data = {
-&"RESET": SubResource("Animation_qf4k4"),
-&"slide_down": SubResource("Animation_8x4to")
-}
-
-[sub_resource type="Animation" id="Animation_daaf0"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1130)]
-}
-
-[sub_resource type="Animation" id="Animation_ufabe"]
-resource_name = "slide_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 1130), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
-_data = {
-&"RESET": SubResource("Animation_daaf0"),
-&"slide_up": SubResource("Animation_ufabe")
-}
 
 [sub_resource type="Resource" id="Resource_6yvh5"]
 script = ExtResource("20_02mq4")
@@ -260,6 +190,277 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
 
+[sub_resource type="Animation" id="Animation_pvd5x"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-982, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pxapg"]
+resource_name = "slide_right"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-720, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-720, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-982, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-982, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqmlw"]
+_data = {
+&"RESET": SubResource("Animation_pvd5x"),
+&"slide_right": SubResource("Animation_pxapg")
+}
+
+[sub_resource type="Animation" id="Animation_qf4k4"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1130)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GameBackground:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1130)]
+}
+
+[sub_resource type="Animation" id="Animation_41h08"]
+resource_name = "blurify"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../GameBackground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8x4to"]
+resource_name = "slide_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3),
+"update": 0,
+"values": [Vector2(0, -1130), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
+_data = {
+&"RESET": SubResource("Animation_qf4k4"),
+&"blur": SubResource("Animation_41h08"),
+&"slide_down": SubResource("Animation_8x4to")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8uhl"]
+shader = ExtResource("27_yhqpt")
+shader_parameter/blur_value = 1.5
+
+[sub_resource type="Animation" id="Animation_daaf0"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1130)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GameBackground:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wk8xf"]
+resource_name = "blurify"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../GameBackground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ufabe"]
+resource_name = "slide_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3),
+"update": 0,
+"values": [Vector2(0, 1130), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GameBackground:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
+_data = {
+&"RESET": SubResource("Animation_daaf0"),
+&"blurify": SubResource("Animation_wk8xf"),
+&"slide_up": SubResource("Animation_ufabe")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jlf0l"]
+shader = ExtResource("27_yhqpt")
+shader_parameter/blur_value = 1.5
+
 [node name="LevelTutorial" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 script = ExtResource("1_1w7m4")
 grid_size = Vector2i(3, 2)
@@ -332,24 +533,6 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_5pi7b")
 value = 100.0
 show_percentage = false
 
-[node name="Victory" parent="." instance=ExtResource("8_0xb81")]
-offset = Vector2(0, -1130)
-transform = Transform2D(1, 0, 0, 1, 0, -1130)
-
-[node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
-libraries = {
-&"": SubResource("AnimationLibrary_daaf0")
-}
-
-[node name="Defeat" parent="." instance=ExtResource("9_dbhxw")]
-offset = Vector2(0, 1130)
-transform = Transform2D(1, 0, 0, 1, 0, 1130)
-
-[node name="DefeatAnimation" type="AnimationPlayer" parent="Defeat"]
-libraries = {
-&"": SubResource("AnimationLibrary_41h08")
-}
-
 [node name="TutorialCutscene" parent="." instance=ExtResource("2_c1vkt")]
 entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_urnbx"), SubResource("Resource_nnw1l"), SubResource("Resource_wkwfn"), SubResource("Resource_nnnq2"), SubResource("Resource_5o2ac"), SubResource("Resource_gp0yj"), SubResource("Resource_a5r13")])
 
@@ -388,7 +571,104 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
 
+[node name="newcat_notif" parent="." instance=ExtResource("29_u8uhl")]
+offset = Vector2(-982, 0)
+transform = Transform2D(1, 0, 0, 1, -982, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="newcat_notif"]
+libraries = {
+&"": SubResource("AnimationLibrary_kqmlw")
+}
+
+[node name="Victory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Victory" parent="Victory" instance=ExtResource("8_0xb81")]
+offset = Vector2(0, -1130)
+transform = Transform2D(1, 0, 0, 1, 0, -1130)
+
+[node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
+root_node = NodePath("../Victory")
+libraries = {
+&"": SubResource("AnimationLibrary_daaf0")
+}
+playback_auto_capture_transition_type = 7
+
+[node name="GameBackground" type="TextureRect" parent="Victory"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 50.0
+anchor_bottom = 28.125
+offset_top = 1130.0
+offset_bottom = 1130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_imiua")
+metadata/_edit_use_anchors_ = true
+
+[node name="Blur" type="ColorRect" parent="Victory/GameBackground"]
+material = SubResource("ShaderMaterial_u8uhl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="Victory/GameBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
+
+[node name="Defeat" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Defeat" parent="Defeat" instance=ExtResource("9_dbhxw")]
+offset = Vector2(0, 1130)
+transform = Transform2D(1, 0, 0, 1, 0, 1130)
+
+[node name="DefeatAnimation" type="AnimationPlayer" parent="Defeat"]
+root_node = NodePath("../Defeat")
+libraries = {
+&"": SubResource("AnimationLibrary_41h08")
+}
+playback_auto_capture_transition_type = 7
+
+[node name="GameBackground" type="TextureRect" parent="Defeat"]
+visible = false
+layout_mode = 0
+offset_right = 2000.0
+offset_bottom = 1125.0
+texture = ExtResource("12_imiua")
+
+[node name="Blur" type="ColorRect" parent="Defeat/GameBackground"]
+material = SubResource("ShaderMaterial_jlf0l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="Defeat/GameBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
+
 [connection signal="value_changed" from="UnusedTimer/TimerProgress/TimerBar" to="UnusedTimer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="gui_input" from="Pause/HBoxContainer/PauseButton" to="Pause/HBoxContainer/PauseButton/PauseBehavior" method="_on_pause_button_gui_input"]
-
-[editable path="Victory"]
