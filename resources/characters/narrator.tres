@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_gb7mf")
+name = "Narrator"
 metadata/_custom_type_script = "uid://c05t1x480eqg6"
