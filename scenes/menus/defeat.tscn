@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxhjl7jf578rk"]
+[gd_scene load_steps=12 format=3 uid="uid://dxhjl7jf578rk"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
 [ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
@@ -21,6 +21,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1c3q"]
 
 [node name="Defeat" type="CanvasLayer"]
 
@@ -111,6 +113,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_lyivj")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a1c3q")
 text = "Restart Level"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("3_odpfo")]
@@ -135,6 +138,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_lyivj")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a1c3q")
 text = "Return Home"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("4_a1c3q")]

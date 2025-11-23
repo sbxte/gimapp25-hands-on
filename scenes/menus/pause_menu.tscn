@@ -25,6 +25,8 @@ shader_parameter/blur_value = 1.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oey0u"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty7ml"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pf6lc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy5ew"]
@@ -147,6 +149,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ty7ml")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueTexture/ContinueButton" instance=ExtResource("3_eyfc8")]
@@ -185,6 +188,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ty7ml")
 flat = true
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("5_xiui8")]
@@ -223,6 +227,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_opdvj")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ty7ml")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("3_eyfc8")]

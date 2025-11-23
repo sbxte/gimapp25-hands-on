@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=42 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_8h12j"]
 [ext_resource type="Texture2D" uid="uid://erra1kdv5bku" path="res://assets/ui/placement 1.png" id="1_vcrj6"]
@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
 [ext_resource type="Texture2D" uid="uid://cv5jyp4pcr3k2" path="res://assets/ui/placement 3.png" id="3_wrd8s"]
 [ext_resource type="Texture2D" uid="uid://dftkv6b2p6yxd" path="res://assets/ui/placement 4.png" id="4_4of36"]
-[ext_resource type="PackedScene" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
+[ext_resource type="PackedScene" uid="uid://dr2ap84vkrugg" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
 [ext_resource type="Texture2D" uid="uid://y2r8frcnxlgl" path="res://assets/ui/placement 5.png" id="5_psrh6"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
 [ext_resource type="Texture2D" uid="uid://dp17u0bm8k6mu" path="res://assets/ui/placement endless mode.png" id="6_3lkb3"]
 [ext_resource type="Texture2D" uid="uid://fk7bhing8get" path="res://assets/ui/questions.png" id="7_2dnfq"]
 [ext_resource type="Texture2D" uid="uid://dw0lb5o7jn445" path="res://assets/ui/Deco.png" id="8_v6wf2"]
-[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/background.png" id="9_t1y88"]
-[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
+[ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="9_t1y88"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="12_hfnu2"]
 [ext_resource type="Texture2D" uid="uid://bu2v5w30p2j1a" path="res://assets/text/level 1.png" id="17_cx55l"]
 [ext_resource type="Texture2D" uid="uid://cpc32s26tnuh5" path="res://assets/text/level 2.png" id="18_psrh6"]
@@ -37,9 +37,15 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywdid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1des"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_psrh6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klm2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tb0ul"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lkb3"]
 
@@ -262,6 +268,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("12_hfnu2")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ywdid")
 text = "Back to Main Menu"
 
 [node name="ChangeMenuButtonAudio\'" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer3/MainMenu" instance=ExtResource("3_5futn")]
@@ -286,6 +293,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1des")
 text = "Tutorial"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Tutorial/PanelContainer/TutorialLevelButton" instance=ExtResource("3_dnh54")]
@@ -324,8 +332,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
-metadata/_edit_use_anchors_ = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level1/Level1Text/Level1Button" instance=ExtResource("3_dnh54")]
 
@@ -364,6 +372,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level2/PanelContainer2/Level2Text/Level2Button" instance=ExtResource("3_dnh54")]
@@ -403,6 +412,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level3/PanelContainer2/Level3Text/Level3Button" instance=ExtResource("3_dnh54")]
@@ -442,6 +452,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level4/PanelContainer2/Level4Text/Level4Button" instance=ExtResource("3_dnh54")]
@@ -481,6 +492,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Level5/PanelContainer2/Level5Text/Level5Button" instance=ExtResource("3_dnh54")]
@@ -523,6 +535,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_8h12j")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tb0ul")
 flat = true
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/LevelEndless/PanelContainer2/LevelEndlessText/LevelEndlessButton" instance=ExtResource("3_dnh54")]

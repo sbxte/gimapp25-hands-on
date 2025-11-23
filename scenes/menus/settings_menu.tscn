@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=30 format=3 uid="uid://bbu1qyllq1y0i"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="3_6wm04"]
@@ -32,6 +32,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxdtf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muhwa"]
 
@@ -169,6 +171,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("8_g67jo")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rxdtf")
 text = "Back to Main Menu"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2/MainMenuButton" instance=ExtResource("4_da10i")]
@@ -381,6 +384,7 @@ size_flags_vertical = 0
 
 [node name="BackButton" type="Button" parent="Control/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rxdtf")
 icon = ExtResource("3_6wm04")
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/HBoxContainer/BackButton" instance=ExtResource("4_da10i")]

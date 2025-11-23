@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=18 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/main_menu_background.png" id="1_8r73w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
@@ -16,9 +16,15 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50h1w"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88kup"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euy4r"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bh4e2"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3w8rc"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -91,6 +97,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_88kup")
 flat = true
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("4_ng0o5")]
@@ -127,6 +134,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bh4e2")
 text = "
 "
 flat = true
@@ -163,6 +171,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3w8rc")
 text = "
 "
 flat = true

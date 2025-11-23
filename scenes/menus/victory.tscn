@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqkint05opiq0"]
+[gd_scene load_steps=14 format=3 uid="uid://dqkint05opiq0"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_cjfw4"]
 [ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="2_q5utn"]
@@ -23,6 +23,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lo8b6"]
 
 [node name="Victory" type="CanvasLayer"]
 
@@ -126,6 +128,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lo8b6")
 text = "Next Level"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_15dr4")]
@@ -150,6 +153,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lo8b6")
 text = "Return Home"
 
 [node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("4_2ng71")]
