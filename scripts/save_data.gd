@@ -9,3 +9,8 @@ extends Resource
 
 # How many stages have been cleared in endless mode
 @export var endless_mode_stages_cleared := 0
+
+@export var cats_encountered: Array[bool] = [
+	false, false, false, false,
+	false, false, false, false
+]

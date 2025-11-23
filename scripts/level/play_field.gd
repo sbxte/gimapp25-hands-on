@@ -128,6 +128,10 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	erase_path(true, cat.global_position)
 	AudioManager.deselect.play()
 
+	if not SaveSystem.get_data().cats_encountered[cat.type - 1]:
+		SaveSystem.get_data().cats_encountered[cat.type - 1] = true
+		SaveSystem.write_data()
+
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
@@ -254,8 +258,7 @@ func on_victory() -> void:
 		game_finished = true
 		SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
 		SaveSystem.write_data()
-		
-	
+
 		AudioManager.music.stop()
 		AudioManager.trace.stop()
 		AudioManager.victory.play()
