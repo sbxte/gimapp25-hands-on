@@ -30,6 +30,27 @@ var endless_mode_jingle_played := false
 @onready var defeat_animation: AnimationPlayer = $"../Defeat/DefeatAnimation"
 @onready var victory_animation: AnimationPlayer = $"../Victory/VictoryAnimation"
 
+const correct_match_lines: Array[String] = [
+	"Yes, Good. Brain functioning.",
+	"Cat to cat, simple. You did it. Wow.",
+	"See? Matching isn’t hard. Even for you.",
+	"Good, very good.",
+	"Excellent, they will fight with… mild enthusiasm",
+	"Excellent Job, Human. I almost believe in you.",
+	"A streak, impressive, for a human.",
+	"Nice, very nice."
+]
+const wrong_match_lines: Array[String] = [
+	"No. Wrong. Incorrect. Bad.",
+	"What—what is THAT? Stop.",
+	"Why would you do that?",
+	"Is your brain functioning, Human?",
+	"Stop guessing. Use brain, please.",
+	"Nuh uh, that won’t do.",
+	"You just committed a war crime in the whole Felis Dominion!",
+	"If you do that again, I’m revoking your thumbs."
+]
+
 signal drag_start(start: Vector2)
 signal drag_end(end: Vector2, matched: bool)
 
@@ -102,6 +123,10 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 		match_streak = 0
 		return
 
+	# FIX: Path simply disappears and does not visually connect to the paired cat
+	erase_path(true, cat.global_position)
+	AudioManager.deselect.play()
+
 	# Delete cats
 	cat.queue_free()
 	first_cat.queue_free()
@@ -128,10 +153,6 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if match_streak == 2:
 		timer.reset_speed()
 
-	# FIX: Path simply disappears and does not visually connect to the paired cat
-	erase_path(true)
-	AudioManager.deselect.play()
-
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
 	dragging = true
@@ -141,10 +162,36 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	queue_redraw()
 	AudioManager.select.play()
 
-func erase_path(matched: bool) -> void:
+func erase_path(matched: bool, last_pos: Vector2 = Vector2.ZERO) -> void:
 	AudioManager.trace.stop()
 	dragging = false
 	if not path.is_empty():
+		# Pick a random cat that is not the two matched cats
+		var cats = get_tree().get_nodes_in_group("Cats")
+		if cats.size() > 2:
+			var first_in_pair: Node = null
+			var second_in_pair: Node = null
+
+			var front := (path.front() as Vector2) + global_position
+			var back := last_pos
+			for c: Node in cats:
+				if first_in_pair and second_in_pair:
+					break
+				var c2d := c as Node2D
+				var pos := c2d.global_position
+				if not first_in_pair and pos == front:
+					first_in_pair = c
+				elif not second_in_pair and pos == back:
+					second_in_pair = c
+
+			cats.erase(first_in_pair)
+			cats.erase(second_in_pair)
+
+			if matched:
+				DialogueManager.start_dialogue((cats.pick_random() as Node2D).global_position, correct_match_lines.pick_random())
+			else:
+				DialogueManager.start_dialogue((cats.pick_random() as Node2D).global_position, wrong_match_lines.pick_random())
+
 		drag_end.emit(path.back(), matched)
 	path.clear()
 	queue_redraw()
