@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqkint05opiq0"]
+[gd_scene load_steps=13 format=3 uid="uid://dqkint05opiq0"]
 
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_cjfw4"]
 [ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="2_q5utn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_15dr4"]
 [ext_resource type="Texture2D" uid="uid://c5b7u35ri30ls" path="res://assets/background/level_completion.png" id="3_384uh"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_2ng71"]
+[ext_resource type="PackedScene" uid="uid://b8a0squvaerx1" path="res://scenes/components/button/next_level_btn_behavior.tscn" id="5_lo8b6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lo8b6"]
 shader = ExtResource("2_q5utn")
@@ -125,12 +126,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_cjfw4")
 theme_override_font_sizes/font_size = 24
-text = "Continue Level"
+text = "Next Level"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_15dr4")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("3_2ng71")]
-scene_path = "res://scenes/menus/levels_menu.tscn"
+[node name="NextLevelBtnBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" instance=ExtResource("5_lo8b6")]
+level_menu = "uid://3yhnlii4dbn6"
 
 [node name="Return" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

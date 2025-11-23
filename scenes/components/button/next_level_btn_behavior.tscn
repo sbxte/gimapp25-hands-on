@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8a0squvaerx1"]
+
+[ext_resource type="Script" uid="uid://bv146wqdricc5" path="res://scripts/button/next_level.gd" id="1_12h7f"]
+
+[node name="NextLevelBtnBehavior" type="Node"]
+script = ExtResource("1_12h7f")
+level_paths = Array[String](["uid://c25eovietinlm", "uid://0vvap75b06n3", "uid://def5ej63luam4", "uid://d1ojv2mj8iu5a", "uid://ydfwv2hu8wg4"])

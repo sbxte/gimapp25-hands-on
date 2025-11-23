@@ -334,6 +334,9 @@ show_percentage = false
 offset = Vector2(0, -1130)
 transform = Transform2D(1, 0, 0, 1, 0, -1130)
 
+[node name="NextLevelBtnBehavior" parent="Victory/Control/PanelContainer/MarginContainer/VBoxContainer/Continue/PanelContainer/ContinueButton" index="1" node_paths=PackedStringArray("play_field")]
+play_field = NodePath("../../../../../../../../../TutorialPlayfield")
+
 [node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
 libraries = {
 &"": SubResource("AnimationLibrary_daaf0")
@@ -388,3 +391,5 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [connection signal="value_changed" from="UnusedTimer/TimerProgress/TimerBar" to="UnusedTimer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="gui_input" from="Pause/HBoxContainer/PauseButton" to="Pause/HBoxContainer/PauseButton/PauseBehavior" method="_on_pause_button_gui_input"]
+
+[editable path="Victory"]
