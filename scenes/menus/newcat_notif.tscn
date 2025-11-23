@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy2tuc1ttighw"]
 
 [ext_resource type="Script" uid="uid://ct2a170ugosae" path="res://scripts/menus/newcat_notif.gd" id="1_4jj8k"]
-[ext_resource type="Texture2D" uid="uid://dou2gn6smp5et" path="res://assets/ui/notif new cat.png" id="1_cx2ba"]
+[ext_resource type="Texture2D" uid="uid://deng6icp34kbd" path="res://assets/ui/notif new cat.png" id="1_cx2ba"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jj8k"]
 
@@ -9,25 +9,38 @@
 script = ExtResource("1_4jj8k")
 
 [node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(2000, 1125)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.116444446
+anchor_right = 0.308
+anchor_bottom = 0.848
 offset_left = -982.0
 offset_right = -982.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4jj8k")
 
 [node name="TextureRect" type="TextureRect" parent="Control/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("1_cx2ba")
 
-[node name="CatTexture" type="TextureRect" parent="Control/PanelContainer"]
-layout_mode = 2
+[node name="CatTexture" type="TextureRect" parent="Control"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30357143
+anchor_top = 0.31105712
+anchor_right = 0.9334416
+anchor_bottom = 0.9696233
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

@@ -1,5 +1,5 @@
 extends CanvasLayer
-@onready var cat_texture: TextureRect = $Control/PanelContainer/CatTexture
+@onready var cat_texture: TextureRect = $Control/CatTexture
 
 const cats : Array[Texture2D] = [
 	preload("uid://b1n2edvu32ea2"),

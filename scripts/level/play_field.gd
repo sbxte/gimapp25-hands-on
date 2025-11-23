@@ -262,7 +262,7 @@ func on_victory() -> void:
 		AudioManager.music.stop()
 		AudioManager.trace.stop()
 		AudioManager.victory.play()
-		victory_animation.play("blurify")
+		victory_animation.play("blur")
 		await victory_animation.animation_finished
 		victory_animation.play("slide_down")
 	else:
