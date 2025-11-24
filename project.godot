@@ -23,6 +23,7 @@ SaveSystem="*res://scripts/save_system.gd"
 SceneManager="*res://scripts/SceneManager.gd"
 AudioManager="*res://scenes/autoload/audio_manager.tscn"
 DevUtil="*res://scripts/dev_util.gd"
+NewCatNotif="*res://scenes/menus/newcat_notif.tscn"
 
 [debug]
 

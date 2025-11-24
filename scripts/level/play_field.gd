@@ -19,6 +19,8 @@ var time_bonus: int
 var endless_mode := false
 var endless_mode_jingle_played := false
 var game_finished = false
+var seen_cats : Array[int]
+var seen_cat_count : Array[int]
 
 @export_subgroup("References")
 @export var cat_scene: PackedScene
@@ -30,6 +32,8 @@ var game_finished = false
 
 @export var defeat_animation: AnimationPlayer
 @export var victory_animation: AnimationPlayer
+@export var new_cat_animation: AnimationPlayer
+
 
 const correct_match_lines: Array[String] = [
 	"Yes, Good. Brain functioning.",
@@ -60,10 +64,15 @@ func _ready() -> void:
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 	victory_animation.play("RESET")
 	defeat_animation.play("RESET")
+	new_cat_animation.play("RESET")
 
 	Events.cancel_drag.connect(cancel_drag)
 
 	timer.timer_ended.connect(on_defeat)
+	
+	seen_cat_count.resize(9)
+	seen_cat_count.fill(0)
+	seen_cats.resize(9)
 
 func _process(_delta: float) -> void:
 	if endless_mode and not endless_mode_jingle_played:
@@ -111,6 +120,12 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	if cat == first_cat:
 		return
+	
+	if cat.type in seen_cats:
+		if seen_cat_count[cat.type] == 1:
+			NewCatNotif.load_cats(cat.type)
+			new_cat_animation.play("slide_right")
+			seen_cat_count[cat.type] = 0
 
 	# When the mouse enters a cat that isn't the same type,
 	# delete the path, speed up timer, and reset streak
@@ -164,6 +179,9 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	drag_start.emit(pos)
 	path.clear()
 	path.push_back(pos)
+	if first_cat.type not in seen_cats:
+		seen_cats[first_cat.type] = first_cat.type
+		seen_cat_count[first_cat.type] = 1
 	queue_redraw()
 	AudioManager.select.play()
 
