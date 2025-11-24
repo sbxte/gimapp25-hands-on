@@ -10,3 +10,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if reset_data_shortcut.all(func(label: String): return Input.is_key_pressed(OS.find_keycode_from_string(label))):
 			SaveSystem.reset_data()
 			SaveSystem.write_data()
+			print("Save Data Reset!")
