@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://cctwqswl3ag4r" path="res://scripts/cutscene/scene.gd" id="1_jijrc"]
 [ext_resource type="PackedScene" uid="uid://uwr03sifbbq3" path="res://scenes/cutscene/base_character.tscn" id="2_4re4b"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="3_1p8wd"]
+[ext_resource type="Texture2D" uid="uid://cu0a70geyrsha" path="res://assets/sprites/dialog_bar.png" id="3_h7b3o"]
 
-
-[node name="BaseCutscene" type="CanvasLayer" node_paths=PackedStringArray("background", "dialog_text", "dialog_speaker", "text_timer")]
+[node name="BaseCutscene" type="CanvasLayer" node_paths=PackedStringArray("background", "dialog_text", "dialog_name", "dialog_box", "text_timer")]
 process_mode = 3
 script = ExtResource("1_jijrc")
 background = NodePath("Background")
 dialog_text = NodePath("Text")
-dialog_speaker = NodePath("Speaker")
+dialog_name = NodePath("Name")
+dialog_box = NodePath("DialogBar")
 base_character = ExtResource("2_4re4b")
 text_timer = NodePath("Timer")
 
@@ -20,21 +21,21 @@ centered = false
 
 [node name="Text" type="RichTextLabel" parent="."]
 z_index = 5
-offset_left = 548.0
-offset_top = 822.0
-offset_right = 1520.0
-offset_bottom = 927.0
+offset_left = 280.0
+offset_top = 853.99994
+offset_right = 1709.0
+offset_bottom = 1097.0
 theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
 theme_override_fonts/normal_font = ExtResource("3_1p8wd")
 theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 
-[node name="Speaker" type="RichTextLabel" parent="."]
+[node name="Name" type="RichTextLabel" parent="."]
 z_index = 5
-offset_left = 328.0
-offset_top = 690.0
-offset_right = 599.0
-offset_bottom = 782.0
+offset_left = 462.0
+offset_top = 730.0
+offset_right = 1005.0
+offset_bottom = 789.0
 theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
 theme_override_fonts/normal_font = ExtResource("3_1p8wd")
 theme_override_fonts/bold_font = ExtResource("3_1p8wd")
@@ -45,3 +46,8 @@ horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DialogBar" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("3_h7b3o")
+centered = false

@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var background: Sprite2D
 @export var dialog_text: RichTextLabel
 @export var dialog_name: RichTextLabel
+@export var dialog_box: CanvasItem
 @export var base_character: PackedScene
 @export var text_timer: Timer
 
@@ -122,6 +123,7 @@ func exec_entry() -> void:
 		elif component is ToggleDialogBox:
 			dialog_text.visible = component.enabled
 			dialog_name.visible = component.enabled
+			dialog_box.visible = component.enabled
 			Events.cutscene_dialog_box_enabled.emit(component.enabled)
 		elif component is CutscenePauseTree:
 			get_tree().paused = true
