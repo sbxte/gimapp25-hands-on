@@ -4,11 +4,11 @@ extends Node2D
 @export var type: int = 1
 
 @export var sprite: Sprite2D
-@export var sprites: Array[CompressedTexture2D]
+@export var cat_sprites: CatSprites
 
 func set_type(type: int) -> void:
 	assert(1 <= type and type <= 8)
-	sprite.texture = sprites[type - 1]
+	sprite.texture = cat_sprites.sprites[type - 1]
 	self.type = type
 	queue_redraw()
 

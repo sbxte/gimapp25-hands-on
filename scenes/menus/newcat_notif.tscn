@@ -1,22 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy2tuc1ttighw"]
+[gd_scene load_steps=5 format=3 uid="uid://dy2tuc1ttighw"]
 
 [ext_resource type="Script" uid="uid://ct2a170ugosae" path="res://scripts/menus/newcat_notif.gd" id="1_4jj8k"]
 [ext_resource type="Texture2D" uid="uid://deng6icp34kbd" path="res://assets/ui/notif new cat.png" id="1_cx2ba"]
-[ext_resource type="Texture2D" uid="uid://bmvtuiluoitnp" path="res://assets/sprites/cats/sorcerer.png" id="2_c2iy3"]
-[ext_resource type="Texture2D" uid="uid://cv6yd2bqvx4ks" path="res://assets/sprites/cats/void.png" id="3_iljbo"]
-[ext_resource type="Texture2D" uid="uid://baqms4g3qw1bb" path="res://assets/sprites/cats/archerman.png" id="4_abvmw"]
-[ext_resource type="Texture2D" uid="uid://b5fdsymcjsyds" path="res://assets/sprites/cats/crossbow.png" id="5_lqusn"]
-[ext_resource type="Texture2D" uid="uid://bs3mbn0tcnrr0" path="res://assets/sprites/cats/pikeman.png" id="6_cmc1d"]
-[ext_resource type="Texture2D" uid="uid://c156mnr8x1na" path="res://assets/sprites/cats/siamese.png" id="7_p0it5"]
-[ext_resource type="Texture2D" uid="uid://daxep5bbqi38j" path="res://assets/sprites/cats/bard.png" id="8_72lbo"]
-[ext_resource type="Texture2D" uid="uid://cxsue4nis401s" path="res://assets/sprites/cats/priest.png" id="9_kwcby"]
+[ext_resource type="Resource" uid="uid://duqm3pyo724m7" path="res://resources/cat_sprites.tres" id="2_pvd5x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jj8k"]
 
 [node name="newcat_notif" type="CanvasLayer" node_paths=PackedStringArray("cat_texture")]
 script = ExtResource("1_4jj8k")
 cat_texture = NodePath("Control/CatTexture")
-cats = Array[CompressedTexture2D]([ExtResource("2_c2iy3"), ExtResource("3_iljbo"), ExtResource("4_abvmw"), ExtResource("5_lqusn"), ExtResource("6_cmc1d"), ExtResource("7_p0it5"), ExtResource("8_72lbo"), ExtResource("9_kwcby")])
+cat_sprites = ExtResource("2_pvd5x")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
