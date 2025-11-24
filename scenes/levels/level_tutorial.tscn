@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bu7hllkvcc1rn"]
+[gd_scene load_steps=82 format=3 uid="uid://bu7hllkvcc1rn"]
 
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="1_0xb81"]
 [ext_resource type="Script" uid="uid://bhvduvlqq3evf" path="res://scripts/level/tutorial_level.gd" id="1_1w7m4"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ck78x8cj8sjb2" path="res://scenes/components/button/pause_behavior.tscn" id="16_cc0dj"]
 [ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="19_frl7g"]
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="20_02mq4"]
+[ext_resource type="Script" uid="uid://doahvpxberxmu" path="res://scripts/cutscene/entries/char_move.gd" id="21_jlf0l"]
 [ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="21_rgwxx"]
 [ext_resource type="Script" uid="uid://cih1iga1euepy" path="res://scripts/cutscene/entries/pause.gd" id="22_rgwxx"]
 [ext_resource type="Script" uid="uid://rg02id54aw1x" path="res://scripts/cutscene/entries/toggle_dialogbox.gd" id="23_i4owl"]
@@ -39,6 +40,7 @@ axis_stretch_horizontal = 1
 [sub_resource type="Resource" id="Resource_6yvh5"]
 script = ExtResource("20_02mq4")
 character = ExtResource("19_frl7g")
+position = Vector2(1600, 600)
 metadata/_custom_type_script = "uid://diihrtradp4sf"
 
 [sub_resource type="Resource" id="Resource_i4owl"]
@@ -81,9 +83,16 @@ offset = Vector2(-96, -48)
 points = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, -1), Vector2i(0, -1), Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(-1, 1), Vector2i(0, 1)])
 metadata/_custom_type_script = "uid://cvoj1nafbec2h"
 
+[sub_resource type="Resource" id="Resource_ultxq"]
+script = ExtResource("21_jlf0l")
+character = ExtResource("19_frl7g")
+position_update = true
+position = Vector2(4000, 600)
+metadata/_custom_type_script = "uid://doahvpxberxmu"
+
 [sub_resource type="Resource" id="Resource_rgwxx"]
 script = ExtResource("3_w73a1")
-components = Array[ExtResource("4_nsphw")]([SubResource("Resource_u8uhl"), SubResource("Resource_yhqpt"), SubResource("Resource_jlf0l")])
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_u8uhl"), SubResource("Resource_yhqpt"), SubResource("Resource_jlf0l"), SubResource("Resource_ultxq")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_y8t65"]
@@ -95,6 +104,12 @@ script = ExtResource("23_i4owl")
 enabled = true
 metadata/_custom_type_script = "uid://rg02id54aw1x"
 
+[sub_resource type="Resource" id="Resource_naval"]
+script = ExtResource("21_jlf0l")
+character = ExtResource("19_frl7g")
+position = Vector2(1600, 600)
+metadata/_custom_type_script = "uid://doahvpxberxmu"
+
 [sub_resource type="Resource" id="Resource_8fiqq"]
 script = ExtResource("21_rgwxx")
 character = ExtResource("19_frl7g")
@@ -103,7 +118,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_urnbx"]
 script = ExtResource("3_w73a1")
-components = Array[ExtResource("4_nsphw")]([SubResource("Resource_y8t65"), SubResource("Resource_5khvx"), SubResource("Resource_8fiqq")])
+components = Array[ExtResource("4_nsphw")]([SubResource("Resource_y8t65"), SubResource("Resource_5khvx"), SubResource("Resource_naval"), SubResource("Resource_8fiqq")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_gow75"]
