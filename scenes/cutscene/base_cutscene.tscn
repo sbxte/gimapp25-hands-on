@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cctwqswl3ag4r" path="res://scripts/cutscene/scene.gd" id="1_jijrc"]
 [ext_resource type="PackedScene" uid="uid://uwr03sifbbq3" path="res://scenes/cutscene/base_character.tscn" id="2_4re4b"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="3_1p8wd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4re4b"]
-bg_color = Color(0.23392546, 0.23392546, 0.23392543, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7b3o"]
-bg_color = Color(0.0768358, 0.07683582, 0.076835774, 1)
 
 [node name="BaseCutscene" type="CanvasLayer" node_paths=PackedStringArray("background", "dialog_text", "dialog_speaker", "text_timer")]
 process_mode = 3
@@ -28,8 +24,9 @@ offset_left = 548.0
 offset_top = 822.0
 offset_right = 1520.0
 offset_bottom = 927.0
+theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
+theme_override_fonts/normal_font = ExtResource("3_1p8wd")
 theme_override_font_sizes/normal_font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_4re4b")
 fit_content = true
 
 [node name="Speaker" type="RichTextLabel" parent="."]
@@ -38,9 +35,13 @@ offset_left = 328.0
 offset_top = 690.0
 offset_right = 599.0
 offset_bottom = 782.0
-theme_override_font_sizes/normal_font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_h7b3o")
+theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
+theme_override_fonts/normal_font = ExtResource("3_1p8wd")
+theme_override_fonts/bold_font = ExtResource("3_1p8wd")
+theme_override_font_sizes/normal_font_size = 52
+theme_override_font_sizes/bold_font_size = 52
 fit_content = true
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
