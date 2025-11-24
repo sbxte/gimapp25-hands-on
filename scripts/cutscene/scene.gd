@@ -4,7 +4,7 @@ extends CanvasLayer
 @export_subgroup("Objects")
 @export var background: Sprite2D
 @export var dialog_text: RichTextLabel
-@export var dialog_speaker: RichTextLabel
+@export var dialog_name: RichTextLabel
 @export var base_character: PackedScene
 @export var text_timer: Timer
 
@@ -62,9 +62,9 @@ func exec_entry() -> void:
 			text_animation_speed = comp.text_animation_speed
 
 			if not comp.char_name_override.is_empty():
-				dialog_speaker.text = comp.char_name_override
+				dialog_name.text = comp.char_name_override
 			else:
-				dialog_speaker.text = comp.character.name
+				dialog_name.text = comp.character.name
 
 			dialog_text.text = ""
 			text = comp.text
@@ -121,7 +121,7 @@ func exec_entry() -> void:
 			show()
 		elif component is ToggleDialogBox:
 			dialog_text.visible = component.enabled
-			dialog_speaker.visible = component.enabled
+			dialog_name.visible = component.enabled
 			Events.cutscene_dialog_box_enabled.emit(component.enabled)
 		elif component is CutscenePauseTree:
 			get_tree().paused = true
