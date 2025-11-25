@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqkint05opiq0"]
+[gd_scene load_steps=11 format=3 uid="uid://dqkint05opiq0"]
 
-[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_cjfw4"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_2ng71"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_15dr4"]
 [ext_resource type="Texture2D" uid="uid://c5b7u35ri30ls" path="res://assets/background/level_completion.png" id="3_384uh"]
@@ -10,13 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8a0squvaerx1" path="res://scenes/components/button/next_level_btn_behavior.tscn" id="5_lo8b6"]
 [ext_resource type="Texture2D" uid="uid://ccbe6q8es5hbk" path="res://assets/text/Return Home text.png" id="8_fvgxn"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kttt5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85xu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lo8b6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ficr"]
 
@@ -30,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="Background" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.168
@@ -43,116 +36,59 @@ grow_vertical = 2
 scale = Vector2(0.6524572, 0.6524572)
 texture = ExtResource("3_384uh")
 expand_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="Control"]
+[node name="Title" type="TextureRect" parent="Control/Background"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -413.5
+offset_right = 413.5
+offset_bottom = 334.0
 grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("3_khksq")
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="BoxContainer" type="BoxContainer" parent="Control/Background"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.5
+offset_top = 125.098755
+offset_right = 413.5
+offset_bottom = 434.09882
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_kttt5")
+vertical = true
 
-[node name="Title" type="VBoxContainer" parent="Control/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/Title"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
-
-[node name="Label" type="Label" parent="Control/PanelContainer/Title"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_cjfw4")
-theme_override_font_sizes/font_size = 48
-text = "LEVEL
-COMPLETE"
-horizontal_alignment = 1
-
-[node name="Continue" type="VBoxContainer" parent="Control/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/Continue"]
+[node name="ContinueLevel" type="PanelContainer" parent="Control/Background/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i85xu")
 
-[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/Continue/PanelContainer"]
+[node name="TextureButton" type="TextureButton" parent="Control/Background/BoxContainer/ContinueLevel"]
 layout_mode = 2
 texture_normal = ExtResource("5_kttt5")
 
-[node name="ContinueButton" type="Button" parent="Control/PanelContainer/Continue/PanelContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.319
-anchor_top = 0.52088886
-anchor_right = 0.6785
-anchor_bottom = 0.6568889
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_cjfw4")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_lo8b6")
-flat = true
-metadata/_edit_use_anchors_ = true
+[node name="BaseButtonAudio" parent="Control/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("3_15dr4")]
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/Continue/PanelContainer/TextureButton/ContinueButton" instance=ExtResource("3_15dr4")]
-
-[node name="NextLevelBtnBehavior" parent="Control/PanelContainer/Continue/PanelContainer/TextureButton/ContinueButton" instance=ExtResource("5_lo8b6")]
+[node name="NextLevelBtnBehavior" parent="Control/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("5_lo8b6")]
 level_menu = "uid://3yhnlii4dbn6"
 
-[node name="Return" type="VBoxContainer" parent="Control/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/Return"]
+[node name="ReturnHome" type="PanelContainer" parent="Control/Background/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0ficr")
 
-[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/Return/PanelContainer2"]
+[node name="TextureButton" type="TextureButton" parent="Control/Background/BoxContainer/ReturnHome"]
 layout_mode = 2
 texture_normal = ExtResource("8_fvgxn")
 
-[node name="ReturnButton" type="Button" parent="Control/PanelContainer/Return/PanelContainer2/TextureButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.319
-anchor_top = 0.68355554
-anchor_right = 0.676
-anchor_bottom = 0.8106667
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_cjfw4")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_lo8b6")
-flat = true
-metadata/_edit_use_anchors_ = true
+[node name="ChangeMenuButtonAudio" parent="Control/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("4_2ng71")]
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/Return/PanelContainer2/TextureButton/ReturnButton" instance=ExtResource("4_2ng71")]
-
-[node name="SceneChangeComponent" parent="Control/PanelContainer/Return/PanelContainer2/TextureButton/ReturnButton" instance=ExtResource("3_2ng71")]
+[node name="SceneChangeComponent" parent="Control/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("3_2ng71")]
 scene_path = "res://scenes/menus/levels_menu.tscn"
