@@ -25,11 +25,9 @@ var game_finished = false
 @export var timer: TimerController
 @export var cat_generator: AbstractLevelGen
 
-@export_file_path var victory_scene_path: String
 @export_file_path var defeat_scene_path: String
 
 @export var defeat_animation: AnimationPlayer
-@export var victory_animation: AnimationPlayer
 @export var cat_notif_controller: NewCatNotifController
 
 
@@ -60,7 +58,6 @@ signal drag_end(end: Vector2, matched: bool)
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
-	victory_animation.play("RESET")
 	defeat_animation.play("RESET")
 
 	Events.cancel_drag.connect(cancel_drag)
@@ -263,16 +260,6 @@ func on_defeat() -> void:
 func on_victory() -> void:
 	if not game_finished:
 		game_finished = true
-		SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
-		SaveSystem.write_data()
-
-		Events.set_next_level.emit(level)
-
-		AudioManager.music.stop()
-		AudioManager.trace.stop()
-		AudioManager.victory.play()
-		victory_animation.play("blur")
-		await victory_animation.animation_finished
-		victory_animation.play("slide_down")
+		Events.on_victory.emit(level)
 	else:
 		return

@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqkint05opiq0"]
+[gd_scene load_steps=18 format=3 uid="uid://dqkint05opiq0"]
 
+[ext_resource type="Script" uid="uid://v02mw5tylr62" path="res://scripts/menus/victory.gd" id="1_384uh"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_2ng71"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_15dr4"]
 [ext_resource type="Texture2D" uid="uid://c5b7u35ri30ls" path="res://assets/background/level_completion.png" id="3_384uh"]
@@ -8,22 +9,121 @@
 [ext_resource type="Texture2D" uid="uid://ds8nxke437j4l" path="res://assets/text/Continue Level Text.png" id="5_kttt5"]
 [ext_resource type="PackedScene" uid="uid://b8a0squvaerx1" path="res://scenes/components/button/next_level_btn_behavior.tscn" id="5_lo8b6"]
 [ext_resource type="Texture2D" uid="uid://ccbe6q8es5hbk" path="res://assets/text/Return Home text.png" id="8_fvgxn"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="11_fvgxn"]
+
+[sub_resource type="Animation" id="Animation_qf4k4"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VictoryScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1130)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blur:material:shader_parameter/blur_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_41h08"]
+resource_name = "blurify"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/blur_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5]
+}
+
+[sub_resource type="Animation" id="Animation_8x4to"]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VictoryScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1130), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
+_data = {
+&"RESET": SubResource("Animation_qf4k4"),
+&"blur": SubResource("Animation_41h08"),
+&"slide": SubResource("Animation_8x4to")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i85xu"]
+shader = ExtResource("11_fvgxn")
+shader_parameter/blur_value = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i85xu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ficr"]
 
-[node name="Victory" type="CanvasLayer"]
+[node name="Victory" type="CanvasLayer" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_384uh")
+animation_player = NodePath("VictoryAnimation")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="VictoryAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_daaf0")
+}
+playback_auto_capture_transition_type = 7
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i85xu")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Background" type="TextureRect" parent="Control"]
+[node name="VictoryScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1130.0
+offset_bottom = -1130.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Darken" type="ColorRect" parent="VictoryScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
+
+[node name="Background" type="TextureRect" parent="VictoryScreen"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.168
@@ -37,7 +137,7 @@ scale = Vector2(0.6524572, 0.6524572)
 texture = ExtResource("3_384uh")
 expand_mode = 5
 
-[node name="Title" type="TextureRect" parent="Control/Background"]
+[node name="Title" type="TextureRect" parent="VictoryScreen/Background"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -48,7 +148,7 @@ offset_bottom = 334.0
 grow_horizontal = 2
 texture = ExtResource("3_khksq")
 
-[node name="BoxContainer" type="BoxContainer" parent="Control/Background"]
+[node name="BoxContainer" type="BoxContainer" parent="VictoryScreen/Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,32 +163,32 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical = true
 
-[node name="ContinueLevel" type="PanelContainer" parent="Control/Background/BoxContainer"]
+[node name="ContinueLevel" type="PanelContainer" parent="VictoryScreen/Background/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i85xu")
 
-[node name="TextureButton" type="TextureButton" parent="Control/Background/BoxContainer/ContinueLevel"]
+[node name="TextureButton" type="TextureButton" parent="VictoryScreen/Background/BoxContainer/ContinueLevel"]
 layout_mode = 2
 texture_normal = ExtResource("5_kttt5")
 
-[node name="BaseButtonAudio" parent="Control/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("3_15dr4")]
+[node name="BaseButtonAudio" parent="VictoryScreen/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("3_15dr4")]
 
-[node name="NextLevelBtnBehavior" parent="Control/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("5_lo8b6")]
+[node name="NextLevelBtnBehavior" parent="VictoryScreen/Background/BoxContainer/ContinueLevel/TextureButton" instance=ExtResource("5_lo8b6")]
 level_menu = "uid://3yhnlii4dbn6"
 
-[node name="ReturnHome" type="PanelContainer" parent="Control/Background/BoxContainer"]
+[node name="ReturnHome" type="PanelContainer" parent="VictoryScreen/Background/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0ficr")
 
-[node name="TextureButton" type="TextureButton" parent="Control/Background/BoxContainer/ReturnHome"]
+[node name="TextureButton" type="TextureButton" parent="VictoryScreen/Background/BoxContainer/ReturnHome"]
 layout_mode = 2
 texture_normal = ExtResource("8_fvgxn")
 
-[node name="ChangeMenuButtonAudio" parent="Control/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("4_2ng71")]
+[node name="ChangeMenuButtonAudio" parent="VictoryScreen/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("4_2ng71")]
 
-[node name="SceneChangeComponent" parent="Control/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("3_2ng71")]
+[node name="SceneChangeComponent" parent="VictoryScreen/Background/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("3_2ng71")]
 scene_path = "res://scenes/menus/levels_menu.tscn"

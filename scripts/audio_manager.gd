@@ -26,3 +26,11 @@ extends Node
 
 func stop_all_music() -> void:
 	music.stop()
+
+func _ready() -> void:
+	Events.on_victory.connect(on_victory)
+
+func on_victory(_level: int) -> void:
+	AudioManager.music.stop()
+	AudioManager.trace.stop()
+	AudioManager.victory.play()

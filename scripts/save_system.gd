@@ -31,3 +31,11 @@ func get_data() -> SaveData:
 
 func reset_data() -> void:
 	cached_save = SaveData.new()
+
+
+func _ready() -> void:
+	Events.on_victory.connect(on_victory)
+
+func on_victory(level: int)-> void:
+	get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
+	write_data()

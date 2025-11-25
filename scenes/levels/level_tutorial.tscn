@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bu7hllkvcc1rn"]
+[gd_scene load_steps=77 format=3 uid="uid://bu7hllkvcc1rn"]
 
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="1_0xb81"]
 [ext_resource type="Script" uid="uid://bhvduvlqq3evf" path="res://scripts/level/tutorial_level.gd" id="1_1w7m4"]
@@ -266,111 +266,6 @@ script = ExtResource("3_w73a1")
 components = Array[ExtResource("4_nsphw")]([SubResource("Resource_lldia")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
-[sub_resource type="Animation" id="Animation_qf4k4"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1130)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../GameBackground:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1130)]
-}
-
-[sub_resource type="Animation" id="Animation_41h08"]
-resource_name = "blurify"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../GameBackground:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_8x4to"]
-resource_name = "slide_down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 3),
-"update": 0,
-"values": [Vector2(0, -1130), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_daaf0"]
-_data = {
-&"RESET": SubResource("Animation_qf4k4"),
-&"blur": SubResource("Animation_41h08"),
-&"slide_down": SubResource("Animation_8x4to")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8uhl"]
-shader = ExtResource("27_yhqpt")
-shader_parameter/blur_value = 1.5
-
 [sub_resource type="Animation" id="Animation_daaf0"]
 resource_name = "RESET"
 tracks/0/type = "value"
@@ -490,7 +385,7 @@ z_index = -1
 position = Vector2(1000, 562.5)
 texture = ExtResource("12_imiua")
 
-[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation", "cat_notif_controller")]
+[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "cat_notif_controller")]
 position = Vector2(1003, 638)
 script = ExtResource("3_cc0dj")
 snap_vec = Vector2(96, 96)
@@ -498,10 +393,8 @@ grid_size = Vector2i(3, 2)
 cat_scene = ExtResource("3_nsphw")
 timer = NodePath("../UnusedTimer")
 cat_generator = NodePath("TutorialLevelGen")
-victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
 defeat_animation = NodePath("../Defeat/DefeatAnimation")
-victory_animation = NodePath("../Victory/VictoryAnimation")
 cat_notif_controller = NodePath("../newcat_notif")
 
 [node name="TutorialLevelGen" parent="TutorialPlayfield" instance=ExtResource("2_d1cyn")]
@@ -579,6 +472,9 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
 
+[node name="Victory" parent="." instance=ExtResource("8_0xb81")]
+layer = 3
+
 [node name="newcat_notif" parent="." instance=ExtResource("29_u8uhl")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="newcat_notif"]
@@ -594,56 +490,6 @@ entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResou
 z_index = 10
 script = ExtResource("26_vqxww")
 play_field = NodePath("../../TutorialPlayfield")
-
-[node name="Victory" type="Control" parent="."]
-z_index = 10
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Victory" parent="Victory" instance=ExtResource("8_0xb81")]
-layer = 3
-offset = Vector2(0, -1130)
-transform = Transform2D(1, 0, 0, 1, 0, -1130)
-
-[node name="VictoryAnimation" type="AnimationPlayer" parent="Victory"]
-root_node = NodePath("../Victory")
-libraries = {
-&"": SubResource("AnimationLibrary_daaf0")
-}
-playback_auto_capture_transition_type = 7
-
-[node name="GameBackground" type="TextureRect" parent="Victory"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 50.0
-anchor_bottom = 28.125
-offset_top = 1130.0
-offset_bottom = 1130.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_imiua")
-metadata/_edit_use_anchors_ = true
-
-[node name="Blur" type="ColorRect" parent="Victory/GameBackground"]
-material = SubResource("ShaderMaterial_u8uhl")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Darken" type="ColorRect" parent="Victory/GameBackground"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 
 [node name="Defeat" type="Control" parent="."]
 layout_mode = 3
