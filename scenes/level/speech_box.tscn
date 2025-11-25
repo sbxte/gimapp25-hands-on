@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://lo6bokw4cjxu"]
+[gd_scene load_steps=12 format=3 uid="uid://lo6bokw4cjxu"]
 
 [ext_resource type="Texture2D" uid="uid://vlbi1aydcseq" path="res://assets/ui/level_board.png" id="1_65eur"]
+[ext_resource type="Script" uid="uid://xe34doe30ce6" path="res://scripts/menus/speech_box.gd" id="1_herai"]
 [ext_resource type="Texture2D" uid="uid://bpaugmhhx7gma" path="res://assets/ui/speech_box.png" id="2_65eur"]
 [ext_resource type="Texture2D" uid="uid://cdmkiqnuxalt8" path="res://assets/ui/LV Icon.png" id="3_fpxt7"]
 [ext_resource type="Texture2D" uid="uid://u1nedsb8aj7k" path="res://assets/text/LV.png" id="4_herai"]
@@ -9,7 +10,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_vl2ww"]
 font = ExtResource("5_70rpe")
-font_size = 76
+font_size = 56
 outline_size = 20
 outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
@@ -21,7 +22,7 @@ outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_shq1s"]
 font = ExtResource("5_70rpe")
-font_size = 46
+font_size = 42
 outline_size = 14
 outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
@@ -31,50 +32,57 @@ font_size = 46
 outline_size = 14
 outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
-[node name="SpeechBox" type="CanvasLayer"]
+[node name="SpeechBox" type="CanvasLayer" node_paths=PackedStringArray("lv_text", "level_text", "stage_text")]
+script = ExtResource("1_herai")
+lv_text = NodePath("Control/LevelInfo/LVIcon/LvText")
+level_text = NodePath("Control/LevelInfo/Level/LevelText")
+stage_text = NodePath("Control/LevelInfo/Stage/StageText")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelInfo" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.246
-anchor_right = 0.67625
-anchor_bottom = 0.36177778
+anchor_left = 0.284875
+anchor_right = 0.715125
+anchor_bottom = 0.216
 grow_horizontal = 2
-grow_vertical = 2
+pivot_offset = Vector2(430.25, 0)
 texture = ExtResource("1_65eur")
 metadata/_edit_use_anchors_ = true
 
-[node name="SpeechBox" type="TextureRect" parent="Control"]
+[node name="SpeechBox" type="TextureRect" parent="Control/LevelInfo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3565
-anchor_top = 0.1528889
-anchor_right = 0.5685
-anchor_bottom = 0.31466666
+anchor_left = 0.30824122
+anchor_top = 0.55813956
+anchor_right = 0.7010361
+anchor_bottom = 1.0394835
+offset_left = -24.991562
+offset_right = 24.991577
+offset_bottom = 37.115448
 grow_horizontal = 2
 texture = ExtResource("2_65eur")
 metadata/_edit_use_anchors_ = true
 
-[node name="LVIcon" type="TextureRect" parent="Control"]
+[node name="LVIcon" type="TextureRect" parent="Control/LevelInfo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2605
-anchor_top = 0.042666666
-anchor_right = 0.338
-anchor_bottom = 0.15733333
+anchor_left = 0.033701338
+anchor_top = 0.11793612
+anchor_right = 0.17083094
+anchor_bottom = 0.35380834
 texture = ExtResource("3_fpxt7")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="LV" type="TextureRect" parent="Control/LVIcon"]
+[node name="LV" type="TextureRect" parent="Control/LevelInfo/LVIcon"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08387097
@@ -86,13 +94,13 @@ grow_vertical = 2
 texture = ExtResource("4_herai")
 metadata/_edit_use_anchors_ = true
 
-[node name="LvText" type="Label" parent="Control/LVIcon"]
+[node name="LvText" type="Label" parent="Control/LevelInfo/LVIcon"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.63225806
-anchor_top = 0.046511628
-anchor_right = 0.9935484
-anchor_bottom = 1.0465117
+anchor_left = 0.62923735
+anchor_top = 0.03124998
+anchor_right = 0.99052763
+anchor_bottom = 1.03125
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
@@ -104,16 +112,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Level" type="TextureRect" parent="Control"]
-layout_mode = 0
-anchor_left = 0.3425
-anchor_top = 0.048
-anchor_right = 0.402
-anchor_bottom = 0.09688889
+[node name="Level" type="TextureRect" parent="Control/LevelInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1908774
+anchor_top = 0.102990024
+anchor_right = 0.34195235
+anchor_bottom = 0.3168724
 texture = ExtResource("6_m5ecc")
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelText" type="Label" parent="Control/Level"]
+[node name="LevelText" type="Label" parent="Control/LevelInfo/Level"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0168067
@@ -126,20 +135,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Stage" type="Label" parent="Control"]
+[node name="Stage" type="Label" parent="Control/LevelInfo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.364
-anchor_top = 0.09688889
-anchor_right = 0.4185
-anchor_bottom = 0.13866666
-offset_right = -13.0
-offset_bottom = -17.999985
+anchor_left = 0.26176643
+anchor_top = 0.30041152
+anchor_right = 0.3768158
+anchor_bottom = 0.49382716
+offset_left = -1.5258789e-05
 text = "Stage"
 label_settings = SubResource("LabelSettings_shq1s")
 metadata/_edit_use_anchors_ = true
 
-[node name="StageText" type="Label" parent="Control/Stage"]
+[node name="StageText" type="Label" parent="Control/LevelInfo/Stage"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.1100917
