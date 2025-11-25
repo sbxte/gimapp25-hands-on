@@ -156,6 +156,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SceneChangeComponent" parent="Control/PanelContainer/Return/PanelContainer2/TextureButton/ReturnButton" instance=ExtResource("3_2ng71")]
 scene_path = "res://scenes/menus/levels_menu.tscn"
-
-[connection signal="pressed" from="Control/PanelContainer/Continue/PanelContainer/TextureButton/ContinueButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/Return/PanelContainer2/TextureButton/ReturnButton" to="Control" method="_on_settings_button_pressed"]
