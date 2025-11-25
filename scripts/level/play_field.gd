@@ -232,27 +232,27 @@ func cardinalize(vec: Vector2) -> Vector2:
 	return vec
 
 func notify_if_new_cat(type: int) -> void:
-	if not SaveSystem.get_data().cats_encountered[type - 1]:
-		SaveSystem.get_data().cats_encountered[type - 1] = true
-		SaveSystem.get_data().cats_encountered[type - 1] = true
-		cat_notif_controller.new_cat(type)
-		SaveSystem.write_data()
+	if SaveSystem.get_data().cats_encountered[type - 1]:
+		return
+
+	SaveSystem.get_data().cats_encountered[type - 1] = true
+	SaveSystem.get_data().cats_encountered[type - 1] = true
+	cat_notif_controller.new_cat(type)
+	SaveSystem.write_data()
 
 # Player lost!
 # oh no, anyway
 func on_defeat() -> void:
-	if not game_finished:
-		game_finished = true
-		if endless_mode:
-			Events.on_defeat_endless_mode.emit(stages_cleared)
-		else:
-			Events.on_defeat.emit()
-	else:
+	if game_finished:
 		return
 
-func on_victory() -> void:
-	if not game_finished:
-		game_finished = true
-		Events.on_victory.emit(level)
+	if endless_mode:
+		Events.on_defeat_endless_mode.emit(stages_cleared)
 	else:
+		Events.on_defeat.emit()
+
+func on_victory() -> void:
+	if game_finished:
 		return
+
+	Events.on_victory.emit(level)
