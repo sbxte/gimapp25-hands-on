@@ -21,9 +21,9 @@ centered = false
 
 [node name="Text" type="RichTextLabel" parent="."]
 z_index = 5
-offset_left = 280.0
-offset_top = 853.99994
-offset_right = 1709.0
+offset_left = 407.0
+offset_top = 903.0
+offset_right = 1574.0
 offset_bottom = 1097.0
 theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
 theme_override_fonts/normal_font = ExtResource("3_1p8wd")
@@ -32,10 +32,10 @@ fit_content = true
 
 [node name="Name" type="RichTextLabel" parent="."]
 z_index = 5
-offset_left = 462.0
-offset_top = 730.0
-offset_right = 1005.0
-offset_bottom = 789.0
+offset_left = 552.0
+offset_top = 804.0
+offset_right = 1000.0
+offset_bottom = 850.0
 theme_override_colors/default_color = Color(0.5019608, 0.41568628, 0.38431373, 1)
 theme_override_fonts/normal_font = ExtResource("3_1p8wd")
 theme_override_fonts/bold_font = ExtResource("3_1p8wd")

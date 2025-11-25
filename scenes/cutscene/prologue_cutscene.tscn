@@ -94,7 +94,7 @@ metadata/_custom_type_script = "uid://dstye786s28v1"
 [sub_resource type="Resource" id="Resource_j2j6j"]
 script = ExtResource("6_f7np6")
 character = ExtResource("9_1or0b")
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://diihrtradp4sf"
 
 [sub_resource type="Resource" id="Resource_n1ti6"]
@@ -257,7 +257,7 @@ script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 sprite = "angry"
 position_update = true
-position = Vector2(1200, 600)
+position = Vector2(1200, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_msrwc"]
@@ -327,7 +327,7 @@ script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 sprite = "angry2"
 position_update = true
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_xa5qa"]
@@ -351,7 +351,7 @@ script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 sprite = "angry"
 position_update = true
-position = Vector2(1200, 600)
+position = Vector2(1200, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_rhqmd"]
@@ -373,7 +373,7 @@ metadata/_custom_type_script = "uid://dstye786s28v1"
 script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 position_update = true
-position = Vector2(4000, 600)
+position = Vector2(4000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_r0ng0"]
@@ -391,7 +391,7 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 [sub_resource type="Resource" id="Resource_u8h3h"]
 script = ExtResource("6_f7np6")
 character = ExtResource("10_g6xnk")
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://diihrtradp4sf"
 
 [sub_resource type="Resource" id="Resource_ormcs"]
@@ -442,7 +442,7 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 script = ExtResource("10_f0upq")
 character = ExtResource("10_g6xnk")
 position_update = true
-position = Vector2(4000, 600)
+position = Vector2(4000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_26giy"]
@@ -450,7 +450,7 @@ script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 sprite = "angry"
 position_update = true
-position = Vector2(1200, 600)
+position = Vector2(1200, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_22jm0"]
@@ -529,7 +529,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 position_update = true
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_un7l0"]
@@ -552,14 +552,14 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 position_update = true
-position = Vector2(4000, 600)
+position = Vector2(4000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_72cne"]
 script = ExtResource("10_f0upq")
 character = ExtResource("10_g6xnk")
 position_update = true
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_nskur"]
@@ -588,7 +588,7 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 script = ExtResource("10_f0upq")
 character = ExtResource("10_g6xnk")
 position_update = true
-position = Vector2(4000, 600)
+position = Vector2(4000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_vyek2"]
@@ -596,7 +596,7 @@ script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
 sprite = "normal"
 position_update = true
-position = Vector2(1000, 600)
+position = Vector2(1000, 550)
 metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_db0gb"]
