@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpaugmhhx7gma"
-path="res://.godot/imported/speech_box.png-56c9ffcc35a2349baa8e2986ce8e2826.ctex"
+uid="uid://vlbi1aydcseq"
+path="res://.godot/imported/level_board.png-b8c9a224c330ec32f3f3ee5efc95b951.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/speech_box.png"
-dest_files=["res://.godot/imported/speech_box.png-56c9ffcc35a2349baa8e2986ce8e2826.ctex"]
+source_file="res://assets/ui/level_board.png"
+dest_files=["res://.godot/imported/level_board.png-b8c9a224c330ec32f3f3ee5efc95b951.ctex"]
 
 [params]
 

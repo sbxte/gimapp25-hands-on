@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://lo6bokw4cjxu"]
+[gd_scene load_steps=11 format=3 uid="uid://lo6bokw4cjxu"]
 
-[ext_resource type="Texture2D" uid="uid://vlbi1aydcseq" path="res://assets/sprites/level_board.png" id="1_787y8"]
-[ext_resource type="Texture2D" uid="uid://bpaugmhhx7gma" path="res://assets/sprites/speech_box.png" id="2_65eur"]
+[ext_resource type="Texture2D" uid="uid://vlbi1aydcseq" path="res://assets/ui/level_board.png" id="1_65eur"]
+[ext_resource type="Texture2D" uid="uid://bpaugmhhx7gma" path="res://assets/ui/speech_box.png" id="2_65eur"]
+[ext_resource type="Texture2D" uid="uid://cdmkiqnuxalt8" path="res://assets/ui/LV Icon.png" id="3_fpxt7"]
+[ext_resource type="Texture2D" uid="uid://u1nedsb8aj7k" path="res://assets/text/LV.png" id="4_herai"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="5_70rpe"]
+[ext_resource type="Texture2D" uid="uid://bps13tujc4m6h" path="res://assets/text/Level.png" id="6_m5ecc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vl2ww"]
+font = ExtResource("5_70rpe")
+font_size = 76
+outline_size = 20
+outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vwcvv"]
+font = ExtResource("5_70rpe")
+font_size = 46
+outline_size = 14
+outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_shq1s"]
+font = ExtResource("5_70rpe")
+font_size = 46
+outline_size = 14
+outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eouvt"]
+font = ExtResource("5_70rpe")
+font_size = 46
+outline_size = 14
+outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
 [node name="SpeechBox" type="CanvasLayer"]
 
@@ -13,27 +41,115 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -352.5
-offset_right = 352.5
-offset_bottom = 243.0
-grow_horizontal = 2
-texture = ExtResource("1_787y8")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect2" type="TextureRect" parent="Control"]
+[node name="LevelInfo" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.50625
-anchor_top = 0.27644444
-anchor_right = 0.50625
-anchor_bottom = 0.27644444
-offset_left = -352.5
-offset_right = 352.5
-offset_bottom = 243.0
+anchor_left = 0.246
+anchor_right = 0.67625
+anchor_bottom = 0.36177778
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_65eur")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeechBox" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3565
+anchor_top = 0.1528889
+anchor_right = 0.5685
+anchor_bottom = 0.31466666
 grow_horizontal = 2
 texture = ExtResource("2_65eur")
+metadata/_edit_use_anchors_ = true
+
+[node name="LVIcon" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2605
+anchor_top = 0.042666666
+anchor_right = 0.338
+anchor_bottom = 0.15733333
+texture = ExtResource("3_fpxt7")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="LV" type="TextureRect" parent="Control/LVIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08387097
+anchor_top = 0.12403101
+anchor_right = 0.68064517
+anchor_bottom = 0.81782943
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_herai")
+metadata/_edit_use_anchors_ = true
+
+[node name="LvText" type="Label" parent="Control/LVIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63225806
+anchor_top = 0.046511628
+anchor_right = 0.9935484
+anchor_bottom = 1.0465117
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
+theme_override_fonts/font = ExtResource("5_70rpe")
+theme_override_font_sizes/font_size = 76
+text = "1"
+label_settings = SubResource("LabelSettings_vl2ww")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Level" type="TextureRect" parent="Control"]
+layout_mode = 0
+anchor_left = 0.3425
+anchor_top = 0.048
+anchor_right = 0.402
+anchor_bottom = 0.09688889
+texture = ExtResource("6_m5ecc")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelText" type="Label" parent="Control/Level"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0168067
+anchor_top = 0.054545447
+anchor_right = 1.3109244
+anchor_bottom = 1.0909091
+text = "1"
+label_settings = SubResource("LabelSettings_vwcvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stage" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.364
+anchor_top = 0.09688889
+anchor_right = 0.4185
+anchor_bottom = 0.13866666
+offset_right = -13.0
+offset_bottom = -17.999985
+text = "Stage"
+label_settings = SubResource("LabelSettings_shq1s")
+metadata/_edit_use_anchors_ = true
+
+[node name="StageText" type="Label" parent="Control/Stage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1100917
+anchor_top = 0.04255319
+anchor_right = 1.4862385
+anchor_bottom = 1.0425532
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_eouvt")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
