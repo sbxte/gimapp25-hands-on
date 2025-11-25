@@ -14,3 +14,6 @@ signal cutscene_visibility_changed(visible: bool)
 signal cutscene_dialog_box_enabled(enabled: bool)
 signal cutscene_custom_comp(cutscene_node: Node, comp: CutsceneComponent)
 signal cutscene_custom_comp_finished
+
+# Level handling
+signal set_next_level(level: int)

@@ -266,6 +266,8 @@ func on_victory() -> void:
 		SaveSystem.get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
 		SaveSystem.write_data()
 
+		Events.set_next_level.emit(level)
+
 		AudioManager.music.stop()
 		AudioManager.trace.stop()
 		AudioManager.victory.play()
