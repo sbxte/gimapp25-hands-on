@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=25 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="11_2qxot"]
 [ext_resource type="PackedScene" uid="uid://dqkint05opiq0" path="res://scenes/menus/victory.tscn" id="12_u35hf"]
 [ext_resource type="PackedScene" uid="uid://dxhjl7jf578rk" path="res://scenes/menus/defeat.tscn" id="13_8x4to"]
+[ext_resource type="PackedScene" uid="uid://lo6bokw4cjxu" path="res://scenes/level/speech_box.tscn" id="13_ufabe"]
 [ext_resource type="PackedScene" uid="uid://dy2tuc1ttighw" path="res://scenes/menus/newcat_notif.tscn" id="15_daaf0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
@@ -134,6 +135,8 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 [node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("11_2qxot")]
 
 [node name="MusicBehavior" parent="." instance=ExtResource("11_2qxot")]
+
+[node name="SpeechBox" parent="." instance=ExtResource("13_ufabe")]
 
 [node name="Victory" parent="." instance=ExtResource("12_u35hf")]
 
