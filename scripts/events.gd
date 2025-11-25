@@ -16,5 +16,7 @@ signal cutscene_custom_comp(cutscene_node: Node, comp: CutsceneComponent)
 signal cutscene_custom_comp_finished
 
 # Level handling
+signal on_defeat
+signal on_defeat_endless_mode(stages_cleared: int)
 signal on_victory(level: int)
 signal set_next_level(level: int)

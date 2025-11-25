@@ -34,3 +34,7 @@ func on_victory(_level: int) -> void:
 	AudioManager.music.stop()
 	AudioManager.trace.stop()
 	AudioManager.victory.play()
+
+func on_defeat() -> void:
+	AudioManager.music.stop()
+	AudioManager.trace.stop()

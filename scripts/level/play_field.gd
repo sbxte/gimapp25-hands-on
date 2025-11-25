@@ -25,9 +25,6 @@ var game_finished = false
 @export var timer: TimerController
 @export var cat_generator: AbstractLevelGen
 
-@export_file_path var defeat_scene_path: String
-
-@export var defeat_animation: AnimationPlayer
 @export var cat_notif_controller: NewCatNotifController
 
 
@@ -58,7 +55,6 @@ signal drag_end(end: Vector2, matched: bool)
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
-	defeat_animation.play("RESET")
 
 	Events.cancel_drag.connect(cancel_drag)
 
@@ -248,12 +244,9 @@ func on_defeat() -> void:
 	if not game_finished:
 		game_finished = true
 		if endless_mode:
-			SaveSystem.get_data().endless_mode_stages_cleared = maxi(SaveSystem.get_data().endless_mode_stages_cleared, stages_cleared)
-		AudioManager.music.stop()
-		AudioManager.trace.stop()
-		defeat_animation.play("blurify")
-		await defeat_animation.animation_finished
-		defeat_animation.play("slide_up")
+			Events.on_defeat_endless_mode.emit(stages_cleared)
+		else:
+			Events.on_defeat.emit()
 	else:
 		return
 

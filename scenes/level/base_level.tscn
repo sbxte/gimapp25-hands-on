@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=24 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="11_2qxot"]
 [ext_resource type="PackedScene" uid="uid://dqkint05opiq0" path="res://scenes/menus/victory.tscn" id="12_u35hf"]
 [ext_resource type="PackedScene" uid="uid://dxhjl7jf578rk" path="res://scenes/menus/defeat.tscn" id="13_8x4to"]
-[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="14_ufabe"]
 [ext_resource type="PackedScene" uid="uid://dy2tuc1ttighw" path="res://scenes/menus/newcat_notif.tscn" id="15_daaf0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
@@ -35,111 +34,6 @@ axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_466n5"]
 
-[sub_resource type="Animation" id="Animation_daaf0"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1130)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../GameBackground:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_wk8xf"]
-resource_name = "blurify"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../GameBackground:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_ufabe"]
-resource_name = "slide_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 3),
-"update": 0,
-"values": [Vector2(0, 1130), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GameBackground:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_41h08"]
-_data = {
-&"RESET": SubResource("Animation_daaf0"),
-&"blurify": SubResource("Animation_wk8xf"),
-&"slide_up": SubResource("Animation_ufabe")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_41h08"]
-shader = ExtResource("14_ufabe")
-shader_parameter/blur_value = 1.5
-
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
 script = ExtResource("1_7xj1c")
@@ -156,15 +50,13 @@ timer = NodePath("Timer")
 position = Vector2(1000, 562.5)
 texture = ExtResource("7_kxd26")
 
-[node name="PlayField" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "cat_notif_controller") instance=ExtResource("2_kxd26")]
+[node name="PlayField" parent="." node_paths=PackedStringArray("timer", "cat_generator", "cat_notif_controller") instance=ExtResource("2_kxd26")]
 z_index = 2
 position = Vector2(1003, 638)
 snap_vec = Vector2(96, 96)
 timer = NodePath("../Timer")
 cat_generator = NodePath("DefaultLevelGen")
-victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
-defeat_animation = NodePath("../Defeat/DefeatAnimation")
 cat_notif_controller = NodePath("../newcat_notif")
 
 [node name="DefaultLevelGen" parent="PlayField" instance=ExtResource("4_qf4k4")]
@@ -246,47 +138,7 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="Victory" parent="." instance=ExtResource("12_u35hf")]
 
-[node name="Defeat" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Defeat" parent="Defeat" instance=ExtResource("13_8x4to")]
-offset = Vector2(0, 1130)
-transform = Transform2D(1, 0, 0, 1, 0, 1130)
-
-[node name="DefeatAnimation" type="AnimationPlayer" parent="Defeat"]
-root_node = NodePath("../Defeat")
-libraries = {
-&"": SubResource("AnimationLibrary_41h08")
-}
-playback_auto_capture_transition_type = 7
-
-[node name="GameBackground" type="TextureRect" parent="Defeat"]
-visible = false
-layout_mode = 0
-offset_right = 2000.0
-offset_bottom = 1125.0
-texture = ExtResource("7_kxd26")
-
-[node name="Blur" type="ColorRect" parent="Defeat/GameBackground"]
-material = SubResource("ShaderMaterial_41h08")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Darken" type="ColorRect" parent="Defeat/GameBackground"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
+[node name="Defeat" parent="." instance=ExtResource("13_8x4to")]
 
 [node name="newcat_notif" parent="." instance=ExtResource("15_daaf0")]
 

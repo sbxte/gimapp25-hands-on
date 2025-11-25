@@ -35,7 +35,11 @@ func reset_data() -> void:
 
 func _ready() -> void:
 	Events.on_victory.connect(on_victory)
+	Events.on_defeat_endless_mode.connect(on_defeat)
 
 func on_victory(level: int)-> void:
 	get_data().levels_completed = maxi(SaveSystem.get_data().levels_completed, level)
 	write_data()
+
+func on_defeat(stages_cleared: int) -> void:
+	get_data().endless_mode_stages_cleared = maxi(get_data().endless_mode_stages_cleared, stages_cleared)
