@@ -115,6 +115,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			AudioManager.rare_wrongmatch.play()
 		else:
 			AudioManager.wrongmatch.play()
+		timer.set_speed(timer.get_speed() + 1)
 		match_streak = 0
 		return
 
