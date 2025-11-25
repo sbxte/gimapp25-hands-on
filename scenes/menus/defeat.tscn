@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxhjl7jf578rk"]
+[gd_scene load_steps=17 format=3 uid="uid://dxhjl7jf578rk"]
 
+[ext_resource type="Script" uid="uid://cx7eustlbi7ce" path="res://scripts/menus/defeat.gd" id="1_hsowf"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_odpfo"]
@@ -112,7 +113,9 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1c3q"]
 
-[node name="Defeat" type="CanvasLayer"]
+[node name="Defeat" type="CanvasLayer" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_hsowf")
+animation_player = NodePath("DefeatAnimation")
 
 [node name="DefeatAnimation" type="AnimationPlayer" parent="."]
 libraries = {

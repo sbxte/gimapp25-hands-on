@@ -56,7 +56,6 @@ position = Vector2(1003, 638)
 snap_vec = Vector2(96, 96)
 timer = NodePath("../Timer")
 cat_generator = NodePath("DefaultLevelGen")
-defeat_scene_path = "res://scenes/menus/defeat.tscn"
 cat_notif_controller = NodePath("../newcat_notif")
 
 [node name="DefaultLevelGen" parent="PlayField" instance=ExtResource("4_qf4k4")]

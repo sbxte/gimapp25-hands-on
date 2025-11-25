@@ -16,7 +16,6 @@ var lowtime_10_played := false
 
 func _ready() -> void:
 	reset()
-	timer.timeout.connect(on_timeout)
 
 func get_progress_percent() -> float:
 	if lerp_start == 0: return 0.0
@@ -35,11 +34,6 @@ func _process(_delta: float) -> void:
 	elif rem_time <= 10 and not lowtime_10_played:
 		AudioManager.lowtime_10.play()
 		lowtime_10_played = true
-
-func on_timeout() -> void:
-	if start_duration == 0:
-		return
-	timer_ended.emit()
 
 # Reset the timer
 func reset(speed: float = 1) -> void:
