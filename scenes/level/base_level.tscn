@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bobpoutijumsx"]
+[gd_scene load_steps=34 format=3 uid="uid://bobpoutijumsx"]
 
 [ext_resource type="Script" uid="uid://dl48bde2ghkj5" path="res://scripts/level/base_level.gd" id="1_7xj1c"]
 [ext_resource type="PackedScene" uid="uid://dmovihstuyenq" path="res://scenes/level/play_field.tscn" id="2_kxd26"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bies58awkakq6" path="res://scenes/level/music_behavior.tscn" id="11_2qxot"]
 [ext_resource type="PackedScene" uid="uid://dqkint05opiq0" path="res://scenes/menus/victory.tscn" id="12_u35hf"]
 [ext_resource type="PackedScene" uid="uid://dxhjl7jf578rk" path="res://scenes/menus/defeat.tscn" id="13_8x4to"]
-[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="14_ufabe"]
+[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="14_ufabe"]
 [ext_resource type="PackedScene" uid="uid://dy2tuc1ttighw" path="res://scenes/menus/newcat_notif.tscn" id="15_daaf0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u35hf"]
@@ -241,68 +241,6 @@ _data = {
 &"slide_up": SubResource("Animation_ufabe")
 }
 
-[sub_resource type="Animation" id="Animation_pvd5x"]
-resource_name = "RESET"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-982, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_pxapg"]
-resource_name = "slide_right"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-720, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-720, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-982, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-982, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqmlw"]
-_data = {
-&"RESET": SubResource("Animation_pvd5x"),
-&"slide_right": SubResource("Animation_pxapg")
-}
-
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
 script = ExtResource("1_7xj1c")
@@ -319,7 +257,7 @@ timer = NodePath("Timer")
 position = Vector2(1000, 562.5)
 texture = ExtResource("7_kxd26")
 
-[node name="PlayField" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation", "new_cat_animation") instance=ExtResource("2_kxd26")]
+[node name="PlayField" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation", "cat_notif_controller") instance=ExtResource("2_kxd26")]
 z_index = 2
 position = Vector2(1003, 638)
 snap_vec = Vector2(96, 96)
@@ -329,7 +267,7 @@ victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
 defeat_animation = NodePath("../Defeat/DefeatAnimation")
 victory_animation = NodePath("../Victory/VictoryAnimation")
-new_cat_animation = NodePath("../newcat_notif/NewCatAnimation")
+cat_notif_controller = NodePath("../newcat_notif")
 
 [node name="DefaultLevelGen" parent="PlayField" instance=ExtResource("4_qf4k4")]
 
@@ -499,13 +437,6 @@ grow_vertical = 2
 color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 
 [node name="newcat_notif" parent="." instance=ExtResource("15_daaf0")]
-offset = Vector2(-982, 0)
-transform = Transform2D(1, 0, 0, 1, -982, 0)
-
-[node name="NewCatAnimation" type="AnimationPlayer" parent="newcat_notif"]
-libraries = {
-&"": SubResource("AnimationLibrary_kqmlw")
-}
 
 [connection signal="value_changed" from="Timer/TimerProgress/TimerBar" to="Timer/TimerProgress" method="_on_timer_bar_value_changed"]
 [connection signal="pressed" from="Pause/HBoxContainer/PauseButton" to="Pause" method="_on_pause_button_pressed"]

@@ -32,7 +32,7 @@ var seen_cat_count : Array[int]
 
 @export var defeat_animation: AnimationPlayer
 @export var victory_animation: AnimationPlayer
-@export var new_cat_animation: AnimationPlayer
+@export var cat_notif_controller: NewCatNotifController
 
 
 const correct_match_lines: Array[String] = [
@@ -64,12 +64,11 @@ func _ready() -> void:
 	Events.cat_mouse_enter.connect(cat_mouse_enter)
 	victory_animation.play("RESET")
 	defeat_animation.play("RESET")
-	new_cat_animation.play("RESET")
 
 	Events.cancel_drag.connect(cancel_drag)
 
 	timer.timer_ended.connect(on_defeat)
-	
+
 	seen_cat_count.resize(9)
 	seen_cat_count.fill(0)
 	seen_cats.resize(9)
@@ -120,11 +119,10 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 
 	if cat == first_cat:
 		return
-	
+
 	if cat.type in seen_cats:
 		if seen_cat_count[cat.type] == 1:
-			NewCatNotif.load_cats(cat.type)
-			new_cat_animation.play("slide_right")
+			cat_notif_controller.new_cat(cat.type)
 			seen_cat_count[cat.type] = 0
 
 	# When the mouse enters a cat that isn't the same type,
