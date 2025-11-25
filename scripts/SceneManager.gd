@@ -34,3 +34,7 @@ func clear_overlays() -> void:
 	for overlay in overlays:
 		overlay.queue_free()
 	overlays.clear()
+
+func restart_scene() -> void:
+	get_tree().change_scene_to_file(get_tree().current_scene.scene_file_path)
+	pass

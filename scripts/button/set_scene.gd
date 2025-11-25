@@ -14,7 +14,7 @@ func _ready() -> void:
 func pressed() -> void:
 	get_tree().paused = false
 	if restart_scene:
-		get_tree().reload_current_scene()
+		SceneManager.restart_scene()
 		return
 
 	if backtrack:
