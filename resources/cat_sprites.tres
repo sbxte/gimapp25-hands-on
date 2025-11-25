@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CatSprites" load_steps=10 format=3 uid="uid://duqm3pyo724m7"]
+
+[ext_resource type="Script" uid="uid://c1yoj0xg2pcx8" path="res://scripts/level/cat_sprites.gd" id="1_hmp25"]
+[ext_resource type="Texture2D" uid="uid://bmvtuiluoitnp" path="res://assets/sprites/cats/sorcerer.png" id="2_dm4xm"]
+[ext_resource type="Texture2D" uid="uid://cv6yd2bqvx4ks" path="res://assets/sprites/cats/void.png" id="3_65mab"]
+[ext_resource type="Texture2D" uid="uid://baqms4g3qw1bb" path="res://assets/sprites/cats/archerman.png" id="4_3aivp"]
+[ext_resource type="Texture2D" uid="uid://b5fdsymcjsyds" path="res://assets/sprites/cats/crossbow.png" id="5_cg53f"]
+[ext_resource type="Texture2D" uid="uid://bs3mbn0tcnrr0" path="res://assets/sprites/cats/pikeman.png" id="6_n2hwd"]
+[ext_resource type="Texture2D" uid="uid://c156mnr8x1na" path="res://assets/sprites/cats/siamese.png" id="7_trjws"]
+[ext_resource type="Texture2D" uid="uid://daxep5bbqi38j" path="res://assets/sprites/cats/bard.png" id="8_u6f3a"]
+[ext_resource type="Texture2D" uid="uid://cxsue4nis401s" path="res://assets/sprites/cats/priest.png" id="9_4rybf"]
+
+[resource]
+script = ExtResource("1_hmp25")
+sprites = Array[CompressedTexture2D]([ExtResource("2_dm4xm"), ExtResource("3_65mab"), ExtResource("4_3aivp"), ExtResource("5_cg53f"), ExtResource("6_n2hwd"), ExtResource("7_trjws"), ExtResource("8_u6f3a"), ExtResource("9_4rybf")])
+metadata/_custom_type_script = "uid://c1yoj0xg2pcx8"

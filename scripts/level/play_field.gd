@@ -30,6 +30,8 @@ var game_finished = false
 
 @export var defeat_animation: AnimationPlayer
 @export var victory_animation: AnimationPlayer
+@export var cat_notif_controller: NewCatNotifController
+
 
 const correct_match_lines: Array[String] = [
 	"Yes, Good. Brain functioning.",
@@ -120,7 +122,6 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			AudioManager.rare_wrongmatch.play()
 		else:
 			AudioManager.wrongmatch.play()
-		timer.set_speed(timer.get_speed() + 1)
 		match_streak = 0
 		return
 
@@ -128,9 +129,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	erase_path(true, cat.global_position)
 	AudioManager.deselect.play()
 
-	if not SaveSystem.get_data().cats_encountered[cat.type - 1]:
-		SaveSystem.get_data().cats_encountered[cat.type - 1] = true
-		SaveSystem.write_data()
+	notify_if_new_cat(cat.type)
 
 	# Delete cats
 	cat.queue_free()
@@ -164,6 +163,7 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	drag_start.emit(pos)
 	path.clear()
 	path.push_back(pos)
+	notify_if_new_cat(cat.type)
 	queue_redraw()
 	AudioManager.select.play()
 
@@ -237,6 +237,13 @@ func cardinalize(vec: Vector2) -> Vector2:
 	else:
 		vec.x = 0
 	return vec
+
+func notify_if_new_cat(type: int) -> void:
+	if not SaveSystem.get_data().cats_encountered[type - 1]:
+		SaveSystem.get_data().cats_encountered[type - 1] = true
+		SaveSystem.get_data().cats_encountered[type - 1] = true
+		cat_notif_controller.new_cat(type)
+		SaveSystem.write_data()
 
 # Player lost!
 # oh no, anyway
