@@ -19,8 +19,6 @@ var time_bonus: int
 var endless_mode := false
 var endless_mode_jingle_played := false
 var game_finished = false
-var seen_cats : Array[int]
-var seen_cat_count : Array[int]
 
 @export_subgroup("References")
 @export var cat_scene: PackedScene
@@ -69,10 +67,6 @@ func _ready() -> void:
 
 	timer.timer_ended.connect(on_defeat)
 
-	seen_cat_count.resize(9)
-	seen_cat_count.fill(0)
-	seen_cats.resize(9)
-
 func _process(_delta: float) -> void:
 	if endless_mode and not endless_mode_jingle_played:
 		AudioManager.music.stop()
@@ -120,11 +114,6 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if cat == first_cat:
 		return
 
-	if cat.type in seen_cats:
-		if seen_cat_count[cat.type] == 1:
-			cat_notif_controller.new_cat(cat.type)
-			seen_cat_count[cat.type] = 0
-
 	# When the mouse enters a cat that isn't the same type,
 	# delete the path, speed up timer, and reset streak
 	if cat.type != first_cat.type:
@@ -133,7 +122,6 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 			AudioManager.rare_wrongmatch.play()
 		else:
 			AudioManager.wrongmatch.play()
-		timer.set_speed(timer.get_speed() + 1)
 		match_streak = 0
 		return
 
@@ -141,9 +129,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	erase_path(true, cat.global_position)
 	AudioManager.deselect.play()
 
-	if not SaveSystem.get_data().cats_encountered[cat.type - 1]:
-		SaveSystem.get_data().cats_encountered[cat.type - 1] = true
-		SaveSystem.write_data()
+	notify_if_new_cat(cat.type)
 
 	# Delete cats
 	cat.queue_free()
@@ -177,9 +163,7 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	drag_start.emit(pos)
 	path.clear()
 	path.push_back(pos)
-	if first_cat.type not in seen_cats:
-		seen_cats[first_cat.type] = first_cat.type
-		seen_cat_count[first_cat.type] = 1
+	notify_if_new_cat(cat.type)
 	queue_redraw()
 	AudioManager.select.play()
 
@@ -253,6 +237,13 @@ func cardinalize(vec: Vector2) -> Vector2:
 	else:
 		vec.x = 0
 	return vec
+
+func notify_if_new_cat(type: int) -> void:
+	if not SaveSystem.get_data().cats_encountered[type - 1]:
+		SaveSystem.get_data().cats_encountered[type - 1] = true
+		SaveSystem.get_data().cats_encountered[type - 1] = true
+		cat_notif_controller.new_cat(type)
+		SaveSystem.write_data()
 
 # Player lost!
 # oh no, anyway
