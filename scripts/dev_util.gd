@@ -2,6 +2,7 @@ extends Node
 
 var reset_data_keybind: Array[String] = ["8", "2"]
 var reset_cats_encountered_keybind: Array[String] = ["8", "0"]
+var unlock_all_keybind: Array[String] = ["9", "8"]
 
 func enabled() -> bool:
 	return OS.has_feature("debug")
@@ -16,6 +17,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		SaveSystem.get_data().cats_encountered.fill(false)
 		SaveSystem.write_data()
 		print("Cats Encountered Reset!")
+	)
+	test_keybind(event, unlock_all_keybind, func():
+		var data := SaveSystem.get_data()
+		data.cats_encountered.fill(true)
+		data.levels_completed = 99
+		SaveSystem.write_data()
+		print("Unlocked all levels and cats!")
 	)
 
 func test_keybind(event: InputEvent, keybind: Array[String], callback: Callable):
