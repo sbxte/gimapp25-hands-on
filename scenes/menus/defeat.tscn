@@ -1,11 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://dxhjl7jf578rk"]
 
 [ext_resource type="Script" uid="uid://cx7eustlbi7ce" path="res://scripts/menus/defeat.gd" id="1_hsowf"]
-[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_lyivj"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="2_qbuab"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_odpfo"]
+[ext_resource type="Texture2D" uid="uid://bm8jobjssc0e6" path="res://assets/text/defeat.png" id="3_qbuab"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_a1c3q"]
+[ext_resource type="Texture2D" uid="uid://ds8nxke437j4l" path="res://assets/text/Continue Level Text.png" id="4_qte80"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_a1c3q"]
+[ext_resource type="Texture2D" uid="uid://ccbe6q8es5hbk" path="res://assets/text/Return Home text.png" id="7_uv2gg"]
 
 [sub_resource type="Animation" id="Animation_daaf0"]
 resource_name = "RESET"
@@ -99,19 +101,11 @@ _data = {
 shader = ExtResource("2_qbuab")
 shader_parameter/blur_value = 0.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsowf"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xwyaw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1c3q"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpi5s"]
 
 [node name="Defeat" type="CanvasLayer" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_hsowf")
@@ -151,99 +145,70 @@ offset_bottom = 1130.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="Title" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -366.0
+offset_right = 366.0
+offset_bottom = 206.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_hsowf")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="HSeparator" type="HSeparator" parent="Control/Title"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ekxnf")
 
-[node name="Label" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
+[node name="TextureRect" type="TextureRect" parent="Control/Title"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_lyivj")
-theme_override_font_sizes/font_size = 48
-text = "DEFEAT"
-horizontal_alignment = 1
+texture = ExtResource("3_qbuab")
 
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 160
-theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -154.5
+offset_right = 366.0
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+metadata/_edit_use_anchors_ = true
 
-[node name="Restart" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
-
-[node name="RestartButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer"]
+[node name="RestartLevel" type="PanelContainer" parent="Control/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_lyivj")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a1c3q")
-text = "Restart Level"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xwyaw")
 
-[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("3_odpfo")]
+[node name="TextureButton" type="TextureButton" parent="Control/BoxContainer/RestartLevel"]
+layout_mode = 2
+texture_normal = ExtResource("4_qte80")
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" instance=ExtResource("5_a1c3q")]
+[node name="BaseButtonAudio" parent="Control/BoxContainer/RestartLevel/TextureButton" instance=ExtResource("3_odpfo")]
+
+[node name="SceneChangeComponent" parent="Control/BoxContainer/RestartLevel/TextureButton" instance=ExtResource("5_a1c3q")]
 restart_scene = true
 
-[node name="Return" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return"]
+[node name="ReturnHome" type="PanelContainer" parent="Control/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dpi5s")
 
-[node name="ReturnButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2"]
+[node name="TextureButton" type="TextureButton" parent="Control/BoxContainer/ReturnHome"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_lyivj")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a1c3q")
-text = "Return Home"
+texture_normal = ExtResource("7_uv2gg")
 
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("4_a1c3q")]
+[node name="ChangeMenuButtonAudio" parent="Control/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("4_a1c3q")]
 
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" instance=ExtResource("5_a1c3q")]
+[node name="SceneChangeComponent" parent="Control/BoxContainer/ReturnHome/TextureButton" instance=ExtResource("5_a1c3q")]
 scene_path = "res://scenes/menus/levels_menu.tscn"
-
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Restart/PanelContainer/RestartButton" to="Control" method="_on_play_button_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Return/PanelContainer2/ReturnButton" to="Control" method="_on_settings_button_pressed"]
