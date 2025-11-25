@@ -37,6 +37,79 @@
 texture = ExtResource("11_dbhxw")
 axis_stretch_horizontal = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kka41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frl7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02mq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
+
+[sub_resource type="Animation" id="Animation_pvd5x"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-982, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pxapg"]
+resource_name = "slide_right"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-720, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-720, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-982, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-982, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqmlw"]
+_data = {
+&"RESET": SubResource("Animation_pvd5x"),
+&"slide_right": SubResource("Animation_pxapg")
+}
+
 [sub_resource type="Resource" id="Resource_6yvh5"]
 script = ExtResource("20_02mq4")
 character = ExtResource("19_frl7g")
@@ -192,79 +265,6 @@ metadata/_custom_type_script = "uid://cwqorovy605ox"
 script = ExtResource("3_w73a1")
 components = Array[ExtResource("4_nsphw")]([SubResource("Resource_lldia")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1w7m4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kka41"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frl7g"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02mq4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rgwxx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yvh5"]
-
-[sub_resource type="Animation" id="Animation_pvd5x"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-982, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_pxapg"]
-resource_name = "slide_right"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Control:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-720, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-720, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-982, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-982, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqmlw"]
-_data = {
-&"RESET": SubResource("Animation_pvd5x"),
-&"slide_right": SubResource("Animation_pxapg")
-}
 
 [sub_resource type="Animation" id="Animation_qf4k4"]
 resource_name = "RESET"
@@ -490,7 +490,7 @@ z_index = -1
 position = Vector2(1000, 562.5)
 texture = ExtResource("12_imiua")
 
-[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation")]
+[node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation", "cat_notif_controller")]
 z_index = 2
 position = Vector2(1003, 638)
 script = ExtResource("3_cc0dj")
@@ -503,6 +503,7 @@ victory_scene_path = "res://scenes/menus/victory.tscn"
 defeat_scene_path = "res://scenes/menus/defeat.tscn"
 defeat_animation = NodePath("../Defeat/DefeatAnimation")
 victory_animation = NodePath("../Victory/VictoryAnimation")
+cat_notif_controller = NodePath("../newcat_notif")
 
 [node name="TutorialLevelGen" parent="TutorialPlayfield" instance=ExtResource("2_d1cyn")]
 
@@ -548,14 +549,6 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_5pi7b")
 value = 100.0
 show_percentage = false
 
-[node name="TutorialCutscene" parent="." instance=ExtResource("2_c1vkt")]
-entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_urnbx"), SubResource("Resource_nnw1l"), SubResource("Resource_wkwfn"), SubResource("Resource_nnnq2"), SubResource("Resource_5o2ac"), SubResource("Resource_gp0yj"), SubResource("Resource_a5r13")])
-
-[node name="CSHandler" type="Node2D" parent="TutorialCutscene" node_paths=PackedStringArray("play_field")]
-z_index = 10
-script = ExtResource("26_vqxww")
-play_field = NodePath("../../TutorialPlayfield")
-
 [node name="Pause" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
@@ -587,21 +580,30 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 [node name="BaseButtonAudio" parent="Pause/HBoxContainer/PauseButton" instance=ExtResource("1_0xb81")]
 
 [node name="newcat_notif" parent="." instance=ExtResource("29_u8uhl")]
-offset = Vector2(-982, 0)
-transform = Transform2D(1, 0, 0, 1, -982, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="newcat_notif"]
 libraries = {
 &"": SubResource("AnimationLibrary_kqmlw")
 }
 
+[node name="TutorialCutscene" parent="." instance=ExtResource("2_c1vkt")]
+layer = 2
+entries = Array[ExtResource("3_w73a1")]([SubResource("Resource_pmeua"), SubResource("Resource_cc0dj"), SubResource("Resource_rgwxx"), SubResource("Resource_urnbx"), SubResource("Resource_nnw1l"), SubResource("Resource_wkwfn"), SubResource("Resource_nnnq2"), SubResource("Resource_5o2ac"), SubResource("Resource_gp0yj"), SubResource("Resource_a5r13")])
+
+[node name="CSHandler" type="Node2D" parent="TutorialCutscene" node_paths=PackedStringArray("play_field")]
+z_index = 10
+script = ExtResource("26_vqxww")
+play_field = NodePath("../../TutorialPlayfield")
+
 [node name="Victory" type="Control" parent="."]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Victory" parent="Victory" instance=ExtResource("8_0xb81")]
+layer = 3
 offset = Vector2(0, -1130)
 transform = Transform2D(1, 0, 0, 1, 0, -1130)
 
