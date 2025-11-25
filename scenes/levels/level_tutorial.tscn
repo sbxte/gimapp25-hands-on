@@ -491,7 +491,6 @@ position = Vector2(1000, 562.5)
 texture = ExtResource("12_imiua")
 
 [node name="TutorialPlayfield" type="Node2D" parent="." node_paths=PackedStringArray("timer", "cat_generator", "defeat_animation", "victory_animation", "cat_notif_controller")]
-z_index = 2
 position = Vector2(1003, 638)
 script = ExtResource("3_cc0dj")
 snap_vec = Vector2(96, 96)
@@ -550,6 +549,7 @@ value = 100.0
 show_percentage = false
 
 [node name="Pause" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
 offset_left = 1808.0
