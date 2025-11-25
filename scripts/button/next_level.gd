@@ -3,7 +3,7 @@ extends Node
 @export var play_field: PlayField
 @export_file("*.tscn") var level_paths: Array[String] = ["", "", "", "", ""]
 @export_file("*.tscn") var level_menu: String
-@onready var button: Button = $".."
+@onready var button: BaseButton = $".."
 
 
 func _ready() -> void:

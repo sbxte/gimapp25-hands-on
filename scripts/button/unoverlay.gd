@@ -1,7 +1,7 @@
 extends Node
 
 @export var texture: CanvasItem
-@onready var button: Button = $".."
+@onready var button: BaseButton = $".."
 
 func _ready() -> void:
 	if texture:

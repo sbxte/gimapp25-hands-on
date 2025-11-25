@@ -6,7 +6,7 @@ extends Node
 @export var restart_scene: bool = false
 @export_file_path var scene_path: String
 
-@onready var button: Button = $".."
+@onready var button: BaseButton = $".."
 
 func _ready() -> void:
 	button.pressed.connect(pressed)

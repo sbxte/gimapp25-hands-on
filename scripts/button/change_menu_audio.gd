@@ -1,6 +1,6 @@
 extends Node
 
-@onready var button: Button = $".."
+@onready var button: BaseButton = $".."
 
 func _ready() -> void:
 	button.pressed.connect(func(): AudioManager.pullup.play())
