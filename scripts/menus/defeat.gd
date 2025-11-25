@@ -5,6 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	Events.on_defeat.connect(on_defeat)
 	Events.on_defeat_endless_mode.connect(func(_stages_cleared: int): on_defeat())
+	animation_player.play("RESET")
 
 func on_defeat() -> void:
 	animation_player.play("blur")
