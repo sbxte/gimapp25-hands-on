@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
+[ext_resource type="Texture2D" uid="uid://qj65w2sygghs" path="res://assets/sprites/ArrowBack.png" id="3_wyo7v"]
 [ext_resource type="PackedScene" uid="uid://dr2ap84vkrugg" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
 [ext_resource type="Texture2D" uid="uid://b47al1suyqw24" path="res://assets/ui/buttons/Lvl 1.png" id="6_p2qxj"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c1mt4ag15iftt" path="res://assets/ui/buttons/Lvl 2.png" id="9_wyo7v"]
 [ext_resource type="Texture2D" uid="uid://cgfeqb3mr2ann" path="res://assets/ui/buttons/Lvl 3.png" id="10_1xkue"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
-[ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="11_2dnfq"]
 [ext_resource type="Texture2D" uid="uid://cnfdjty3v6kx8" path="res://assets/ui/buttons/Lvl 4.png" id="11_bc3ty"]
 [ext_resource type="Texture2D" uid="uid://2db4r5hiqssv" path="res://assets/ui/buttons/Lvl 5.png" id="12_vcrj6"]
 [ext_resource type="Texture2D" uid="uid://cof15qa1exmxh" path="res://assets/ui/buttons/Tutorial.png" id="13_htdht"]
@@ -74,12 +74,14 @@ color = Color(0.101960786, 0.101960786, 0.101960786, 0.6627451)
 
 [node name="MainMenu" type="TextureButton" parent="Control"]
 layout_mode = 1
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 330.0
+offset_bottom = 345.0
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("11_2dnfq")
-metadata/_edit_use_anchors_ = true
+texture_normal = ExtResource("3_wyo7v")
 
 [node name="ChangeMenuButtonAudio" parent="Control/MainMenu" instance=ExtResource("3_5futn")]
 
