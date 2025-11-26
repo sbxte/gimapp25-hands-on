@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv5jyp4pcr3k2"
-path="res://.godot/imported/placement 3.png-5aba1ec15c570db0c1305bc3e25a45a2.ctex"
+uid="uid://bjtrhx0c1h337"
+path="res://.godot/imported/Endless.png-92d30fed936b05180bf091e1035bfedc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/placement 3.png"
-dest_files=["res://.godot/imported/placement 3.png-5aba1ec15c570db0c1305bc3e25a45a2.ctex"]
+source_file="res://assets/ui/buttons/Endless.png"
+dest_files=["res://.godot/imported/Endless.png-92d30fed936b05180bf091e1035bfedc.ctex"]
 
 [params]
 

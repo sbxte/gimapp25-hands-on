@@ -1,28 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=16 format=3 uid="uid://3yhnlii4dbn6"]
 
-[ext_resource type="Texture2D" uid="uid://erra1kdv5bku" path="res://assets/ui/placement 1.png" id="1_vcrj6"]
-[ext_resource type="Texture2D" uid="uid://bct0ifm8kgcsr" path="res://assets/ui/placement 2.png" id="2_htdht"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
-[ext_resource type="Texture2D" uid="uid://cv5jyp4pcr3k2" path="res://assets/ui/placement 3.png" id="3_wrd8s"]
-[ext_resource type="Texture2D" uid="uid://dftkv6b2p6yxd" path="res://assets/ui/placement 4.png" id="4_4of36"]
 [ext_resource type="PackedScene" uid="uid://dr2ap84vkrugg" path="res://scenes/components/button/enter_level_behavior.tscn" id="5_knlas"]
-[ext_resource type="Texture2D" uid="uid://y2r8frcnxlgl" path="res://assets/ui/placement 5.png" id="5_psrh6"]
 [ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="5_xaaqn"]
-[ext_resource type="Texture2D" uid="uid://dp17u0bm8k6mu" path="res://assets/ui/placement endless mode.png" id="6_3lkb3"]
-[ext_resource type="Texture2D" uid="uid://fk7bhing8get" path="res://assets/ui/questions.png" id="7_2dnfq"]
-[ext_resource type="Texture2D" uid="uid://dw0lb5o7jn445" path="res://assets/ui/Deco.png" id="8_v6wf2"]
+[ext_resource type="Texture2D" uid="uid://b47al1suyqw24" path="res://assets/ui/buttons/Lvl 1.png" id="6_p2qxj"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="9_t1y88"]
+[ext_resource type="Texture2D" uid="uid://c1mt4ag15iftt" path="res://assets/ui/buttons/Lvl 2.png" id="9_wyo7v"]
+[ext_resource type="Texture2D" uid="uid://cgfeqb3mr2ann" path="res://assets/ui/buttons/Lvl 3.png" id="10_1xkue"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
 [ext_resource type="Texture2D" uid="uid://gvsqia028i18" path="res://assets/sprites/back.png" id="11_2dnfq"]
-[ext_resource type="Texture2D" uid="uid://3spf1aia7ul1" path="res://assets/text/Tutorial.png" id="14_v6wf2"]
-[ext_resource type="Texture2D" uid="uid://bu2v5w30p2j1a" path="res://assets/text/level 1.png" id="17_cx55l"]
-[ext_resource type="Texture2D" uid="uid://cpc32s26tnuh5" path="res://assets/text/level 2.png" id="18_psrh6"]
-[ext_resource type="Texture2D" uid="uid://cai0y0isngyw1" path="res://assets/text/level 3.png" id="19_3lkb3"]
-[ext_resource type="Texture2D" uid="uid://bbb7bq7jjy5c7" path="res://assets/text/level 4.png" id="20_2dnfq"]
-[ext_resource type="Texture2D" uid="uid://ctsr0ihahm3bh" path="res://assets/text/level 5.png" id="21_v6wf2"]
-[ext_resource type="Texture2D" uid="uid://cg8et8lxbv8il" path="res://assets/text/Endless mode.png" id="22_3lkb3"]
-[ext_resource type="Texture2D" uid="uid://bkc8gl6e5bp7v" path="res://assets/text/Endless mode_hover.png" id="23_2dnfq"]
+[ext_resource type="Texture2D" uid="uid://cnfdjty3v6kx8" path="res://assets/ui/buttons/Lvl 4.png" id="11_bc3ty"]
+[ext_resource type="Texture2D" uid="uid://2db4r5hiqssv" path="res://assets/ui/buttons/Lvl 5.png" id="12_vcrj6"]
+[ext_resource type="Texture2D" uid="uid://cof15qa1exmxh" path="res://assets/ui/buttons/Tutorial.png" id="13_htdht"]
+[ext_resource type="Texture2D" uid="uid://bjtrhx0c1h337" path="res://assets/ui/buttons/Endless.png" id="14_wyo7v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6mv"]
 shader = ExtResource("10_dk45c")
@@ -49,121 +40,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect9" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(150, 110)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.044390626
-anchor_top = 0.00080650084
-anchor_right = 0.9744093
-anchor_bottom = 1.208173
-offset_top = -6.1035156e-05
-offset_right = -0.00012207031
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_3lkb3")
-
-[node name="TextureRect" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_vcrj6")
-
-[node name="TextureRect2" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_htdht")
-
-[node name="TextureRect3" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 479.0
-offset_top = -29.0
-offset_right = 479.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_wrd8s")
-
-[node name="TextureRect4" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_4of36")
-
-[node name="TextureRect5" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 516.0
-offset_top = -12.0
-offset_right = 516.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_psrh6")
-
-[node name="TextureRect6" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(150, 110)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.63438255
-anchor_top = 0.99093926
-anchor_right = 1.165456
-anchor_bottom = 2.7840607
-offset_top = 6.2353516
-offset_right = -0.00012207031
-offset_bottom = -6.2353516
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_3lkb3")
-
-[node name="TextureRect7" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(150, 110)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.81920904
-anchor_top = 1.2612903
-anchor_right = 0.98062956
-anchor_bottom = 3.044355
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_2dnfq")
-
-[node name="TextureRect8" type="TextureRect" parent="Control/BackgroundPanels"]
-custom_minimum_size = Vector2(110, 110)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.4673123
-anchor_top = -0.024193548
-anchor_right = 2.4673123
-anchor_bottom = 0.9758065
-offset_left = -26.0
-offset_top = -259.0
-offset_right = 965.0
-offset_bottom = 712.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_v6wf2")
 
 [node name="BackgroundBlur" type="TextureRect" parent="Control"]
 z_index = -1
@@ -208,28 +84,41 @@ metadata/_edit_use_anchors_ = true
 [node name="SceneChangeComponent" parent="Control/MainMenu" instance=ExtResource("5_xaaqn")]
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[node name="Tutorial" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 233.0
-offset_right = 1277.0
-offset_bottom = 1301.0001
-texture_normal = ExtResource("14_v6wf2")
+[node name="LevelTutorial" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.5
+offset_top = -426.5
+offset_right = 276.5
+offset_bottom = -323.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("13_htdht")
 
-[node name="BaseButtonAudio" parent="Control/Tutorial" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/LevelTutorial" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/Tutorial" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/LevelTutorial" instance=ExtResource("5_knlas")]
 scene_path = "res://scenes/levels/level_tutorial.tscn"
 
 [node name="Level1" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(330, 90)
-layout_mode = 0
-offset_left = 169.0
-offset_top = 334.0
-offset_right = 628.0
-offset_bottom = 465.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -292.5
+offset_right = 190.5
+offset_bottom = -193.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("17_cx55l")
+texture_normal = ExtResource("6_p2qxj")
 
 [node name="BaseButtonAudio" parent="Control/Level1" instance=ExtResource("3_dnh54")]
 
@@ -238,13 +127,19 @@ threshold = 1
 scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Level2" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(330, 100)
-layout_mode = 0
-offset_left = 388.0
-offset_top = 497.0
-offset_right = 863.0
-offset_bottom = 645.0
-texture_normal = ExtResource("18_psrh6")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -166.5
+offset_right = 190.5
+offset_bottom = -67.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_wyo7v")
 
 [node name="BaseButtonAudio" parent="Control/Level2" instance=ExtResource("3_dnh54")]
 
@@ -253,13 +148,19 @@ threshold = 2
 scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="Level3" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(330, 90)
-layout_mode = 0
-offset_left = 772.0
-offset_top = 533.0
-offset_right = 1236.0
-offset_bottom = 660.0
-texture_normal = ExtResource("19_3lkb3")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -44.5
+offset_right = 191.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_1xkue")
 
 [node name="BaseButtonAudio" parent="Control/Level3" instance=ExtResource("3_dnh54")]
 
@@ -268,13 +169,19 @@ threshold = 3
 scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="Level4" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(330, 90)
-layout_mode = 0
-offset_left = 770.0
-offset_top = 668.0
-offset_right = 1241.0
-offset_bottom = 795.0
-texture_normal = ExtResource("20_2dnfq")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = 87.5
+offset_right = 191.5
+offset_bottom = 185.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("11_bc3ty")
 
 [node name="BaseButtonAudio" parent="Control/Level4" instance=ExtResource("3_dnh54")]
 
@@ -283,13 +190,19 @@ threshold = 4
 scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="Level5" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(330, 90)
-layout_mode = 0
-offset_left = 767.0
-offset_top = 808.0
-offset_right = 1221.0
-offset_bottom = 925.0
-texture_normal = ExtResource("21_v6wf2")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = 209.5
+offset_right = 189.5
+offset_bottom = 307.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_vcrj6")
 
 [node name="BaseButtonAudio" parent="Control/Level5" instance=ExtResource("3_dnh54")]
 
@@ -297,19 +210,23 @@ texture_normal = ExtResource("21_v6wf2")
 threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
 
-[node name="LevelEndlessText" type="TextureButton" parent="Control"]
-custom_minimum_size = Vector2(700, 110)
-layout_mode = 0
-offset_left = 261.0
-offset_top = 1453.0
-offset_right = 1110.0
-offset_bottom = 1597.0
-size_flags_horizontal = 4
-texture_normal = ExtResource("22_3lkb3")
-texture_hover = ExtResource("23_2dnfq")
+[node name="EndlessMode" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.5
+offset_top = 328.5
+offset_right = 274.5
+offset_bottom = 429.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("14_wyo7v")
 
-[node name="BaseButtonAudio" parent="Control/LevelEndlessText" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/EndlessMode" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/LevelEndlessText" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/EndlessMode" instance=ExtResource("5_knlas")]
 threshold = 5
-scene_path = "res://scenes/levels/level_endless.tscn"
+scene_path = "res://scenes/levels/level_5.tscn"
