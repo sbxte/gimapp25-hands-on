@@ -95,6 +95,7 @@ offset_top = 21.372086
 offset_right = 323.0
 offset_bottom = 151.37209
 theme_override_colors/font_color = Color(0.5529412, 0.41568628, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_70rpe")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
