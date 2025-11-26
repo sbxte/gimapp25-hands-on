@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CatNames" load_steps=2 format=3 uid="uid://badpv0k2xvcvc"]
+
+[ext_resource type="Script" uid="uid://dij0dau7tnp5i" path="res://scripts/level/cat_names.gd" id="1_7oyy6"]
+
+[resource]
+script = ExtResource("1_7oyy6")
+names = Array[String](["Overlord Bingus - Sphyrenx", "The Sorceress", "The Void", "Longbow Archer", "Crossbow Archer", "Pikeman", "Heavy Infantry", "Bard", "Priestess", "Emperor Woof"])
