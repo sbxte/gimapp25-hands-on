@@ -1,23 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://lo6bokw4cjxu"]
+[gd_scene load_steps=11 format=3 uid="uid://lo6bokw4cjxu"]
 
 [ext_resource type="Texture2D" uid="uid://vlbi1aydcseq" path="res://assets/ui/level_board.png" id="1_65eur"]
 [ext_resource type="Script" uid="uid://xe34doe30ce6" path="res://scripts/menus/speech_box.gd" id="1_herai"]
 [ext_resource type="Texture2D" uid="uid://bpaugmhhx7gma" path="res://assets/ui/speech_box.png" id="2_65eur"]
 [ext_resource type="Texture2D" uid="uid://cdmkiqnuxalt8" path="res://assets/ui/LV Icon.png" id="3_fpxt7"]
+[ext_resource type="Texture2D" uid="uid://sw81wy0gou00" path="res://assets/sprites/bingus/bingus_normal2.png" id="3_herai"]
 [ext_resource type="Texture2D" uid="uid://u1nedsb8aj7k" path="res://assets/text/LV.png" id="4_herai"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="5_70rpe"]
-[ext_resource type="Texture2D" uid="uid://bps13tujc4m6h" path="res://assets/text/Level.png" id="6_m5ecc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vl2ww"]
 font = ExtResource("5_70rpe")
 font_size = 56
 outline_size = 20
-outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vwcvv"]
-font = ExtResource("5_70rpe")
-font_size = 46
-outline_size = 14
 outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_shq1s"]
@@ -35,7 +29,7 @@ outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 [node name="SpeechBox" type="CanvasLayer" node_paths=PackedStringArray("lv_text", "level_text", "stage_text", "speech_text", "timer")]
 script = ExtResource("1_herai")
 lv_text = NodePath("Control/LevelInfo/LVIcon/LvText")
-level_text = NodePath("Control/LevelInfo/Level/LevelText")
+level_text = NodePath("")
 stage_text = NodePath("Control/LevelInfo/Stage/StageText")
 speech_text = NodePath("Control/LevelInfo/SpeechBox/SpeechText")
 timer = NodePath("SpeechAnimTimer")
@@ -64,13 +58,29 @@ pivot_offset = Vector2(430.25, 0)
 texture = ExtResource("1_65eur")
 metadata/_edit_use_anchors_ = true
 
+[node name="Bingus" type="TextureRect" parent="Control/LevelInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -226.25
+offset_top = -85.5
+offset_right = -88.25
+offset_bottom = 86.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_herai")
+expand_mode = 1
+
 [node name="SpeechBox" type="TextureRect" parent="Control/LevelInfo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.30824122
-anchor_top = 0.55813956
-anchor_right = 0.7010361
-anchor_bottom = 1.0394835
+anchor_left = 0.31870025
+anchor_top = 0.12757201
+anchor_right = 0.71149516
+anchor_bottom = 0.7238047
 offset_left = -24.991562
 offset_right = 24.991577
 offset_bottom = 37.115448
@@ -92,14 +102,16 @@ autowrap_mode = 3
 
 [node name="LVIcon" type="TextureRect" parent="Control/LevelInfo"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.033701338
-anchor_top = 0.11793612
-anchor_right = 0.17083094
-anchor_bottom = 0.35380834
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 63.25
+offset_top = -83.5
+offset_right = 181.25
+offset_bottom = 12.5
+grow_vertical = 2
 texture = ExtResource("3_fpxt7")
 stretch_mode = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="LV" type="TextureRect" parent="Control/LevelInfo/LVIcon"]
 layout_mode = 1
@@ -131,40 +143,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Level" type="TextureRect" parent="Control/LevelInfo"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1908774
-anchor_top = 0.102990024
-anchor_right = 0.34195235
-anchor_bottom = 0.3168724
-texture = ExtResource("6_m5ecc")
-metadata/_edit_use_anchors_ = true
-
-[node name="LevelText" type="Label" parent="Control/LevelInfo/Level"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0168067
-anchor_top = 0.054545447
-anchor_right = 1.3109244
-anchor_bottom = 1.0909091
-text = "1"
-label_settings = SubResource("LabelSettings_vwcvv")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Stage" type="Label" parent="Control/LevelInfo"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.26176643
-anchor_top = 0.30041152
-anchor_right = 0.3768158
-anchor_bottom = 0.49382716
-offset_left = -1.5258789e-05
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 60.25
+offset_top = 27.5
+offset_right = 159.25
+offset_bottom = 70.5
+grow_vertical = 2
 text = "Stage"
 label_settings = SubResource("LabelSettings_shq1s")
-metadata/_edit_use_anchors_ = true
 
 [node name="StageText" type="Label" parent="Control/LevelInfo/Stage"]
 layout_mode = 1
@@ -179,4 +169,3 @@ text = "0"
 label_settings = SubResource("LabelSettings_eouvt")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
