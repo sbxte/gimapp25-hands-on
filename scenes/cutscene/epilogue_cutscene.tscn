@@ -1,0 +1,443 @@
+[gd_scene load_steps=90 format=3 uid="uid://qv260iba6msa"]
+
+[ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_ncgyr"]
+[ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_38k3a"]
+[ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_hlt1m"]
+[ext_resource type="Script" uid="uid://dstye786s28v1" path="res://scripts/cutscene/entries/background.gd" id="4_gusut"]
+[ext_resource type="Resource" uid="uid://ddtl7hbo0i4lx" path="res://resources/characters/narrator.tres" id="5_116vp"]
+[ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_116vp"]
+[ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="7_io61m"]
+[ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="8_5tbyt"]
+[ext_resource type="Script" uid="uid://doahvpxberxmu" path="res://scripts/cutscene/entries/char_move.gd" id="9_ncgyr"]
+[ext_resource type="Resource" uid="uid://cvkp0cmo6ocsv" path="res://resources/characters/woofer.tres" id="10_kkick"]
+[ext_resource type="Script" uid="uid://wf2v3nv61jmu" path="res://scripts/cutscene/entries/set_scene.gd" id="11_kkick"]
+[ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="13_bm5fp"]
+
+[sub_resource type="Resource" id="Resource_kkick"]
+script = ExtResource("4_gusut")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_38k3a"]
+script = ExtResource("6_116vp")
+character = ExtResource("5_116vp")
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_blxf4"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "It’s been some time since you’ve been here."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_532wy"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_kkick"), SubResource("Resource_38k3a"), SubResource("Resource_blxf4")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_io61m"]
+script = ExtResource("4_gusut")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_5tbyt"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = " "
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_3rofq"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_io61m"), SubResource("Resource_5tbyt")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_gusut"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "The whole time you were here, you were trapped inside this place to live alongside its inhabitants."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ncgyr"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_gusut")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_116vp"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "You have met a lot of people, err, cats that are completely different from Bingus."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_hlt1m"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_116vp")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ods5q"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "While you haven’t been able to leave this place, the treatment is better than you would’ve expect."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_60e0b"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_ods5q")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_4g4i8"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "You get fancy food every day, the best room you could ever possibly have in your life, and the treatment of a noble."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_1l3ab"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_4g4i8")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ni8sx"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "As ‌payback, Bingus wanted you to lead the cat army as the general against the dogs from the Dogmatic Kingdom."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_xkerd"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_ni8sx")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_1xa54"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "He watches your every move, so you can’t really do anything else but adhere to his words."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_bm5fp"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_1xa54")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_pt42r"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "Well, in the end, you are some kind of prisoner here, aren’t you?"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_waa6d"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_pt42r")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_3piai"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "Before you could think any further, Bingus entered your room at the same time as usual, but it seemed like he had something else to say."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_mn5fe"]
+script = ExtResource("6_116vp")
+character = ExtResource("8_5tbyt")
+position = Vector2(1000, 600)
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_ciu60"]
+script = ExtResource("2_38k3a")
+label = "Bingus Entry Here"
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_3piai"), SubResource("Resource_mn5fe")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_c2hmf"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "Good morning, human."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_1hngt"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_c2hmf")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_57iyb"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "He seemed different now. He looks…. satisfied?"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_bxutn"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_57iyb")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_qhic0"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "I have been watching you; you’re really awesome at your job."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_uh8od"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_qhic0")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_be6xn"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "You could’ve left anytime you wanted, but you chose to stay here. It seems like we’re on the same page here."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_iywa7"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_be6xn")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_bqw4i"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "…"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ikd6h"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_bqw4i")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_16rsi"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "So you could’ve left anytime you wanted…."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_irva6"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_16rsi")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_dbrh2"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "What’s with guards being everywhere then?!"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_58d01"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_dbrh2")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_jg4eo"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "Thanks to your effort, I’m able to push those dogs farther along the lines."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_xoe6i"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_jg4eo")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_prqkc"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "Although I’m not able to fully destroy them, pushing them back satisfied me enough at least for now."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_vwpso"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_prqkc")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_sxbvy"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "You look at the very satisfied Bingus, it kinda reminds you of that one cat you met back on your world."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_yju8q"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_sxbvy")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_vtjto"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "Now that you think more about it, most of the cats you’ve seen here kinda resemble every single cat you’ve ever seen or met."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_slin6"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_vtjto")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ga17q"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "Maybe it’s just a coincidence."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_culwr"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_ga17q")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_v6rqr"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "Yeah, surely."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_bc821"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_v6rqr")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_oah33"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "While you’re deep in your thought, Bingus directs your attention back to him."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_qsxvf"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_oah33")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ce3p5"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "Felis Dominion would be glad to accept someone like you to stay and become our tactician."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_fs5kb"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_ce3p5")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_8kf8p"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "Or you can choose to go back home to your world; it’s your choice."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_dkly3"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_8kf8p")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_rpidj"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "In the end…"
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_ouqf0"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_rpidj")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_7ipws"]
+script = ExtResource("7_io61m")
+character = ExtResource("8_5tbyt")
+text = "My war with that guy isn’t over."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_rucbw"]
+script = ExtResource("9_ncgyr")
+character = ExtResource("8_5tbyt")
+sprite = "angry"
+position = Vector2(1000, 600)
+metadata/_custom_type_script = "uid://doahvpxberxmu"
+
+[sub_resource type="Resource" id="Resource_dji0h"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_7ipws"), SubResource("Resource_rucbw")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_d65rs"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "..."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_lgg6v"]
+script = ExtResource("9_ncgyr")
+character = ExtResource("8_5tbyt")
+position_update = true
+position = Vector2(4000, 600)
+metadata/_custom_type_script = "uid://doahvpxberxmu"
+
+[sub_resource type="Resource" id="Resource_llgqp"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_d65rs"), SubResource("Resource_lgg6v")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_0yph7"]
+script = ExtResource("4_gusut")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
+[sub_resource type="Resource" id="Resource_vjeun"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_0yph7")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_ejdie"]
+script = ExtResource("7_io61m")
+character = ExtResource("5_116vp")
+text = "..."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_2u3m2"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_ejdie")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_u43xv"]
+script = ExtResource("7_io61m")
+character = ExtResource("10_kkick")
+text = "..."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_dguo8"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_u43xv")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_6r4j0"]
+script = ExtResource("6_116vp")
+character = ExtResource("10_kkick")
+position = Vector2(1000, 600)
+metadata/_custom_type_script = "uid://diihrtradp4sf"
+
+[sub_resource type="Resource" id="Resource_158lw"]
+script = ExtResource("7_io61m")
+character = ExtResource("10_kkick")
+text = "Never change, Overlord Bingus."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_fvoia"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_6r4j0"), SubResource("Resource_158lw")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_avk80"]
+script = ExtResource("7_io61m")
+character = ExtResource("10_kkick")
+text = "Just like the old times."
+metadata/_custom_type_script = "uid://ciq6ioudfq733"
+
+[sub_resource type="Resource" id="Resource_irb87"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_avk80")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_2p7ov"]
+script = ExtResource("11_kkick")
+scene_path = "uid://3yhnlii4dbn6"
+metadata/_custom_type_script = "uid://wf2v3nv61jmu"
+
+[sub_resource type="Resource" id="Resource_itjwt"]
+script = ExtResource("2_38k3a")
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_2p7ov")])
+metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[node name="EpilogueCutscene" type="Node2D"]
+
+[node name="BaseCutscene" parent="." instance=ExtResource("1_ncgyr")]
+entries = Array[ExtResource("2_38k3a")]([SubResource("Resource_532wy"), SubResource("Resource_3rofq"), SubResource("Resource_ncgyr"), SubResource("Resource_hlt1m"), SubResource("Resource_60e0b"), SubResource("Resource_1l3ab"), SubResource("Resource_xkerd"), SubResource("Resource_bm5fp"), SubResource("Resource_waa6d"), SubResource("Resource_ciu60"), SubResource("Resource_1hngt"), SubResource("Resource_bxutn"), SubResource("Resource_uh8od"), SubResource("Resource_iywa7"), SubResource("Resource_ikd6h"), SubResource("Resource_irva6"), SubResource("Resource_58d01"), SubResource("Resource_xoe6i"), SubResource("Resource_vwpso"), SubResource("Resource_yju8q"), SubResource("Resource_slin6"), SubResource("Resource_culwr"), SubResource("Resource_bc821"), SubResource("Resource_qsxvf"), SubResource("Resource_fs5kb"), SubResource("Resource_dkly3"), SubResource("Resource_ouqf0"), SubResource("Resource_dji0h"), SubResource("Resource_llgqp"), SubResource("Resource_vjeun"), SubResource("Resource_2u3m2"), SubResource("Resource_dguo8"), SubResource("Resource_fvoia"), SubResource("Resource_irb87"), SubResource("Resource_itjwt")])
+
+[node name="DefaultCsadvanceBehavior" parent="." instance=ExtResource("13_bm5fp")]
