@@ -67,10 +67,10 @@ func drag_start(point: Vector2) -> void:
 	hint_anim_points.clear()
 	queue_redraw()
 
-func drag_end(_point: Vector2, matched: bool) -> void:
+func drag_end(_point: Vector2, _attempt_match: bool, correct_match: bool) -> void:
 	if not play_hint:
 		return
-	if matched:
+	if correct_match:
 		play_hint = false
 		Events.cutscene_custom_comp_finished.emit()
 		Events.advance_cutscene.emit()

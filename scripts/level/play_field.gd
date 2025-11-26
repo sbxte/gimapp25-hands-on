@@ -28,7 +28,7 @@ var game_finished = false
 @export var cat_notif_controller: NewCatNotifController
 
 signal drag_start(start: Vector2)
-signal drag_end(end: Vector2, matched: bool)
+signal drag_end(end: Vector2, attempt_match: bool, correct_match: bool)
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
@@ -146,7 +146,7 @@ func erase_path(attempt_match: bool, correct_match: bool = false) -> void:
 		if attempt_match:
 			Events.trigger_speech.emit(correct_match)
 
-		drag_end.emit(path.back(), attempt_match)
+		drag_end.emit(path.back(), attempt_match, correct_match)
 	path.clear()
 	queue_redraw()
 
