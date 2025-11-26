@@ -84,149 +84,113 @@ metadata/_edit_use_anchors_ = true
 [node name="SceneChangeComponent" parent="Control/MainMenu" instance=ExtResource("5_xaaqn")]
 scene_path = "res://scenes/menus/main_menu.tscn"
 
-[node name="LevelTutorial" type="TextureButton" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -276.5
-offset_top = -426.5
-offset_right = 276.5
-offset_bottom = -323.5
+offset_left = -960.5
+offset_top = 350.0
+offset_right = 960.5
+offset_bottom = 453.0
 grow_horizontal = 2
-grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTutorial" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("13_htdht")
 
-[node name="BaseButtonAudio" parent="Control/LevelTutorial" instance=ExtResource("3_dnh54")]
+[node name="BaseButtonAudio" parent="Control/HBoxContainer/LevelTutorial" instance=ExtResource("3_dnh54")]
 
-[node name="EnterLevelBehavior" parent="Control/LevelTutorial" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/HBoxContainer/LevelTutorial" instance=ExtResource("5_knlas")]
 scene_path = "res://scenes/levels/level_tutorial.tscn"
 
-[node name="Level1" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.5
-offset_top = -292.5
-offset_right = 190.5
-offset_bottom = -193.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("6_p2qxj")
+[node name="VSeparator" type="VSeparator" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
 
-[node name="BaseButtonAudio" parent="Control/Level1" instance=ExtResource("3_dnh54")]
+[node name="EndlessMode" type="TextureButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_wyo7v")
 
-[node name="EnterLevelBehavior" parent="Control/Level1" instance=ExtResource("5_knlas")]
-threshold = 1
-scene_path = "res://scenes/levels/level_1.tscn"
+[node name="BaseButtonAudio" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("3_dnh54")]
 
-[node name="Level2" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.5
-offset_top = -166.5
-offset_right = 190.5
-offset_bottom = -67.5
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("9_wyo7v")
-
-[node name="BaseButtonAudio" parent="Control/Level2" instance=ExtResource("3_dnh54")]
-
-[node name="EnterLevelBehavior" parent="Control/Level2" instance=ExtResource("5_knlas")]
-threshold = 2
-scene_path = "res://scenes/levels/level_2.tscn"
-
-[node name="Level3" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -44.5
-offset_right = 191.0
-offset_bottom = 55.5
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("10_1xkue")
-
-[node name="BaseButtonAudio" parent="Control/Level3" instance=ExtResource("3_dnh54")]
-
-[node name="EnterLevelBehavior" parent="Control/Level3" instance=ExtResource("5_knlas")]
-threshold = 3
-scene_path = "res://scenes/levels/level_3.tscn"
-
-[node name="Level4" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -191.5
-offset_top = 87.5
-offset_right = 191.5
-offset_bottom = 185.5
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("11_bc3ty")
-
-[node name="BaseButtonAudio" parent="Control/Level4" instance=ExtResource("3_dnh54")]
-
-[node name="EnterLevelBehavior" parent="Control/Level4" instance=ExtResource("5_knlas")]
-threshold = 4
-scene_path = "res://scenes/levels/level_4.tscn"
-
-[node name="Level5" type="TextureButton" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -189.5
-offset_top = 209.5
-offset_right = 189.5
-offset_bottom = 307.5
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("12_vcrj6")
-
-[node name="BaseButtonAudio" parent="Control/Level5" instance=ExtResource("3_dnh54")]
-
-[node name="EnterLevelBehavior" parent="Control/Level5" instance=ExtResource("5_knlas")]
+[node name="EnterLevelBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("5_knlas")]
 threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
 
-[node name="EndlessMode" type="TextureButton" parent="Control"]
+[node name="VSplitContainer" type="VSplitContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -274.5
-offset_top = 328.5
-offset_right = 274.5
-offset_bottom = 429.5
+anchor_bottom = 1.0
+offset_left = -960.5
+offset_top = -425.0
+offset_right = 960.5
+offset_bottom = -214.99933
 grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("14_wyo7v")
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="BaseButtonAudio" parent="Control/EndlessMode" instance=ExtResource("3_dnh54")]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VSplitContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="EnterLevelBehavior" parent="Control/EndlessMode" instance=ExtResource("5_knlas")]
+[node name="Level1" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_p2qxj")
+
+[node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level1" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level1" instance=ExtResource("5_knlas")]
+threshold = 1
+scene_path = "res://scenes/levels/level_1.tscn"
+
+[node name="Level2" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("9_wyo7v")
+
+[node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level2" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level2" instance=ExtResource("5_knlas")]
+threshold = 2
+scene_path = "res://scenes/levels/level_2.tscn"
+
+[node name="Level3" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("10_1xkue")
+
+[node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level3" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level3" instance=ExtResource("5_knlas")]
+threshold = 3
+scene_path = "res://scenes/levels/level_3.tscn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Level4" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_bc3ty")
+
+[node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer/Level4" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer/Level4" instance=ExtResource("5_knlas")]
+threshold = 4
+scene_path = "res://scenes/levels/level_4.tscn"
+
+[node name="Level5" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_vcrj6")
+
+[node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer/Level5" instance=ExtResource("3_dnh54")]
+
+[node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer/Level5" instance=ExtResource("5_knlas")]
 threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
