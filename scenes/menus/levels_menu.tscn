@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=19 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="9_t1y88"]
 [ext_resource type="Texture2D" uid="uid://c1mt4ag15iftt" path="res://assets/ui/buttons/Lvl 2.png" id="9_wyo7v"]
 [ext_resource type="Texture2D" uid="uid://cgfeqb3mr2ann" path="res://assets/ui/buttons/Lvl 3.png" id="10_1xkue"]
+[ext_resource type="PackedScene" uid="uid://0ie125a3v6f7" path="res://scenes/components/button/lvl_btn_reveal_behavior.tscn" id="10_bc3ty"]
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
 [ext_resource type="Texture2D" uid="uid://cnfdjty3v6kx8" path="res://assets/ui/buttons/Lvl 4.png" id="11_bc3ty"]
+[ext_resource type="Texture2D" uid="uid://djcqpjccjwh75" path="res://assets/ui/buttons/Endless initial.png" id="11_vcrj6"]
 [ext_resource type="Texture2D" uid="uid://2db4r5hiqssv" path="res://assets/ui/buttons/Lvl 5.png" id="12_vcrj6"]
 [ext_resource type="Texture2D" uid="uid://cof15qa1exmxh" path="res://assets/ui/buttons/Tutorial.png" id="13_htdht"]
 [ext_resource type="Texture2D" uid="uid://bjtrhx0c1h337" path="res://assets/ui/buttons/Endless.png" id="14_wyo7v"]
@@ -124,6 +126,11 @@ texture_normal = ExtResource("14_wyo7v")
 [node name="EnterLevelBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("5_knlas")]
 threshold = 5
 scene_path = "res://scenes/levels/level_5.tscn"
+
+[node name="LvlBtnRevealBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("10_bc3ty")]
+min_level_unlock = 6
+locked_asset = ExtResource("11_vcrj6")
+unlocked_asset = ExtResource("14_wyo7v")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Control"]
 layout_mode = 1
