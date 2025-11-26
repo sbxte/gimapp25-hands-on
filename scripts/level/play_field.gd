@@ -52,7 +52,12 @@ func _process(_delta: float) -> void:
 	var offset := (get_local_mouse_position() - last_path_point).snapped(snap_vec)
 	var cardinalized := cardinalize(offset)
 	if not cardinalized.is_zero_approx():
-		append_path(last_path_point + cardinalized)
+		var prev := global_position + last_path_point
+		var intersection := get_world_2d().direct_space_state.intersect_ray(PhysicsRayQueryParameters2D.create(prev, prev + cardinalized))
+		if intersection:
+			attempt_match((intersection.get("collider") as Node).get_parent() as Cat)
+		else:
+			append_path(last_path_point + cardinalized)
 
 	confine_to_play_area()
 
@@ -81,7 +86,9 @@ func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	if not dragging:
 		return
+	attempt_match(cat)
 
+func attempt_match(cat: Cat) -> void:
 	if cat == first_cat:
 		return
 

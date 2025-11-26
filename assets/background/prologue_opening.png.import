@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw2eo60dnjty"
-path="res://.godot/imported/cat4.png-b98ed2c5ee2d11d57c8fef959c240c44.ctex"
+uid="uid://b5lgsb4amfols"
+path="res://.godot/imported/prologue_opening.png-5a0bb11dc555e0c93f9e2e9f1d4aeabf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cats/cat4.png"
-dest_files=["res://.godot/imported/cat4.png-b98ed2c5ee2d11d57c8fef959c240c44.ctex"]
+source_file="res://assets/background/prologue_opening.png"
+dest_files=["res://.godot/imported/prologue_opening.png-5a0bb11dc555e0c93f9e2e9f1d4aeabf.ctex"]
 
 [params]
 
