@@ -32,18 +32,25 @@ font_size = 46
 outline_size = 14
 outline_color = Color(0.5686275, 0.49019608, 0.45882353, 1)
 
-[node name="SpeechBox" type="CanvasLayer" node_paths=PackedStringArray("lv_text", "level_text", "stage_text")]
+[node name="SpeechBox" type="CanvasLayer" node_paths=PackedStringArray("lv_text", "level_text", "stage_text", "speech_text", "timer")]
 script = ExtResource("1_herai")
 lv_text = NodePath("Control/LevelInfo/LVIcon/LvText")
 level_text = NodePath("Control/LevelInfo/Level/LevelText")
 stage_text = NodePath("Control/LevelInfo/Stage/StageText")
+speech_text = NodePath("Control/LevelInfo/SpeechBox/SpeechText")
+timer = NodePath("SpeechAnimTimer")
+
+[node name="SpeechAnimTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelInfo" type="TextureRect" parent="Control"]
@@ -70,6 +77,18 @@ offset_bottom = 37.115448
 grow_horizontal = 2
 texture = ExtResource("2_65eur")
 metadata/_edit_use_anchors_ = true
+
+[node name="SpeechText" type="Label" parent="Control/LevelInfo/SpeechBox"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 21.372086
+offset_right = 323.0
+offset_bottom = 151.37209
+theme_override_colors/font_color = Color(0.5529412, 0.41568628, 0.38431373, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="LVIcon" type="TextureRect" parent="Control/LevelInfo"]
 layout_mode = 1

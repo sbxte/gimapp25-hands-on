@@ -6,6 +6,7 @@ signal cat_mouse_enter(pos: Vector2, cat: Cat)
 signal cancel_drag
 
 # Speech bubbles
+signal trigger_speech(correct_match: bool)
 signal finished_displaying
 
 # Cutscene handling

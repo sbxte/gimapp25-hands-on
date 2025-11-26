@@ -27,28 +27,6 @@ var game_finished = false
 
 @export var cat_notif_controller: NewCatNotifController
 
-
-const correct_match_lines: Array[String] = [
-	"Yes, Good. Brain functioning.",
-	"Cat to cat, simple. You did it. Wow.",
-	"See? Matching isn’t hard. Even for you.",
-	"Good, very good.",
-	"Excellent, they will fight with… mild enthusiasm",
-	"Excellent Job, Human. I almost believe in you.",
-	"A streak, impressive, for a human.",
-	"Nice, very nice."
-]
-const wrong_match_lines: Array[String] = [
-	"No. Wrong. Incorrect. Bad.",
-	"What—what is THAT? Stop.",
-	"Why would you do that?",
-	"Is your brain functioning, Human?",
-	"Stop guessing. Use brain, please.",
-	"Nuh uh, that won’t do.",
-	"You just committed a war crime in the whole Felis Dominion!",
-	"If you do that again, I’m revoking your thumbs."
-]
-
 signal drag_start(start: Vector2)
 signal drag_end(end: Vector2, matched: bool)
 
@@ -110,7 +88,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 	# When the mouse enters a cat that isn't the same type,
 	# delete the path, speed up timer, and reset streak
 	if cat.type != first_cat.type:
-		erase_path(false)
+		erase_path(true, false)
 		if randf() < 0.01:
 			AudioManager.rare_wrongmatch.play()
 		else:
@@ -120,7 +98,7 @@ func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
 		return
 
 	# FIX: Path simply disappears and does not visually connect to the paired cat
-	erase_path(true, cat.global_position)
+	erase_path(true, true)
 	AudioManager.deselect.play()
 
 	notify_if_new_cat(cat.type)
@@ -161,37 +139,14 @@ func start_path(pos: Vector2, cat: Cat) -> void:
 	queue_redraw()
 	AudioManager.select.play()
 
-func erase_path(matched: bool, last_pos: Vector2 = Vector2.ZERO) -> void:
+func erase_path(attempt_match: bool, correct_match: bool = false) -> void:
 	AudioManager.trace.stop()
 	dragging = false
 	if not path.is_empty():
-		# Pick a random cat that is not the two matched cats
-		var cats = get_tree().get_nodes_in_group("Cats")
-		if cats.size() > 2:
-			var first_in_pair: Node = null
-			var second_in_pair: Node = null
+		if attempt_match:
+			Events.trigger_speech.emit(correct_match)
 
-			var front := (path.front() as Vector2) + global_position
-			var back := last_pos
-			for c: Node in cats:
-				if first_in_pair and second_in_pair:
-					break
-				var c2d := c as Node2D
-				var pos := c2d.global_position
-				if not first_in_pair and pos == front:
-					first_in_pair = c
-				elif not second_in_pair and pos == back:
-					second_in_pair = c
-
-			cats.erase(first_in_pair)
-			cats.erase(second_in_pair)
-
-			if matched:
-				DialogueManager.start_dialogue((cats.pick_random() as Node2D).global_position, correct_match_lines.pick_random())
-			else:
-				DialogueManager.start_dialogue((cats.pick_random() as Node2D).global_position, wrong_match_lines.pick_random())
-
-		drag_end.emit(path.back(), matched)
+		drag_end.emit(path.back(), attempt_match)
 	path.clear()
 	queue_redraw()
 
