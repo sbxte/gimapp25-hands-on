@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://cg2scyc1udcsd"]
+[gd_scene load_steps=155 format=3 uid="uid://cg2scyc1udcsd"]
 
 [ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="1_f7np6"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_f7np6"]
 [ext_resource type="Script" uid="uid://c2d0ne2d542wo" path="res://scripts/cutscene/entries/audio.gd" id="9_0kiiw"]
 [ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="9_1or0b"]
+[ext_resource type="Texture2D" uid="uid://b5lgsb4amfols" path="res://assets/background/prologue_opening.png" id="9_n1ti6"]
 [ext_resource type="AudioStream" uid="uid://bgngdx0dshhd6" path="res://assets/audio/sfx/dialog/sfx_clothes.wav" id="10_3w007"]
 [ext_resource type="Script" uid="uid://doahvpxberxmu" path="res://scripts/cutscene/entries/char_move.gd" id="10_f0upq"]
 [ext_resource type="Resource" uid="uid://cvkp0cmo6ocsv" path="res://resources/characters/woofer.tres" id="10_g6xnk"]
@@ -66,6 +67,11 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_3w007"), SubResource("Resource_f7np6")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_n8d1k"]
+script = ExtResource("4_dccfs")
+background = ExtResource("9_n1ti6")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
 [sub_resource type="Resource" id="Resource_c66gp"]
 script = ExtResource("5_sjj1k")
 character = ExtResource("5_g6xnk")
@@ -74,7 +80,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_754nt"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_c66gp")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_n8d1k"), SubResource("Resource_c66gp")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_0q74o"]
