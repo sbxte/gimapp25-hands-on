@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=17 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
@@ -18,6 +18,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6mv"]
 shader = ExtResource("10_dk45c")
 shader_parameter/blur_value = 1.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wyo7v"]
 
 [node name="LevelsMenu" type="CanvasLayer"]
 
@@ -109,6 +111,7 @@ scene_path = "res://scenes/levels/level_tutorial.tscn"
 [node name="VSeparator" type="VSeparator" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_wyo7v")
 
 [node name="EndlessMode" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
