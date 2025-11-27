@@ -50,7 +50,7 @@ metadata/_custom_type_script = "uid://bujl7e48xo807"
 
 [sub_resource type="LabelSettings" id="LabelSettings_ohukk"]
 font = ExtResource("36_ohukk")
-font_size = 46
+font_size = 43
 font_color = Color(0.38039216, 0.27450982, 0.2, 1)
 
 [node name="almanac" type="CanvasLayer" node_paths=PackedStringArray("cat_name_label", "cat_image", "cat_lore")]
