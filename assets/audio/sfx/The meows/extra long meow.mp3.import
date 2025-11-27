@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yc7syvi8mj4y"
+path="res://.godot/imported/extra long meow.mp3-4788fc1079d90048fbf01d60cd7525df.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/The meows/extra long meow.mp3"
+dest_files=["res://.godot/imported/extra long meow.mp3-4788fc1079d90048fbf01d60cd7525df.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

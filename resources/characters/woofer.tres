@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_8gjd5")
 name = "Emperor Woofer"
-default_sprite = "sit"
+default_sprite = "stand"
 sprites = Dictionary[String, CompressedTexture2D]({
 "sit": ExtResource("2_nrxxp"),
 "stand": ExtResource("3_51lq5")

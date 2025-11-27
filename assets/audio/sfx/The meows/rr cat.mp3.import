@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://csisrovpt05so"
+path="res://.godot/imported/rr cat.mp3-c7c6bcb2cc7cbe1d356d020285138e63.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/The meows/rr cat.mp3"
+dest_files=["res://.godot/imported/rr cat.mp3-c7c6bcb2cc7cbe1d356d020285138e63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
