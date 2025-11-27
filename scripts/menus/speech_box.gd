@@ -58,7 +58,7 @@ func trigger_speech(correct_match: bool) -> void:
 	display_next_letter()
 
 func pick_rand_no_repeat(array: Array[String], prev: String) -> String:
-	var copy = Array(array)
+	var copy = array.duplicate()
 	copy.erase(prev)
 	return copy.pick_random()
 
