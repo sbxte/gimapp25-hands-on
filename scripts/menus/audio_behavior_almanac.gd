@@ -1,4 +1,5 @@
 extends Node
 
 func _ready() -> void:
-	AudioManager.almanac_music.play()
+	if not AudioManager.almanac_music.playing:
+		AudioManager.almanac_music.play()

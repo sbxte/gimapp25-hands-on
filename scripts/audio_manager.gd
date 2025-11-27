@@ -9,6 +9,8 @@ extends Node
 @export var music: AudioStreamPlayer
 @export var almanac_music: AudioStreamPlayer
 @export var main_menu_music: AudioStreamPlayer
+@export var level_music: AudioStreamPlayer
+@export var endless_music: AudioStreamPlayer
 
 @export var select: AudioStreamPlayer
 @export var deselect: AudioStreamPlayer
