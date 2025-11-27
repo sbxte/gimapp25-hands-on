@@ -136,7 +136,8 @@ overlay_path = "res://scenes/menus/pause_menu.tscn"
 
 [node name="MusicBehavior" parent="." instance=ExtResource("11_2qxot")]
 
-[node name="SpeechBox" parent="." instance=ExtResource("13_ufabe")]
+[node name="SpeechBox" parent="." node_paths=PackedStringArray("base_level") instance=ExtResource("13_ufabe")]
+base_level = NodePath("..")
 
 [node name="Victory" parent="." instance=ExtResource("12_u35hf")]
 

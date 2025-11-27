@@ -121,6 +121,7 @@ func attempt_match(cat: Cat) -> void:
 			if stages_cleared > stages:
 				on_victory()
 			else:
+				Events.update_stage.emit(stages_cleared)
 				AudioManager.next_stage.play()
 				timer.reset()
 				reset_cats()
