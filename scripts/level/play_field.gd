@@ -111,27 +111,27 @@ func attempt_match(cat: Cat) -> void:
 	first_cat.queue_free()
 	cats -= 2
 	if cats == 0:
+		stages_cleared += 1
 		if not endless_mode:
 			timer.add_time(time_bonus)
-			stages_cleared += 1
 			if stages_cleared > stages:
 				on_victory()
 			else:
-				Events.update_stage.emit(stages_cleared)
-				AudioManager.next_stage.play()
-				timer.reset()
-				reset_cats()
+				on_next_stage()
 		else:
-			if stages_cleared < stages:
-				stages_cleared += 1
-			if 1 <= stages and stages <= 15:
+			if 1 <= stages_cleared and stages_cleared <= 15:
 				timer.start_duration -= 1
-			timer.reset()
-			reset_cats()
+			on_next_stage()
 
 	match_streak += 1
 	if match_streak == 2:
 		timer.reset_speed()
+
+func on_next_stage() -> void:
+	Events.update_stage.emit(stages_cleared)
+	AudioManager.next_stage.play()
+	timer.reset()
+	reset_cats()
 
 func start_path(pos: Vector2, cat: Cat) -> void:
 	first_cat = cat
