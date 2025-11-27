@@ -124,8 +124,7 @@ func attempt_match(cat: Cat) -> void:
 			else:
 				on_next_stage()
 		else:
-			if 1 <= stages_cleared and stages_cleared <= 20:
-				timer.start_duration -= 1
+			timer.start_duration = 30. / pow(stages_cleared, log(3) / log(15))
 			on_next_stage()
 
 	match_streak += 1
