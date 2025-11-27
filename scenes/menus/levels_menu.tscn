@@ -125,7 +125,7 @@ texture_normal = ExtResource("14_wyo7v")
 
 [node name="EnterLevelBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("5_knlas")]
 threshold = 5
-scene_path = "res://scenes/levels/level_5.tscn"
+scene_path = "res://scenes/levels/level_endless.tscn"
 
 [node name="LvlBtnRevealBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("10_bc3ty")]
 min_level_unlock = 6
