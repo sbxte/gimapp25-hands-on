@@ -14,7 +14,7 @@ extends Resource
 @export var has_seen_epilogue := false
 
 # What is the highest level that has been completed
-@export var levels_completed := 0
+@export var levels_completed := -1
 
 # How many stages have been cleared in endless mode
 @export var endless_mode_stages_cleared := 0

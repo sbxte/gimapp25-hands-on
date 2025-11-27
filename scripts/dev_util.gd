@@ -2,6 +2,7 @@ extends Node
 
 var reset_data_keybind: Array[String] = ["9", "0"]
 var reset_cats_encountered_keybind: Array[String] = ["9", "1"]
+var reset_level_completion_keybind: Array[String] = ["8", "0"]
 var unlock_levels_keybind: Array[String] = ["8", "1"]
 var enter_prologue: Array[String] = ["7", "1"]
 var enter_epilogue: Array[String] = ["7", "2"]
@@ -26,6 +27,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		data.levels_completed = 99
 		SaveSystem.write_data()
 		print("Unlocked all levels and cats!")
+	)
+	test_keybind(event, reset_level_completion_keybind, func():
+		SaveSystem.get_data().levels_completed = -1
+		SaveSystem.write_data()
 	)
 	test_keybind(event, enter_prologue, func():
 		SceneManager.change_scene("res://scenes/cutscene/prologue_cutscene.tscn")

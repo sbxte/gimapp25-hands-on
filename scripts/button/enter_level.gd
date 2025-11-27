@@ -1,14 +1,14 @@
 extends SetSceneBehavior
 
-@export_range(0, 5, 1) var threshold: int
+@export var level: int
 
 func _ready() -> void:
-	if SaveSystem.get_data().levels_completed < threshold:
+	if SaveSystem.get_data().levels_completed + 1 < level:
 		button.disabled = true
 	super._ready()
 
 func pressed() -> void:
-	if SaveSystem.get_data().levels_completed < threshold:
+	if SaveSystem.get_data().levels_completed + 1 < level:
 		button.disabled = true
 		return
 	super.pressed()

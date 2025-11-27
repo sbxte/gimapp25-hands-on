@@ -18,7 +18,10 @@ func _ready() -> void:
 	Events.cancel_advance_level.connect(func(): should_advance = false)
 
 func set_next_level(level: int) -> void:
-	self.level = level - 1
+	# The array has levels 1-5 with zero-indexing
+	# While the level received has one-indexing
+	# So by default this automatically advances the level
+	self.level = level
 
 func advance_level() -> void:
 	if not should_advance:
