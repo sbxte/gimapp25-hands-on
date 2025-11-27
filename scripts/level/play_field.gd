@@ -214,9 +214,13 @@ func on_defeat() -> void:
 		Events.on_defeat_endless_mode.emit(stages_cleared)
 	else:
 		Events.on_defeat.emit()
+		game_finished = true
+		timer.queue_free()
 
 func on_victory() -> void:
 	if game_finished:
 		return
 
 	Events.on_victory.emit(level)
+	game_finished = true
+	timer.queue_free()

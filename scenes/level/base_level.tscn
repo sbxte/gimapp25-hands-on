@@ -38,12 +38,7 @@ axis_stretch_horizontal = 1
 [node name="BaseLevel" type="Node2D" node_paths=PackedStringArray("play_field", "timer")]
 process_mode = 1
 script = ExtResource("1_7xj1c")
-grid_size = null
 timer_duration = 30.0
-max_pairs = null
-stages = null
-time_bonus = null
-endless_mode = null
 play_field = NodePath("PlayField")
 timer = NodePath("Timer")
 
