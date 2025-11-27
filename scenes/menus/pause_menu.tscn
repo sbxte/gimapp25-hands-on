@@ -58,7 +58,7 @@ shader_parameter/blur_value = 1.5
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-layer = 2
+layer = 10
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
