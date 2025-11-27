@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://drqqsdajnl82k" path="res://assets/audio/music/level_endless.mp3" id="20_jqqfn"]
 [ext_resource type="AudioStream" uid="uid://bbim5682koudt" path="res://assets/audio/sfx/The meows/long sad meow.mp3" id="21_jqqfn"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "almanac_music", "main_menu_music", "level_music", "endless_music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "next_stage", "enter_endless_mode", "reusable_player")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "almanac_music", "main_menu_music", "level_music", "endless_music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "defeat", "next_stage", "enter_endless_mode", "reusable_player")]
 script = ExtResource("2_ccgl5")
 click = NodePath("Menu/Click")
 hover = NodePath("Menu/Hover")
@@ -41,6 +41,7 @@ trace = NodePath("Ingame/SfxTraceDrag")
 lowtime_5 = NodePath("Ingame/SfxLowTime5")
 lowtime_10 = NodePath("Ingame/SfxLowTime10")
 victory = NodePath("Ingame/SfxVictory")
+defeat = NodePath("Ingame/SfxDefeat")
 next_stage = NodePath("Ingame/SfxNextLevel")
 enter_endless_mode = NodePath("Ingame/SfxEndlessModeJingle")
 reusable_player = NodePath("Dialog/ReusablePlayer")
