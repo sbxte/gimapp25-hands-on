@@ -1,0 +1,3 @@
+class_name EpilogueSeenCSComp
+extends CutsceneComponent
+

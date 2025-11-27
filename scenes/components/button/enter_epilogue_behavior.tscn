@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkyotshkhhcpb"]
+
+[ext_resource type="Script" uid="uid://s248vixvvyah" path="res://scripts/button/enter_epilogue_behavior.gd" id="1_2mqyr"]
+
+[node name="EnterEpilogueBehavior" type="Node"]
+script = ExtResource("1_2mqyr")

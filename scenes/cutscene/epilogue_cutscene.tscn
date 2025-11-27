@@ -1,5 +1,6 @@
-[gd_scene load_steps=96 format=3 uid="uid://qv260iba6msa"]
+[gd_scene load_steps=99 format=3 uid="uid://qv260iba6msa"]
 
+[ext_resource type="PackedScene" uid="uid://drrg66as4ts6a" path="res://scenes/components/epilogue_behavior.tscn" id="1_3rofq"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_ncgyr"]
 [ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_38k3a"]
 [ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_hlt1m"]
@@ -15,6 +16,7 @@
 [ext_resource type="Script" uid="uid://wf2v3nv61jmu" path="res://scripts/cutscene/entries/set_scene.gd" id="11_kkick"]
 [ext_resource type="Texture2D" uid="uid://ci4sam0p1nkvh" path="res://assets/background/castle_bg.png" id="12_hlt1m"]
 [ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="13_bm5fp"]
+[ext_resource type="Script" uid="uid://byrag5ax76i8l" path="res://scripts/cutscene/entries/epilogue/seen_epilogue.gd" id="14_blxf4"]
 
 [sub_resource type="Resource" id="Resource_kkick"]
 script = ExtResource("4_gusut")
@@ -444,17 +446,23 @@ script = ExtResource("2_38k3a")
 components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_avk80")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_yp44m"]
+script = ExtResource("14_blxf4")
+metadata/_custom_type_script = "uid://byrag5ax76i8l"
+
 [sub_resource type="Resource" id="Resource_2p7ov"]
 script = ExtResource("11_kkick")
-scene_path = "uid://3yhnlii4dbn6"
+scene_path = "uid://cxb7n0ccxh4bd"
 metadata/_custom_type_script = "uid://wf2v3nv61jmu"
 
 [sub_resource type="Resource" id="Resource_itjwt"]
 script = ExtResource("2_38k3a")
-components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_2p7ov")])
+components = Array[ExtResource("3_hlt1m")]([SubResource("Resource_yp44m"), SubResource("Resource_2p7ov")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [node name="EpilogueCutscene" type="Node2D"]
+
+[node name="EpilogueBehavior" parent="." instance=ExtResource("1_3rofq")]
 
 [node name="BaseCutscene" parent="." instance=ExtResource("1_ncgyr")]
 entries = Array[ExtResource("2_38k3a")]([SubResource("Resource_532wy"), SubResource("Resource_3rofq"), SubResource("Resource_ncgyr"), SubResource("Resource_hlt1m"), SubResource("Resource_60e0b"), SubResource("Resource_1l3ab"), SubResource("Resource_xkerd"), SubResource("Resource_bm5fp"), SubResource("Resource_waa6d"), SubResource("Resource_ciu60"), SubResource("Resource_1hngt"), SubResource("Resource_bxutn"), SubResource("Resource_uh8od"), SubResource("Resource_iywa7"), SubResource("Resource_ikd6h"), SubResource("Resource_irva6"), SubResource("Resource_58d01"), SubResource("Resource_xoe6i"), SubResource("Resource_vwpso"), SubResource("Resource_yju8q"), SubResource("Resource_slin6"), SubResource("Resource_culwr"), SubResource("Resource_bc821"), SubResource("Resource_qsxvf"), SubResource("Resource_fs5kb"), SubResource("Resource_dkly3"), SubResource("Resource_ouqf0"), SubResource("Resource_dji0h"), SubResource("Resource_llgqp"), SubResource("Resource_vjeun"), SubResource("Resource_2u3m2"), SubResource("Resource_dguo8"), SubResource("Resource_fvoia"), SubResource("Resource_irb87"), SubResource("Resource_itjwt")])

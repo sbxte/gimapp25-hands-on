@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ydfwv2hu8wg4"]
+[gd_scene load_steps=3 format=3 uid="uid://ydfwv2hu8wg4"]
 
 [ext_resource type="PackedScene" uid="uid://bobpoutijumsx" path="res://scenes/level/base_level.tscn" id="1_r1vs7"]
+[ext_resource type="PackedScene" uid="uid://dkyotshkhhcpb" path="res://scenes/components/button/enter_epilogue_behavior.tscn" id="2_845dy"]
 
 [node name="Level5" type="Node2D"]
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_r1vs7")]
 level = 6
+
+[node name="EnterEpilogueBehavior" parent="." instance=ExtResource("2_845dy")]
+epilogue_scene = "uid://qv260iba6msa"

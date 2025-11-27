@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drrg66as4ts6a"]
+
+[ext_resource type="Script" uid="uid://n74gof4uj33r" path="res://scripts/cutscenes/epilogue_behavior.gd" id="1_x3h5e"]
+
+[node name="EpilogueBehavior" type="Node"]
+script = ExtResource("1_x3h5e")
