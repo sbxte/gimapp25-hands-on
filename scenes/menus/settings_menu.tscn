@@ -1,15 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://bbu1qyllq1y0i"]
+[gd_scene load_steps=21 format=3 uid="uid://bbu1qyllq1y0i"]
 
-[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="2_s2d1y"]
-[ext_resource type="Shader" path="res://scripts/menus/pause_menu.gdshader" id="3_mcc4n"]
+[ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="3_mcc4n"]
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_da10i"]
-[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="4_jjfif"]
 [ext_resource type="Texture2D" uid="uid://bvy2uuy4rg4r2" path="res://assets/background/level_background.png" id="4_muhwa"]
 [ext_resource type="Texture2D" uid="uid://dlt5dgerqgsen" path="res://assets/background/pause_menu_background.png" id="5_muhwa"]
 [ext_resource type="Texture2D" uid="uid://qj65w2sygghs" path="res://assets/sprites/ArrowBack.png" id="5_udegp"]
 [ext_resource type="Texture2D" uid="uid://bywgerru0bnq2" path="res://assets/ui/settings_menu_title.png" id="6_l0eij"]
-[ext_resource type="PackedScene" uid="uid://b35dvu6iy06xb" path="res://scenes/components/button/unoverlay_behavior.tscn" id="7_kffdn"]
-[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="8_g67jo"]
+[ext_resource type="PackedScene" uid="uid://c35hdhip6qvlx" path="res://scenes/components/button/unoverlay_or_setscene_behavior.tscn" id="8_pt7eq"]
 [ext_resource type="Texture2D" uid="uid://b1880r4brj42" path="res://assets/text/master.png" id="10_udegp"]
 [ext_resource type="Script" uid="uid://c1p85ubxsv128" path="res://scripts/menus/volume_slider.gd" id="12_rxdtf"]
 [ext_resource type="Texture2D" uid="uid://tbqtnnu57ppa" path="res://assets/ui/slider_inner.png" id="13_hg0fu"]
@@ -20,22 +17,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g67jo"]
 shader = ExtResource("3_mcc4n")
 shader_parameter/blur_value = 1.5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrg86"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxdtf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojvp1"]
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muhwa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
 
@@ -68,6 +49,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 2000.0
 offset_bottom = 1125.0
+mouse_filter = 2
 texture = ExtResource("4_muhwa")
 
 [node name="Blur" type="ColorRect" parent="Control/GameBackground"]
@@ -111,119 +93,56 @@ grow_vertical = 2
 texture = ExtResource("6_l0eij")
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="BackButton" type="TextureButton" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_rrg86")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="TextureButton" type="TextureButton" parent="Control/PanelContainer/MarginContainer"]
-layout_mode = 2
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 330.0
+offset_bottom = 345.0
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
+mouse_behavior_recursive = 2
 texture_normal = ExtResource("5_udegp")
 
-[node name="BackButton" type="Button" parent="Control/PanelContainer/MarginContainer/TextureButton"]
-process_mode = 3
+[node name="ChangeMenuButtonAudio" parent="Control/BackButton" instance=ExtResource("4_da10i")]
+
+[node name="UnoverlayOrSetSceneBehavior" parent="Control/BackButton" instance=ExtResource("8_pt7eq")]
+scene = "uid://cxb7n0ccxh4bd"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -240.5
+offset_right = 273.0
+offset_bottom = 240.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rxdtf")
-flat = true
-
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/TextureButton/BackButton" instance=ExtResource("4_da10i")]
-
-[node name="UnoverlayBehavior" parent="Control/PanelContainer/MarginContainer/TextureButton/BackButton" node_paths=PackedStringArray("texture") instance=ExtResource("7_kffdn")]
-texture = NodePath("../..")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
+mouse_behavior_recursive = 1
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-custom_minimum_size = Vector2(0, 23)
-layout_mode = 2
-theme_override_constants/separation = 314
-theme_override_styles/separator = SubResource("StyleBoxEmpty_f4mfi")
-
-[node name="TitleLabel" type="Label" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Title"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_s2d1y")
-theme_override_font_sizes/font_size = 48
-text = "Settings
-"
-
-[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 160
-theme_override_styles/separator = SubResource("StyleBoxEmpty_es4n0")
-
-[node name="MainMenu" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_ojvp1")
-
-[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("8_g67jo")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rxdtf")
-text = "Back to Main Menu"
-
-[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2/MainMenuButton" instance=ExtResource("4_da10i")]
-
-[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/MainMenu/PanelContainer2/MainMenuButton" instance=ExtResource("4_jjfif")]
-scene_path = "res://scenes/menus/main_menu.tscn"
-
-[node name="HSeparator2" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 44
-theme_override_styles/separator = SubResource("StyleBoxEmpty_muhwa")
-
-[node name="Master" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Master" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Master"]
 custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
 texture = ExtResource("10_udegp")
 expand_mode = 5
 
-[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master"]
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Master"]
 layout_mode = 2
 theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
-[node name="MasterBar" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master" node_paths=PackedStringArray("bar", "slider")]
+[node name="MasterBar" type="TextureRect" parent="Control/VBoxContainer/Master" node_paths=PackedStringArray("bar", "slider")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -234,14 +153,14 @@ bar = NodePath("Clip/MasterBar")
 slider = NodePath("Clip/MasterSlider")
 bus = "Master"
 
-[node name="Clip" type="Sprite2D" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar"]
+[node name="Clip" type="Sprite2D" parent="Control/VBoxContainer/Master/MasterBar"]
 clip_children = 1
 position = Vector2(7.9999847, 11)
 scale = Vector2(0.6153337, 0.92722136)
 texture = ExtResource("13_hg0fu")
 centered = false
 
-[node name="MasterBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/Clip"]
+[node name="MasterBar" type="TextureProgressBar" parent="Control/VBoxContainer/Master/MasterBar/Clip"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -254,7 +173,7 @@ value = 1.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_s4m6w")
 
-[node name="MasterSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Master/MasterBar/Clip"]
+[node name="MasterSlider" type="HSlider" parent="Control/VBoxContainer/Master/MasterBar/Clip"]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,28 +187,28 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HSeparator3" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
 theme_override_styles/separator = SubResource("StyleBoxEmpty_g67jo")
 
-[node name="SFX" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SFX" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/SFX"]
 custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
 texture = ExtResource("15_fd2q8")
 expand_mode = 1
 
-[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX"]
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/SFX"]
 layout_mode = 2
 theme_override_constants/separation = 31
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
-[node name="SFXBar" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX" node_paths=PackedStringArray("bar", "slider")]
+[node name="SFXBar" type="TextureRect" parent="Control/VBoxContainer/SFX" node_paths=PackedStringArray("bar", "slider")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -300,14 +219,14 @@ bar = NodePath("Clip/SFXBar")
 slider = NodePath("Clip/SFXSlider")
 bus = "SFX"
 
-[node name="Clip" type="Sprite2D" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar"]
+[node name="Clip" type="Sprite2D" parent="Control/VBoxContainer/SFX/SFXBar"]
 clip_children = 1
 position = Vector2(7.9999847, 11)
 scale = Vector2(0.6153337, 0.92722136)
 texture = ExtResource("13_hg0fu")
 centered = false
 
-[node name="SFXBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/Clip"]
+[node name="SFXBar" type="TextureProgressBar" parent="Control/VBoxContainer/SFX/SFXBar/Clip"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -320,7 +239,7 @@ value = 1.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_s4m6w")
 
-[node name="SFXSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/SFX/SFXBar/Clip"]
+[node name="SFXSlider" type="HSlider" parent="Control/VBoxContainer/SFX/SFXBar/Clip"]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -334,28 +253,28 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HSeparator4" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
 theme_override_styles/separator = SubResource("StyleBoxEmpty_g67jo")
 
-[node name="Music" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Music" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Music"]
 custom_minimum_size = Vector2(100, 53)
 layout_mode = 2
 texture = ExtResource("16_rxdtf")
 expand_mode = 1
 
-[node name="VSeparator" type="VSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music"]
+[node name="VSeparator" type="VSeparator" parent="Control/VBoxContainer/Music"]
 layout_mode = 2
 theme_override_constants/separation = 31
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gis3k")
 
-[node name="MusicBar" type="TextureRect" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music" node_paths=PackedStringArray("bar", "slider")]
+[node name="MusicBar" type="TextureRect" parent="Control/VBoxContainer/Music" node_paths=PackedStringArray("bar", "slider")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -366,14 +285,14 @@ bar = NodePath("Clip/MusicBar")
 slider = NodePath("Clip/MusicSlider")
 bus = "Music"
 
-[node name="Clip" type="Sprite2D" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar"]
+[node name="Clip" type="Sprite2D" parent="Control/VBoxContainer/Music/MusicBar"]
 clip_children = 1
 position = Vector2(7.9999847, 11)
 scale = Vector2(0.6153337, 0.92722136)
 texture = ExtResource("13_hg0fu")
 centered = false
 
-[node name="MusicBar" type="TextureProgressBar" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/Clip"]
+[node name="MusicBar" type="TextureProgressBar" parent="Control/VBoxContainer/Music/MusicBar/Clip"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -386,7 +305,7 @@ value = 1.0
 nine_patch_stretch = true
 texture_progress = SubResource("AtlasTexture_s4m6w")
 
-[node name="MusicSlider" type="HSlider" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Music/MusicBar/Clip"]
+[node name="MusicSlider" type="HSlider" parent="Control/VBoxContainer/Music/MusicBar/Clip"]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0

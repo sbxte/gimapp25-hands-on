@@ -24,6 +24,9 @@ func unoverlay_scene() -> void:
 	overlay.get_parent().remove_child(overlay)
 	overlay.queue_free()
 
+func can_unoverlay() -> bool:
+	return not overlays.is_empty()
+
 func go_back() -> void:
 	if not path_history.is_empty():
 		var previous_scene_path = path_history.pop_back()

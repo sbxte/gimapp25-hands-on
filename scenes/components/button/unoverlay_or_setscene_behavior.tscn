@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c35hdhip6qvlx"]
+
+[ext_resource type="Script" uid="uid://f7mcbrx2drl7" path="res://scripts/button/unoverlay_or_setscene.gd" id="1_owoxk"]
+
+[node name="UnoverlayOrSetSceneBehavior" type="Node"]
+script = ExtResource("1_owoxk")
