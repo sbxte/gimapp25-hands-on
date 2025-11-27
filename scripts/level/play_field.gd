@@ -32,8 +32,6 @@ signal drag_end(end: Vector2, attempt_match: bool, correct_match: bool)
 
 func _ready() -> void:
 	Events.cat_mouse_click.connect(cat_mouse_click)
-	Events.cat_mouse_enter.connect(cat_mouse_enter)
-
 	Events.cancel_drag.connect(cancel_drag)
 
 	timer.timer_ended.connect(on_defeat)
@@ -82,11 +80,6 @@ func cancel_drag() -> void:
 func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 	if not dragging:
 		start_path(pos - position, cat)
-
-func cat_mouse_enter(_pos: Vector2, cat: Cat) -> void:
-	if not dragging:
-		return
-	attempt_match(cat)
 
 func attempt_match(cat: Cat) -> void:
 	if cat == first_cat:
