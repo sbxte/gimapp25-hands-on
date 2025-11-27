@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7tsk8447phtg"]
+
+[ext_resource type="Script" uid="uid://ovj5b57lmi6u" path="res://scripts/cutscenes/prologue_behavior.gd" id="1_a8duf"]
+
+[node name="PrologueBehavior" type="Node"]
+script = ExtResource("1_a8duf")

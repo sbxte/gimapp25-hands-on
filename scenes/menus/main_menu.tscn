@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=19 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/main_menu_background.png" id="1_8r73w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_ng0o5"]
 [ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_ng0o5"]
 [ext_resource type="Texture2D" uid="uid://1uwgli12kvhv" path="res://assets/text/settings.png" id="7_50h1w"]
+[ext_resource type="PackedScene" uid="uid://bkmut008e1let" path="res://scenes/components/button/enter_prologue_behavior.tscn" id="7_euy4r"]
 [ext_resource type="Texture2D" uid="uid://c0fs8vks22r4b" path="res://assets/text/quit.png" id="8_euy4r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
@@ -107,6 +108,9 @@ track_history = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_imvie")]
+
+[node name="EnterPrologueBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("7_euy4r")]
+prologue_scene = "uid://cg2scyc1udcsd"
 
 [node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

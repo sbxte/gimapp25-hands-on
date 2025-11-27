@@ -1,6 +1,7 @@
-[gd_scene load_steps=156 format=3 uid="uid://cg2scyc1udcsd"]
+[gd_scene load_steps=159 format=3 uid="uid://cg2scyc1udcsd"]
 
 [ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="1_f7np6"]
+[ext_resource type="PackedScene" uid="uid://c7tsk8447phtg" path="res://scenes/components/prologue_behavior.tscn" id="1_pb4jy"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
 [ext_resource type="Script" uid="uid://c85lb8oepldec" path="res://scripts/cutscene/entries/entry.gd" id="2_fhrx3"]
 [ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_rjviq"]
@@ -27,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://st5fbxemnhao" path="res://assets/audio/sfx/dialog/sfx_appear.wav" id="21_pb4jy"]
 [ext_resource type="AudioStream" uid="uid://3u5jr5kfy2re" path="res://assets/audio/sfx/dialog/sfx_dotdotdot.wav" id="22_3b5c2"]
 [ext_resource type="AudioStream" uid="uid://cef2lti5p7e46" path="res://assets/audio/sfx/dialog/SFX_Twinkle.wav" id="23_j2j6j"]
+[ext_resource type="Script" uid="uid://bktfawtba3pda" path="res://scripts/cutscene/entries/prologue/seen_prologue.gd" id="27_pb4jy"]
 
 [sub_resource type="Resource" id="Resource_f0upq"]
 script = ExtResource("4_dccfs")
@@ -735,6 +737,10 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_pxeje"), SubResource("Resource_1qce4")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_1pnyd"]
+script = ExtResource("27_pb4jy")
+metadata/_custom_type_script = "uid://bktfawtba3pda"
+
 [sub_resource type="Resource" id="Resource_j308r"]
 script = ExtResource("11_1or0b")
 scene_path = "uid://3yhnlii4dbn6"
@@ -742,10 +748,12 @@ metadata/_custom_type_script = "uid://wf2v3nv61jmu"
 
 [sub_resource type="Resource" id="Resource_pswye"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_j308r")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_1pnyd"), SubResource("Resource_j308r")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [node name="PrologueCutscene" type="Node2D"]
+
+[node name="PrologueBehavior" parent="." instance=ExtResource("1_pb4jy")]
 
 [node name="BaseCutscene" parent="." instance=ExtResource("1_rr610")]
 entries = Array[ExtResource("2_fhrx3")]([SubResource("Resource_g6xnk"), SubResource("Resource_544dr"), SubResource("Resource_754nt"), SubResource("Resource_f1hxq"), SubResource("Resource_7qsco"), SubResource("Resource_yue5x"), SubResource("Resource_hj1v2"), SubResource("Resource_3b5c2"), SubResource("Resource_rcjma"), SubResource("Resource_sykdg"), SubResource("Resource_lg7ci"), SubResource("Resource_uhwwr"), SubResource("Resource_6nhqg"), SubResource("Resource_h3omy"), SubResource("Resource_jnh3s"), SubResource("Resource_2h4na"), SubResource("Resource_5f87p"), SubResource("Resource_6berc"), SubResource("Resource_ot6cv"), SubResource("Resource_jwsrr"), SubResource("Resource_828p4"), SubResource("Resource_ih8v1"), SubResource("Resource_xa5qa"), SubResource("Resource_m5qrj"), SubResource("Resource_m3a3t"), SubResource("Resource_86rlh"), SubResource("Resource_56b1w"), SubResource("Resource_kfxtp"), SubResource("Resource_dn4br"), SubResource("Resource_ux3fy"), SubResource("Resource_elhhe"), SubResource("Resource_17nqr"), SubResource("Resource_orsev"), SubResource("Resource_cbf74"), SubResource("Resource_45ysi"), SubResource("Resource_g3bpk"), SubResource("Resource_un7l0"), SubResource("Resource_usxpb"), SubResource("Resource_4ngvl"), SubResource("Resource_kko0g"), SubResource("Resource_lo3ht"), SubResource("Resource_s07ok"), SubResource("Resource_c6sld"), SubResource("Resource_pswye")])

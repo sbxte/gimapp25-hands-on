@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmut008e1let"]
+
+[ext_resource type="Script" uid="uid://bibhmrksngqjd" path="res://scripts/button/enter_prologue_behavior.gd" id="1_02737"]
+
+[node name="EnterPrologueBehavior" type="Node"]
+script = ExtResource("1_02737")
