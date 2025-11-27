@@ -1,5 +1,8 @@
 extends Node
 
+# Scene handling
+signal pre_set_scene
+
 # Matching mechanics
 signal cat_mouse_click(pos: Vector2, cat: Cat)
 signal cat_mouse_enter(pos: Vector2, cat: Cat)

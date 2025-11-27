@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkibxxd3nga6b"]
+[gd_scene load_steps=5 format=3 uid="uid://bkibxxd3nga6b"]
 
 [ext_resource type="PackedScene" uid="uid://bobpoutijumsx" path="res://scenes/level/base_level.tscn" id="1_wlheh"]
+[ext_resource type="Texture2D" uid="uid://cajaf4cf6ne0x" path="res://assets/text/highscore.png" id="2_pp2ni"]
+[ext_resource type="Script" uid="uid://bpuc30x62g82j" path="res://scripts/level/highscore_behavior.gd" id="3_0u3iw"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="3_wmt1j"]
 
 [node name="LevelEndless" type="Node2D"]
 
@@ -8,3 +11,23 @@
 level = 6
 stages = 25
 endless_mode = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+position = Vector2(700, 205)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_pp2ni")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 748.0
+offset_top = 195.0
+offset_right = 796.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(0.59607846, 0.4627451, 0.4509804, 1)
+theme_override_fonts/font = ExtResource("3_wmt1j")
+theme_override_font_sizes/font_size = 28
+text = "123"
+script = ExtResource("3_0u3iw")

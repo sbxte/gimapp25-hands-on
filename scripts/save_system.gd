@@ -42,4 +42,8 @@ func on_victory(level: int)-> void:
 	write_data()
 
 func on_defeat(stages_cleared: int) -> void:
+	save_highscore(stages_cleared)
+
+func save_highscore(stages_cleared: int) -> void:
 	get_data().endless_mode_stages_cleared = maxi(get_data().endless_mode_stages_cleared, stages_cleared)
+

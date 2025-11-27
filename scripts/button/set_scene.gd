@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func pressed() -> void:
 	get_tree().paused = false
+	Events.pre_set_scene.emit()
 	if restart_scene:
 		SceneManager.restart_scene()
 		return

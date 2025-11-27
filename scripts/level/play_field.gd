@@ -36,6 +36,11 @@ func _ready() -> void:
 
 	timer.timer_ended.connect(on_defeat)
 
+	Events.pre_set_scene.connect(func():
+		if endless_mode:
+			SaveSystem.save_highscore(stages_cleared)
+	)
+
 func _process(_delta: float) -> void:
 	if game_finished:
 		return
