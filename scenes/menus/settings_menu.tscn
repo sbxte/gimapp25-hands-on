@@ -34,7 +34,7 @@ region = Rect2(0, 0, 464, 35.55298)
 
 [node name="SettingsMenu" type="CanvasLayer"]
 process_mode = 3
-layer = 2
+layer = 4
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1000, 500)
