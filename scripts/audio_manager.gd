@@ -37,6 +37,7 @@ func stop_all_music() -> void:
 
 func _ready() -> void:
 	Events.on_victory.connect(on_victory)
+	Events.on_defeat.connect(on_defeat)
 	init_volume()
 
 func on_victory(_level: int) -> void:
