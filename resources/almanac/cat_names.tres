@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_7oyy6")
-names = Array[String](["Overlord Bingus - Sphyrenx", "The Sorceress", "The Void", "Longbow Archer", "Crossbow Archer", "Pikeman", "Heavy Infantry", "Bard", "Priestess", "Emperor Woof"])
+names = Array[String](["Overlord Bingus", "The Sorceress", "The Void", "Longbow Archer", "Crossbow Archer", "Pikeman", "Heavy Infantry", "Bard", "Priestess", "Emperor Woof"])
