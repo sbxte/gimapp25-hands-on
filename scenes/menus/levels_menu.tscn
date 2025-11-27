@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3yhnlii4dbn6"]
+[gd_scene load_steps=21 format=3 uid="uid://3yhnlii4dbn6"]
 
 [ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="3_5futn"]
 [ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_dnh54"]
@@ -13,8 +13,10 @@
 [ext_resource type="Shader" uid="uid://u8xkn82n23ea" path="res://scripts/menus/pause_menu.gdshader" id="10_dk45c"]
 [ext_resource type="Texture2D" uid="uid://cnfdjty3v6kx8" path="res://assets/ui/buttons/Lvl 4.png" id="11_bc3ty"]
 [ext_resource type="Texture2D" uid="uid://djcqpjccjwh75" path="res://assets/ui/buttons/Endless initial.png" id="11_vcrj6"]
+[ext_resource type="Texture2D" uid="uid://bx64a63ffvpod" path="res://assets/ui/buttons/almanac.PNG" id="12_htdht"]
 [ext_resource type="Texture2D" uid="uid://2db4r5hiqssv" path="res://assets/ui/buttons/Lvl 5.png" id="12_vcrj6"]
 [ext_resource type="Texture2D" uid="uid://cof15qa1exmxh" path="res://assets/ui/buttons/Tutorial.png" id="13_htdht"]
+[ext_resource type="Script" uid="uid://du0lx1odseti5" path="res://scripts/button/enter_almanac_behavior.gd" id="13_wrd8s"]
 [ext_resource type="Texture2D" uid="uid://bjtrhx0c1h337" path="res://assets/ui/buttons/Endless.png" id="14_wyo7v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6mv"]
@@ -92,9 +94,11 @@ scene_path = "res://scenes/menus/main_menu.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = -0.022222223
 anchor_right = 0.5
+anchor_bottom = -0.022222223
 offset_left = -960.5
 offset_top = 350.0
 offset_right = 960.5
@@ -132,6 +136,30 @@ scene_path = "res://scenes/levels/level_endless.tscn"
 min_level_unlock = 6
 locked_asset = ExtResource("11_vcrj6")
 unlocked_asset = ExtResource("14_wyo7v")
+
+[node name="Almanac" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -49.5
+offset_right = 190.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("12_htdht")
+
+[node name="BaseButtonAudio" parent="Control/Almanac" instance=ExtResource("3_dnh54")]
+
+[node name="SetSceneBehavior" parent="Control/Almanac" instance=ExtResource("5_xaaqn")]
+scene_path = "res://scenes/menus/almanac.tscn"
+
+[node name="ShowAlmanacBehavior" type="Node" parent="Control/Almanac"]
+script = ExtResource("13_wrd8s")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Control"]
 layout_mode = 1
