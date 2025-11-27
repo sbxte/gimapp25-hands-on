@@ -133,7 +133,7 @@ level = 6
 scene_path = "res://scenes/levels/level_endless.tscn"
 
 [node name="LvlBtnRevealBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("10_bc3ty")]
-min_level_unlock = 6
+min_level_unlock = 5
 locked_asset = ExtResource("11_vcrj6")
 unlocked_asset = ExtResource("14_wyo7v")
 
