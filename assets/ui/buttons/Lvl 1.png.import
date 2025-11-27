@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftkv6b2p6yxd"
-path="res://.godot/imported/placement 4.png-e6af8bcbc3548d5aeaac1550e20ae138.ctex"
+uid="uid://b47al1suyqw24"
+path="res://.godot/imported/Lvl 1.png-e4f0ede22c354142762b59667b88762d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/placement 4.png"
-dest_files=["res://.godot/imported/placement 4.png-e6af8bcbc3548d5aeaac1550e20ae138.ctex"]
+source_file="res://assets/ui/buttons/Lvl 1.png"
+dest_files=["res://.godot/imported/Lvl 1.png-e4f0ede22c354142762b59667b88762d.ctex"]
 
 [params]
 

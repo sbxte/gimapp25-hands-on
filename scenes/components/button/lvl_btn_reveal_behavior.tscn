@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0ie125a3v6f7"]
+
+[ext_resource type="Script" uid="uid://c2c0443g1bydo" path="res://scripts/button/lvl_btn_reveal_behavior.gd" id="1_k7uks"]
+
+[node name="LvlBtnRevealBehavior" type="Node"]
+script = ExtResource("1_k7uks")
