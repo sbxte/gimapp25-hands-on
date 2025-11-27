@@ -124,7 +124,7 @@ func attempt_match(cat: Cat) -> void:
 			else:
 				on_next_stage()
 		else:
-			if 1 <= stages_cleared and stages_cleared <= 15:
+			if 1 <= stages_cleared and stages_cleared <= 20:
 				timer.start_duration -= 1
 			on_next_stage()
 
