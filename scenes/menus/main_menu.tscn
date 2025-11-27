@@ -106,6 +106,7 @@ flat = true
 
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_ng0o5")]
 track_history = true
+keep_music = true
 scene_path = "res://scenes/menus/levels_menu.tscn"
 
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_imvie")]
@@ -148,6 +149,7 @@ flat = true
 
 [node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("3_ng0o5")]
 track_history = true
+keep_music = true
 scene_path = "res://scenes/menus/settings_menu.tscn"
 
 [node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]

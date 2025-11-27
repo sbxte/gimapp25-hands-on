@@ -41,7 +41,7 @@ func _process(_delta: float) -> void:
 		return
 
 	if endless_mode and not endless_mode_jingle_played:
-		AudioManager.music.stop()
+		AudioManager.stop_all_music()
 		AudioManager.enter_endless_mode.finished.connect(func(): AudioManager.music.play(), CONNECT_ONE_SHOT)
 		AudioManager.enter_endless_mode.play()
 		endless_mode_jingle_played = true

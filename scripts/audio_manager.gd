@@ -40,12 +40,12 @@ func _ready() -> void:
 	init_volume()
 
 func on_victory(_level: int) -> void:
-	AudioManager.music.stop()
+	AudioManager.stop_all_music()
 	AudioManager.trace.stop()
 	AudioManager.victory.play()
 
 func on_defeat() -> void:
-	AudioManager.music.stop()
+	AudioManager.stop_all_music()
 	AudioManager.trace.stop()
 
 func init_volume() -> void:

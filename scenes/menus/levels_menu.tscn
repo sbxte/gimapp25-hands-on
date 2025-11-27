@@ -90,6 +90,7 @@ texture_normal = ExtResource("3_wyo7v")
 [node name="ChangeMenuButtonAudio" parent="Control/MainMenu" instance=ExtResource("3_5futn")]
 
 [node name="SceneChangeComponent" parent="Control/MainMenu" instance=ExtResource("5_xaaqn")]
+keep_music = true
 scene_path = "res://scenes/menus/main_menu.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
