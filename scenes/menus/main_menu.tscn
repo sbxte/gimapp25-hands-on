@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxb7n0ccxh4bd"]
+[gd_scene load_steps=20 format=3 uid="uid://cxb7n0ccxh4bd"]
 
 [ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/main_menu_background.png" id="1_8r73w"]
 [ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1uwgli12kvhv" path="res://assets/text/settings.png" id="7_50h1w"]
 [ext_resource type="PackedScene" uid="uid://bkmut008e1let" path="res://scenes/components/button/enter_prologue_behavior.tscn" id="7_euy4r"]
 [ext_resource type="Texture2D" uid="uid://c0fs8vks22r4b" path="res://assets/text/quit.png" id="8_euy4r"]
+[ext_resource type="Script" uid="uid://bvimr2425t1rh" path="res://scripts/menus/music_behavior_main_menu.gd" id="11_bre17"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
 
@@ -183,6 +184,9 @@ flat = true
 [node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("3_imvie")]
 
 [node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("6_ng0o5")]
+
+[node name="MusicBehaviorMainMenu" type="Node" parent="."]
+script = ExtResource("11_bre17")
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" to="Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" to="Control" method="_on_settings_button_pressed"]

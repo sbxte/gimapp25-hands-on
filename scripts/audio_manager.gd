@@ -7,6 +7,8 @@ extends Node
 
 @export_subgroup("Ingame")
 @export var music: AudioStreamPlayer
+@export var almanac_music: AudioStreamPlayer
+@export var main_menu_music: AudioStreamPlayer
 
 @export var select: AudioStreamPlayer
 @export var deselect: AudioStreamPlayer

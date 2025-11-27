@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://clwfirmxqq382"]
+[gd_scene load_steps=41 format=3 uid="uid://clwfirmxqq382"]
 
 [ext_resource type="Script" uid="uid://b7ba1d7s4dtgw" path="res://scripts/menus/almanac.gd" id="1_iaf0o"]
 [ext_resource type="Script" uid="uid://bujl7e48xo807" path="res://scripts/level/cat_images.gd" id="2_fu50r"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://c7lkavhcoikt6" path="res://assets/text/almanac_texts/Emperor Woof.png" id="34_uf8lq"]
 [ext_resource type="Texture2D" uid="uid://cwogfqaotc086" path="res://assets/text/almanac_texts/Emperor Woof H.png" id="35_oss52"]
 [ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="36_ohukk"]
+[ext_resource type="Script" uid="uid://jhhur3v1ckog" path="res://scripts/menus/audio_behavior_almanac.gd" id="37_cxu2c"]
 
 [sub_resource type="Resource" id="Resource_85e3v"]
 script = ExtResource("2_fu50r")
@@ -218,6 +219,9 @@ theme_override_colors/default_color = Color(0.38039216, 0.27450982, 0.2, 1)
 theme_override_fonts/normal_font = ExtResource("36_ohukk")
 theme_override_font_sizes/normal_font_size = 30
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioBehaviorAlmanac" type="Node" parent="."]
+script = ExtResource("37_cxu2c")
 
 [connection signal="pressed" from="Control/Buttons/VBoxContainer/OverlordBingus" to="." method="_on_overlord_bingus_pressed"]
 [connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat1" to="." method="_on_cat_1_pressed"]
