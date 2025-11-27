@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dqwex1xf68ppt" path="res://assets/audio/music/levels.mp3" id="19_gpbge"]
 [ext_resource type="AudioStream" uid="uid://drqqsdajnl82k" path="res://assets/audio/music/level_endless.mp3" id="20_jqqfn"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "almanac_music", "main_menu_music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "next_stage", "enter_endless_mode", "reusable_player")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("click", "hover", "pullup", "music", "almanac_music", "main_menu_music", "level_music", "endless_music", "select", "deselect", "rightmatch", "wrongmatch", "rare_wrongmatch", "trace", "lowtime_5", "lowtime_10", "victory", "next_stage", "enter_endless_mode", "reusable_player")]
 script = ExtResource("2_ccgl5")
 click = NodePath("Menu/Click")
 hover = NodePath("Menu/Hover")
@@ -29,6 +29,8 @@ pullup = NodePath("Menu/PullUp")
 music = NodePath("Ingame/Music")
 almanac_music = NodePath("Ingame/AlmanacMusic")
 main_menu_music = NodePath("Ingame/MainMenuMusic")
+level_music = NodePath("Ingame/LevelMusic")
+endless_music = NodePath("Ingame/EndlessMusic")
 select = NodePath("Ingame/SfxSelectCard")
 deselect = NodePath("Ingame/SfxDeselectCard")
 rightmatch = NodePath("Ingame/SfxMatch")

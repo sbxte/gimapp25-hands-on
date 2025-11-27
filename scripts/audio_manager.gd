@@ -30,6 +30,10 @@ extends Node
 
 func stop_all_music() -> void:
 	music.stop()
+	almanac_music.stop()
+	main_menu_music.stop()
+	level_music.stop()
+	endless_music.stop()
 
 func _ready() -> void:
 	Events.on_victory.connect(on_victory)
