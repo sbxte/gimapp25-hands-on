@@ -37,6 +37,9 @@ func _ready() -> void:
 	timer.timer_ended.connect(on_defeat)
 
 func _process(_delta: float) -> void:
+	if game_finished:
+		return
+
 	if endless_mode and not endless_mode_jingle_played:
 		AudioManager.music.stop()
 		AudioManager.enter_endless_mode.finished.connect(func(): AudioManager.music.play(), CONNECT_ONE_SHOT)
