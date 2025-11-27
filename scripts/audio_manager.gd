@@ -35,6 +35,7 @@ func stop_all_music() -> void:
 	main_menu_music.stop()
 	level_music.stop()
 	endless_music.stop()
+	enter_endless_mode.stop()
 
 func _ready() -> void:
 	Events.on_victory.connect(on_victory)
