@@ -11,4 +11,3 @@ func handle_comp(_node: Node, comp: CutsceneComponent):
 func seen_epilogue() -> void:
 	SaveSystem.get_data().has_seen_epilogue = true
 	SaveSystem.write_data()
-
