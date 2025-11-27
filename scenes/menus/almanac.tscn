@@ -1,0 +1,231 @@
+[gd_scene load_steps=40 format=3 uid="uid://clwfirmxqq382"]
+
+[ext_resource type="Script" uid="uid://b7ba1d7s4dtgw" path="res://scripts/menus/almanac.gd" id="1_iaf0o"]
+[ext_resource type="Script" uid="uid://bujl7e48xo807" path="res://scripts/level/cat_images.gd" id="2_fu50r"]
+[ext_resource type="Texture2D" uid="uid://ttc47f21hiqn" path="res://assets/sprites/bingus/bingus_normal.png" id="2_kxgq6"]
+[ext_resource type="Texture2D" uid="uid://bmvtuiluoitnp" path="res://assets/sprites/cats/sorcerer.png" id="3_em4oc"]
+[ext_resource type="Resource" uid="uid://disu7gp1itnfl" path="res://resources/almanac/cat_lore.tres" id="3_fu50r"]
+[ext_resource type="Resource" uid="uid://badpv0k2xvcvc" path="res://resources/almanac/cat_names.tres" id="4_85e3v"]
+[ext_resource type="Texture2D" uid="uid://cv6yd2bqvx4ks" path="res://assets/sprites/cats/void.png" id="4_jkw8w"]
+[ext_resource type="Texture2D" uid="uid://baqms4g3qw1bb" path="res://assets/sprites/cats/archerman.png" id="5_vcy1l"]
+[ext_resource type="Texture2D" uid="uid://b5fdsymcjsyds" path="res://assets/sprites/cats/crossbow.png" id="6_cunak"]
+[ext_resource type="Texture2D" uid="uid://bs3mbn0tcnrr0" path="res://assets/sprites/cats/pikeman.png" id="7_8y8rv"]
+[ext_resource type="Texture2D" uid="uid://c156mnr8x1na" path="res://assets/sprites/cats/siamese.png" id="8_ycrn4"]
+[ext_resource type="Texture2D" uid="uid://daxep5bbqi38j" path="res://assets/sprites/cats/bard.png" id="9_r1sw1"]
+[ext_resource type="Texture2D" uid="uid://cxsue4nis401s" path="res://assets/sprites/cats/priest.png" id="10_qfife"]
+[ext_resource type="Texture2D" uid="uid://dgsgcxcnyspvs" path="res://assets/sprites/woofer/woof_stand.png" id="11_6ne1u"]
+[ext_resource type="Texture2D" uid="uid://8rurkvhmllev" path="res://assets/background/cat_almanac_bg.png" id="15_xvpqe"]
+[ext_resource type="Texture2D" uid="uid://b4okrh0cive56" path="res://assets/text/almanac_texts/Overlord Bingus.png" id="16_ohukk"]
+[ext_resource type="Texture2D" uid="uid://dyui05a132xv8" path="res://assets/text/almanac_texts/bingus_text_hover.png" id="17_cxu2c"]
+[ext_resource type="Texture2D" uid="uid://cs2eumyjllukl" path="res://assets/text/almanac_texts/The Sorceress.png" id="18_uwvlm"]
+[ext_resource type="Texture2D" uid="uid://c01pjko30sf1a" path="res://assets/text/almanac_texts/The Sorceress H.png" id="19_760aj"]
+[ext_resource type="Texture2D" uid="uid://dbgtf7lwl53l4" path="res://assets/text/almanac_texts/The Void.png" id="20_e7spb"]
+[ext_resource type="Texture2D" uid="uid://bf317pnj6e81n" path="res://assets/text/almanac_texts/The Void H.png" id="21_m1d1p"]
+[ext_resource type="Texture2D" uid="uid://d3b288hlmttk7" path="res://assets/text/almanac_texts/Longbow Archer.png" id="22_dngft"]
+[ext_resource type="Texture2D" uid="uid://jnv0qd18lyo0" path="res://assets/text/almanac_texts/Longbow Archer H.png" id="23_anqpr"]
+[ext_resource type="Texture2D" uid="uid://0cf60lccruka" path="res://assets/text/almanac_texts/Crossbow Archer.png" id="24_j8olj"]
+[ext_resource type="Texture2D" uid="uid://bh4bxfphrjsfs" path="res://assets/text/almanac_texts/Crossbow Archer H.png" id="25_vhvge"]
+[ext_resource type="Texture2D" uid="uid://3v5070bqnj3g" path="res://assets/text/almanac_texts/Pikeman.png" id="26_kkgvc"]
+[ext_resource type="Texture2D" uid="uid://cule4jtbeogkm" path="res://assets/text/almanac_texts/Pikeman H.png" id="27_jsj3c"]
+[ext_resource type="Texture2D" uid="uid://co62pnymon2bw" path="res://assets/text/almanac_texts/Heavy Infantry.png" id="28_th8vm"]
+[ext_resource type="Texture2D" uid="uid://bhyrb534c81uf" path="res://assets/text/almanac_texts/Heavy Infantry H.png" id="29_vbe55"]
+[ext_resource type="Texture2D" uid="uid://u61ul8cfqn7q" path="res://assets/text/almanac_texts/Bard.png" id="30_r76rb"]
+[ext_resource type="Texture2D" uid="uid://dr6lv63c05m6e" path="res://assets/text/almanac_texts/Bard H.png" id="31_eb1im"]
+[ext_resource type="Texture2D" uid="uid://du5paex3o68tv" path="res://assets/text/almanac_texts/Priestess.png" id="32_i4bjn"]
+[ext_resource type="Texture2D" uid="uid://dn2cjhjgmtu4j" path="res://assets/text/almanac_texts/Priestess H.png" id="33_xvikc"]
+[ext_resource type="Texture2D" uid="uid://c7lkavhcoikt6" path="res://assets/text/almanac_texts/Emperor Woof.png" id="34_uf8lq"]
+[ext_resource type="Texture2D" uid="uid://cwogfqaotc086" path="res://assets/text/almanac_texts/Emperor Woof H.png" id="35_oss52"]
+[ext_resource type="FontFile" uid="uid://dv3pe8faypjca" path="res://assets/fonts/Boris.ttf" id="36_ohukk"]
+
+[sub_resource type="Resource" id="Resource_85e3v"]
+script = ExtResource("2_fu50r")
+images = Array[CompressedTexture2D]([ExtResource("2_kxgq6"), ExtResource("3_em4oc"), ExtResource("4_jkw8w"), ExtResource("5_vcy1l"), ExtResource("6_cunak"), ExtResource("7_8y8rv"), ExtResource("8_ycrn4"), ExtResource("9_r1sw1"), ExtResource("10_qfife"), ExtResource("11_6ne1u")])
+metadata/_custom_type_script = "uid://bujl7e48xo807"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mnii"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohukk"]
+font = ExtResource("36_ohukk")
+font_size = 46
+font_color = Color(0.38039216, 0.27450982, 0.2, 1)
+
+[node name="almanac" type="CanvasLayer" node_paths=PackedStringArray("cat_name_label", "cat_image", "cat_lore")]
+script = ExtResource("1_iaf0o")
+cat_images = SubResource("Resource_85e3v")
+cat_lores = ExtResource("3_fu50r")
+cat_names = ExtResource("4_85e3v")
+cat_name_label = NodePath("Control/CatInfo/CatName")
+cat_image = NodePath("Control/CatInfo/CatImage")
+cat_lore = NodePath("Control/CatInfo/CatLore")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_xvpqe")
+
+[node name="Buttons" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Buttons"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 222.0
+offset_right = 925.0
+offset_bottom = 966.0
+
+[node name="OverlordBingus" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_ohukk")
+texture_hover = ExtResource("17_cxu2c")
+
+[node name="HSeparator" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat1" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("18_uwvlm")
+texture_hover = ExtResource("19_760aj")
+
+[node name="HSeparator2" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat2" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("20_e7spb")
+texture_hover = ExtResource("21_m1d1p")
+
+[node name="HSeparator3" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat3" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("22_dngft")
+texture_pressed = ExtResource("23_anqpr")
+
+[node name="HSeparator4" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat4" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("24_j8olj")
+texture_hover = ExtResource("25_vhvge")
+
+[node name="HSeparator5" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat5" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("26_kkgvc")
+texture_hover = ExtResource("27_jsj3c")
+
+[node name="HSeparator6" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat6" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("28_th8vm")
+texture_hover = ExtResource("29_vbe55")
+
+[node name="HSeparator7" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat7" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("30_r76rb")
+texture_hover = ExtResource("31_eb1im")
+
+[node name="HSeparator8" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="Cat8" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("32_i4bjn")
+texture_hover = ExtResource("33_xvikc")
+
+[node name="HSeparator9" type="HSeparator" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4mnii")
+
+[node name="EmperorWoof" type="TextureButton" parent="Control/Buttons/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("34_uf8lq")
+texture_hover = ExtResource("35_oss52")
+
+[node name="CatInfo" type="Control" parent="Control"]
+layout_mode = 1
+anchor_left = 0.5455
+anchor_top = 0.07288889
+anchor_right = 0.8405
+anchor_bottom = 0.8951111
+metadata/_edit_use_anchors_ = true
+
+[node name="CatImage" type="TextureRect" parent="Control/CatInfo"]
+custom_minimum_size = Vector2(384, 379)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15254237
+anchor_top = 0.014054054
+anchor_right = 0.80338985
+anchor_bottom = 0.42378378
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CatName" type="Label" parent="Control/CatInfo"]
+layout_mode = 0
+anchor_left = 0.13898306
+anchor_top = 0.46054053
+anchor_right = 0.8220339
+anchor_bottom = 0.5372973
+label_settings = SubResource("LabelSettings_ohukk")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CatLore" type="RichTextLabel" parent="Control/CatInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.56324327
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.38039216, 0.27450982, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("36_ohukk")
+theme_override_font_sizes/normal_font_size = 30
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/OverlordBingus" to="." method="_on_overlord_bingus_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat1" to="." method="_on_cat_1_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat2" to="." method="_on_cat_2_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat3" to="." method="_on_cat_3_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat4" to="." method="_on_cat_4_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat5" to="." method="_on_cat_5_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat6" to="." method="_on_cat_6_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat7" to="." method="_on_cat_7_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/Cat8" to="." method="_on_cat_8_pressed"]
+[connection signal="pressed" from="Control/Buttons/VBoxContainer/EmperorWoof" to="." method="_on_emperor_woof_pressed"]

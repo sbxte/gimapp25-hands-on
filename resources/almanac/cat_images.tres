@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CatImages" load_steps=2 format=3 uid="uid://cojkcxm5xt1ev"]
+
+[ext_resource type="Script" uid="uid://bujl7e48xo807" path="res://scripts/level/cat_images.gd" id="1_e4uro"]
+
+[resource]
+script = ExtResource("1_e4uro")
+images = Array[CompressedTexture2D]([null, null, null, null, null, null, null, null, null, null])
