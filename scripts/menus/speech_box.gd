@@ -38,7 +38,7 @@ var letter_time = 0.005
 func _ready() -> void:
 	Events.trigger_speech.connect(trigger_speech)
 	timer.timeout.connect(display_next_letter)
-	var lvl := base_level.level - 1
+	var lvl := base_level.level
 	if lvl < 6:
 		lv_text.text = str(lvl)
 	else:

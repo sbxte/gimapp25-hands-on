@@ -110,6 +110,7 @@ texture_normal = ExtResource("13_htdht")
 [node name="BaseButtonAudio" parent="Control/HBoxContainer/LevelTutorial" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/HBoxContainer/LevelTutorial" instance=ExtResource("5_knlas")]
+level = -1
 scene_path = "res://scenes/levels/level_tutorial.tscn"
 
 [node name="VSeparator" type="VSeparator" parent="Control/HBoxContainer"]
@@ -124,7 +125,7 @@ texture_normal = ExtResource("14_wyo7v")
 [node name="BaseButtonAudio" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("5_knlas")]
-threshold = 5
+level = 6
 scene_path = "res://scenes/levels/level_endless.tscn"
 
 [node name="LvlBtnRevealBehavior" parent="Control/HBoxContainer/EndlessMode" instance=ExtResource("10_bc3ty")]
@@ -159,7 +160,7 @@ texture_normal = ExtResource("6_p2qxj")
 [node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level1" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level1" instance=ExtResource("5_knlas")]
-threshold = 1
+level = 1
 scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Level2" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer2"]
@@ -169,7 +170,7 @@ texture_normal = ExtResource("9_wyo7v")
 [node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level2" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level2" instance=ExtResource("5_knlas")]
-threshold = 2
+level = 2
 scene_path = "res://scenes/levels/level_2.tscn"
 
 [node name="Level3" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer2"]
@@ -179,7 +180,7 @@ texture_normal = ExtResource("10_1xkue")
 [node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer2/Level3" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer2/Level3" instance=ExtResource("5_knlas")]
-threshold = 3
+level = 3
 scene_path = "res://scenes/levels/level_3.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VSplitContainer"]
@@ -194,7 +195,7 @@ texture_normal = ExtResource("11_bc3ty")
 [node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer/Level4" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer/Level4" instance=ExtResource("5_knlas")]
-threshold = 4
+level = 4
 scene_path = "res://scenes/levels/level_4.tscn"
 
 [node name="Level5" type="TextureButton" parent="Control/VSplitContainer/HBoxContainer"]
@@ -204,5 +205,5 @@ texture_normal = ExtResource("12_vcrj6")
 [node name="BaseButtonAudio" parent="Control/VSplitContainer/HBoxContainer/Level5" instance=ExtResource("3_dnh54")]
 
 [node name="EnterLevelBehavior" parent="Control/VSplitContainer/HBoxContainer/Level5" instance=ExtResource("5_knlas")]
-threshold = 5
+level = 5
 scene_path = "res://scenes/levels/level_5.tscn"

@@ -6,7 +6,7 @@
 [node name="Level5" type="Node2D"]
 
 [node name="BaseLevel" parent="." instance=ExtResource("1_r1vs7")]
-level = 6
+level = 5
 
 [node name="EnterEpilogueBehavior" parent="." instance=ExtResource("2_845dy")]
 epilogue_scene = "uid://qv260iba6msa"
