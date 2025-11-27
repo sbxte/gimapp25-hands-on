@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://qv260iba6msa"]
+[gd_scene load_steps=100 format=3 uid="uid://qv260iba6msa"]
 
 [ext_resource type="PackedScene" uid="uid://drrg66as4ts6a" path="res://scenes/components/epilogue_behavior.tscn" id="1_3rofq"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_ncgyr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dstye786s28v1" path="res://scripts/cutscene/entries/background.gd" id="4_gusut"]
 [ext_resource type="Texture2D" uid="uid://pu0cr8q4lhb1" path="res://assets/background/throne_bg.png" id="4_ncgyr"]
 [ext_resource type="Resource" uid="uid://ddtl7hbo0i4lx" path="res://resources/characters/narrator.tres" id="5_116vp"]
+[ext_resource type="Texture2D" uid="uid://bd824t86ej3xr" path="res://assets/background/black.png" id="5_ods5q"]
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_116vp"]
 [ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="7_io61m"]
 [ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="8_5tbyt"]
@@ -20,6 +21,7 @@
 
 [sub_resource type="Resource" id="Resource_kkick"]
 script = ExtResource("4_gusut")
+background = ExtResource("5_ods5q")
 metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_38k3a"]
@@ -384,6 +386,7 @@ metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_0yph7"]
 script = ExtResource("4_gusut")
+background = ExtResource("5_ods5q")
 metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_vjeun"]
