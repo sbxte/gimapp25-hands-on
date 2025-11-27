@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://cg2scyc1udcsd"]
+[gd_scene load_steps=156 format=3 uid="uid://cg2scyc1udcsd"]
 
 [ext_resource type="PackedScene" uid="uid://ct74qnfhyyvuy" path="res://scenes/components/default_csadvance_behavior.tscn" id="1_f7np6"]
 [ext_resource type="PackedScene" uid="uid://dvku365uhoxmb" path="res://scenes/cutscene/base_cutscene.tscn" id="1_rr610"]
@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://ho732c1kdyyv" path="res://scripts/cutscene/entries/component.gd" id="3_rjviq"]
 [ext_resource type="Resource" uid="uid://b7dc7qmiqnmma" path="res://resources/characters/player.tres" id="4_1l0yk"]
 [ext_resource type="Script" uid="uid://dstye786s28v1" path="res://scripts/cutscene/entries/background.gd" id="4_dccfs"]
+[ext_resource type="Texture2D" uid="uid://pu0cr8q4lhb1" path="res://assets/background/throne_bg.png" id="4_yue5x"]
 [ext_resource type="Resource" uid="uid://ddtl7hbo0i4lx" path="res://resources/characters/narrator.tres" id="5_g6xnk"]
 [ext_resource type="Script" uid="uid://ciq6ioudfq733" path="res://scripts/cutscene/entries/line.gd" id="5_sjj1k"]
 [ext_resource type="Script" uid="uid://diihrtradp4sf" path="res://scripts/cutscene/entries/char_enter.gd" id="6_f7np6"]
 [ext_resource type="Script" uid="uid://c2d0ne2d542wo" path="res://scripts/cutscene/entries/audio.gd" id="9_0kiiw"]
 [ext_resource type="Resource" uid="uid://bxfx5x0eoeyri" path="res://resources/characters/overlord_bingus.tres" id="9_1or0b"]
-[ext_resource type="Texture2D" uid="uid://b5lgsb4amfols" path="res://assets/background/prologue_opening.png" id="9_n1ti6"]
 [ext_resource type="AudioStream" uid="uid://bgngdx0dshhd6" path="res://assets/audio/sfx/dialog/sfx_clothes.wav" id="10_3w007"]
 [ext_resource type="Script" uid="uid://doahvpxberxmu" path="res://scripts/cutscene/entries/char_move.gd" id="10_f0upq"]
 [ext_resource type="Resource" uid="uid://cvkp0cmo6ocsv" path="res://resources/characters/woofer.tres" id="10_g6xnk"]
@@ -23,12 +23,14 @@
 [ext_resource type="AudioStream" uid="uid://cy78mq6f4davo" path="res://assets/audio/sfx/dialog/sfx_thud.wav" id="17_n1ti6"]
 [ext_resource type="AudioStream" uid="uid://bmnhg0fbrd3dl" path="res://assets/audio/sfx/dialog/sfx_salute.wav" id="18_yue5x"]
 [ext_resource type="AudioStream" uid="uid://dkkeojkfawse2" path="res://assets/audio/sfx/ingame/SFX_Select_card.mp3" id="20_hj1v2"]
+[ext_resource type="Texture2D" uid="uid://ci4sam0p1nkvh" path="res://assets/background/castle_bg.png" id="20_yue5x"]
 [ext_resource type="AudioStream" uid="uid://st5fbxemnhao" path="res://assets/audio/sfx/dialog/sfx_appear.wav" id="21_pb4jy"]
 [ext_resource type="AudioStream" uid="uid://3u5jr5kfy2re" path="res://assets/audio/sfx/dialog/sfx_dotdotdot.wav" id="22_3b5c2"]
 [ext_resource type="AudioStream" uid="uid://cef2lti5p7e46" path="res://assets/audio/sfx/dialog/SFX_Twinkle.wav" id="23_j2j6j"]
 
 [sub_resource type="Resource" id="Resource_f0upq"]
 script = ExtResource("4_dccfs")
+background = ExtResource("4_yue5x")
 metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_oip4f"]
@@ -53,10 +55,6 @@ label = "Scene 1"
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_f0upq"), SubResource("Resource_oip4f"), SubResource("Resource_0kiiw"), SubResource("Resource_dccfs")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
-[sub_resource type="Resource" id="Resource_3w007"]
-script = ExtResource("4_dccfs")
-metadata/_custom_type_script = "uid://dstye786s28v1"
-
 [sub_resource type="Resource" id="Resource_f7np6"]
 script = ExtResource("5_sjj1k")
 character = ExtResource("5_g6xnk")
@@ -64,13 +62,8 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_544dr"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_3w007"), SubResource("Resource_f7np6")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_f7np6")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
-
-[sub_resource type="Resource" id="Resource_n8d1k"]
-script = ExtResource("4_dccfs")
-background = ExtResource("9_n1ti6")
-metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_c66gp"]
 script = ExtResource("5_sjj1k")
@@ -80,7 +73,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_754nt"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_n8d1k"), SubResource("Resource_c66gp")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_c66gp")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_0q74o"]
@@ -110,10 +103,6 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_m156v")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
-[sub_resource type="Resource" id="Resource_88ve7"]
-script = ExtResource("4_dccfs")
-metadata/_custom_type_script = "uid://dstye786s28v1"
-
 [sub_resource type="Resource" id="Resource_j2j6j"]
 script = ExtResource("6_f7np6")
 character = ExtResource("9_1or0b")
@@ -133,7 +122,7 @@ metadata/_custom_type_script = "uid://c2d0ne2d542wo"
 
 [sub_resource type="Resource" id="Resource_yue5x"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_88ve7"), SubResource("Resource_j2j6j"), SubResource("Resource_n1ti6"), SubResource("Resource_x7bqo")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_j2j6j"), SubResource("Resource_n1ti6"), SubResource("Resource_x7bqo")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_1or0b"]
@@ -409,6 +398,11 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_nj016"), SubResource("Resource_byxg4")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_q0pm0"]
+script = ExtResource("4_dccfs")
+background = ExtResource("20_yue5x")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
 [sub_resource type="Resource" id="Resource_cwald"]
 script = ExtResource("10_f0upq")
 character = ExtResource("9_1or0b")
@@ -425,12 +419,8 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_m3a3t"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_cwald"), SubResource("Resource_rhqmd")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_q0pm0"), SubResource("Resource_cwald"), SubResource("Resource_rhqmd")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
-
-[sub_resource type="Resource" id="Resource_q0pm0"]
-script = ExtResource("4_dccfs")
-metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_0dkab"]
 script = ExtResource("10_f0upq")
@@ -448,7 +438,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 [sub_resource type="Resource" id="Resource_86rlh"]
 script = ExtResource("2_fhrx3")
 label = "WOOFER IMAGE"
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_q0pm0"), SubResource("Resource_0dkab"), SubResource("Resource_r0ng0")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_0dkab"), SubResource("Resource_r0ng0")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_u8h3h"]
@@ -607,6 +597,11 @@ script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_iqpcb"), SubResource("Resource_kwhpp")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
+[sub_resource type="Resource" id="Resource_n8d1k"]
+script = ExtResource("4_dccfs")
+background = ExtResource("4_yue5x")
+metadata/_custom_type_script = "uid://dstye786s28v1"
+
 [sub_resource type="Resource" id="Resource_lnqnf"]
 script = ExtResource("5_sjj1k")
 character = ExtResource("9_1or0b")
@@ -622,7 +617,7 @@ metadata/_custom_type_script = "uid://doahvpxberxmu"
 
 [sub_resource type="Resource" id="Resource_un7l0"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_lnqnf"), SubResource("Resource_jjtvg")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_n8d1k"), SubResource("Resource_lnqnf"), SubResource("Resource_jjtvg")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_7m82w"]
@@ -635,6 +630,11 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_7m82w")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_gce4x"]
+script = ExtResource("4_dccfs")
+background = ExtResource("20_yue5x")
+metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_glci5"]
 script = ExtResource("10_f0upq")
@@ -658,7 +658,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_4ngvl"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_glci5"), SubResource("Resource_72cne"), SubResource("Resource_nskur")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_gce4x"), SubResource("Resource_glci5"), SubResource("Resource_72cne"), SubResource("Resource_nskur")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_jrgri"]
@@ -676,6 +676,11 @@ metadata/_custom_type_script = "uid://c2d0ne2d542wo"
 script = ExtResource("2_fhrx3")
 components = Array[ExtResource("3_rjviq")]([SubResource("Resource_jrgri"), SubResource("Resource_2v6kb")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
+
+[sub_resource type="Resource" id="Resource_x0qgt"]
+script = ExtResource("4_dccfs")
+background = ExtResource("4_yue5x")
+metadata/_custom_type_script = "uid://dstye786s28v1"
 
 [sub_resource type="Resource" id="Resource_7mc5c"]
 script = ExtResource("10_f0upq")
@@ -700,7 +705,7 @@ metadata/_custom_type_script = "uid://ciq6ioudfq733"
 
 [sub_resource type="Resource" id="Resource_lo3ht"]
 script = ExtResource("2_fhrx3")
-components = Array[ExtResource("3_rjviq")]([SubResource("Resource_7mc5c"), SubResource("Resource_vyek2"), SubResource("Resource_db0gb")])
+components = Array[ExtResource("3_rjviq")]([SubResource("Resource_x0qgt"), SubResource("Resource_7mc5c"), SubResource("Resource_vyek2"), SubResource("Resource_db0gb")])
 metadata/_custom_type_script = "uid://c85lb8oepldec"
 
 [sub_resource type="Resource" id="Resource_2bemh"]
