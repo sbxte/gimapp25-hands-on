@@ -21,6 +21,7 @@ extends Node
 @export var lowtime_5: AudioStreamPlayer
 @export var lowtime_10: AudioStreamPlayer
 @export var victory: AudioStreamPlayer
+@export var defeat: AudioStreamPlayer
 @export var next_stage: AudioStreamPlayer
 
 @export var enter_endless_mode: AudioStreamPlayer
@@ -48,6 +49,7 @@ func on_victory(_level: int) -> void:
 func on_defeat() -> void:
 	AudioManager.stop_all_music()
 	AudioManager.trace.stop()
+	AudioManager.defeat.play()
 
 func init_volume() -> void:
 	for i in range(AudioServer.bus_count):

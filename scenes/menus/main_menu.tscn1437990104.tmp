@@ -1,0 +1,195 @@
+[gd_scene load_steps=20 format=3 uid="uid://cxb7n0ccxh4bd"]
+
+[ext_resource type="Texture2D" uid="uid://cslrpeoh4121r" path="res://assets/background/main_menu_background.png" id="1_8r73w"]
+[ext_resource type="FontFile" uid="uid://clf16s2dyme50" path="res://assets/fonts/Ubuntu-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://clma2h3brodos" path="res://assets/text/play.png" id="3_1hnlc"]
+[ext_resource type="PackedScene" uid="uid://c25ofbmrejgej" path="res://scenes/components/button/base_audio.tscn" id="3_imvie"]
+[ext_resource type="PackedScene" uid="uid://dnfl1wolr6k3y" path="res://scenes/components/button/set_scene_behavior.tscn" id="3_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://drg2so0uhaa8o" path="res://scenes/components/button/change_menu_audio.tscn" id="4_ng0o5"]
+[ext_resource type="PackedScene" uid="uid://l15pj02mxg78" path="res://scenes/components/button/quit_behavior.tscn" id="6_ng0o5"]
+[ext_resource type="Texture2D" uid="uid://1uwgli12kvhv" path="res://assets/text/settings.png" id="7_50h1w"]
+[ext_resource type="PackedScene" uid="uid://bkmut008e1let" path="res://scenes/components/button/enter_prologue_behavior.tscn" id="7_euy4r"]
+[ext_resource type="Texture2D" uid="uid://c0fs8vks22r4b" path="res://assets/text/quit.png" id="8_euy4r"]
+[ext_resource type="Script" uid="uid://bvimr2425t1rh" path="res://scripts/menus/music_behavior_main_menu.gd" id="11_bre17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50h1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88kup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euy4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bh4e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3w8rc"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8r73w")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8r73w")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 470
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bqqt6")
+
+[node name="Play" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_50h1w")
+
+[node name="PlayTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_1hnlc")
+
+[node name="PlayButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_88kup")
+flat = true
+
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("4_ng0o5")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_ng0o5")]
+track_history = true
+keep_music = true
+scene_path = "res://scenes/menus/levels_menu.tscn"
+
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("3_imvie")]
+
+[node name="EnterPrologueBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" instance=ExtResource("7_euy4r")]
+prologue_scene = "uid://cg2scyc1udcsd"
+
+[node name="Settings" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_euy4r")
+
+[node name="SettingsTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("7_50h1w")
+
+[node name="SettingsButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bh4e2")
+text = "
+"
+flat = true
+
+[node name="ChangeMenuButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("4_ng0o5")]
+
+[node name="SceneChangeComponent" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" instance=ExtResource("3_ng0o5")]
+track_history = true
+keep_music = true
+scene_path = "res://scenes/menus/settings_menu.tscn"
+
+[node name="Quit" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bre17")
+
+[node name="QuitTexture" type="TextureButton" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("8_euy4r")
+
+[node name="QuitButton" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3w8rc")
+text = "
+"
+flat = true
+
+[node name="BaseButtonAudio" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("3_imvie")]
+
+[node name="QuitBehavior" parent="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" instance=ExtResource("6_ng0o5")]
+
+[node name="MusicBehaviorMainMenu" type="Node" parent="."]
+script = ExtResource("11_bre17")
+
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Play/PanelContainer/PlayTexture/PlayButton" to="Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Settings/PanelContainer2/SettingsTexture/SettingsButton" to="Control" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Quit/PanelContainer3/QuitTexture/QuitButton" to="Control" method="_on_quit_button_pressed"]
