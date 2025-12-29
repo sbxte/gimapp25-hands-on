@@ -118,6 +118,7 @@ libraries = {
 playback_auto_capture_transition_type = 7
 
 [node name="Blur" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_a1c3q")
 anchors_preset = 15
 anchor_right = 1.0
