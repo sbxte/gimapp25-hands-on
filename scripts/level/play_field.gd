@@ -20,6 +20,12 @@ var endless_mode := false
 var endless_mode_jingle_played := false
 var game_finished = false
 
+var anim_bytes: PackedByteArray = []
+var anim_frame: int = 0
+var anim_cats: PackedByteArray = []
+var anim_cats_ref: Array = []
+var anim_first_frame_time: int
+
 @export_subgroup("References")
 @export var cat_scene: PackedScene
 @export var timer: TimerController
@@ -42,6 +48,9 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
+	if anim_bytes.size() != 0:
+		queue_redraw()
+
 	if game_finished:
 		return
 
@@ -76,11 +85,46 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _draw() -> void:
+	if anim_bytes.size() != 0:
+		draw_badapple_frame()
+
 	# The path array consists of points in the path
 	# To draw the whole line, draw line segments connecting each point
 	if path.size() < 2:
 		return
 	draw_polyline(path, Color.GREEN, 5)
+
+func draw_badapple_frame() -> void:
+	if anim_frame >= 6572:
+		return
+
+	var elapsed := Time.get_ticks_msec() - anim_first_frame_time
+	if (elapsed) * 30 / 1000 < anim_frame:
+		return
+	
+	for row in range(18):
+		for col in range(24):
+			var arr_idx = row * 24 + col
+			var next: int = anim_bytes[anim_frame * (24 * 18) + arr_idx]
+			var prev: int = anim_cats[arr_idx]
+			if next == 0 and prev == 255:
+				var pos := - Vector2(snap_vec.x * grid_size.x / 2, snap_vec.y * grid_size.y / 2) + Vector2(snap_vec.x * col, snap_vec.y * row) + Vector2(snap_vec) / 2
+
+				var instance: Cat = cat_scene.instantiate()
+				instance.position = pos
+				instance.set_type(randi_range(1, 8))
+				instance.scale *= 0.25
+				instance.add_to_group("Cats")
+				anim_cats_ref[arr_idx] = instance
+				anim_cats[arr_idx] = 0
+				add_child(instance)
+			elif next != 0 and prev == 0: 
+				var instance: Cat = anim_cats_ref[arr_idx]
+				instance.free()
+				anim_cats[arr_idx] = 255
+				anim_cats_ref[arr_idx] = null
+
+	anim_frame += 1
 
 func cancel_drag() -> void:
 	erase_path(false)
@@ -90,6 +134,8 @@ func cat_mouse_click(pos: Vector2, cat: Cat) -> void:
 		start_path(pos - position, cat)
 
 func attempt_match(cat: Cat) -> void:
+	badapple()
+
 	if cat == first_cat:
 		return
 
@@ -118,6 +164,8 @@ func attempt_match(cat: Cat) -> void:
 	if cats == 0:
 		stages_cleared += 1
 		if not endless_mode:
+			# badapple()
+
 			timer.add_time(time_bonus)
 			if stages_cleared > stages:
 				on_victory()
@@ -130,6 +178,38 @@ func attempt_match(cat: Cat) -> void:
 	match_streak += 1
 	if match_streak == 2:
 		timer.reset_speed()
+
+func badapple() -> void:
+	# Do this only once
+	if anim_bytes.size() != 0:
+		return
+
+	timer.stop()
+
+	grid_size = Vector2i(24, 18)
+	snap_vec *= 0.25
+
+	for c in get_tree().get_nodes_in_group("Cats"):
+		c.queue_free()
+	
+	anim_cats.resize(24 * 18)
+	anim_cats.fill(255)
+
+	anim_cats_ref.resize(24 * 18)
+	anim_cats_ref.fill(null)
+
+	anim_first_frame_time = Time.get_ticks_msec()
+
+	# Load all PGMs into memory
+	for frame in range(1, 6572 + 1):
+		var file: PackedByteArray = FileAccess.get_file_as_bytes("res://badapple_frames/downscaled_%04d.pgm" % frame)
+		anim_bytes.append_array(file.slice(13))
+
+	queue_redraw()
+
+	# # Halt further processing
+	# while true:
+	# 	pass
 
 func on_next_stage() -> void:
 	Events.update_stage.emit(stages_cleared)
@@ -224,3 +304,6 @@ func on_victory() -> void:
 	Events.on_victory.emit(level)
 	game_finished = true
 	timer.queue_free()
+
+class AnimFrame:
+	var pixels: PackedByteArray

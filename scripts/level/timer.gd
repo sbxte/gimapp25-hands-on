@@ -35,6 +35,9 @@ func _process(_delta: float) -> void:
 		AudioManager.lowtime_10.play()
 		lowtime_10_played = true
 
+func stop() -> void:
+	timer.paused = true
+
 # Reset the timer
 func reset(speed: float = 1) -> void:
 	self.speed = speed
